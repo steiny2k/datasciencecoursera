@@ -13,15 +13,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   ## in the 'id' vector (ignoring NA values)
   observations <- NULL
   
-  for (i in id) {
-    path <- file.path(directory, sprintf("%03d.csv", i))
-    local_obs <- read.csv(path)
-    if (is.null(observations)) {
-      observations <- local_obs
-    } else {
-      observations <- rbind(observations, local_obs)
-    }
-  }
+  # read all files with the id
+  files_full <- list.files(directory, full.names = TRUE)
+  observations <- do.call(rbind, lapply(files_full[id], read.csv))
   
   mean(observations[[pollutant]], na.rm = TRUE)
 }
