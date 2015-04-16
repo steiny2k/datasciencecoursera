@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Rapp.history
+00_coursera-dl
+*.mp4
+*.srt
