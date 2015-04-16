@@ -1,0 +1,342 @@
+This lecture's going to be about the
+different counting systems in R.
+And over time R has developed three core
+plotting systems that vary from each other
+in slightly different ways, and are useful
+for achieving a few different goals.
+I thought about, I thought I'd talk about
+you know the three different systems.
+What makes them different, and how they're
+useful for various types of plots.
+So the first system that I'll talk about
+is, is, is usually referred to as the
+base plotting system.
+The base plotting system is the oldest
+system in R.
+It came with the original version of R.
+and, the kind of conceptual model that it
+uses
+for building plots is a kind of artist's
+palette model.
+The idea is that you're kind of, you're,
+you're kind of, you have a blank canvas.
+And then you kind of add things to it one
+by one.
+So first you create the, a box with some,
+maybe some points in it.
+And then you add labels.
+And then maybe you add a regression line
+through it.
+And then maybe you add titles, and, and,
+axis ticks, and things like that.
+And so you kind of piece together this
+plot, one by one.
+Every little piece of the plot takes
+another
+line of code, or another couple lines of
+code.
+And so you kind of add to it one by one.
+So this is a kind of intuitive
+model, because of, especially when you are
+exploring
+data because you may not know right away
+what's the plot that you want to make.
+And so maybe you'll just throw some points
+on the canvas,
+and then you'll add some colors, then
+you'll add some labels,
+and then eventually you'll piece it all
+together.
+And so this is all well and good as long
+as you're kind
+of keeping track of all the code that you
+used to make the plot.
+Then you can always reconstruct the plot
+later.
+And so the typical mode is for this type
+of model is to
+use the plot function so, there's always a
+function that generates a plot.
+And then and there are other functions
+that so called, annotate the plot.
+And these
+are functions that add things like text,
+lines, labels, things like that, to the
+plot.
+So the generation, and then there's the
+annotation.
+so, the nice thing about the system that's
+very convenient, it's kind of intuitive.
+I think many people think of building
+plots in this manner.
+But one of the, one of the drawbacks is
+that you can't go back, so if
+you, if you make a plot and you add
+something to it, you can't take it away.
+So it's kind of a it an increasing
+process or a kind of cumulative process.
+It's difficult to translate the a new plot
+to another person.
+So for example, if you develop a new kind
+of plot it's, there's really no way to
+translate
+that, those ideas to another person,
+because there's no
+language, there's no kind of conceptual
+language to use.
+Every plot is just a, is just a bunch of R
+code basically.
+And so and so that's a little bit of a
+drawback sometimes.
+Another drawback
+with the base plotting system is that
+every, is because you have
+so much control over the system, you
+therefore have to control everything.
+And therefore set everything very
+carefully
+if you don't like the default values.
+So here's an example of a very simple base
+plot.
+You can see what a base plot looks like.
+In this I've used a dataset called the
+cars dataset which shows
+the speed at which a car is moving and the
+distance at
+which it takes to bring, to bring the car
+to a full stop.
+And so you can see it's just a simple
+scatter plot
+with speed on the x axis and distance on
+the y axis.
+And so base plots look like this.
+You could add a lot of other things.
+You could add a title.
+You could add labels in the plot.
+You could make the points a different
+color.
+You can make them in different shapes.
+There's all kinds of options that you can
+choose
+from and we'll talk about that in detail
+later.
+The second major plotting system
+in R is called the Lattice System.
+And this is implemented in the Lattice
+package.
+So this, the idea here is actually quite
+different from the base plotting system.
+Rather than piecing a plot together one by
+one through a
+series of commands, every plot is
+constructed with a single function call.
+And so the most commonly used function is
+going to be the function xyplot.
+But there are other functions like bwplot,
+etc.
+And so these functions basically construct
+an entire plot
+all at once.
+And so therefore, you have to specify a
+lot of information in the call to the
+function, so that it has enough data to
+build a plot and in an appropriate way.
+The last system is most useful for
+what are called, Co-plots or Conditioning
+Plots.
+Where you have, you want to look at the
+relationship between,
+let's say x and y as it changes across
+levels of z.
+And so, there, the, so you.
+You're conditioning on different levels of
+z and then you're
+looking at x and y at each one of those
+plots.
+These are some times called panel plots.
+because you're looking at the same thing
+in every
+panel but just for different levels of a
+third variable.
+And you can even combine variables so you
+can look at multiple factors.
+So the system is very useful, because you
+can put a lot of plots on a
+page very easily and very quickly as long
+as you kind of follow this conditioning
+model.
+And then, furthermore, a lot of the
+details that you would have
+to specify directly in the base
+plotting system are kind of calculated
+automatically.
+So things like the margins and a
+lot of the spacings, are calculated
+automatically as
+long as you can accept the, those defaults
+then most things will look quite nice.
+So the downside of the Lattice system is
+that sometimes it's, it's going to
+be very awkward to specify an entire plot
+using a single function call.
+And sometimes you, it, it seems more
+natural to kind of
+piece things together one by one, like in
+the Base system.
+the, it's difficult to annotate a plot,
+especially after the
+plot's been generated, you can't add
+anything to the plot.
+It's done, and if you want to add
+something,
+you kind of have to reconstruct the
+function call altogether.
+There is a
+way to annotate each of the individual
+panels in
+a Lattice plot, but it's a very tricky and
+a not very intuitive use of functions like
+panel
+functions or things like subscripts, which
+is not very intuitive.
+And finally like I said you can't add to a
+plot once it is done.
+So here's a basic Lattice plot.
+I use some data from the Lattice package.
+And I basically plot life expectancy.
+So the average life expectancy
+in a state, versus the average per capita
+income in that state.
+This is data from the late 60s, early 70s
+and, and then
+I condition on the region of the country
+that the state is in.
+So the, the country is divided into four
+regions.
+And you can see it, look at the
+relationship between income and
+life expectancy by state within each, or
+sorry, across states with, by region.
+And so you can see that this type of panel
+plot is very, is just a single function
+call, in
+Lattice.
+I use the xy plot function and its
+very simple to construct where something
+like this.
+And the base plotting system would involve
+many different lines of code.
+It would be much more involved.
+So
+the last system, plotting system that I
+want to talk about is the ggplot2 system.
+So this comes from the the grammar of
+graphics which is
+which lays out a set of principles for a
+kind of plotting.
+and, and it creates a kind of language
+or grammar for describing different
+aspects of a plot.
+So it's based on a kind of well grounded
+kind of rigorous theoretical system.
+And it's implemented in R in the gg2,
+ggplot2 package.
+It kind of splits the difference between
+the Lattice
+and the base package, so it mixes ideas
+from both.
+So on the one hand you can kind of build
+the plot incrementally
+by adding things one by one, so that's
+kind of like the base system.
+On the other hand a lot of the kind
+of aesthetic calculations are done
+automatically without you having
+to directly control, so things like
+spacings and labels
+are all kind of put in the right place.
+So that's kind of like the Lattice system.
+The ggplot2 system is very useful for
+conditioning plots just like in Lattice.
+And so you can make those kinds of panel
+plots.
+And the default of, the default so the
+ggplot2 system has a lot of defaults.
+And if you can accept them, it's quite
+handy.
+But you can always customize them if you
+don't like what the defaults are.
+And so if you know how to
+use the Lattice system, you, the
+transition
+to ggplot2 is not too difficult, although
+there
+are some differences that are worth, that
+I'll
+talk about in in the lecture on ggplot.
+So this a typical ggwhat default ggplot2
+plot.
+Here I, here I used the miles per gallon
+data set from the ggplot2 package and I'm
+plotting on
+the x axis the kind of, the displacement
+or
+it's actually the size of the engine of a
+car.
+And the y axis
+is the mileage on the highway for that
+car.
+And you can see that roughly as the size
+of the engine is increasing, the mileage
+is decreasing.
+And so you can see that the ggplot2
+package creates plots in a slightly
+different aesthetic.
+There's a kind of a gray background with
+white grid lines.
+The default is to use solid circles rather
+than open circles.
+And so you know, these things, you can
+always customize if you want.
+But the defaults are a little bit
+different than the other two systems.
+So, just to summarize there are three
+basic plotting systems in r.
+There's the base plotting system and there
+is, which is kind of has this.
+Artist palette model, where you kind of
+add things one by one.
+There's the Lattice system which you kind
+of
+specify an entire plot using a single
+function call.
+And then there's the ggplot2 system which
+looks, which
+kind of mixes the custom ideas from both
+systems.
+One of
+the important things to know when you're
+using
+these three systems is that they can't be
+interchanged.
+You can't use them interchangeably.
+So if you're going to use the base
+plotting system, you
+have to use all the functions associated
+with that system.
+Similarly if you're going to use the
+ggplot2 system, you
+have to use all the functions associated
+with that system.
+So you can't mix the functions between
+systems.
+Because otherwise you'll get, the plotting
+will be confused.
+And so so you typically have to choose a
+system and kind of go with it
+when you make your plots.
+So those are the three main plotting
+systems in R and then in,
+in separate lectures, I'll cover in detail
+how to use each one of them.
+

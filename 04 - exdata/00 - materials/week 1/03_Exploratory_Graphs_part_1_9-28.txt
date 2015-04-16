@@ -1,0 +1,356 @@
+This lecture's going to be about
+constructing exploratory graphs which are
+graphs that you make more or less for
+yourself, so that
+you can look at the data and explore kind
+of what's
+going on in, in the data sets that you're
+looking at.
+And so, I mean, the basic question that
+we're trying to ask
+here is, you know, why do we use graphs in
+data analysis?
+And there are a couple of different goals
+that we want to achieve
+here, you know, understanding the data
+properties,
+finding patterns in the data basic
+patterns.
+Maybe just suggest some modeling
+strategies, you know?
+Do we want to use a linear model or a
+nonlinear model to debug an analysis?
+So maybe you started doing an analysis,
+and you
+want to figure out, you know, what's going
+wrong.
+And then we want to communicate results,
+too.
+So we want to present things to people in
+a graphical form.
+And exploratory graphs are really about
+the first four things on this list here.
+So we want to basically understand
+properties about our data,
+we want to look at some basic patterns
+suggest some
+modeling strategies and and to debug an
+analysis.
+But in this particular lecture, we're not
+going to
+be talking much about how to build graphs
+for communicating results, and we'll talk
+about that
+in a little bit later in other lectures.
+So some of the characteristics of
+exploratory graphs
+are that they, they tend to be made very
+quickly, so they are kind of made on the
+fly as you are looking through the data.
+You tend to a large number of them because
+you want to look a
+very different aspects of the data, you
+know, look at lots of variables and
+you have to go through them kind of one at
+a time often.
+And the goal is for you to develop a, as
+the analyst, to develop a personal
+understanding of the dataset.
+And to get a sense of, you know, how how
+it looks.
+What are the properties, what are the
+problems?
+and, and what are the things that need to
+be followed up?
+It's just, just so you can get a sense of,
+kind of what the data's looking like.
+So you if you can think of an,
+an, an underlying question essentially of
+all exploratory
+data analysis, it might be you know, what
+do my data look like?
+And so and so this is the goal for making
+exploratory graphs and a lot of the things
+that you typically
+worry about, you know, later on in terms
+of appearances of
+a graph or how it's presented you don't
+worry about now.
+So things like the axes and the
+legends are typically going to be cleaned
+up later.
+Things like and color and sizes are
+primarily
+used for, for you to kind of separate
+information.
+But you might,
+if you were going to present this in a, in
+a different setting for example in a
+presentation or a talk you might think a
+little bit more carefully about color and,
+and size.
+So, I, I just want to go through a
+specific example in this lecture just so
+we can talk about the various types
+exploratory
+graphs that you might make using a real
+dataset.
+So here this dataset is, it involves air
+pollution ambient air pollution in the
+United States.
+And it comes from the US Environmental
+Protection Agency,
+which sets national ambient air quality
+standards for outdoor air pollution.
+And the particular type of air pollutant
+we're going
+to look at is called fine particle
+pollution of pm2.5.
+And the standard in the United States is
+that the annual mean averaged
+over three years at a given location
+cannot exceed 12 micrograms per meter
+cubed.
+And so any state that exceeds this level
+of 12 micrograms per meter
+cubed when you take the annual mean and
+average it over three years
+is considered to be out of compliance with
+the national standards.
+And so there's data available for on pm2.5
+from the US EPA's air quality system.
+And so I've downloaded that data and
+summarized
+it here just for the purposes of this
+presentation.
+And the basic underlying question in this
+exploratory analysis is just going to be
+are
+there any counties in the United States
+that
+exceed the national standard for fine
+particle pollution?
+And so
+we have, we have monitoring data from many
+counties
+in the United States where air pollution
+is a problem.
+And we want to see whether or not they
+exceed the
+12 microgram per meter cubed standard,
+that's, that's recently been set.
+So the data here are available.
+You can read the menus in the read.csv
+function.
+And I've put the code here so you can take
+a look.
+And here are the first couple lines of
+this data frame.
+And so there is the first column is the
+level of pm2.5.
+It's the, it's the annual average [COUGH],
+sorry it's the,
+it's the annual mean averaged over the
+past three years.
+So, a, actually it's the years 2008
+through 2010 and
+then the fips column that's the, it's an
+identifier column that's
+for the county.
+And then the region is just whether,
+whether
+this county is in the east or the west.
+The longitude and latitude, basically, is
+a is,
+is the locations of the monitor in that
+county.
+The longitude and latitude coordinates for
+the monitor in that county.
+So we basically remember this is the
+underlying question is we
+want to see do any of the counties exceed
+the standard of,
+of 12 micrograms per meter cubed?
+Even in an exploratory analysis where
+you're just kind of, you
+know, looking through the data and seeing
+if there are any problems.
+You, you, you still want to have kind
+of an underlying question that you're
+thinking about in
+the back of your mind, even if it's a
+little bit of a vague question at this
+moment.
+Because the question that you ask will
+drive your thinking about what the data
+look like, and so something that may be a
+problem for one type of question,
+may be not a problem for a different type
+of question.
+So when you look through the data you
+have to have a background question kind in
+mind.
+So, we want to see if counties exceed this
+national ambient air quality standard.
+So a couple of, so we can look at one
+dimensional summaries
+of the data, and here are a couple that I
+list out.
+One is a five number summary.
+There's boxplots, histograms, density
+plots and bar plots.
+And I'll illustrate a few here.
+So, I mean, the first
+one is the five number summary which is
+really not a plot at all, obviously.
+But it's a, it's a summary of just some
+particular aspects of a, of a, of a given
+variable.
+And so, the summary function in R can
+produce the summary,
+and actually it's the six number summary
+because it includes the mean.
+The traditional five number summary is the
+minimum, the first quartile, the median,
+the third
+quartile, and the maximum, and the summary
+function just puts the mean in there, too.
+So here you see the median
+is ten micrograms per meter cubed which is
+under the standard.
+The maximum is 18.4 which is over.
+So, there must be some counties that
+violate
+the standard at least during this time
+period.
+And so and the things, you can see the
+third quartile is
+11, and the first quartile is 8.5, and the
+minimum is 3.38 here.
+So, here's a boxplot of the pm2.5
+variable,
+and I just I decided to color it blue.
+And you can see that the median is about
+ten, just as we saw in the five number
+summary.
+And you can see that there are a number of
+counties
+that appear to be over the 12 microgram
+per meter cubed limit.
+And then there are some, there are many
+that are that are under it.
+That are, so that are in compliance.
+Here's a histogram of the same data.
+And so the nice thing about the histogram
+is that you get a little
+bit more detail about you know, the shape
+of the distribution of this variable.
+And one
+nice thing that I like to do is to put a
+rug underneath the histogram.
+So the rug basically plots all of the
+points in your dataset that, along
+underneath the histogram.
+So you can see exactly where the points
+are that make up the histogram.
+And so you get, on the, on the one hand
+you get the histogram
+which is a summary, but you also get some
+fine detail with the rug underneath.
+So you can see, you know, where the
+outliers
+are, and where the bulk of the data are.
+So you can see that the, the bulk of the
+data seem
+to be centered around ten or so.
+But there are couple of outliers kind of
+above beyond 15.
+One thing you can do with a histogram is
+change the breaks, the
+number of essentially the number of bars
+that are going into the histogram.
+And so you can see in the previous slide
+the bars are
+kind of wider so the, the histogram is a
+little bit smoother.
+But in this slide I made the, the
+bars smaller by setting the breaks equal
+to 100.
+And you can see
+that you get a little bit more of a
+rougher histogram.
+And so one of the things that you have to
+worry
+about when, when you set the breaks
+argument is that you
+don't want the number to be to big so that
+you
+get lots of little bars and then the
+histogram becomes very noisy.
+Of course, you don't want the number to be
+too small, because then you just
+might get a few bars and you can't really
+see the shape of the distribution.
+So, it's, it's usually useful to play
+around
+with the breaks argument, just to adjust
+the
+number of histogram bars there are, so as
+to get the histogram that you like the
+best.
+Here's the box plot that I showed you
+before, but now I've overlaid some a
+feature onto the plot, which is just a
+horizontal line at the level of 12.
+So number 12 is the national ambient air
+quality
+standard, and so I've overlaid the line
+right at, right
+at 12 just to get a sense of, you know,
+how many what counties are above and below
+the line.
+So you can see the bulk of them, over 75
+%,
+are below the line because in the entire
+blue box is below
+that line.
+And the upper end of the blue box is the
+75th percentile or the third quartile.
+So, that's useful for sumari-, for kind of
+pointing out specific features.
+You can do this on a histogram, too.
+So here I've put a vertical line at, at
+12, so that's the black line.
+And I put a, another vertical line, which
+is
+in magenta, at the median just so you can
+summarize.
+You can see exactly where the median of
+the distribution is.
+That was easy to see in the box plot
+because the box plot contains
+the median as a feature.
+But the histogram does not and so it's
+sometimes nice
+to put a vertical line in there to
+highlight the median.
+So you can see that again that the median
+is below the
+standard, but there are a number of
+counties that are above it.
+A barplot is another graphical summary for
+categorical data.
+And here I'm plotting the, the region
+variable so that you can see how
+many counties there are in the east and
+how many there are in the west.
+So you see that the, the majority of the
+counties are in the eastern part of the
+United States.
+And the there are a little over a hundred
+counties in the western part of the United
+States.
+And so that just summarizes this
+particular variable which is a categorical
+variable.
+

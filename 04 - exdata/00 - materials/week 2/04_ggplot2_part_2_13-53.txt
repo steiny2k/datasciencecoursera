@@ -1,0 +1,497 @@
+So, I'm going to start with a little
+example data set here.
+This data set comes with the GGplot two
+package.
+You can always just load it up after you
+install the packages.
+After you install the packages, this is
+the mpg data set.
+It looks at miles per gallon for a variety
+of different types of cars.
+You can see in this data set from the stir
+that I did that there's 234 observations.
+There's 234 different types of cars and
+there are 11 variables that are measured.
+In particular, I'm going to be looking at
+the displacement variable,
+which is an an indicator of how large the
+engine is.
+So this is the displ variable.
+We're going to be looking at the number of
+cylinders
+and the sorry, it's the, and the, sorry,
+we're going to
+look at the the highway mileage so the hwy
+variable and then we're going to look at
+the drv variable.
+Which is the whether, what kind of drive
+is it a
+four wheel drive, a front wheel drive, or
+a rear wheel drive.
+So notice how the factors here are labeled
+appropriately.
+So the, for example, the manufacturer
+variable is labeled
+by the manufacturer of the car, Audi,
+Chevrolet, etc.
+And then the, the drv variable, which
+indicates the type, the drive, is
+indicated with a four for four-wheel
+drive,
+f for front-wheel, and r for rear-wheel.
+So a very simple plot you can make I call
+this
+the hello world for GGplot is the call to
+q plot function.
+On the x-axis I had this displacement
+variable which is a kind
+of engine size variable and on the y-axis
+I got the highway mileage.
+You can see that I specify the data frame
+with the data arguments.
+So I say data equals mpg so that the data
+comes from this mpg data frame.
+And so that's very simple.
+You can see that the plot that it makes
+is, is looks very different from the
+traditional base plot.
+You can see that it's kind of a
+gray background and there's white grid
+lines behind it.
+The points are closed solid circles,
+rather than the kind
+of more typical open circles from the base
+plotting system.
+And then their labels on the x and y axis.
+One of the things we can do is modify some
+of the, the aesthetics.
+So we can highlight different subgroups of
+the data so
+one of the subgroups can be determined by
+you know.
+So there's lots of different cars here,
+some of them are front wheel drive,
+some of them are rear wheel drive and some
+of them were four wheel drives.
+So, we can separate those observations out
+by
+con-, by looking at the DRV, the drive
+variable.
+And so I've I've specified the x and y
+coordinates, just like before.
+I specified the data frame, just like
+before.
+And I, and then, another argument I have
+is the color variable.
+And I'm going to say that the color is
+mapped to this drive variable DRV.
+And the, all that says is that the
+different levels of the drive variable
+will be each
+assigned a different color and notice I
+don't
+specify what those colors are they are
+specified automatically.
+So you can see on this new plot here that
+the the
+front-wheel drive cars are in green, the
+rear-wheel drive cars are in blue,
+and the four-wheel drive cars are in red.
+And so you can see that most, the
+front-wheel drives tend to have the
+highest mileage, the
+four-wheel drive tends to have the lowest
+mileage
+and the rear-wheel drive is something in
+the middle.
+And I noticed that the legend was placed
+on the plot
+automatically, and the color coding, the
+different levels of the factor variable.
+I didn't have to do anything special.
+And so its very nicely, kind of, organized
+and thought out, and you
+don't have to do anything.
+Everything's done automatically.
+Another thing that you sometimes want to
+add is a statistic,
+so a statistic is just some summary of the
+data.
+And so the summary that we've chosen to
+add here is a
+kind of smoother or the more technical
+name is called low S.
+And and it smooths the data so you can see
+the kind of overall trend in the data set.
+And you can see that I do this by adding
+the geom argument and and
+the geom's that I want to put on this plot
+are those there's two types.
+One is I want to add the plot the
+points themselves so I can see the data.
+And then I want to add this smooth geom
+and the smooth is this blue line that goes
+across and the con 95% confidence
+intervals for the
+line are indicated by the gray kind of
+zone.
+A hit, you can make a histogram with
+the qplot function, by only specifying the
+single variables.
+So here I only specify the highway
+variable.
+And it shows me the highway mileage for
+all the cars in the data set.
+But I get, again I like to kind of
+speci, separate out which, which cars are
+four wheels drives.
+Which cars are front wheel drive,
+etcetera.
+So again, I specify, instead of a color
+argument, I specify the fill argument.
+Which says that the different hist
+elements
+of the histogram are going to be filled
+with
+different colors based on what drive they
+are.
+So here, you can see a similar picture
+that
+you saw before, which is that the four
+wheel
+drive vehicles tended to have the lowest
+mileage, and
+the front wheel drive tended to have the
+highest mileage.
+[BLANK_AUDIO]
+Another feature of GGplot are, is called
+facets and facets are like panels in
+lattice.
+The idea is that you can, you can create
+separate plots
+which indicate again subsets of your data,
+indicated by a factor variable.
+And you can make a panel of plots to look
+at separate subsets
+together rather, so one option would be to
+say, to color code the subsets.
+According to different colors like we did
+before.
+But if that, if you have a lot of data
+points, that can be tricky to
+look at and then all the colors might
+overlap.
+And it may be difficult to see the
+separate groups.
+So, an easier way to do that is to say
+split
+out the three groups into separate panels
+and make three separate plots.
+So that's what we've done here.
+On the left side here, I've got three
+different
+scatter plots of the displacement versus
+the highway mileage.
+And then I've split it up by the
+different four, drives, so
+four-wheel-drive from in rear.
+And so you the relationship for these
+three subgroups
+and, it's just a different way to look at
+the data rather than say, color coding the
+three groups.
+And I specify this with the facets
+variable.
+So I can and the facets variable takes
+a, a format that's basically, there's a
+variable on
+the left hand side and a variable on the
+right hand side, and they're separated by
+a tilde.
+And so if you, the variable on the
+right hand side determines the columns of
+the panels.
+And the variable on the left hand side
+indicates
+the rows of this kind of matrix here.
+Now notice that in the left plot which is
+outlined by the red box, I don't have, is
+only
+one row and so there's no variable that
+indicates
+how, how many rows there should be in this
+plot.
+And so that's why in the facets argument I
+have a dot on the left hand side.
+On the right hand side I've got the DRV
+variable,
+which indicates that the, that should
+indicate how many columns.
+Now because there are three levels to this
+DRV variable there are going to be three
+columns.
+And, and so since there is only one row,
+there
+is going to be three plots all in a row
+like that.
+On the right-hand side in this plot that's
+outlined with the blue box, I've got three
+histograms.
+And notice that I put the DRV variable
+on the left-hand side of the facets
+argument now.
+So that indicates that I want three
+separate rows.
+Because there's nothing on the right-hand
+side of the tilde, I have no columns.
+So I just have the one column, no extra
+columns.
+I just have the one column for the three
+plots.
+And now I've got the three histograms.
+You can see, you can look at the highway
+mileage.
+Divided up by the three groups.
+So that's a quick example using the qplot
+function
+using some of the data is the GGplot
+package.
+I wanted to go through a slightly more
+involved example
+using the data set that comes from here
+from John Hopkins.
+So this comes from the Mouse Allergen and
+Asthma Cohort Study which is
+a study conducted here at Johns Hopkins of
+Baltimore children, aged five to 17.
+These children all had persistent asthma
+with an exacerbation
+in the past year.
+And the overall goal of the study was to
+study
+the indoor environment, so the home
+environment of these children.
+And its relationship with asthma
+morbidity.
+So if you're interested in kind of seeing
+what a little bit of
+this was about, we have a recent
+publication, and I give the link here.
+So here's a little bit of the MAACS data.
+You can see that, there's the, there are
+750 observations, and I've
+just plot, I've just put five variables
+here for the sake of demonstration.
+One is the ID variable.
+The second one is the eno, so the, so
+exhaled nitric oxide is is a measurement
+that we take.
+Roughly corresponds to a level of
+pulmonary inflammations.
+So a large value of ENO indicates some
+pulmonary inflammation.
+The second variable that I want to
+highlight is fine particulate matter so
+this is
+this is dust that is less that 2.5 microns
+in diameter, so its very fine dust.
+The last variable that I want to point out
+here is these mouse positive variables.
+So, this, this is a skin test that the,
+that the, that the children do.
+Which indicate, well, and it tells us if
+they're allergic to mouse allergen or not.
+So so here's the basic histogram of
+exhaled nitric oxide.
+So this is the log of exhaled nitric
+oxide.
+And you can see it has kind of an
+interesting shape.
+There's, there's, kind of, it looks like
+there's two peaks, or maybe even
+three peaks there, as you make a, as you
+look across the histogram.
+At the bottom of the plot here, I've got
+the code
+that makes this histogram, in case you're
+wondering how you make it.
+And so I use the qplot function to make
+the histogram.
+I just, so now I've made another
+histogram, but I've color
+coded the different groups.
+And the groups are determined by this
+mouse
+positive variable, so I've separated out
+the people
+who are kind of pos, or sensitized to
+mouse allergen, and the people who are not
+sensitized.
+So the people, you can imagine, you can
+think of the, the children that are
+Sensitized to mouse allergen are, are, are
+more allergic and they may be more
+sensitive.
+They have more sensitive to a variety of
+environmental triggers.
+And so you can see that roughly from the
+date of the blue
+bars are, are slightly higher, and the red
+bars tend to be slightly lower.
+So, that suggests that the, the children
+that are mouse
+mouse positive or have slightly higher
+pulmonary inflammation on average.
+Another way to visualize this data is to
+kind of do a density smooth.
+So, you can see that on the left hand side
+I
+ju-, I, I, I add the geom density to this
+log(eno) variable.
+You can see that there are
+clearly, there are at least two peaks from
+the density smooth.
+And if you separate those peaks out on the
+right hand side.
+I say, you notice I say color equals
+mo-pas.
+So that's the, I split out the color
+by whether they're positive to mouse
+allergen or not.
+And you can see that the each, that the
+two peaks
+roughly correspond to whether they're
+allergic to mouse allergen or not.
+And so this is a nice way to visualize
+this kind of one dimensional data.
+Now if you
+want to look at some scatter plots I want
+to see whether exhaled
+nitric oxide is related to the level of
+fine particulate matter in the home.
+So I'm going to look at PM2.5 and eno.
+And the very left most side here.
+You can see I just make a simple scatter
+plot
+of log eno and log pm 2.5 and it's eno
+is a little difficult to see exactly what
+the relationship
+might be, but we'll kind of go piece by
+piece here.
+In the middle plot here
+I've, I made the same scatter plot but
+I've separated the two groups of the mouse
+positive
+and the mouse and the non, so the
+non-allergic
+and the allergic children are separated by
+different shapes.
+So here I specified the shape argument.
+And, and I assigned the shape to be this
+mouse positive variable.
+And now it's not really easy to see the
+two groups here.
+So that there's one group that's triangles
+and another group that's circles.
+And because of the overlapping
+of the points, it's a little hard to see.
+So in the right hand side here, I, instead
+of separating the two groups by shape, I
+separated
+them by color, and it's a little bit
+easier
+to see the two different groups in this
+plot now.
+One of the things you can do is to
+smooth the relationship between log PM 2.5
+and log eNO.
+Now I want to look at how this
+relationship is different in the, in the
+two groups.
+So I, I set the genome to be a point and a
+smooth.
+And in, and rather than use low S I'm just
+going
+to say, I'm just going to use a standard
+linear regression model.
+So I say method equals lm.
+And that way I can look at the linear
+relationship between pm2.5 and
+eNO by whether they're allergic to mouse
+or not.
+And you can see that roughly speaking in
+the in the
+non-allergic children there were some of
+these, amongst the red dots, here.
+There's a little bit of a negative
+relationship, but it's not
+particularly strong, if you factor in,
+kind of, the confidence intervals, there.
+And within the allergic children, there
+appears to
+be an increasing relationship between PM
+2.5 and eNO.
+so, another
+way to look at this same data is to split
+it out, with a spli, with, with facets.
+So rather than overlapping the two groups,
+and,
+and then color-coding them separately, I
+can just
+split them out into two a plots using
+the facets variable so, I'm sorry, the
+facets argument.
+So here I, I specify the facets argument
+and I say I want two columns designated
+by the two mouse positive variables, no
+and yes and so it will be two columns.
+And you see, and then I smooth the
+relationship within Each panel.
+And you can see that again it's the same
+story.
+Amongst the negative, the mouse negative
+children, there's a small decreasing
+relationship.
+And amounts, amongst the mouse positive
+variable children, there's a slight
+increasing relationship.
+So, the qplot function is a, is a simple
+function that you can use to make very
+quick plots.
+And it's analogous to the plot function.
+So you specify x y, you specify your data,
+and
+then there's a variety of options that you
+can choose.
+And there a lot of nice built in features.
+So if you want to color code subsets of
+the data, that's very easy to do.
+If you want to split out different panels,
+that's
+also very easy to do with the facets.
+You can choose different plotting symbols
+with the shape argument.
+And so, it has it has a
+lot of nice things that you can do very
+quickly that are still very powerful.
+The syntax of the function is somewhere in
+between, kind of the base plotting and
+lattice package.
+I think there are the, the graphics that
+are produced
+very nice, if you like that the type of
+design.
+But if you don't, there are features that
+you don't
+like or you don't like the design of this
+particular function.
+It's a little bit tricky to kind of modify
+the qplot function to suit your needs.
+If you want to do kind of a lower, or a
+lower level customization of different
+aspects of the plot.
+You really have to go into the, kind of
+the guts of the
+GGplot function and that's something that
+I'll talk about in the next lecture.
+

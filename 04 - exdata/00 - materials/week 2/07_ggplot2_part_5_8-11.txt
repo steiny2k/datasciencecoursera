@@ -1,0 +1,292 @@
+So there's one thing that is worth
+pointing out which, maybe which differs
+in ggplot than it does from say the base
+plots Is that if you
+have a plot where, where the the data kind
+of exceed the limits of
+the plot the behavior between base plot
+and ggplot can change a little bit.
+So here on the left hand side I've just
+simulates some data.
+So just, so, so this is not max data.
+And I just, I, and I, I intentionally
+introduced a little outlier here.
+So in the 50th data point, I just changed
+that value to be 100.
+So now as the, just kind of this random
+series of, of noisy data.
+And then right in the middle, there's a
+point that's 100.
+And so if I call plot, so I'm going to
+make a standard base plot here.
+I call plot on x and y, and I, and I
+say type equals l, because I want to make
+a line plot.
+But then typically if you have some out
+lier like this you don't want to
+look at the outlier you just want to look
+at the core of the data.
+So it's
+typical to kind of set the the y axis
+limits to be, to
+be roughly kind of where the data are and
+just ignore the outlier.
+So you can see that the time series that
+gets
+drawn has all the data connected and that
+you can see
+roughly where it's going to shoot off to a
+hundred and
+comes back down to be roughly where it's
+suppose to be.
+So you know that outlier is out there
+somewhere, but you don't see it in the
+plot.
+Now, if I do the equivalent plot in
+ggplot, I can create my ggplot with with
+the test data, and the aesthetics to the x
+and y.
+And then I add the geom_line function to
+make
+a line plot as opposed to a scatter plot.
+You can see that just plots the whole, all
+the data including the outliers.
+And it's maybe not exactly the kind of
+plot
+you want to make because the outliers
+maybe not that interesting.
+So if you want to do this, it's you have
+to be careful about how you do it.
+And so the first is that on the left-hand
+side, you
+might think, well, I'll just change the y
+limits to be within,
+kind, in the range of most of the data
+between minus 3 and 3.
+The issue here is that what ggplot will do
+is that it will subset the data.
+To include the values that are between
+minus 3 and 3.
+And so, of course, the outlier is not
+included in this data
+set and so you won't see that data point
+in this plot.
+So you can see this clearly where the
+outlier's missing the
+two lines are not connected, but then
+everything else is connected afterwards.
+So if you want to recreate the kind of
+phenomenon
+that you saw with baseplot You have to
+add, this special
+function called coord_cartesian, which
+that sets the limits to be minus 3.
+The one, the y axis limits to be minus 3
+and 3.
+Now you can see in the plot here that
+the outlier is in fact included, in the
+dataset.
+It's the dataset hasn't been subsetted to
+only include
+the ones that are in the y axis range.
+Um,so, I just want to go over a slightly
+more complex example of kind of adding
+pieces to a plot, just so you can get
+a sense of how the different layers are
+added on.
+And then hopefully get you going from
+there.
+So, so here I've just, I've made the
+scientific question just a little bit more
+complex.
+I want to know how is the relationship
+between PM 2.5 and
+nocturnal symptoms vary by both BMI and
+nitrogen dioxide or NO2.
+And so as NO2 or BMI values change how
+what does the relationship between
+PM PM 2.5 and nocturnal symptoms look
+like?
+So one tricky thing about this is unlike
+our previous BMI
+variable which is kind of categorized into
+normal and over weight.
+Now, NO2 variable is continuous, or it's
+really the
+log of the NO2, and it's really a
+continuous variable.
+So we need to, so we can't really
+condition on a continuous variable
+when we're making plots because then there
+would be an infinite number of plots.
+And so we need to categorize this variable
+into a reasonable series of ranges.
+And so what we're going to do is we can
+use the cut function
+for this purpose, to cut literally cut the
+data into a series of ranges.
+So here is some code to make NO2, split
+NO2 into tertiles, so this is going to be
+three separate categories you know, kind
+of between
+zero, the minimum, and the 33rd
+percentile, the 33rd.
+In the 66 and the 66 to the maximum.
+And so the first thing I need to do is use
+the quantile function
+to figure out where in the data ranges are
+the 33'rd and 66th percentiles.
+And once I've use the quantile function to
+find these cut points I pass that to
+cut function and I use the cut function
+to actually NO2 into these three different
+ranges.
+And so what the cut function does is it
+just
+returns a factor variable where each of
+the original data
+points is replaced to buy its category in
+terms of
+the, which tertile it's in, so in terms of
+the low,
+the middle, or the high tertile.
+it's, it's a very handy function for when
+you're using things
+like lattice or ggplot and you have to
+categorize continuous variables.
+So now you can see the levels of this
+variable, the cut variable are, there's
+three different levels.
+There's kind of 0.378 to 1.2, and 1.2 to
+1.42 and then 1.42 to 2.55.
+So those are the three categories that
+I've split the NO2 variable into.
+So here's the final plot, just to show you
+what I'm going
+for, and then we'll work backwards, figure
+out exactly how to do it.
+So you can see that there's eight
+different plots here.
+On the top you see all the normal weight
+children.
+And on the bottom you see all the
+overweight children.
+So those are the two categories of BMI.
+And then there's there's four, there's
+actually four categories of.
+NO2 is the, the first tertile on the left
+side, the second tertile on the second
+column, the third
+tertile on third column, and then there's
+actually some data that are missing.
+And so these are the data that are missing
+NO2 values, but they're
+not missing all other values, so you can
+still in some sense plot them.
+And so it's, it's sometimes, it's often
+important to look at the missing data
+just.
+Just to see if there's anything special
+about those missing.
+You don't always want to exclude them
+right off the bat
+because there might be something special
+about them you've missed.
+So, what does this plot have?
+Well first of all I've, I've modified
+the transparency on the points.
+So I've made them a little bit transparent
+so
+you can see a little bit of the density
+there.
+I've added a smoother to each panel, so
+this is a linear regression smoother.
+So, it's not the default.
+And I've turned off the Confidence bands.
+There are multiple panels so I've used
+faceting to create this plot.
+I've changed the kind of default labels
+and the titles, so
+I've added to, to reflect and be a little
+bit more descriptive.
+And then finally I used a
+non-default font, so the default font is
+Is Helvetica,
+and I've changed the font here to be
+Avenir.
+And so, there are a number of options that
+I've modified here.
+And so, here's the code for doing it.
+So, the first, in the first set of code,
+I, I just call ggplot.
+I give it the data and I give it some
+basic aesthetics in terms of the x and y
+variables.
+And then, to this G object, I add a bunch
+of things.
+I add points using geom_point.
+I add a, I make the panel
+using the facet_wrap function and I add a
+smoother using the geom smooth
+where I specify the LM method and I turn
+off the standard error bars.
+I, I changed the theme to be this black
+and white theme where I,
+and then I modified the font to be Avenir
+instead, instead of the default.
+And I've also made the font a little bit
+smaller, to be ten points instead of the
+default 12.
+And then finally, I've called the labs
+function three different times
+to change the labels, the x label, the y
+label, and the title of the plot.
+So you can see that I've added all these
+different things piece by
+piece to make this plot a little bit more
+interesting every single time.
+And it's easy to do this with ggplot, and
+I, and
+then, and the nice thing about ggplot
+which I didn't do here
+is that you could in fact save this to a
+new object
+and then you would have everything stored
+in a single R object.
+And then if you wanted to add on more
+layers, you could add to that, that new
+object,
+you could continue to add different things
+if you wanted to.
+So it's a very modular, very kind of a, a
+useful framework.
+For constructing plots that are new just
+for your data.
+So, just to summarize very quickly, I know
+this has been a very
+brief introduction in ggplot, and there's
+a lot things that you could talk about.
+But given that this is not a course
+specifically on ggplot, my hope was
+to kind of get you started, to get you
+typing in some basic code,
+making some basic plots.
+I hope, and then if you want to know more,
+you can kind
+of look at some of the references that I
+mentioned in, previously.
+So, I think in summary, ggplot is a very
+powerful, it's very flexible if you
+can learn the grammar and learn the
+different
+pieces that you can add to a plot.
+And that can be tuned and modified.
+There are lots of different types of plots
+you can make.
+I left out a lot, but you can explore and
+mess around.
+I think that's how, that's kind of the
+best way to learn about these things.
+And to, and to take a look at some of the
+references that I mentioned in part one.
+

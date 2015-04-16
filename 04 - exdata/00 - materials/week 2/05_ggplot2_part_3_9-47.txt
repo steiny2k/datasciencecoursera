@@ -1,0 +1,347 @@
+Alright so in this lecture I'm going to
+talk about ggplot, but I'm
+going to talk about some of the
+more kind of, underlying fundamental
+aspects of ggplot.
+In the last lecture I talked mostly about
+the qplot function and how you could use
+the, the qplot function to kind of make
+your basic plots scatterplots, bar charts,
+things like that.
+This is in some sense a replacement for
+the base, for the plot function in R,
+which
+is, which we use the base plots to create
+the same kinds of things, scatter plots
+and histograms.
+So the qplot function's very handy, but it
+doesn't reveal a lot of the underlying
+infrastructure
+that kind of, is built into ggplot that
+allows you to make all kinds of custom
+plots.
+So I just wanted to highlight a couple of
+the basic ideas in this lecture.
+I don't really have time to go over every
+single
+little detail of the ggplot package,
+because it's so big.
+So I thought I would try to get you
+started on a couple of basic fundamentals.
+If you have a lot more interest in
+developing
+plots using the ggplot framework you can
+you
+can, there are a lot of references that
+I mentioned in the previous lecture in
+terms
+of the ggplot2 book and other types of
+books.
+So I encourage you to look at those
+resources if you want to explore
+this type of plotting framework further
+than what we discuss here in the course.
+So, let's get started.
+Just to review a little bit in terms of
+what is ggplot2.
+Remember it's an implementation of the
+grammar of graphics.
+Which was developed by Leland Wilkinson.
+And the grammar of graphics basically
+describes
+a re, an abstract representation for
+graphics.
+And so that the idea is that it's kind of
+the verb, noun, adjective for plots.
+So what are the basic elements that can be
+modified, and cannot be modified, and
+things like that?
+So that's a theory of graphics that you
+can kind of
+build on to develop new graphics using
+this kind of abstract language.
+So some of the basic components of a
+ggplot kind of graphic, are, you need
+data.
+Of course, the data is the most important
+thing,
+that's what you're going to put on to the
+page, and
+so you need to have a data frame that
+has all the data that you're going to plot
+in it.
+You need something that's called an
+aesthetic mapping, these are, these
+describe
+how the data are mapped to things like
+colors and sizes and points.
+Geoms are specific
+objects that you're going to put onto the
+page, like things like
+points or lines or tiles or shapes or
+whatever, you have it.
+Facets are, are used for conditional
+plots, so if you're
+going to have multi, typically you want to
+have multiple panels of
+plots, where it might show the
+relationship of something as
+something as a third variable changes
+that, that's a facet.
+And then stats are statistical
+transformations like smoothing,
+binning, quantiles, regression, things
+like that.
+Scales are to find how the different
+variables are coded, in terms of the plot.
+So, for example, you might have a binary
+variable that represents sex.
+So you let the males will be red, and the
+females blue, or something like that.
+And so that is a scaling for a particular
+type of dichotomous variable.
+And lastly, you need a coordinate system
+which we
+won't focu, focus on too much on this
+lecture.
+But you need a coordinate system that
+tells you
+how certain numerical representations get
+translated onto a plot.
+So when you build a plot with ggplot2, the
+basic idea if you're not
+going to be using the qplot function,
+you'll
+want to kind of build it piece by piece.
+You can kind of think of it as the
+artist's palette model.
+So this is the, similar to the model in
+the base plotting system but where
+you kind of start with something, and you
+kind of add things piece by piece.
+So unlike the lattice system, where you
+had to have the whole plot is encoded in a
+single function call, you can start with a
+single
+call to, you can start with a ggplot
+function.
+And then you kind of add things on piece
+by piece, maybe, as you
+think of them, or as you see things in the
+plot, you make little changes.
+You can kind of add things here as you go.
+So the idea is that plots are built up in
+layers.
+Okay.
+And so, the most fundamental layer of
+course is the data.
+So the first thing you usually start with,
+is you kind of tell
+ggplot about the data that you're working
+with, and some basic aesthetics.
+Like, if you're making a scatter plot,
+here are the x and y variables.
+Then you might overlay a summary.
+For example, you might overlay a
+statistical
+summary like a smoother or progression
+line.
+Something like that.
+And on top of that you might have some
+metadata or extra annotation for the plot.
+So the running example that I am going to
+use for this lecture I spoke about
+previously has come from the mouse
+allergen and
+asthma cohort study which was conducted
+here in Baltimore.
+Just very briefly, this is a study that
+included Baltimore children, age 5 to 17.
+They all had persistent athsma, with an
+exacerbation in the past year.
+And we're interested in a lot of the
+environmental triggers for asthma
+morbidity in this study.
+So some of those, so one of those triggers
+we're going to look at is indoor
+air pollution, as as specified by
+particulate matters,
+so fine particulate matters which is PM
+2.5.
+And we'll also look at nitrogen dioxide,
+NO2.
+And I want to know whether BMI or body
+mass index modifies the relationship
+between PM 2.5 and asthma.
+So do children with different BMIs have a,
+respond differently in terms
+of their asthma symptoms to exposure to PM
+2.5.
+So that's the kind of basic question that
+we want to answer here.
+So here's a, a basic plot.
+I made this using the qplot function.
+You can see the code down there at the
+bottom.
+And and the basic idea is I plotted the
+relationship between, I've taken the
+kind of scientific question in the
+previous
+slide, and translated that into a plot.
+So I plotted the relationship between
+nocturnal symptoms here.
+So these are the
+number of days in the past two weeks where
+there were symptoms at night.
+So, symptoms while sleeping for example.
+And so, so the, I plotted the relationship
+between nocturnal
+symptoms and the in the log of the PM2.5
+indoor value.
+And you can see that, you know, roughly
+speaking,
+on the left side we have all the normal
+weight children and there doesn't seem to
+be a
+very strong relationship between log PM2.5
+and nocturnal symptoms.
+Now the right side we have the overweight
+or obese children and
+there seems to be an increasing
+relationship between PM 2.5 and symptoms.
+And so you can see that there's perhaps
+some evidence of an interaction between
+the BMI
+and PM 2.5, because the relationship
+between PM
+2.5 and symptoms appears to differ by BMI
+status.
+So, of course, in order to formalize this,
+you'd probably want to fit some
+sort of model, do a little bit more
+thorough analysis, of course, and adjust
+for various things.
+But we're going to stick, stick here with
+this plot for the moment.
+So you can make this plot very easily with
+the qplot
+function and by adding things like facets
+and geoms, to the plot.
+But I'm going to recreate this plot using
+the
+kind of more, the, the lower level ggplot
+framework.
+And so how do we build this up layer by
+layer?
+First, so first we start with
+the data, right?
+So here I've got a little excerpt of the
+data frame.
+And you can see that there are three
+variables here.
+There's logpm2.5, there's BMI category,
+and that's
+two levels, there's normal weight and
+overweight.
+And then I have the number of days with
+nocturnal symptoms.
+So that's going to be a number between 0
+and 14, because it's over the last two
+weeks.
+And so you can see, so the data are very
+important in
+any ggplot graphic, because almost
+everything that you put on the plot
+is a, can be thought of as some sort of
+data.
+And then in the first, in the next line
+here I've got my initial call to ggplot.
+You can see I just call ggplot and I give
+it the data frame.
+I give it a pair of aesthetics.
+I give it the x and the y variables, which
+are logpm2.5 and NocturnalSympt.
+And then, and then I save this to a plot,
+to an object that I call g.
+And if I call summary on this object, you
+can see, I get, it shows you what the
+data are, shows you what the the mapping,
+the aesthetic mapping is and
+it shows you some, something about
+faceting,
+which, in which case there's no faceting.
+So, the, that's null.
+So, you can always call summary on a
+ggplot object and it'll give you
+a quick kind of list of what's in this
+plot and what are the data.
+Now, the important thing to realize is
+that I, I haven't made a plot yet.
+There's no pic, if you run this code,
+there will be no picture on your screen
+yet.
+So, for example, if here I, I called
+ggplot, and if I, if I say
+print g, I immediately get an error,
+because
+it says there's no layers on this plot.
+And so, what does that mean?
+It basically just says it doesn't know how
+to, how to draw the data yet.
+In the sense that it doesn't know if you
+want points, it doesn't know if you want
+lines or tiles or other kinds of polygons
+or
+shapes, and so it doesn't have enough
+information yet
+to draw the plot on the screen.
+So the next line here, I add, so notice I
+use the plus operator
+here, so you can literally add things to
+your plot by using the plus operator.
+And so when I add the geom_point function,
+this
+and I save it to a new object called p.
+So my new, this p object is also a ggplot
+graphic, but it's got this geom_point
+thing added to it.
+Now when I print that out and print that
+out,
+I get a plot, I get a picture on the
+screen.
+So notice that the geom_point function was
+called with no arguments.
+I didn't have to tell it about the data, I
+didn't have to
+tell it where the points were, I didn't
+have to tell it anything.
+So, there are a bunch of defaults that it
+will,
+that will get used, but the point is that
+the original
+ggplot object, which is encoded in this g
+object, has all
+the information that, that, that, that the
+geom_point function will need.
+And so I don't have to separately
+specify it again.
+So, I don't, in this first example here I
+saved the modified
+object to something called p, but you,
+you, don't have to do that.
+I, I, could have just said g plus geom
+point
+and then the plot will have auto printed
+to the screen.
+So you can use auto printing, or if you
+want to save the object, you can.
+So here's the plot, and I, and with the
+point layer added on to it.
+So I reproduced the code down here at the
+bottom, just for your reference, and
+you can see that the default for the
+points, are a solid circle, filled circle.
+And and so I used the default because I
+didn't specify anything different.
+So here, here are the data.
+

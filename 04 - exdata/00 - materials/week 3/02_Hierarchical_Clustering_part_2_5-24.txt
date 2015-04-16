@@ -1,0 +1,196 @@
+So just to illustrate how hierarchical
+clustering works I'm
+just going to simulate a very simple data
+set here.
+So I always set the seed so that the data
+are reproduced here.
+You can just run this code and simulate
+the
+data for yourself and take a look at it.
+And so I plotted a total of 12 points here
+and there are three clusters we can
+see very clearly from the plot, and I've
+labelled each of the points using the text
+function.
+So you can see, you know,
+which point is which.
+And so I'm going to run the hierarchical
+clustering
+algorithm to see how the points get merged
+together.
+So the first thing you need to do to run
+an hierarchical
+clustering algorithm is to calculate the
+distance between all of the different
+points.
+So, you need to calculate all the pairwise
+distances.
+Between all the points so you can figure
+out, you know, which two points are
+closest together.
+And so the easiest way to do this is with
+the dist function
+in R.
+The dist function takes a matrix or
+dataframe.
+here, this dataframe has two columns, the
+first column
+is the x-coordinate, the second column is
+the y-coordinate.
+And then and so it's basically a matrix or
+a data frame of points.
+And what the dist function does is it
+calculates the distance between all the
+different rows in the data frame, and
+it gives you what's called the distance
+matrix.
+Which gives you all the pairwise
+distances.
+And so if you call
+dist without any other arguments it
+defaults to the Euclidean distance metric
+but
+you can give it some other distance
+metrics if you want as options.
+And so here you.
+Down below here you can see the most
+of the distance matrix that is returned by
+dist.
+So you can see that it's a lower
+triangular matrix.
+And it gives you all the pair wise
+distances.
+So for example, the distances between
+point one, and point two is 0.34.
+Of course,
+the actual distance here is meaningless, I
+just.
+because I just simulated the data, so the
+numbers aren't particularly meaningful.
+But you can see that some distances are
+farther apart, some points are farther
+apart than others.
+So, for example, the distance between
+point 3 and point 1 is
+0.574 and the distance between point 3 and
+point 2 is 0.24.
+So, so the, so point 3 is closer to point
+2 than it is to point 1.
+And so you can kind of go down the line
+like this and see
+how far apart each of the various points
+are from each other.
+[BLANK_AUDIO]
+And so if you look, so the idea of the
+hierarchical clustering algorithm here is
+that we're going to take the two points
+that
+are closest to each other from the start.
+And so that happens to be points five and
+six,
+and so I colored in here in the orange and
+that idea is that the five points, five
+ans six,
+because of the closest together we're
+going to group them together.
+And merge them into a single cluster.
+And so the idea is that here I'm going to
+create a single point.
+And then the little plus sign in the
+middle
+is kind of like the new location of this
+merged set of points.
+And so now instead I've kind of taken
+these two points, taken these
+two points, five and six, and merged them
+into a single point.
+So now one of that, the next two points
+that are closes
+together are 10 and 11 down, down the
+lower right in the red.
+And so I'm going to take those two points
+and merge
+them together and create a new kind of
+super point.
+That that
+is kind, that will kind of filter out
+through the algorithm.
+And so we can keep go along like this.
+And eventually we will get a little
+picture here called the
+Dendrogram, and it shows us how the
+various points got clustered together.
+So you can see on the very right side we,
+there's, there's points five and six
+that are grouped together, and then in the
+middle there you got points ten and 11.
+And so the farther down the tree.
+In terms of the, the points
+that are kind of further down the tree are
+the ones that got clustered first.
+And the points that are farther up kind of
+got clustered later.
+And and so you can see that there are the
+the kind of points five
+and six when they got merged together,
+then
+they got kind of clustered with point
+seven.
+And then when points five, six and seven,
+they all merged together into a single
+super point.
+And they got merged with point 8 and
+etcetera.
+And so one of the things
+about the dendrogram that's produced by
+the clustering algorithm is that
+it doesn't actually tell you how many
+clusters there are, right?
+You'll notice that there's no specific
+label on the plot that
+tells you there are two clusters or three
+clusters or whatever.
+And so, what you have to do is you have to
+cut
+this tree at a certain point to determine
+how many clusters there are.
+And so, for example, if I were to cut
+it at the point that's labeled on the
+y-axis, 2.0.
+For example, if I were to draw a
+horizontal line.
+At, at the level of 2.0.
+The question is, you know, how many, how
+many branches would I come, would I run
+into?
+So if I were to draw a horizontal line at
+2.0, I would run into about two branches.
+And that would indicate to me that there
+are roughly two clusters.
+However, if I were to draw a horizontal
+line at the, at
+hte level of 1.0 there, I'm sorry, 1.0, at
+the height of 1.0.
+Then you draw a horizontal line and you'll
+see you run into three branches there so
+that
+would tell you that there were roughly
+three pluses.
+So depending on where you want to draw
+this, you want to draw this horizontal
+line at the tree you'll get more or fewer
+clusters in your clustering.
+Of course, in the extreme case if you were
+to top the, the, the tree all
+the way at the bottom you just get
+12 clusters, which equals the number of
+data points.
+And so you have to cut the tree at a place
+that's, that's convenient for
+you, convenient for you.
+At this point we don't really have a rule
+of where to cut it
+but then once you do cut it then you can
+get the cluster assignment.
+From hierarchical clustering.
+

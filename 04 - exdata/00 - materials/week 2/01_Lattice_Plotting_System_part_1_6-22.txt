@@ -1,0 +1,224 @@
+The lattice plotting system in R is a
+plotting system that's
+different from the base plotting system
+and it works very differently.
+And it's useful for plotting, often for
+plotting kind of high
+dimensional data and for making lot, many
+many plots at once.
+And if you recall in the base plotting
+system it was possible to put multiple
+plots on the same graphics device using
+the mfrow or mfcall arguments.
+And you can make panels and plots to
+look at many different feature.
+And the lattice plotting system is kind of
+designed to really make, to optimize that
+type of
+plot and to make very high density plots
+and
+so it can be useful in many different
+situations.
+And so I'll talk about some of the, the
+functions in the lattice system here.
+So, the lattice plotting system is, is
+implemented in the lattice package.
+So you have to load the package in order
+to use it.
+Underlying the lattice package is what's
+called the grid package which implements
+a lot of the kind of low level plumbing of
+the, of the lattice graphic system.
+And you, you typically won't have to call
+functions
+from the grid package directly but it's
+useful to know
+that underneath there are a lot of,
+there's a
+lot of code that is implemented in the
+grid package.
+And so the lat, lattice package builds on
+top of grid and
+gives you a number of kind of user
+functions to, to employ.
+the, the one thing about the lattice
+plotting system is, is that it does
+not have a kind of two phase aspect like
+the base plotting system did.
+In where you kind of in the base plotting
+system, if you recall,
+you kind of create the plot and then you
+annotate it with separate functions.
+Here in the lattice plotting system, you
+have to create
+the entire plot all at once in a single
+function call.
+And so you have to specify all the details
+within that function
+call and, because you won't have a chance
+really to annotate it afterwards.
+So some of the main functions in lattice
+are xyplot.
+This is probably the most important
+function.
+It's basically used for making scatter
+plots.
+There's bwplot for bock, for boxplots,
+histogram for histograms.
+Stripplot is kind of like a boxplot, but
+there's but it uses points.
+The dotplot plots points on where, where
+it will look like a violin strings.
+Splom is for scatter plot matrix.
+It's kind of like the pairs function in
+the base plotting system.
+And levelplot and contourplot are for
+plotting image data.
+And so, I'll just talk a little bit about
+the xyplot right function right now.
+Because I think it's the most important.
+The basic function call for xyplot is that
+you have a formula kind of notations.
+So you have y ~ x.
+So the y is going to be whatever's on your
+y-axis and x is going to be whatever's on
+your x-axis.
+And then you have this vertical bar
+which separates what are called,
+conditioning variables.
+And so f and g are going to
+be categorical variables that you
+condition on.
+So for example, and the idea is that you
+want to
+you can kind of, to interpret this
+function call in words, the
+idea is that I want to look at the scatter
+plot
+of y and x for every level of f and g,
+right?
+So, and you don't have to use two
+different categorical variables.
+I just wanted to show that you could.
+And so, and then the second argument is
+the data argument.
+And this is the data frame where the
+variables x, y, f, and g can be found.
+If there's no data frame there, then it
+will
+look in your workspace for the variables
+to plot.
+So here's just a very simple scatter plot.
+I load the lattice package and the data
+sets package, and I'm
+plotting the ozone and wind variables from
+the air quality data frame.
+So you can see I just did ozone ~ wind, so
+I got ozone on the y-axis and wind on the
+x-axis, and this is your basic scatter
+plot which looks
+very much like a scatter plot in the base
+plotting system.
+Notice that the defaults are a little bit
+different.
+It does use open circles, but they're
+colored blue by default.
+Now, here's a slightly more complicated
+lattice plot.
+So here I've, I've gotten the same data
+frame,
+but I've converted the month variable into
+a factor.
+And now I'm plotting ozone versus wind by
+month.
+So you can interpret the formula as, I
+want to look at the relationship between
+ozone and
+wind for each level of month and so
+month goes from five, six, seven, eight,
+and nine.
+So from the month of May to the month of
+September.
+And you can see the relationship between
+ozone and wind.
+It appears to change across the month.
+So there doesn't appear to be you know
+much relationship in May or June.
+But you can see in, in July and August,
+there's a relatively strong relationship.
+There is a negative one there, so more
+wind means less ozone.
+And you can see by September that
+relationship
+is starting to die down a little bit.
+So I, it's very easy, so that's one of the
+pow, the power
+of the xyplot function in lattice is that
+I can make these multidimensional
+panels very simply with just a single
+function call.
+And you recall in the base plotting
+system, I would,
+there would've been many, many function
+calls create this plot.
+And here I just used a single line.
+So now I'm, so now I'm looking at three
+different variables here, the month, the
+ozone, and wind.
+And, and they're all kind of arranged in
+one panel, which is very convenient.
+So the lattice functions behave a little
+bit differently, and
+it's worth noting the difference between
+lattice and the base graphics.
+Base graphics functions plot data directly
+to a graphics device.
+So if you recall there's the screen
+device, there's
+PDF files, there are all kinds of graphics
+devices.
+What lattice functions do is they, they
+don't actually, they don't specifically
+plot anything.
+Uh,hat they do is they return an object of
+class trellis.
+And then the object has to be printed
+in order for the data in the plot to kind
+of go to the graphics device.
+So there is a two-stage aspect there, but
+most
+of the time this aspect is invisible to
+the user.
+Because what happens is that the u-, when
+you call a function like xyplot,
+it returns an object of class trellis, but
+then it auto prints that object.
+And so, the auto-printing feature of R
+will make it
+so that it automatically sends the plot to
+the graphics device.
+So most of the time you don't have to
+worry about this two step process.
+But it's worth noting that you can, in
+theory, save the plot object
+to an R object, and then it'll be sitting
+in your work space.
+Now, you can theoretically store that
+object
+but it's probably not wise to do this.
+It's better to save the code that
+generates the plot and the data.
+So you can see this lattice behavior in
+just in this simple bit of code here.
+So here I'm calling the xyplot function.
+I'm saving to an object called p, and then
+I'm printing p.
+And that's when the plot appears.
+So when you run this code, after the first
+line of code,
+nothing will happen, but after the second
+line, the plot will appear.
+So if you just call xyplot, then it, then
+we use what's called the auto-printing
+feature of R.
+

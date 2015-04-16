@@ -1,0 +1,277 @@
+Hierarchical clustering is kind of a bread
+and butter technique
+when it comes to visualizing a high
+dimensional or multidimensional data.
+It's very simple to use.
+The ideas are fairly intuitive for most
+people,
+and it kind of, can serve as a really
+quick way to get a sense of what's going
+on in a very high dimensional data set.
+So, of course, like, like most clustering
+techniques,
+for example, like, k-means for example the
+basic issue
+that you have to deal with, you know, when
+you define the method is,
+how do we define when things are close
+together and when things are far apart?
+Because all clustering methods in some
+sense try to tell you
+when one thing is closer to another thing,
+versus something else.
+And so, for example, things that are, you
+know, cluster are
+closer to each other than they are to
+elements of another cluster.
+And so, we have to define what it means
+to be close what it means to group things
+together.
+How do we group things together?
+And then once we've got, we have a
+distance
+notion, we have, and we have a way of
+grouping
+things together, how do we visualize the,
+you know,
+the processing that we've done, the
+calculation that we've done?
+And how do we interpret you know, how the
+grouping is put together?
+Cluster analysis is a really important and
+widely used technique.
+It's a, if you just type cluster analysis
+into
+Google, there are literally millions of
+results that come back.
+And it's a widely applied method in all,
+in many different areas of science and
+other applications.
+And so it's useful to know kind of how
+these techniques work.
+So, hierarchical clustering as, as is
+denoted by the
+title involves organizing your data into a
+kind of hierarchy.
+And, and the common approach is
+what's called an aglomer, and aglomerative
+approach.
+And the idea, it was just kind of a bottom
+up approach, so you
+start with the data as kind of individual
+data points, and you start lumping
+them together into clusters until
+eventually you have, you
+know, your entire data set is just one big
+cluster.
+So you can imagine there's all these
+little particles floating around,
+and eventually you start kind of grouping
+them together into little balls.
+And then the balls get grouped up into
+bigger balls, and
+the bigger balls get grouped together into
+one big massive cluster.
+And so that's the kind of agglomerative
+approach to clut,
+to hierarchical clustering, and that's
+what we're going to talk about here.
+And so the basic idea is that you gotta
+find the,
+the two points in your data set that are
+the closest together.
+And then, you kind of merge them together
+to
+create one, you know, super-point, so that
+the merged point
+is not an actual point in your data set,
+but
+you can think of it as being a new point.
+And then, you kind of remove your original
+two data points,
+and you substitute with that, or that kind
+of, merged point.
+And you kind of repeat this over and over
+again.
+So, then, you find the next two closest
+things, and you put them together.
+And then you, as you kind of, and then
+once
+you kind of put things together, you get
+like a
+little tree that you can show that
+kind of, that
+shows the ordering in which things were
+put together.
+And so this approach requires two
+important things.
+One is a distance metric.
+So what is how do you calculate the
+distance between two points?
+And, the other thing that is required is
+an approach for merging points.
+So once you, once you've figured out, okay
+well, these two points are the closest
+how do you merge them together?
+And so the nice thing that hierarchical
+clustering produces is a, is a
+tree which is sometimes called the
+dendrogram
+that shows how things are merged together.
+And so the most important, arguably the
+most
+important question to really, to kind of
+resolve
+in a, in a hierarchical clustering
+approach is
+to define what do we mean by close.
+Because if you have a definition that
+doesn't
+make sense for your problem then you just
+get
+garbage in, garbage out, right?
+So you have a, a distance metric that
+doesn't make
+sense then the results that you get will
+be relatively meaningless.
+So there are a few examples of distance
+metrics that are used out there.
+Probably the most kind of familiar
+distance metric is the Euclidean distance,
+which is just kind of the straight-line
+distance between any two points.
+A kind of analogous distance metric is the
+correlation between two points, or the
+correlation similarity.
+And then another metric is the binary
+distance or, or the Manhattan distance,
+and I'll, we'll talk a little bit about
+what that means in a second.
+So you have to make, you have to pick a
+distance metric that's, makes
+sense for your problem so that you can
+produce results that also make sense.
+And so, here's Euclidean distance, a
+simple diagram.
+So if you take two cities, for example,
+Baltimore and D.C., or Washington D.C.,
+then if you map, put them on a, on a, on a
+map for example.
+And there's, there's, so, you can imagine
+that the center
+of each city has an X and a Y coordinate.
+And you want to say map the distance
+between the two centers of the two cities.
+well, you can draw a straight diagonal
+line between the two cities.
+And then, the you can calculate the
+distance, kind of, in the usual way.
+And the distance is going to be a function
+of the difference
+in the x coordinates and the difference in
+the y coordinates.
+So to calculate the Euclidian distance you
+take the distance you know, in the x
+coordinates, you square it, you take the
+difference
+in the y coordinates and you square it.
+You add the two squares together, you take
+the square root.
+That's the classical definition of
+Euclidian distance.
+And so you can imagine, you know, in real
+life, it'd be like
+if a bird were to fly from DC to
+Baltimore, they would just fly
+straight from one city to another, they
+could, because they can fly in
+the air and they're not impeded by things
+like roads or mountains, or whatever.
+And so
+that's the straight line distance between
+two cities.
+Whether that makes sense for you depends
+on
+you know, whether you're a bird or
+something else.
+And so you have to think about kind of
+that in the context of your problem.
+Now Euclidean distance is easily
+generalizable to higher dimensions.
+But even if you have, you know, instead
+here we
+just have two dimension, but if you have
+100 dimensions, you
+can easily take the difference between
+100, each of the dimensions,
+square it, sum it together and then take
+the square root.
+So it's a very nice type
+kind of, it, it extends very naturally to
+very high dimensions problems.
+[BLANK_AUDIO]
+The Manhattan distance gets its name from
+the idea that, you know, you can, you
+can look at points on a kind of a grid or
+a city block grid.
+Think or imagine you're in the city of
+Manhattan in New York.
+And you want to get from one point to
+another.
+So you can look at the two black circles
+on this diagram.
+And if you want to get from one point to
+another,
+if you're in a city, you know, in a city
+block, you can't just go directly from one
+point to
+another, because there'd be all these
+buildings in the way, or
+you'd have to follow the streets.
+And so in the streets, because they're in
+a grid,
+you can either go up or down, or left or
+right.
+The green line here in that case would
+represent the Euclidean distance which
+would be like if,
+you know, if you were a bird, and you
+wanted to fly over everything, across the
+two points.
+But as a person walking on the ground, you
+have to take either the red line,
+the blue line, or the yellow line, or
+any other, kind of, kind of pattern in
+between.
+The point is that you'd have to travel
+along
+the city blocks.
+And so, the distance that you would travel
+along the city blocks here, in the
+gray, kind of, you can imagine the gray
+lines as the streets, that's the Manhattan
+distance.
+And it, it can written formulaically as
+the,
+as the absolute sum of all the different
+coordinates.
+So if you have two coordinates, you know,
+and you
+sum the distance that you travel in the X
+dimension,
+and then you sum, and then the distance,
+the absolute
+value of the distance you travel in the Y
+direction.
+And so the Manhattan distance can be
+useful in some contexts, and, and so and,
+because it more, it may, in some contexts,
+more accurately represent the distance
+between two points.
+In particular, in a city like Manhattan,
+two points may be very far apart.
+Even if they, you know, if they seem
+relatively
+close, you know, in a, in a Euclidean
+distance sense.
+

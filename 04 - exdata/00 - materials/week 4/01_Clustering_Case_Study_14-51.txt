@@ -1,0 +1,505 @@
+In this case study, I'm going to talk more
+about exploratory data analysis
+techniques, and how to
+use them, on a data set that involves
+using smart phones, to, kind of, predict
+human activities.
+So remember, just any exploratory data
+analysis, you have to
+have a sense of kind of like, what you're
+looking for,
+what might, and what might be the kind of
+the
+key priorities that you want to get outta
+your data set.
+And so that will help you guide kind of
+what you looking at and how you
+approach it um,remember that,the basic
+idea
+of exploratory data analysis is you want
+to kind of produce a rough cut of the kind
+of analysis that you
+ultimately maybe want to do so maybe this
+isn't going to be perfect
+its not going to have all the right bells
+and whistles to it.
+But it's going to give you a rough idea of
+kind of what
+in, kind of information you're going to be
+able to extract out of
+your data set and what kinds of questions
+you're going to be
+able to feasibly answer and, and what
+questions might not really be possible
+to answer with the given data set.
+So, so exploratory data analysis is really
+important because it rules
+out certain questions, and it kind of
+pushes you along other directions.
+It really allows you to give you that
+rough
+cut analysis that can,can take you to the
+next step.
+So let's take a look at the Samsung data
+set in this example and see what we can
+find.
+So um,the data set here comes from the
+University of California Irvine or U.C.I.
+machine learning archive.
+And it's based on predicting people's
+movements.
+be, from the Gal, from the Galaxy pho,
+Samsung Galaxy phones.
+So, here's a picture of the Samsung Galaxy
+S3.
+The actual data set was was produced using
+the Galaxy
+S2, and but the,the idea is kind of
+basically the same.
+So, in each of these's, phones.
+There's an accelerometer and a gyroscope.
+And so it helps you kind of, to understand
+the
+kind of three dimensional position and
+acceleration of a person.
+Assuming that they are holding their
+phone.
+So this is where the data set comes from.
+This is the UCI machine learning
+repository.
+you can go to the link to learn a little
+bit more about the data set.
+How it was collected, and kind of what is
+available on the website.
+And so, we, I've downloaded
+a subset of the data, which is just the
+training data set for the purposes of this
+lecture.
+So the data been processed a little bit to
+make it a little bit easier to use.
+Basically you get a matrix, The, that has
+kind of, has
+the observations on the rows and the
+various features on columns.
+And you see that at the bottom here, I've
+got the activity label which is the kind
+of the,
+for each row that tells you what the
+person was doing at that time.
+And so for example there is six possible
+activities
+that you can be doing; there's laying,
+sitting, standing.
+Walking, walking down and walking up.
+And, the ideas that you, you want to
+be able to kind of deter,separate out
+these six
+activities based on the many features that
+are collected by the accelerometer and the
+gyroscope.
+And so
+the, the I listed the first 12 features
+here.
+I can see that that they have body
+acceleration as the mean
+standard deviation, the mean absolute
+deviation,
+the maximum of each of these features.
+So one thing we can do really quickly is
+just
+to look at the average acceleration for
+the first subject.
+So the first thing I'm going to do is
+just, convert the activity variable into a
+factor variable.
+And then using the transform function.
+And them I'm going to just subset out the
+the first subject.
+So subject equals one and I'm, for the
+rest of this presentation
+I'm just going to ignore the rest of the
+subjects for a moment.
+Um,and so.
+If I plot the first
+subject, I can look at the first column,
+and that's
+the, first column is the body, the kind of
+the body
+excel over the mean body acceleration in
+the x direction,
+so acceleration's going to divide into
+three dimensions, x, y, and z.
+And then the second plot here is going to
+be the, body excel, the mean body
+acceleration
+in the y direction and, and I've color
+coded each of the, activities, by I'm
+sorry.
+I've color coded each of the activities.
+So you can see for example, on the left
+hand plot, that there's
+green, there's red, black, blue and some
+alternate activities so part of the
+problem
+with the left hand plot is that you can't
+tell which activity is which,
+so on the right hand plot, I added a
+legend, using the legend function.
+Just so you can figure out kind of which
+Activities correspond to which color.
+And so you can see that the green is
+standing, the red is sitting, the black is
+laying, etc.
+And so you can see that, for example, the
+mean body acceleration is ah,relatively
+kind of uninteresting for things like
+sit,standing and sitting and laying.
+But for things like walking and working
+down and walking up, there's much more
+variability.
+In the, in the mean body acceleration for
+the x direction.
+We can try to cluster the data, just on
+the average acceleration.
+So, I've taken just the first three
+columns of this matrix,
+and I calculated a distance matrix using
+the DIST function.
+And I'm using a Euclidean distance just as
+the default.
+And I can call the hclust function to
+do, to do a hierarchical clustering of
+these data.
+And I've called this my plclust function
+just to visualize it.
+And you can see that the clustering is a
+little bit messy.
+And there isn't any kind of clear pattern
+going on.
+All the colors are kind of jumbled
+together at the bottom.
+And so we might need
+to look a little bit further to try
+and kind of extract more information out
+of here.
+Another thing we can look at is the
+maximum acceleration for this, for the
+first subject here.
+And so I look at, I'm plotting here
+columns ten and 11.
+And and so you see that column ten is the
+body, the maximum body acceleration in
+the x direction, and, and column 11 is
+the maximum body acceleration in the y
+direction.
+And so you can
+see that again for things like laying and
+standing
+and sitting, there's not a lot of
+interesting things going
+on, but for walking in, and walking up,
+and
+walking down, the maximum acceleration
+shows a lot of variability.
+So that may,may be a predictor of those
+kinds of activities.
+But maybe early separating, kind of not
+moving from
+moving, which might be kind of obvious in
+retrospect.
+Um,so if you cluster
+the data based on maximum acceleration,
+you can see that there's two very clear
+clusters on the left hand side, you've
+got the, kind of the various walking
+activities.
+And on the right hand side you've got the
+various, you know, non moving activities,
+laying, standing, and sitting.
+And so, beyond that, things are a little
+bit jumbled together, you
+can there's a lot of turquoise on the left
+and so that's.
+That's clearly one activity, but in the
+blue and the kind of magenta kind of mixed
+together.
+And so,
+a cluster based on maximum acceleration
+seems to separate out moving
+from non moving, but then once you get
+within those clusters.
+For example, within the moving cluster or
+within the non moving cluster, um,then
+it's
+a little bit hard to tell what is what,
+based just on maximum acceleration.
+Um,we can try a little singular,singular
+value decomposition
+on this data, just to explore what's going
+on.
+Now before I do the SVD, I'm going to do
+it on the entire matrix, which is 560
+something um,columns.
+I'm going to remove the last two, the last
+two columns are just
+the activity identifier and the subject
+identifier which are not real interesting
+data.
+So I, I get rid of the five, the columns
+562
+and 63 and then I run the SVD on the data.
+And you can see,
+I'll take a look at the first and the
+second left singular vectors and color
+code them by activity.
+And again, you can kind of see there's a
+similar type of pattern.
+The first singular vector really seems to
+separate out the moving from the non
+moving.
+So you can see that there's a, a kind of a
+green, red, black on the bottom.
+And the blue, turquoise, magenta on the
+top.
+And then the sec, the second singular
+vector's a little bit somewhat a
+little bit more vague, what it's looking
+at.
+It seems to be separating out The magenta
+color from all the other clusters
+and so I think this is the walking down,
+or walking up one of those two.
+And so it's not clear what is different
+about that, that it
+kind of highlights, that gets highlighted
+on the second singular vector here.
+So one of the things we can try to do
+is try to find the maximum contribuators,
+the, the contributor.
+So in the second singular vector we, I'm
+sorry, in the second right
+singular vector, we can try to figure out
+well which of these features
+is kind of, is, is kind of producing the
+most variation, or is
+contributing to the most So the
+variation between the various, the
+different observations.
+And so we
+can, we can, we can use the which.max
+function to figure
+out okay, which of the 500 or so features
+corresponds to
+the, the, the kind of largest, or
+contributes most of the
+variations across observations, and I say
+that to an object called maxContrib.
+And then I'll cluster based on the maximum
+acceleration plus this extra feature and
+I'll, and I'll
+calculate the distance matrix to run the h
+plus function and you can see now the kind
+of various activities seem to be
+separating out a little bit
+more, at least the three movement
+activities have clearly been separated.
+We've got the magenta, the dark blue and
+the turquoise all
+separated out the various non moving
+activities seem to be all kind
+of mixed together too so the, whatever
+this maximum contributor happened to
+be it didn't really help to separate out
+the non moving activities.
+But it seemed to help a lot in terms of
+separating out the movement activities.
+So, this max contributor was the body
+acceleration, the mean
+body acceleration in the frequency domain
+for the z direction.
+And so this was a, kind of the, the body
+acceleration.
+For the z direction where they applied and
+you transform
+and they give you the kind of frequency
+components from that.
+So that's kind of interesting.
+We can try another clustering technique
+here which is K-means clustering.
+Ah,and one
+of the things about k-means clustering
+that you have
+to be a little bit careful about is that
+you
+can get kind of different answers
+depending on, you
+know how many times,starting values you've
+tried and how and
+how often you run it so whenever you, when
+you start k-means it has to chose a
+starting point
+for where the cluster centers are often it
+will
+just chose, most algorithms will chose a
+random starting point.
+So if you chose a random starting point
+you may get to a solution that is
+suboptimal.
+So if you chose a different starting point
+you may get
+to an even better solution.
+And so it's usually good to set the nstart
+argument to be more than one so you can
+start at many different starting points,
+just so you
+can get the optimal, or, a more optimal
+solution.
+So here is one clustering that we've done
+with k-means.
+And you can see that the, I've specified
+six
+centers, so I know that there are six
+clusters.
+So I'll just specify them right away.
+And you can see that the,
+some of the clusters kind of jumble
+together.
+So you can see cluster three is
+a combination of laying, sitting, and
+standing.
+Whereas cluster one is walking, cluster,
+clearly walking.
+Cluster two is walking down.
+Cluster four is walking up.
+Cluster five is just walking.
+And again, and cluster six is a mixture of
+laying, sitting and standing.
+And so you can see there, k-means here had
+a little bit, had trouble separating
+out also the laying, sitting and standing
+from
+the, the three, the in, in, in the
+clusters.
+If you try it again, you can see the
+arrangement's a little bit different.
+But again, cluster two for example It's a
+mixture of
+laying, sitting and standing, cluster five
+similarly a mixture of sitting
+and standing, but some of the, but the
+other clusters
+seem to, the other activities seem to
+cluster out very, easily.
+So now if
+we try 100 different starting values, and
+take you know,
+take the, the most, the optimal solution
+from this 100.
+You see that things seem to separate out a
+little bit better, not much better than
+last time.
+You can see cluster one is a mixture again
+of laying, sitting, and standing.
+Cluster two is clearly laying.
+Cluster three is clearly walking and
+cluster four is walking down and
+so you can see how these things kind of
+cluster together and
+I'll do a second try with 100 starting
+values.
+And you see, this is going to, probably
+going to be our best effort.
+And cluster six still is a mixture of
+three
+activities, and cluster five is a mixture
+of two.
+So you can see kind of, can see where the
+kind of cluster centers are.
+And the idea is that each of the clusters
+Has a
+mean value or a center in a, in this 500
+dimensional space.
+And so we can see kind of which features
+of these 500
+features seem to drive the location of the
+center for that given cluster.
+And then, that will help us, help give us
+some idea of you know what features.
+Seem to be important for classifying
+people in
+that cluster, or classifying observations
+in that cluster.
+So for in the first cluster here, which
+seems to correspond to laying, you can see
+that the center has a, a relatively high
+value for a high, or positive values for
+the first three features, which is kind of
+the mean body acceleration.
+And low values for some of the other
+features.
+I, It features,features four through ten.
+I'm only plotting the first ten here of
+the 500 or so.
+And then you see the second cluster here.
+is, corresponds a little bit more, has,
+has some more interesting values for
+other Features so there's mean by
+this mean acceleration there's also max
+acceleration
+that seems to have a kind of
+subinteresting values.
+So one of the things that you can do by
+looking at the
+cluster centers is to see well what
+features seem to have interesting values
+that
+kind of drive the location to that center
+And, which could give you a
+hint, in terms of what features will be
+most useful for predicting that activity.
+So this is a just a short demonstration to
+show how you can
+take a large data set with lots of
+features and lots of observations.
+And start to explore it a little bit with
+various clustering techniques.
+We use Hierarchical clustering, use
+k-means
+clustering, and we use the singular
+value composition to look at various
+features of, of this data set.
+So given what we've learned here, we may
+want to be interested in
+following up on kind of what's separates
+out the various non movement activity.
+So in terms of laying, sitting, and
+standing, you know, we seem to
+have some difficulty At least on the
+first glance, separating those three
+activities out.
+The movement activities in terms of
+walking.
+Walking up and walking down.
+We seem to be able to kind of separate
+those out into separate clusters.
+Usually just a few variables most of them
+max accelerations variables.
+But the non movement kind of activities
+seem to harder to separate out.
+So, the nice thing about the exploratory
+data analysis is that it gives
+you this rough cut, that tells you kind of
+where to spend your energy.
+So, you probably don't, may not have to
+spend too much
+energy on the movement activities, but
+maybe you need to spend, look,
+dig a little bit deeper looking at the
+kind of non movement activities.
+So I hope you find this useful in terms of
+how to get started using clustering
+techniques and how to get a look at the
+data and and,and kind of further your
+analysis and,and to kind of get you going
+for ah,more formal analysis.
+

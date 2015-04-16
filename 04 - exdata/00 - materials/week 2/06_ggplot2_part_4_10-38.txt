@@ -1,0 +1,379 @@
+Now, another layer that you can add to
+your plot is a smoother,
+and many times you want to do this just so
+you can get a sense
+of the overall trend in the data, so I
+want to, you might want to get
+a general sense of, as PM 2.5 increases do
+we get more nocturnal symptoms?
+So on the left hand side here, these, this
+is this is the code down here.
+The bottom that I use, I have my original
+GG plot
+object, G which just had the X and Y kind
+of Aesthetics.
+I added my points to make the scatter plot
+and I added a smooth a geom underscore
+smooth function.
+It adds a little smoother which is the
+blue line and the grey confidence bands
+and so I used the default for the geom
+smooth which is a low s smoother.
+And which is generally fine.
+But you can see there's a lot of noise on
+the boundaries, so on
+the left and right side of the smoother
+the confidence intervals get very wide
+because it's flexible smoother, and the
+noise, there's a lot
+of noise on the boundaries because there's
+not much data there.
+And so I'd rather something a little bit
+simpler
+than [INAUDIBLE] I just want a linear
+regression line.
+And, and so, that's less flexible, but it
+still gives me a sense of the trend.
+So, here on the, on the right hand side,
+you see
+I've re-, I've re-made the plot, and I've
+added the geome smooth,
+but I give it, in option, I said method
+equals LM, and
+this will do a linear model instead of a
+low S smoother.
+And you can
+see that on the edges of the linear model,
+the, the uncertainty
+in the compass band's a lot smaller than
+it is for low S.
+And you see that generally speaking there
+seems to
+be an increasing trend with pm 2.5 and
+nocturnal symptoms.
+So, another layer we want to add is the
+facet.
+So, this is the final layer to kind of
+reproduce that original simple plot.
+That I made with Q Plot.
+So here the facets are going to be,
+are going to be determined by the BMI
+category.
+So I want to compare children who are
+normal weight and children who are
+overweight.
+And so that's going to be two separate
+plots, but then I
+want to plot the same relationship in each
+one of those windows.
+So that's what creates the facet.
+And so, I can add my facet
+with the the facet underscore grid
+variable.
+And this variable uses special notation
+which is separate.
+Which has kind of a variable on the
+left-hand side and a variable on the
+right-hand side.
+And, and they're separated by this tilde.
+And so, the variables that you specified
+in the
+facet function determine how the grid, how
+the separate plots.
+Are laid out on the screen.
+And so, the number of plots will be,
+will be equal to the number of levels of
+your factor.
+And so, I have two levels in my factor.
+I've got normal weight and overweight.
+Then that will create two plots for me.
+If I, notice I only have a single Set
+a factor variable that I want to separate
+on.
+So, I don't want, I'm not going to have a
+matrix of plots.
+I'm just going to have a single row of
+plots.
+And so, I'll, if I, so I'm only going to
+have two plots because there's two
+categories in this BMI variable.
+If
+I had two variables, which I, and I'll
+give you an example of that later.
+So a variable on the left-hand side and
+the
+variable on the right-hand side, the in
+the product
+of the number of factor levels is going to
+be
+the number of plots that you generate with
+the facets.
+So here I've added the facet grid function
+and I also added the smoother with my lm.
+Notice that it doesn't, it doesn't really
+matter
+what kind of order you put these things
+in.
+You can add them in Any order
+you want.
+And notice I stuck the facet grid function
+in between the smooth
+and the point and that was fine it still
+generated the plot.
+So facets are useful for, for kind of
+conditioning on a categorical variable.
+And you can see it here that the normal
+weight children have
+don't seem to have any relationship in pm
+2.5 and nocturnal symptoms.
+Whereas the overweight children might
+appear
+to have a stringer more positive
+relationship.
+The last thing that I'll mention is you
+notice
+the labels in each of the panels I didn't,
+I didn't actually label them by hand, the
+labels
+come from the levels the factor variable
+that you condition
+So it's important that you use the factor
+variables
+in an intelligent way and have intelligent
+labels on
+them because the GEGE plot will take that
+information
+and automatically apply it to the labeling
+of your plots.
+And so in GEGE plot the substance is
+easier to
+modify your data and make sure
+the metadata is then specified
+appropriately rather
+than to kind of Plot things and then kind
+of modify the plot later.
+It's better to make sure all your data is
+kind of organized and labeled
+appropriately before you make the plot,
+because
+then that makes the plotting code much
+simpler.
+Okay, so once you've kind of made your
+plot often you want to modify things
+like the axis labels and the titles and,
+and other kinds of kind of plot metadata.
+And so there are a number of, of functions
+for doing that.
+For, for the labels there's the xlab
+function, the ylab function and the
+ggtitle function.
+Those are all st-, I use to specify the x
+label, the y label and the title.
+You could also use the labs function,
+which is a
+more general function that can be used to
+specify x,
+y labels or titles.
+It doesn't really matter what you use.
+Each of the geom functions, like the geom
+points and the geom,
+smooth function have options that you can
+use to change things, so you
+can explore some of those options too if
+you don't like the default.
+There are some things that only make
+sense kind of at a global thing, globally
+meaning
+for the whole plot, and so that the theme
+function is vail, is available for that.
+So this might specify kind of the big
+basic colors, the background
+colors are here for example the le, the
+position of the legend.
+And you can use the theme
+function to specify these options.
+Then finally there are, there are some
+general themes that are built
+in that kind of control a lot of different
+elements of the plot.
+So you can specify to kind of set many
+options at
+once and, and basically The theme_gray is
+kind of the default theme.
+It gives you the gray background with the
+white line, the white grid lines.
+The theme_bw for black and white is a kind
+of more stark, a plainer theme if you
+don't
+like the gray background.
+So, I'll talk a little bit about kind
+of modifying some of the features of the
+aesthetics.
+So for example, sometimes there, you might
+want to change the colors of the points
+if you don't like black points or if you
+don't like them to be solid.
+You like them to be transparent.
+You can, on the left-hand side, I've
+modified, modified my, my
+basic scatter plot of pm2.5 and nocturnal
+symptoms by doing two things.
+One is I've made the color steel blue.
+I've increased the size of the points to
+be 4 the default is 1.
+And I've, and I've changed the alpha
+transparency to be a half rather than
+solid.
+So now you can see that the blue, there's
+blue points that are a
+steel blue, they're somewhat transparent
+and they're
+a lot bigger than they were before.
+The important thing to realize that I,
+I've placed these options in the geo-point
+function
+and each one of these options the color,
+the size, the alpha, have all been
+set to be a constant.
+And so the constants Basically are, are
+for the are not actually
+aesthetics they're just options for the,
+for putting the points on the page.
+On the right hand side here you can see
+that the plot looks similar but I I've,
+I've got,
+there's two colors now and each of the
+colors corresponds
+to if the child is over weight or normal
+weight.
+And so now you can see what I call, what
+is called geom_point.
+Rather than say just color equals bmicat,
+which would assign
+the, the category of bmi to be a different
+color.
+I had to wrap it in this aes function
+which stands for aesthetics.
+So now, rather than specify color as a
+constant like
+steel blue The color has been assigned to
+a data variable.
+And so, it's very important that you know
+the distinction between, giving
+a, assigning a color to be a constant,
+like black or white or
+blue, and assigning color to be the value
+of a variable.
+So, when you assign color to be the value
+of a variable - What happens
+is that all the points and each set of
+points is assigned a different color.
+Then they are put back on the page along
+with this legend on the right hand side.
+Then outside of the A.E.S. function I
+still have
+my size equals 4 and my alpha equals 1/2.
+So those are unchanged from the left hand
+plot.
+So that the points are still bigger, and
+the transparency is still half.
+And so, so the import-, so, so the key to
+remember here is that there's a difference
+between assigning a
+aesthetic value to be a constant, and
+assigning aesthetic to
+be, to be the, the correspondent, or
+variable, data variable.
+If you want it to be a constant, you
+can just specify in the geom point
+function directly.
+If you want it to be assigned to a data
+variable, then you have to wrap it in this
+aes function.
+You can modify the labels with the labs
+function.
+So the labs function here I've called a
+few different times.
+I've added on to my basic plot.
+So the g object, remember, it's just the
+data frame plus the x and y coordinates.
+Here I've added geome point function, and
+I've, I've signed the color variable, the
+BMI
+category, so now the different, the two
+different BMI categories in, in two
+different colors.
+The labels I set the title to be
+max cohort, because that's where the data
+come from.
+This is a max study.
+I've set the x label to be this
+expression,
+which is log of pm 2.5, and I used the
+mathematical annotation that I talked,
+that we talked about previously
+to get that pm 2.5 that 2.5 subscript on
+there.
+And then I took the y label to just be
+nocturnal signal.
+So now it's a little bit cleaner.
+The plot has kind of more appropriate
+labels on it.
+I can also customize the smoother if I
+want to.
+So now, I'm going to modify the options to
+the geom's smooth function.
+So here all I've done to, is I add an
+option to say it's size equals four.
+So I made this line a little bit thicker.
+And I mad the, the line type to be equal
+three.
+So the three that, that just means a
+dotted line instead of a solid line.
+I still use method equals LM, so I want to
+regression line.
+And I turned off the confidence intervals,
+so I, so that it's a little bit more clear
+to see.
+So I see SC equals false.
+So these are all functions that you can
+add to
+the GM Smooth function if you don't like
+the defaults.
+So another thing you can do is just change
+the overall theme.
+So the default theme, you look in the
+previous slide here.
+You can see that there's a gray
+background, with those kind of white grid
+lines.
+There's this solid kind of thicker white
+lines for kind of larger kind of
+intervals.
+And then there's kind of thinner white
+lines for smaller intervals.
+If you don't like that background, you can
+change it
+to the kind of a more basic black and
+white background.
+So this is the theme_bw theme.
+And another thing, as you can see, I've
+changed here is, I've changed
+the font.
+So the default font is going to be
+something like
+Helvetica, but I've changed it to be a
+Times font.
+So now you can see that it's a serif font
+as opposed to sans serif.
+And it looks like, and it uses the Times
+font to
+do the labels, to do the legend, and also
+the axis ticks.
+So you can see, the numbers on the axis
+are all in the Times font.
+So the theme function, the various theme
+functions can
+be used to modify these elements of the
+plot.
+

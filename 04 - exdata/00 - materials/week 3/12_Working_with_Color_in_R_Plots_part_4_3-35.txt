@@ -1,0 +1,121 @@
+So there are a couple of other functions
+that may be of use to you.
+One is the rgb function and the rgb
+function takes
+arguments for red, green and blue, and
+what it returns.
+So these are numbers between zero and one
+for red, green and blue and it will
+return, hexadecimal string that can be
+passed to functions like image or plot.
+And so that, so if you want to convert
+between red, gr, red, kind of ,um,
+decimal red green blue representation to
+this hexadecimal
+string you can use the rgb, function for
+that.
+Another thing you can use rgb for is to
+add transparency to your colors.
+And so, there is a fourth argument to rgb
+view which is a number between
+zero and one, the alpha parameter, which
+have
+been used, to specify transparency in your
+colors.
+Zero being the most transparent, or
+basically
+completely transparent, and one being not
+transparent
+at all.
+And lastly I'll just mention the color
+space package which can be used
+to, to have a different, to exert a
+different type of control over colors.
+You may want to explore it, but I won't
+talk about it here.
+So just a quick example of the
+transparency in r,
+so here's a plot of a, a, of a thousand
+points.
+And you could see that in the high density
+region
+here, I'm using the pch 19 which is a
+solid circle.
+In the
+high density region, all the plot, all the
+points just kind of overlap each
+other, so you just see a black,uh,blob
+there in the middle and it's,
+card, kind of hard to see what the
+resolution for the different points
+because there is no definition of points
+there because they are all overlapping.
+So if I add a little transparency to the
+plot you'll see that the circles
+become transparent so when they overlap
+each other
+they, you can kind of see through them.
+And so that the areas where
+there are lots of points overlapping they,
+they get darker and when there are
+areas where there are no points
+overlapping
+you just see kind of a transparent circle.
+So here I've got below, I've got the code
+that I've used to create this plot.
+And you can see that I've specified an
+alpha parameter of 0.2.
+And, and the r, the red, green and blue
+are all zeros so I can get black.
+Uh,and so point two is pretty close to
+zero, so there's a lot of transparency.
+Um,but you can see that when I use the
+transparency like thisiIt's
+kind of a cheap and easy way to get
+essentially a histogram estimator
+because, you know, the, the darker areas
+will represent higher density areas of
+the plot and the lighter areas will
+represent kind of lower density areas.
+So you can see a little bit more
+information when you have a plot with
+a lot of different points in it when you
+use a little bit of transparency.
+So that's just, that's the basic intro
+into
+the use of colors and transparency into r.
+I think that the careful use of colors and
+plots
+and maps and whatever just, can make it
+easier for
+the reader to get the point that you're
+trying to
+make, or to see the comparisons that
+you're trying to make.
+And and I think it's it's useful to have a
+good set of colors, especially
+to match kind of sequential colors and
+sequential data and diverging colors with
+diverging data.
+The color brewer, the RColorBrewer package
+is a
+very useful package that's available on
+CRAN, and
+it provides these uh,color palettes for
+the different
+types of data that you might be plotting.
+The color ramp and color palette functions
+are
+essential when you're trying to
+interpolate between colors, especially
+if you're using the RColor per package and
+you
+want interpolate between the colors on a
+given palette.
+And then finally, transparency is very
+useful because it can be used to clarify
+plots which have many many points on them
+by cre, by allowing the colors to be
+transparent and to kind of overlap each
+other.
+

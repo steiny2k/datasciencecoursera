@@ -1,0 +1,246 @@
+So the qu-, you might be wondering, well
+where
+do I come up with interesting palettes of
+colors?
+Well, you can always create your own
+palette
+of col-, colors, just that I did in
+the previous slides, by say, by indicating
+colors
+like red, yellow, or anything in the
+colors vector.
+That you get when you've, when you call
+the colors function.
+But you might want to come up with some
+more interesting colors, color palettes,
+and that can be done using the color brew,
+the RColorBrewer package in R.
+So the RColorBewer package
+is available on CRAN and all it does is it
+provides a
+set of interesting palettes that you can
+use for different types of data.
+And these are this, this package was
+created from
+work that was done by Cynthia Brewer,
+who's at Penn
+State and she's done a lot of work
+researching
+appropriate colors for, for creating maps
+and for mapping data.
+So, but these palettes can be quite useful
+for
+other types of data that don't really
+occur on maps.
+So the three types of palettes that you
+can cre-, that you can get from
+the color, RColorBrewer package are the
+sequential
+palettes, the diverging palettes and the
+qualitative palettes.
+So the sequential palettes are used for
+data that are ordered.
+You can think of this as being used for
+numerical data or continuous data.
+It doesn't have to be continuous but the
+dat-, the
+idea is that the data are ordered from low
+to high.
+But diverging palettes can be used
+for data that kind of diverge, or they
+deviate from something.
+For example, if you have a bunch of data
+and
+you want to show the deviations from their
+mean then you
+might, so this way, in this sense that
+there's data
+that can be positive and there's data that
+can be negative.
+And they can, as they go away from
+whatever that center point is, maybe that
+center
+point is zero, they can get bigger in
+two different directions, maybe going
+negative and going positive.
+So that's a diverging
+set of data, if you want to use a
+diverging color palette to represent that.
+The last color palette is the qualitative
+palette which is
+just used to, to represent data that are
+not ordered.
+So these can be factors or categorical
+data that
+don't have any specific ordering, they
+just have different values.
+So so the palette information that you get
+from the, RColorBrewer package
+can be passed to functions like colorRamp
+and colorRampPalette to be used
+in the plotting functions in R.
+So these are the various palettes that are
+found in the RColorBrewer package.
+The top set here these are the sequential
+palettes and you can see that
+they basically go from light to dark for
+as you go from left to right.
+But they go, they travel through a
+different set of colors on each
+palette so the top one here kind of goes
+from yellow, orange to red.
+And then the bottom one here is called the
+Blues palette.
+It just goes, goes by light blue to a dark
+blue.
+So these are used for ordered data,
+for numerical data that have a low and a
+high.
+The second set of palettes here, is the,
+is the
+qualitative palettes and these are used to
+represent categorical datas.
+And you can use, see that the colors
+in the palettes don't really have any
+specific ordering.
+They don't go from light to dark.
+They don't go, they don't go from any
+specific order.
+But they do, so they just have a certain
+set of colors
+associated with them, and they, and each
+palette has basically a theme.
+some,
+some palettes are kind of bolder than
+others,
+and some are more on the pastel side.
+The last set of colors, you can see, are
+the diverging palettes.
+And the colors in this palette, you can
+see
+that they are kind of light in the middle.
+And as you go from left to right they get
+darker in different color ranges.
+And so, you can think of that, the
+left being negative and the right being
+positive.
+And so these are the, and that's how they
+diverge.
+And they try, and
+they, again they travel through different
+sets of
+colors here, so the top one here goes from
+a red as you, from the left all the way to
+a kind of purple-blue on the right.
+And then the bottom one here goes from
+brown on
+the left to kind of blue or green on the
+right.
+So you can choose your palette here,
+depending
+on what kind of color scheme you prefer.
+[BLANK_AUDIO]
+So the ColorBrewer package can be loaded
+into lib-, after you
+install it using the install.packages
+function, you can view library
+RColorBrewer.
+And then the brewer.pal function is really
+the only
+useful function in the package and it
+takes two arguments.
+The first argument is the number of colors
+that you want for your palette.
+And this is usually small, it'll be, you
+know, two, three or four.
+You don't need that many blotches on your
+palette for the primary colors.
+And then the second
+argument is the name of the palette.
+And the name of the palette really is not
+easy to remember, you just have to look in
+the help page for brewer.pal and it will
+list
+all of the names of the palettes that are
+available.
+So, here I'm using a blue-green type of
+palette
+and I want three different colors from
+that palette.
+So now, you can see that the character
+vector that it returns has three colors
+and
+they each have a mix of red, green, and
+blue, and if you're fluent in hexidecimal,
+you'll know what these values are.
+But it's not really important to know
+exactly what the, the
+colors are, you'll be able to see them on
+the screen.
+So what I'm going to do is, I'm going to
+pass this palette of colors into the
+colorRampPalette function.
+and, and it's going to return a function
+that I'm going to call pal.
+So now, I'm going to create the image of
+this volcano using the image function.
+But I'm going to, instead of using the
+heat colors or the topo colors palette,
+I'm going to use this palette that I got,
+from the Brewer, ColorBrewer package.
+And so, I'm going to specify that I want
+20 different
+colors to be in, to be represented in this
+image.
+So that the 20 colors are going to come,
+they're going to be interpolated from this
+blue-green palette.
+So the resulting image looks something
+like this.
+And you can see that as it gets, as it
+gets higher, the
+ima-, the colors get darker and more green
+and at the lower elevations,
+the colors are lighter and more blue.
+[BLANK_AUDIO]
+Another function that uses the ColorBrewer
+palettes
+is the smoothScatter function which comes
+with R.
+And, this function is particularly useful
+if you have to
+plot a lot of, make a scatter plot of a
+lot
+of different points and you don't want to
+just have a
+bunch of dots on the screen that are
+overlapping each other.
+So here, I'm plotting 10,000 points.
+And if I were to just plot this on the
+screen using the
+plot function I would get a mess of points
+that are kind of overlapping
+each other, it's kind of hard to see the
+details.
+So the smoothScatter function, what it
+does is
+it creates a histogram, a 2D histogram, of
+the points in your plot, and it just
+plots the histogram using a certain set of
+colors.
+The default set of colors that it uses is
+the blues colors.
+Oh sorry, the blues palette in the
+RColorBrewer
+package which is a sequential palette and
+it
+gets kind of darker blue as you get higher
+and lighter blue as you get lower.
+So, the darker
+blue areas of this plot are the high
+density.
+So that's where all, most the points are
+in the high density region and
+the lighter blue parts of the plot are the
+lower density regions of the plot.
+

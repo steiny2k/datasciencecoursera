@@ -1,0 +1,109 @@
+One piece of software that's actually
+quite nice
+to use and can make R a little bit
+nicer to work with is called RStudio,
+which
+is RStudio is an interactive development
+environment or IDE.
+That connects with R and provides a lot of
+nice features.
+That don't come with the, for the basic R
+system itself.
+So the first thing you need to do of
+course is you
+need to install R but once you've got R
+installed you can download
+RStudio and install that if you want, so.
+Here I've got the web open and I'm
+going to look at I'm going to go to
+rstudio.org Org.
+You can see that here's a screenshot of
+the software.
+And you can just click on the Download
+RStudio.
+And you want to download the RStudio
+Desktop.
+So it should recognize what kind of
+computer you're coming from.
+Here it knows, I'm coming from Mac, so I'm
+going to download the one that's
+recommended for my system.
+It works on Windows XP, Vista, and, and
+Windows 7.
+It also works on a variety of different
+Linux formats.
+So so
+I'll download the Mac version here.
+It's fairly quick, and I'll open it up
+here.
+[BLANK_AUDIO]
+So so now all you need to do is drag this
+into the applications folder.
+And I had an older version there
+installed, so I'm
+going to replace it and you're pretty much
+ready to go.
+So now I open up the applications folder
+go down here and load up
+RStudio.
+Let's say okay.
+And you could see I've got some stuff from
+a previous project opened.
+But you can see that there are four
+windows here and I'll just delete this for
+now.
+On the bottom left over here, you'll see R
+is open.
+I'm running 2.15.1.
+On the upper left, I got a file open,
+which can be used to edit R code.
+So, I can type in some R code here.
+This is not really that useful.
+Anyway, you can see I got R code there.
+On the upper right I've got my workspace.
+And any objects I've created.
+I haven't created any objects.
+But, if, if I had, they'd be there.
+So, for, for example, I can say, X is R
+norm 100 and then I can hit
+Apple Enter and it will execute that line.
+So, now it created an object
+called X.
+it's, you can see it's in the workspace.
+There's a little summary.
+It's a numeric vector with a 100 length
+100.
+I could have created like a list, for
+example.
+[SOUND].
+Hit Apple Enter, it'll execute and you can
+see it's down at the bottom
+left over here and also on the top right
+it's in the workspace browser.
+And then on the bottom right here you've
+got your file system, which has your
+files,
+you can also.
+If you make any plots they'll appear here,
+so for example I could say.
+Hist.x and you'll create a little
+histogram and
+then a plot appears in the lower right.
+If you want information about packages,
+these
+are the packages that I have installed.
+And the ones in the checkbox, the
+checkboxes,
+are the packages that are loaded right
+now.
+I could ask for help for anything it will
+appear here.
+So I can say help, you know, hist.
+And help will appear right here.
+So it's quite a nice little tool for using
+R.
+And I recommend it, I think it'd be,
+it's quite, it'll be quite useful for this
+class.
+So check it out, it's RStudio.
+

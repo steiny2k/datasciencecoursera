@@ -1,0 +1,53 @@
+Hi, everyone, welcome to Exploratory Data
+Analysis.
+This is the fourth class in the Data
+Science Specialization.
+So at this point you should have, you
+should be familiar
+with all the kind of basic tools in the
+data scientist's toolbox.
+You should you know, be familiar at least
+with the kind of the basics of R
+programming in terms of writing functions
+and writing
+writing kind of basic, kind of basic
+operations on data.
+And we should have covered the kind of the
+aspects getting data
+from the internet and through various APIs
+and kind of processing data.
+So now you've got, you can imagine, you
+have got your data set.
+It's been through a variety of processing
+steps and it's time
+to just kind of look at and see what's
+going on, right?
+So you want, so the purpose of this class
+is to look at your data, get
+a sense of what's happening and what are
+the kinds of plots that you want to make.
+One of the types ways that you can explore
+the data without kind of having
+a precise or specific model about, you
+know,
+what's supposed to be going on in there.
+So this is before we do modelling, before
+we
+do prediction, before we do any sort of
+inference.
+And so we're going to talk about the
+plotting systems in R.
+We're kind, talked about kind of basic
+principals about making analytic graphics
+and I'll show some case studies of
+exploratory data analysis just so
+you can get of sense of kind of how this
+type, how
+this kind of thing would work in a, in the
+real world.
+So I hope you enjoy it.
+I look forward to seeing you in the class.
+And I think this will set you up really
+well, for the later classes in the data
+science specialization.
+

@@ -1,0 +1,144 @@
+This lecture is going to be about plotting
+and color in R.
+It's kind of an adjunct lecture to the
+lectures that we've already
+had in plotting in both base graphics and
+the lattice graphics system.
+I just want to talk a little bit about how
+you specify different types of colors
+using different palates in R.
+You might think that the specification of
+color in a plot is maybe kind of a
+secondary decision and in some sense it is
+it's definitely secondary to something
+like the data,
+but of course, but the judicious and
+appropriate use of colors, I
+think in plots can help to describe the
+relationships that you're trying
+to demonstrate and can help various
+dimensions of the data come out
+more effectively than if you just choose
+an arbitrary set of colors.
+So, there are a couple of things,
+functions, and things
+that I want to cover in this lu, lecture,
+but the
+basic point that I'm, is that the default
+color schemes
+for most of the plots in R, are pretty
+bad.
+And you don't have to be an expert in
+design or anything to really kind of see
+this.
+But the kind, the natural color schemes
+that you kind of gravitate towards when
+you use the plotting functions are not
+particularly well suited for different
+kinds of data.
+But there have been a number of
+developments
+in R, via packages and also in the core
+R system that can help with the handling
+of
+specification of colors and, and various
+types of plots.
+And so we're going to, I'm going to talk
+about one
+of these packages and some of the
+functions in this lecture.
+So, the basic problem that typically comes
+out in most plots.
+This is a pretty standard plot in R that
+you might see in a presentation
+or a paper there's some points on the plot
+and I'm just plotting random points here.
+And you see that
+there are, the points are in three
+different colors.
+The first is black.
+The open circles are in black.
+Then there's a couple of points that are
+in
+red and a couple of points that are in
+green.
+So why does this happen?
+Because in most plotting functions there
+will be a col argument, col.
+When you say col equals one, you get
+black.
+When you say col equals two, you get red
+and when you say col equals three, you get
+green.
+And so, if you have a plot and you want
+three different
+colors in it.
+It's very easy to say, okay, well, just
+give me col equals one, two, three.
+and, and so, you get black, red, and
+green.
+Col equals four, would have been something
+like
+cyan, and then, col equals five is
+magenta.
+So, those are the kind of standard colors
+that you just get stuck with,
+when you, when you set col equal to be
+one, two, three, four or five.
+And so if you go this route the red and
+the green don't,
+are not particularly meaningful in this,
+in this case.
+Of course, you don't know what the data
+are about.
+So it's it's possible that they are, but
+in most cases, they're not the,
+the most suitable colors for the type of
+data that you're going to show.
+And, and also, just from a design point if
+you use this color scheme all the time,
+then all of your plots will look like
+they belong in some Christmas show or
+Christmas presentation.
+So, if the question
+is whether or not we can choose a better
+set of
+colors that better communicates the idea
+that we're trying to get across.
+Another standard set of colors is shown
+here.
+This is the volcano data set that comes
+with R.
+And it's basically a data set that shows
+different elevations of a volcano.
+And, there two, the color, set of colors
+on the
+left is called, is comes from the heat
+colors palette.
+And so, this is a palette of colors that,
+goes from kind
+of a reddish to, to indicate low, to a
+yellow or white, to indicate high.
+And then, on the right side here, we've
+got a
+palette of colors called the topo colors
+or topographical colors
+and this goes from a kind of blue, which
+indicates
+low to a a brown or a white which
+indicates high.
+So for the heat colors it, if you know
+what fire is,
+it may be reasonable to, to kind of see
+that picture
+and know that kind of what is low and what
+is high.
+For the topographical colors, it's not,
+maybe not immediately clear
+to some people wha, what is low and what
+is high,
+it's not so the fact that blue is low and
+green is higher than blue it may not be
+particularly obvious.
+It's not particularly obvious to me.
+

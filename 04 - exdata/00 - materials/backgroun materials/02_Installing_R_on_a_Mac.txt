@@ -1,0 +1,68 @@
+Hey everyone.
+I just wanted to make a quick video about
+how to install R on a Mac.
+So it's fairly straightforward.
+And the steps are pretty simple.
+So, first I want to go to [UNKNOWN]
+and download R for the Mac.
+So, here, that's this link right here.
+If you download, if you click on it, it'll
+take you to the R for Mac OS10 webpage.
+And the thing that you want to download is
+this r-2.15.1.
+package
+file.
+So when you click on that.
+It'll start to download and I'll spare you
+the details
+there but basically it'll download this
+file to your computer.
+So that's this file right here so I'll
+double click on it and I'll start the
+installer.
+You'll see it's kind of the usual Mac OS X
+installer.
+Hit Continue, you'll see that there, I'll
+see you kind of what's included in there.
+So to continue you've
+got to agree to the licenses.
+General public license version two, I'll
+agree to that.
+If you hit install,
+type in your password to allow
+installation as it goes you'll
+see it is kind of installing all the files
+to your system.
+And we're just going to skip over all
+this.
+You're just going to have to trust me that
+it's not very interesting.
+And so the installation was successful.
+You can see that was pretty
+straightforward.
+If I hit Close then that means we're done.
+So if I want to find R now I can just
+open up the finder here and go to my
+Applications folder,
+and I've got R here at the top here
+because
+its got all the, I've got the folders
+sorted by date.
+So is I double click on the R icon.
+You'll see that R loads up and we're
+pretty much ready to go.
+If I decide that I want to use R a little
+bit
+more often and I don't want to have to
+open up the applications folder every
+single time,
+I can drift drag R to the dock over here,
+and I'm going to put it right there.
+And so now, when I want to use R, I can
+just click on the R icon on the dock.
+Starts bouncing up and down and R will
+load it right away.
+So that's it.
+Selling R on the Mac couldn't be any
+easier
+

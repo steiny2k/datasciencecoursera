@@ -1,0 +1,408 @@
+This lecture is about the base plotting
+system in R.
+Now previously we talked about the three
+different plotting systems that R has.
+The base plotting system, the lattice
+system, and the G G plots, the two system.
+So here I'm going to talk about the base
+plotting functions and the,
+which is the kind of most commonly used
+system in, for plotting in R.
+All of the core plotting and graphics
+engine in R is
+encapsulated in the graphics package and
+the G R devices Package.
+The GR devices package contains all the
+code for the graphics devices, including
+the screen
+devices, like X11 and Windows ports, as
+well
+as file devices like PDF and Post Script.
+The graphics package contains the plotting
+functions, so, so very
+basic functions like plot, hist, boxplot
+and, and many others.
+And so this will be core plotting system,
+what we call the base graphic system.
+The lattice system is, is encapsulated in
+the lattice package.
+And that uses another package called grid,
+which is a kind of a low-level,
+graphics system that's kind of an
+alternative
+to the, to the base graphing system.
+We usually, we don't ever, we usually
+don't call the grid
+package directly, only indirectly through
+packages like lattice or GE plot.
+And the last package we'll talk about in a
+separate lecture.
+So in the process of making a plot there
+are a lot
+of considerations that you have to make.
+In terms of where will the plot be made?
+Will it be made on the screen?
+Will it be sent to a file?
+How will the plot be used?
+Is it for viewing on the screen
+temporarily?
+Is it going to be in a web browser?
+Are you going to be printing it in a
+paper?
+Is it going to be publication quality, or
+you're
+going to use it in a slideshow or
+presentation?
+So, these are kind of questions that you
+need to think about when you're making a
+plot.
+Another thing, another question that you
+might
+want to think about is there, is there
+a large amount of data that's going to go
+into this plot?
+Or maybe just a few points?
+Or is it an image?
+Or is it a line drawing?
+Or is it something like that.
+Un, and then lastly one question that's
+worth ask, what, asking is
+whether you need to be able to dynamically
+resize the graphic, because
+you may want to use something like a
+vector format if you
+are sending it to a file rather than a bit
+map format.
+So those are a couple of questions that
+you
+want to make as you start making a plot.
+The other question of
+course is what graphic system you want to
+use?
+There's Base, lattice, and ggplot2.
+And the reason why you have to ask
+yourself this
+question is because you can't really mix
+the three different systems.
+And so the three systems, roughly
+speaking, are,
+you know, base graphics has this kind of
+piecemeal construction where you put
+things together one
+by one, through a series of function
+calls.
+Now, the lattice system creates entire
+plots out of a single function call,
+so everything kind of has to be
+conceptualized from the get go.
+And the ggplot2 system kind of combines
+concepts from both lattice and base.
+So in this lecture we'll be focusing only
+on the base plotting system,
+and, and we'll be talking about creating
+graphics on the screen device only.
+So in base graphics, you,
+you're essentially creating two
+dimensional graphics.
+and, and you have to do it in a two phase
+process.
+The first process
+initializes the new plot and the second
+par, phase
+I should say, annotates or adds to an
+existing plot.
+And so there are a number of functions
+that are useful for initializing a plot.
+And then there are ano-, separate set of
+functions that are useful for annotating a
+plot.
+So the plot function or the hist function
+are two
+examples of functions that are init-, used
+for initializing a plot.
+And what they do is that if they, if
+there's no graphics device open already,
+it will launch
+a graphics device.
+And typically, this will be, come in the
+form as
+a, of a window that pops up on your
+screen.
+And then it will draw the plot on that new
+device.
+The plot function is a generic function in
+R, and so, it has, it,
+it can behave differently, depending on
+what kinds of data you pass to it.
+If you don't pass it a special type, piece
+of data, so, if you
+just pass it, if X and Y are, for example,
+vectors, then, you use
+what's called the default method for plot.
+This default method has a lot of
+arguments.
+And you can look at the help page for plot
+and see what those arguments are.
+For example, you can set things like the
+title, the x-axis
+label and the y-axis label and many other
+types of details.
+In general, the Base graphics system has
+many
+parameters that you, can use to set that
+can set, and tweak to make your graphics
+look exactly the way you want them to.
+This is kind of a, it's a, it's a
+double-edged sword,
+because there are a lot of things that you
+can customize.
+But of course, then, there are a lot of
+things that you have to set that are not
+automatic.
+And so, most of these parameters are
+documented in the help page for par,
+so you just look at that help page, you'll
+see a lot of parameters there.
+It wouldn't help, hurt to try to memorize
+this help page,
+of course, but it's always there for you
+if you don't.
+So, here's a, the, a basic graph that,
+that is made using the base graphic system
+here.
+I'm using the hist function which creates
+a histogram.
+Which is a kind of a one-dimensional plot.
+And so here I'm loading the air quality
+data set
+from the data set's package and I'm making
+histogram of ozone.
+And so you can see that I'm not setting,
+I'm not using,
+there are other arguments to hist but I'm
+not setting all of them.
+And so I'm just using the defaults for,
+for whatever
+there is there for hist, and it makes a
+simple histogram.
+And so, this if my graphics device had not
+been open in R,
+it would have opened the graphics device
+and then put the histogram in there.
+Another fundamental type of plot is the
+scatter plot, of course.
+And this can be created using the plot
+function here.
+I'm using the same data set, but I'm
+making a scatter plot of ozone versus
+wind.
+And so you can see the default plotting is
+if
+I don't specify any other arguments to the
+plot function it's,
+I'm using all the defaults here.
+And the default plotting symbol is a, is
+an open circle with kind of a white
+background.
+And then finally, this is another function
+that initializes the plot.
+It's the box plot function.
+here, and you can see I'm making a
+box plot of the distribution of ozone by
+month.
+So you see the box, the box plot function
+uses a kind of formula notation, where I'm
+saying on the Y axis I want ozone, which
+is the left hand side of the tilde.
+And on the right hand side I specify what
+I want
+on the X axis, which in this case is the
+month.
+And so like, the, the month is to kind of
+divide it into a categorical vector.
+cat, sorry, car, categorical variable so
+if for
+the months of May, June, July, August and
+September.
+And here you see, I specified what I want
+the x lab, the x label to,
+x axis label to be through x lab and the y
+axis label through y lab.
+[BLANK_AUDIO]
+So there are a couple of key base graphic
+parameters that are
+useful to kind of keep in the, and, at the
+front of your
+brain, or at the top of your head,
+whatever you want to call
+it because they are, you know, you tend to
+use them quite often.
+The first one is the pch or the plotting
+character or plotting symbol.
+And you notice that the default in the, in
+the previous plots tends to be, is the
+open circle.
+But you can change this to be something
+else,
+and, and so the pch can be, take two types
+of arguments.
+It can take a number which refers to a
+table of kind of built-in symbols.
+Or, it can take a character.
+So we can take character element which
+would be plot that character on the
+screen.
+So if you give the letter A for example,
+then it will
+use as, the letter A the plotting symbol
+for all your data points.
+So sometimes this is useful for kind of
+self-labeling a plot, so you
+can see that all the As represent one
+group, and all the Bs represent
+another group.
+The lty is the line type, and so if you're
+plotting things that have, plotting data
+that are lines this
+will specify whether it's a solid line, a
+dashed line
+or a dotted line or a dot-dash line, or
+etc.
+The lwd is the line width.
+So some, a lot of times you want to
+control the line
+width depending on how, you know, how the
+plot's going to be used.
+For example, if the plot's going to be in
+a presentation where lots of people are
+going
+to be sitting in the back row, then you
+want to, usually you
+want to have very thick line width so they
+can see the lines.
+But if it's going to be in a publication
+where
+it's going to be in a mag, in a journal or
+printed and people are going to be looking
+at
+it much closer, then you don't need such
+thick lines.
+The col is the col-, the plotting colors.
+This is the color that the the plotting
+symbols will appear on the screen.
+Sometimes you like to cu-, customize that.
+You can specify colors using
+either a number or a string which, which
+is like a word
+or you can use a hexcode that's written
+in, in character format.
+And the colors function will give you a
+list of colors that you can specify by
+name.
+So you can see there are a lot of colors
+there.
+And then xlab and ylab will let you
+specify the x axis and y axis labels.
+And that's very useful for annotating
+plots.
+And a couple other base graphics
+parameters that can
+be useful that you can set in the par
+function.
+Because the par function is used to
+specify global graphics parameters.
+So these, these will be the same in every
+single plot that you make.
+Of course you could always, always, you
+can usually, I should say,
+override the global graphics parameters
+with,
+by specifying them in each function call.
+So if you don't like, for example the
+background color,
+you can usually, you can change that
+within a given function.
+However, other parameters like the margin
+size, or the mfrow or
+the mfcol, these cannot be spec, changed
+within the plotting function.
+They have to be changed using the par
+function only.
+And so the las, the las, is, is the
+orientation of the axis on the labels.
+So if you'd like all the labels on the
+the,
+the axis labels to be kind of horizontal
+or,
+or perpendicular to the graph, you can
+change this.
+BG is the background color for the plot.
+The margin size, sometimes it needs to be
+modified
+if you have a very complex x, y axis
+or x axis label, you might, might want to
+make
+the margin a little bit bigger to
+accommodate that.
+The outer margin is important if you have
+multiple plots per page and you
+want to have a mar-, a kind of a label
+that's in the outer
+margin that kind of covers the entire
+plot.
+And the mfrow and the mfcol control how
+many, if
+you having multiple plots on the dev, on
+the screen device.
+And for example you have a matrix of
+plots.
+And it controls how many plots will appear
+per row, and per column.
+So you can see what the default values
+for some of these global graphics
+parameters are,
+by just calling the par function with the
+name of the parameter and no other
+arguments.
+So you can see the lty, the default is a
+solid line.
+For color, the default is black and for
+pch the
+plotting symbol is 1, which corresponds to
+n open circle.
+For BG, the, the background is
+transparent, so there's really no
+background color.
+And then for the
+margin you can see that there's four
+numbers here and each one
+of these numbers refers to one of the
+margins of a plot.
+And if you think of the bottom of the plot
+as the first side and then the left hand
+side
+is the second side, and then the top is
+the
+third side and the right hand side is the
+fourth side.
+So you can think of, starting at the
+bottom going in a clockwise direction.
+Those are the four sides of a plot.
+And you can see the bottom margin
+gets a spa-, a, a size of 5.1.
+And you can roughly think of this as 5.1
+lines of text that could be in the bottom
+margin.
+And then the s-,, the left hand side is
+4.1,
+the top is 4.1 and the right hand side is
+2.1.
+So you can adjust those margin sizes if
+you need to
+accommodate your plot to make more or less
+space in those margins.
+And then the mfrow defaults
+to 1,1, which means one row and one
+column.
+So that's just a single plot.
+

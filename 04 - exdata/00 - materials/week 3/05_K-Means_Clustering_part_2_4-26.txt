@@ -1,0 +1,161 @@
+So in R, the kmeans function is the
+function that
+we use to it, to implement the kmeans
+algorithm, here.
+And you can a, I, you can dem, I can
+demonstrate it here with use, using a
+simple data frame.
+I got two, with just two dimensions.
+And I called kmeans on the data frame and
+I tell it there are three centers.
+Alright, so three centroids and what
+kmeans returns is
+a, is a list with a number of different
+elements in it.
+And so, for example, the, probably the
+most important element
+is the cluster element and you can see
+here when
+I print out the cluster element, you can
+see that
+it's a vector of numbers from one to three
+so.
+And what this shows is that for each data
+point in the in
+the data frame that I passed it, it tells
+me which cluster it's in.
+So you can see that the first four points
+are in cluster
+three, the next four are in cluster one,
+and the next four
+are in cluster two.
+You can see another element if you look in
+the printout of the
+names another element of the, of the
+object returned from kmeans is called
+centers.
+And this tells you the location of the
+centroids in the space.
+So, if you want to plot the kind of, the,
+the results for kmeans, the
+first thing you can do is you can run the
+kmeans algorithm on your data.
+And here, I'm just going to plot the data.
+So the first thing I do is I plot the
+data, so I plot X Y
+and then I color the data points according
+to the cluster that they happen to be in.
+So you can see I, I pass the
+color argument to be equal to the cluster
+number.
+And then I, I use the points function to
+kind of add the centers, the clusters
+centroids to
+the plot and I, and I plot them using the
+plus symbol.
+So, here I plotted the, the data and the
+kmeans clustering results.
+Finally, another way that you can
+visualize clustering
+information for an outcome in an algorithm
+like
+kmeans is by using the Heatmap function
+or,
+or use, looking at heatmaps I should say.
+So here I've just, I've, I've using the
+same data
+I've taken out a different random sample
+of the data set.
+I sampled its replacement and I just run
+kmeans again, again with
+three centers.
+And I stored it in an object called kmeans
+object two.
+And now I'm going to make a, an image plot
+of the data, so
+the first plot on the left here is just an
+image of the original data.
+And then on the right hand side I've
+reordered
+the the columns of the data, I'm sorry, I
+should say the rows of the data frame so,
+so that the clusters are kind of put
+together.
+So here, you can see that if you go up and
+down the, up and down this matrix.
+You'll see the cluster, the, the data
+points are
+clustered together so that they are next
+to each other.
+And so you can use this to look at high
+dimensional
+data, and high dimensional image type
+data, or matrix type data
+where you can reorganize the rows and the
+columns and kind
+of look at clusters that are closer
+together or farther apart.
+and, and, and, or, kind of, and in it, and
+so
+look at your kind of matrix data in an
+organized way
+so you can look for, so you can look for
+patterns.
+We'll talk a little bit about this more
+when we talk about hierarchical
+clustering, but again, you
+can, you can use heatmap type of
+visualizations
+with other types of clustering algorithms
+like kmeans too.
+So it's, just to summarize, you know,
+kmeans is a handy
+algorithm for organizing and looking for
+patterns that hide eventual data.
+A couple of things that I for, it requires
+that you know the number of clusters.
+So you have to specify
+at least roughly speaking, how many
+clusters there are.
+You can, you can kind of play with that a
+little bit to determine, to figure
+out kind of what, what pattern probably
+looks
+the best, but there's no easy rule there.
+And then so you have to pick those
+clusters
+out by eye or sort of through some other
+mechanism.
+There are a few algorithms for kind of
+determining the number
+of clusters using, either using
+cross-validation,
+information theory, other types of
+metrics.
+And so there's,
+here's a link to determining the number of
+clusters.
+And it's, and the kmeans algorithm is not
+deterministic, so there are, depending
+on how it's implemented, there can be,
+sometimes those starting points are chosen
+at
+random, and so, so it's often useful to
+run the kmeans algorithm a
+couple times just to make sure you're not
+getting a very unstable finishing point.
+So, for example, if you run it three
+different times,
+and every time you get a totally different
+pattern, then that
+means that the, the algorithm may not be,
+have
+a very stable kind of view of the data.
+And so, so, kmeans is, can, can be
+problematic in that way for certain types
+of datasets.
+And here, I've got a couple links to kind
+of, to videos
+and, and references on, that, that provide
+a lot more information about kmeans.
+

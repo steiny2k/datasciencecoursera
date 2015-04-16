@@ -1,0 +1,1287 @@
+In this video I just want to talk
+about an example of exploratory analysis,
+just to show
+kind of the tools that you might want to
+use when you're just starting out looking
+at data.
+So a lot of these things are basic things
+that we've
+covered you know like one dimensional
+plots, two dimensional plots, basic
+summaries.
+Exploratory plots just to get a sense of
+what the data will
+look like, and what you might be able to
+do with it.
+Now the first thing of course, any time
+you look start to look at data is
+you have to have a kind of a basic idea in
+mind of what you're looking for.
+This could come in the form of a
+hypothesis or even more generally just in
+the basic question, you know what are you
+trying to answer with this data set?
+So the data set I'm going to use right now
+for this example,
+comes from the U.S. Environmental
+Protection
+Agency and it involves air pollution
+monitoring
+data from the United States.
+In particular we're looking at fine
+particulate
+matter air pollution that's in the air.
+So particulate matter is, is just a fancy
+word for dust.
+So this is just dust that's in the air and
+it's
+it's a, it's of concern because we inhale
+air all the time.
+And along with the air we inhale the dust
+and it may have certain health effects on
+populations.
+So one of the important pie,
+pieces of legislation in the last four
+decades in
+the United States has been the Clean Air
+Act.
+And the Clean Air Act has been designed to
+reduce, the levels of air pollution in the
+United States.
+And so one of the questions that you might
+want to ask uh,when it comes
+to these kinds of data is, are air
+pollution levels lower now than they were
+before?
+Right, so it's a very basic question.
+It's fairly general.
+We can, we can look at it in a variety
+of different ways, and so we're going to
+look at it in a very specific way.
+We're going to look at a fine particle air
+pollution.
+And so this, fine particle air pollution
+was, started being measured in 1999.
+And it's currently being measured today.
+So what we're going to do is we're
+going to look at data from 1999.
+And, and look at the fairly recent data
+from 2012.
+And I want to answer the very basic
+question.
+Are the
+levels on average lower in 2012 than they
+were in 1999?
+And so.
+The nice thing about air pollution data in
+the United States is that the EPA collects
+all this data and makes it essentially all
+available on their website so it's freely
+available.
+I'll put the URL up on the website and you
+can download as much or
+as little as you want, so what I've done
+is I got the EPA website and
+I've just literally downloaded the zip
+files.
+For 1999 and 2012 for fine
+particulate matter is, sometimes called
+PM2.5, alright?
+So let's take a look at the, just the, the
+basic data files that you get.
+So in this directory here, I've got.
+The the, the two files for 1999 and 2012.
+Now, I should say that the, the original
+files are zip files.
+And each of the zip files come with two
+things.
+One is a text file, which is .txt
+extension
+and another is a PDF file which contains
+some documentation.
+So this is just the raw file that I
+downloaded from the EPA website.
+I haven't done anything to it.
+So we're, let's just take a look at a
+couple lines of let's say the 1999 file.
+Right, so I'm going to take a look at
+this.
+And so one thing you can see is that
+there's,
+it's a little bit messy here, but one
+thing that's you
+can see if I just pull this out a little
+bit,
+is that there's basically one record per
+line in this file.
+The first record here is kind of the
+header.
+And it tells you the names.
+Basically gives you the names of the
+different columns.
+You can see each column
+is separated by a kind of vertical line
+here.
+So that's nice to see.
+You see that every record here begins with
+RD.
+All right, so these are called RDs.
+That indicates kind of the type of record.
+And that corresponds to the heading in the
+RD here, a heading over here.
+There's another type of heading here that
+corresponds to
+RC records, which are, which are these
+guys over here.
+And if there were any RC records in
+this file, then they would have those
+type, that
+heading.
+I don't believe that there are any RC file
+records in this
+file, but we can just double check that by
+using a quick grep.
+So let's take a look at if any records
+start with RC.
+And nope, not for that one.
+Let's take a look at 2012.
+And
+none for that.
+So these are all RD records and so we can
+take, we
+can use the RD headers to indicate one of
+the various columns okay.
+And so some of these columns are not
+going to be particularly important to us,
+but some
+of the things we're going to want to know
+are
+for example, what state, the, the record
+comes from.
+The county.
+The site ID indicates the kind of monitor
+within
+that county, and then most importantly is
+the sample value.
+So that tells us what, that's the actual
+kind of mass
+of PM2.5 being micrograms per meter cubed,
+so that is going
+to be very important and because we want
+to see the
+le, if those levels have gone down between
+199 and 2012.
+And the date of collection might also be
+important too Now there are a number of
+other
+things that are indicate you of certain
+records may
+have problems but we're not going to worry
+about
+those at the moment.
+Those kinds of things may come in, and
+maybe
+important later on in a, in a more
+in-depth analysis.
+So let's start at R here, so okay.
+And the first thing I'm going to do is I'm
+going to read in
+the data for 1999 and so we're just
+going to call it pm0.
+Zero meaning kind of like the first one
+and then, I'll name the second
+one pm1 or something.
+So I'm just used a straight read table
+here.
+I'm going to give it the 1999 file.
+And what, first thing I'm going to, do is
+I'm going to ignore the lines
+that start with the hash symbol and I'll
+figure, I'll pick those up later.
+I'll say header equals false and then sep
+equals remember it's solid line here and
+then the missing values are indicated in
+this
+file which is the blank string all right.
+Now read those in you can see That happens
+relatively quickly.
+Let's take a look.
+It's always good to, you know, to check
+to see, you know, how many dimensions you
+got.
+It's got about 117,000 rows 28 columns.
+Let's take a look at the first few rows
+here.
+And you can see that I don't have the
+headers for the columns.
+So, I'll get those in a second.
+But you can see that they're all using
+different columns.
+And remember the first column was this RD
+record indicator.
+And there are a lot of missing values here
+which
+are not that important right now.
+So one thing of what I want to do is kind
+of get the column names, for each
+of these columns so that we don't have to
+refer to them by, you know, V1 V2.
+So if you recall the column names come
+from the very first line in the file.
+So I'm just going to read one line.
+The first line, so, you can use read lines
+for that.
+And I'm going to give it the file name and
+it's going to tell us to read one line.
+Okay, so I've print out c
+names here, you can see first of all, its
+just a string and it hasn't been split,
+you know, using the separator cause I
+didn't use
+read dot table I just read the line
+directly.
+So the first thing I'm going to have to do
+is split all the, all the names out.
+So I can use strsplit for that.
+I
+split on the cell line, and it's a fixed
+pattern, not a regular expression.
+So now if I print out cnames, you can see,
+I get
+a character vector containing, for each
+element, it has the column name.
+Now, strsplit actually returns a list
+back, and so
+you're just going to want the first
+element of this list.
+So now I'm going to assign the column
+names to this
+table to be the first value of this list
+here.
+So now if I take a look at this data frame
+you can see that
+that all the column names are basically
+there.
+Now, one of the things that you'll notice
+is that these company
+column names are not valid because they
+have spaces in them for example.
+And so one thing you can do to fix that is
+to use the make dot names function.
+And the make dot names basically takes an
+arbitrary string and makes,
+turn it into a valid name, column name for
+a data frame.
+So now if I take
+a look at the first few lines here.
+You can see that it's replaced the spaces
+with dots.
+So now all of these are kind of valid
+column names for a data frame.
+So they'll be easier to reference in
+future kind of modeling or analysis
+functions.
+So the first thing I'm going to want to do
+is take out
+the PM2.5 variables that's, remember
+that's the sample value column right here.
+And you'll see the first, the first three
+values here are missing, but then we've
+got 8.841.
+14.9,
+etcetera.
+And those are in units of micrograms per
+meter, cubed.
+So let's take a look at that columns, pull
+it out, we'll
+call it X zero here and I'll just plot the
+sample value column.
+Let's see what it is first.
+It's a numeric column, that's good, it
+should be numeric.
+Let's run a str on it.
+okay, so we got 117,421 values in the
+numeric vector.
+Still a little summary.
+So you get a five number summary of this
+data.
+So you can see the median is 11.5
+micrograms per meter cubed.
+The maximum goes up to 157, which is quite
+a high level for a daily value.
+And there also some missing values here.
+So let's see, and so 13,000 missing
+values.
+Let's see, kind of roughly what that means
+in terms of the proportion, so we see
+is.na on this and you can see that about
+11% are missing.
+So we come across and one interesting
+feature about this data
+set which is that there are a number of
+missing values.
+And so, one thing you have to ask yourself
+is, okay, are missing values something
+that, that I need
+to worry about, for the question that I'm
+interested in answering.
+Remember, we want to, we want to get a
+sense of,
+you know, is, are, in general, is the
+whole
+country, does the whole country have lower
+air pollution
+levels in, in 2012 than it did in 1999?
+See, so the question is, you know, does an
+occasional missing value on a
+given day in a given county or monitor, is
+that going to make a big difference?
+In particular, is having 11%
+of your values missing going to make a big
+difference in your analysis?
+So, that's something to think about.
+Missing values can play a very different
+role, depending
+on what kind of question you're trying to
+answer.
+And so you have to, you don't always,
+although missing values
+can be very inconvenient, a lot of the
+times, they don't
+always cause a problem in the, what kind
+of question you're
+trying to, depending on what type of
+question you're trying to answer.
+All right.
+So now we've got the 1999 data.
+Let's read in the 2012 data here.
+So I'll take, I'll call it pm1, I'll
+read.table it.
+And
+And we'll do the same kind of [UNKNOWN]
+approach.
+I'll comment out [UNKNOWN] these rows.
+Header equals false.
+Sep equals the [UNKNOWN].
+And then any strings like that, okay.
+So,
+one thing you'll notice is that this is
+taking
+quite a bit longer than reading in the
+1999 file.
+One of the one of the issues is that PM
+2.5 monitoring only just began in 1999.
+So there were very few monitors at that
+time.
+Of course, over the years The monitoring
+has increased, and so now in 2012 there's
+a much bigger monitoring network available
+and
+so there are more, going to be more
+observations.
+So let's take a look at how many
+observations
+exactly we have here.
+You can see, it's quite a bit more,
+there's, there's one, about 1.3 million
+records here as opposed to the, you know,
+the 117,000 records that we had before.
+So that may be a bit of a problem in and
+of
+itself, but we, I'll kind of put that to
+the side for now.
+So one thing I know is that the two files
+have the same column name, so you can
+see they both have 28 columns and I know
+that the, the column names are going to be
+the same.
+They're both Rd records.
+So I can just give the names for this data
+frame to be the same as the other one.
+So we make that names here
+again.
+And you can see if I take a look at the
+first few rows.
+Oops all the columns here.
+So you can see the there, the data are now
+2012, and the sample values here are the
+pm 2.5 values.
+So I'm going to grab the pm 2.5 values
+from here.
+And let's take a quick check on what we
+have here.
+That's a numer vector, a numeric vector,
+4.3 million elements.
+So that looks good.
+So now let's do a quick comparison of the
+2012 and the 1999 data.
+So I'll do a summary on x1.
+I'll do a summary on x0.
+So that's interesting.
+So you can see that in the 2012 data, the
+median is about 7.3.
+In the 1999 data, the median's about 11.5.
+So there does appear on average to be a
+decrease
+in the levels for the whole country in, in
+pm 2.5.
+And notice that there are quite a few
+missing values in the 2, 2012 data set.
+We can take a look at what proportion that
+is.
+and.
+Oh.
+It's only.
+See.
+It's only about 5%.
+So that actually, as a percentage of the
+total, there's
+actually fewer missing values in 2012 than
+there were in 1999.
+So that's interesting to know.
+5% missing is probably not that big of a
+deal.
+And so, let's take a look at.
+So it's.
+So on first glance, it appears that, The
+the, the [UNKNOWN] five levels have gone
+down over the years.
+And so, that's good, that's good news for
+public health.
+Let's take a look, let's see if we can
+take
+a look at a plot, a visual representation
+of this data.
+So, let's take a look at a box plot.
+Let's see, boxplot(x0,x1).
+And let me bring this up.
+So it's a little hard to look at.
+There's a lot of skew in the pm2.5_ data
+and
+so there, these are data are both, they're
+right skewed
+and so you can see that it's kind of all
+smooshed down near zero but then there's
+some very large values.
+One thing you'll notice is that the
+maximum value
+here is 909 which is an extremely high
+level.
+In fact it's so high.
+For the United States we might think that
+it's perhaps an error, or something wrong
+with it.
+909 micrograms for me queued, although not
+impossible,
+we observe it in other parts of the world.
+We generally don't observe it in the
+United States, unless, for
+example, in some special or strange
+occurrence So maybe we'll think, we'll
+think about that value a little bit later
+eh since we're
+not really focused on extremes right now,
+we're looking at the medians.
+So one way to kind of fix this box plot is
+to take a log of these guys
+so let's take the log of X,0 base ten log
+[NOISE] and
+that will hopefully kind of even out the
+box plot a little bit.
+So here you can see the the 1999 data is
+right here.
+S you can see the mean is about a log
+equal to 1 which is roughly 10.
+Micrograms per meter cubed.
+And then, you can see that the black line,
+which was
+the median of this box, that does go down
+quite a bit.
+Remember, this is on a log scale, so even
+a
+small change can be a big change in the
+absolute scale.
+But one
+thing that you'll notice is that the
+spread of the data has also increased too.
+So even though the average levels have
+gone down, there
+are more kind of extreme values in the
+later data.
+And so that's interesting not exactly sure
+what to make of it.
+So the next thing you'll want to take a
+look at we noticed in
+the summary of 2012 data there's negative
+values here, so that's a little bit
+strange.
+So,
+one of the things about measuring TMP.5,
+is that we measure the mass of it.
+Kind of per unit of airflow.
+So basically the idea is that there's a
+filter and
+there's air being sucked through the
+filter, and then the particles
+collect on the filter and we weigh those
+filters to
+see how much, how many particles have
+landed on the filter.
+And so because of the way that it's
+measured, you really can't have a negative
+measurement.
+You can't have negative mass.
+And so if there's a negative value for.
+The PM 2.5 variable.
+That's a little strange, that's a little
+unusual.
+So let's take a look, we can take a look
+at that.
+And see kind of, maybe get a sense of
+what's going on.
+So, let's, let's pluck out the values.
+So, let's take a look one more time at the
+summary.
+Let's take, let's pluck out the values
+that happen to be negative.
+So, I'll, I'll create a logical vector.
+That is true or false depending on, you
+know,
+whether the, the 2012 PM 2.5 value is
+below 0.
+So, you take the stir on this.
+You'll see that this is true false vector.
+So if I take the sum of this.
+NA RM equals true.
+You'll see that there are about 26,000
+values.
+That are below zero or negatives, so
+that's a
+little bit strange, we see what's the
+proportion this is.
+So about 2% of the values, this is not
+really large number of values.
+So maybe something that we don't even care
+about but but maybe worth taking a look
+at.
+So, in particular maybe interesting to see
+whether there
+are negative values at certain times of
+the year.
+Or maybe the only negative values occur at
+certain
+locations or times.
+So let's take a look at the dates of the
+measurements.
+So we'll pull up the dates column.
+And you can take a look at this.
+First of all you'll notice that it is an
+integer vector.
+Right?
+So they're, these are coded as integers by
+default.
+Which is not going to be as useful for us,
+so we want to be able to convert them into
+dates.
+And so one thing you'll notice is that
+they're in
+the year, so the first four digits of the
+year,
+second is the month and the second is the
+day, right?
+So here we've got 2012 and then January
+and then 28th, right.
+And so let's take a look, let's convert
+those guys to date Variable as
+a date and it's going to be in the year,
+month, day format.
+Okay.
+Now's it's a reasonably long vector so
+it's probably
+going to take a few seconds on a
+reasonable computer
+Now, take a look at the dates vector.
+So you can see now it's in the date
+format.
+So let's take a look at just the histogram
+of
+the dates to see kind of where the
+collection occurs.
+And we can do it by month.
+And you can see that
+The most of the, most of the, the hi, the
+measurements are occurring in kind of the
+in the winter months here.
+So winter and spring months here.
+So let's see where the negative values
+tend to be.
+So we'll do hist on dates and negative.
+So this only makes a histogram of the
+dates where the negative values occur.
+Oops.
+And I say month.
+And you could see that the the negative
+values tend to occur, seem to occur more
+often in the in the
+late, in the in the December, January,
+February types of months.
+There's a little bit of a spike here, in
+April, May, June type period.
+So, it's interesting to see that there
+aren't many
+negative values here in the summer months
+here, and
+so it's not entirely clear why, you know,
+what
+this tells us but it may be worth
+investigating.
+One issue with PM2.5 is that many areas of
+the country.
+It tends
+to be very low in the winter.
+And high in the summer.
+And so typically when, when when pollution
+values are high, they're easier to
+measure.
+And when they're low, they're harder to
+measure.
+So maybe some of the negative values are
+just kind of
+a measurement error when the values tend
+to be very low.
+So but given that it's only 2% of the
+data, I'm
+not going to spend too much time worrying
+about it at the moment.
+It may be something that we worry about
+later.
+So one of the things that I think would be
+interesting to do is, you
+know, rather than look at the, the air
+pollution levels for the entire country
+and say.
+Okay, well the median for the entire
+country has gone down
+between 1999 and 2012, why don't we pick
+out one monitor.
+See whether or not we can see a change or
+a decrease in the level just at that one
+location, and
+so and that way we can kind of control for
+the fact that you know there's different
+monitors at different times.
+Now one thing that we have to do, is we
+have to find the monitor that was kind of
+out there
+in 1999, and was also out there in 2012
+it's
+because then you have the Net, which
+changed quite a bit.
+And so, we're going to pick a state and
+then
+try to find a monitor in that state to
+see whether or not, you know, to see
+whether
+or not, you know, the pollution levels
+have gone down.
+So I'm just going to pick New York state
+because that's where I'm from.
+And let't try to take a little, let's try
+to find a monitor
+there that we can, where we can look at
+the change in the levels.
+So, the first thing I'm going to
+do, is I'm going to subset the PM data to
+look at the
+all of the kind of monitors in, in, in New
+York state.
+So I'm going to take So I'm
+going to take the pm0,
+data frame, and I'm going to subset on
+state code equals 36, which I
+just happen to know is New York state,
+because I do this a lot.
+And I'm going to pluck out the county
+code.
+And the site ID columns.
+And then, I'm going to do the same thing
+for the 2012 data set here.
+Okay, so
+and then, what I'm going to do is I'm
+going to.
+So, if you take a look at site zero, you
+can see it's a two column data frame.
+And it just had the, the county code and
+the site ID.
+What I'm going to do is create a special,
+kind of variable that's
+base, that's just the county code and the
+site id pasted together, right?
+And so we can literally use the paste
+function to do that.
+So I'm going to kind of replace this guy
+with paste, and I'll take the first column
+and
+the second column And separate it with a
+period.
+And then I'm going to do the same thing
+for the 2012 data, alright?
+So now if you take a look at site zero its
+character vector, you can see that the,
+it's the kind of county.
+and the site ID.
+If you look at this it's kind of the same
+thing, right.
+So one thing that you'll notice is that
+the
+2012 vector, it only has 18 elements and
+so
+there are only 18 counties and site id
+combinations
+whereas the 1999 data had 33 of those
+combinations.
+So the only thing, so basically what we
+want to do
+is we want to see is well where.
+What is the intersection between these two
+guys?
+So where you know which which county slash
+monitor ID numbers exist in both sets?
+So we could just use the intersect
+functions for that,
+and I'll assign it to an object called
+both.
+So these are the monitors that are in both
+the 1999 and 2012 data sets.
+So we can print this out.
+You can see that there are There are ten
+monitors, ten county/monitors that are in
+both data sets.
+So, that's good at least that there are a
+few that we can look at across the time
+period.
+now, one of the, one of the things that
+would
+be useful, is if we chose the monitor that
+is
+that first of all, in both time periods,
+but also
+had a lot of observation that we could
+look at.
+So lets take a look at how many
+observations are
+in each of these monitors, at each of
+these time periods.
+Okay.
+So so the first thing you want to do is
+you want to count,
+you want to figure out how
+many observations are available at each
+monitor.
+So I am going to create a new variable
+called county.site.
+Which is just the,
+what we just created so its, its the
+county code.
+Pasted with the site ID.
+I'm putting this in the original data
+frame here.
+I'm going to do it for the 2012 also.
+And
+what I want to do is I want to subset this
+data frame to be just New York state.
+So I'm going to subset pm0 to be state
+code 36.
+And county site is also, is one of these
+special monitors which is in both in both
+data sets.
+Alright, do that for this guy here.
+And now what I'm going to, so if you take
+a look at this, it's
+the same data frame, but it's only the
+rows that are in New York City.
+So, you can see that the state code here
+now is 36.
+Right?
+So, So what I want to do is I want to
+split this data frame by the kind of
+monitor.
+So, I want to split it into separate data
+frames by each monitor
+and then count how many observations there
+are in each of them.
+So I'm just going to do a split this
+data frame by the, this county site
+variable.
+[SOUND]
+Right?
+And now actually that was not particularly
+useful because it just spit out
+a whole list of data frames, and I don't
+really know what happened there.
+So what I want to do is I want a S supply
+over
+all these data frames and count the number
+of rows that there are.
+Okay, so that gives me the number of
+observations.
+That are in each of these data frames.
+So you can see that, for example, county
+one,
+site 12, had 61 observations, and county
+one, site five had 122.
+So then I'm going to want to do the same
+thing for the later period.
+Excuse me.
+Had to change this, too.
+And you could see now for there are for
+there county one websites hub only had 31
+observations.
+In 2012 rather than 61 in the 1991 data
+site
+so I think that the county that I'm going
+to.
+The county slash monitor that I'm going to
+pick here is going to be county 63.
+And the monitor 2008.
+So let's take a look at those guys and see
+what we can look at in terms of pm trends.
+So I'm going to call a new data-frame
+called pm1sub, so I'll subset it, pm1.
+[SOUND]
+County code is 63.
+And the site ID is 2008.
+Alright.
+And then I'm going to do
+the same thing for the 1999 data.
+I know that they're both there.
+And I look at pm 1.
+I know there's 30 observations, and for pm
+0, so there should be 122.
+So there you go.
+So, so the thing we're going to do now is
+we're going to take each of these data
+frames, and we're just going to plot the
+data,
+the pm 2.5 data, as a function of time.
+So it's going to be like a little time
+series here.
+And on
+the x axis is going to be the date and on
+the y axis is, is going to be the level PM
+2.5.
+And we just want to get a, to visualize
+whether or not we can see if the levels of
+PM 2.5 have gone down over this kind of 13
+year period at this particular modern.
+Okay so we're going to make some plots to
+do that.
+So, the first thing we need to do is to
+get the dates out so we can plot
+the data as a function of date.
+So dates, I'll create a dates
+vector here from this pmsub data frame,
+and get the pm2.5
+data out.
+[SOUND]
+And so I make a plot of the dates.
+You can see
+well first thing you'll notice, is that
+the
+dates are not coded properly, they're
+integers here.
+And so we need to convert them into dates.
+So I'm going to do that right now.
+[SOUND]
+And they're in year, month, day format.
+So now if I make this plot again well
+first
+of all you can take a look at the new
+variable.
+And if I make this plot, so it's in date
+format now.
+And you can see now the plot makes more
+sense,
+the X axis is coded appropriately, and you
+can see
+that the data are kind of bouncing around
+all over
+the place, somewhere between four and 14
+micrograms per meter, cubed.
+So this is the 2012 data.
+So let's do the same thing for 2000, for
+1999.
+We'll convert these guys to date format,
+since we know we have to do that.
+And let's make a little plot here.
+Oops I didn't get
+the PM2.5 data.
+[NOISE]
+Alright so let's make a plot of the 1999
+data so you can see that again.
+First of all you'll notice that, the
+data are only actually recorded starting
+in July,
+through the end of the year.
+So only about a half of the year of data
+is collected there, and so, and
+you can see that they range from roughly,
+say, five micrograms per meter cubed, to
+about 40.
+Of course its a little hard to look at
+the plots separately, so why don't we make
+a plot.
+That kind of puts both, both 1999 and 2012
+on the same panel.
+So so we need to use par for that, and
+we'll say mfrow is, is 1, 2.
+So this says 1 row, 2 columns.
+And I'm going to adjust the margins a
+little bit to create more space.
+So I'll first of all plot the 1999 data on
+the right, on the left hand side here.
+I'll change the plotting character for
+fun.
+Alright.
+And then I'll plot the I'm going to put a
+little line here at the median, for that
+year.
+Okay.
+So that gives me the median.
+About maybe 10 points or so micrograms per
+meter cubed.
+So now lets plot the 2012 data.
+And we'll plot the median.
+Alright, so that's well that's a little
+bit
+unusual, it looks like the values are
+going up.
+Between the two years.
+So actually, it's a little bit, because
+you'll notice that the y-axis for
+the 2012 data, is totally different from
+the y-axis for the 1999 data.
+And so even though it looks like it's
+going up between
+the two, periods, it probably actually is
+going down, if you look
+at the median here it's a little over ten
+And the median
+here is a little bit, is quite a bit under
+ten actually.
+And so
+this picture is by itself is a little bit
+misleading so what we need
+to do is we need to put the two plots on
+the same range.
+So let's do that by calcul, calculating
+the range
+of the dataset with the with the range
+function, alright?
+So let's take a look at.
+The range of x0sub and x1sub together.
+And we'll remove the missing values.
+You can see that it's between
+three and 40 micrograms per meter cubed.
+So let's assign that to this, to a
+variable called rng.
+And now we need to remake the plots to be
+To, to kind of fix the range here.
+So, I'll set par
+just in case I, I don't need to do this
+actually.
+I'm supposed to plot the dates.
+And pch equals 20.
+But now I'm going to set y lim to be equal
+to this range.
+Okay?
+And I'll set the ab line, h equals median.
+All right, and then I'm going to do the
+same thing but for the 2012 data.
+And
+remember, I'm going to, I'm going to keep
+the range here to be the same.
+And and I'll set the the horizontal line
+here.
+And now you can see it makes more sense,
+right?
+So, you can see that the horizontal line,
+the median
+is going down between the two years at
+this monitor
+and more interestingly actually for me is
+the fact that
+you can see there's a huge spread of
+points here in
+the 1999 data and there's a relatively
+modest spread Of points for the 2012 data.
+So what this, so what this means actually
+is quite interesting.
+Is that not only are the average levels
+going down but
+these extreme values are also coming down
+across the years, too.
+So now, so we, so on average we're kind of
+breathing in lower levels of pollution.
+But we don't get these huge spikes on a
+daily basis, like we used to get in 1999.
+So that,
+those two kind of facts are quite
+interesting, because
+they, they kind of address two different
+types of problems.
+One is more of a chronic problem of
+having,
+I don't know, just on average very high
+pollution levels.
+And one is more of an acute problem where
+you get
+these really big spikes that can cause
+different types of health problems.
+And so we've reduced the average levels
+and
+the spikes at this monitor so that's quite
+interesting.
+So one thing I think so the last thing I
+think I want to look at is to say well
+lets not look at the whole country but its
+also
+not that useful to perhaps just look at
+one monitor and.
+So why don't we look at the individual
+states in the country?
+So we'll look at the individual states to
+see how the individual states have
+improved or not.
+Across the years.
+And one of the reasons why this is
+important is because
+the states are actually where a lot of the
+implementation of the
+regulations occur.
+So, when the EPA sets the national
+guidelines
+for air pollution levels, it's up to the
+state to figure out how it's going to
+kind of come into compliance with those
+guidelines.
+And so, be useful to kind of develop a
+summary at the state level.
+To kind of see what's going on at this
+kind of very important level.
+Furthermore the State is some, somewhere
+in
+between the whole country and individual
+monitor.
+So what I want to do, is create
+a plot that has kind of the value of state
+averages
+for 1999 and the state averages for 2012
+and I just want
+to connect the dots to connect each state
+to see whether
+it's going up or it's going down or maybe
+staying the same.
+So that's the kind of plot I want to make.
+So let's let's figure this out,
+so change my plot window here.
+Back.
+So [UNKNOWN] let's take a look remember
+the the the data has a.
+Has a column here which is the State Code
+and
+so, there, every, every state will have a
+code there.
+And so what I want to do is I want to take
+the sample value here.
+So, this is the PM 2.5 value.
+And I want basically, I just want to take
+the average value.
+By state, right?
+So, this is the kind of thing that's
+going to require the T apply function.
+Wh-, the T apply, remember, takes the mean
+of a,
+of a vector within subgroups determined by
+another vector, right?
+And so this is the perfect job for T
+apply.
+So, what I'm going to do, is I'm going to
+take and
+I'm going to create a vector that I'll
+call Mean Zero.
+So this is the mean of the 1999 data.
+And I'm going to base it on the pm0
+dataframe.
+And I'm going to tapply
+the sample value based on the state,
+within subsets of the state code.
+And I want to use the mean function.
+And I'm going to get rid of missing values
+here.
+Okay.
+So if I take a look at this guy now you
+see that there are
+there are 53 elements here and these are
+the means of the individual states, okay?
+If I take a summary you can see that
+they range from 4.8 micrograms meter cubed
+to 19.96.
+OK.
+So now we need to do the same thing for
+the 2012 data.
+So I'll just go up here.
+Just change this to a one.
+Same operation.
+I take a summary of this data and I can
+see that it ranges from about 4 to 11.
+So and the
+median is definitely lower.
+The median in 1999 was 12 And the, this is
+the state average.
+This is kind of the median of all the
+states.
+And the median of all the states in 2012
+is 8.7.
+So now I want to create a data frame for
+each of these guys that has kind of the
+name of the state and the or the ID of the
+state and their average pm2.5.
+So I'm going to create a data frame called
+D0.
+A variable called state it's going to be
+with the names of this guy and
+then mean which is the value and do the
+same thing for the later data.
+So if you look at D zero you can see
+that there's the state and then the mean,
+d one.
+It's also the state and the mean now I
+just want to merge these guys together so
+I can
+use the merge function on d zero d one,
+and I'm going to to merge it on the state
+name,
+typo there.
+So if you look at the merged values there
+are you can
+see there are 52 rows and if you look at
+the merge
+you now you can see that the mean mean x
+so this
+corresponds to the 1999 value And this
+corresponds to the 2012 value.
+So, now I've got a data frame which is,
+which has the state code.
+It has one row for state.
+And then each row,
+there's the kind of state average for 1999
+and the state average for 2012.
+So, just basically what I want to do is
+create a plot that
+plots those state averages and then
+connects, connects them with the line.
+So, that's the last thing I'm going to do
+here.
+So I'm going to reset my par to be to just
+one plot here.
+Instead of a panel plot.
+And then with this merge data frame, I'm
+going to plot I know that there are 52
+values.
+So
+I'm just going to plot the 1999 values.
+On, in 1 column,
+that's the, I, I'm in the
+alright.
+And I want to set the X [UNKNOWN] here, so
+I want to make room, because I know I'm
+going to plot the
+2012 values later So I want to set the
+xlim to
+say, let's be and then like that.
+Oops.
+And alright, so you can see I've got my
+1999 values right here.
+And then I'm going to do the same thing
+but instead of
+plotting, I'm going to use points to add
+the points for 2012.
+And this
+is the third column of the data frame.
+And I don't need this xlim in here because
+I'm using points.
+And if I bring the plot over here, you can
+see that I've got my
+plot so [UNKNOWN] so you can see that the
+data's kind of gone down quite a bit.
+We saw this already in the, in the
+individual monitor data.
+So all we need to do now is kind of
+connect the
+dots here, and so we can use the Segments
+function for that.
+So we give the x coordinates the y
+coordinates.
+And then the, the second set of x
+coordinates which will be 2012.
+And there, now we can see.
+Okay so
+this is quite interesting, Now, we can see
+that most of the states have gone down.
+You can see this line here has gone down.
+These lines here.
+Some, some states have gone up.
+And a, but the vast majority of these
+states appear to be going down.
+One thing you'll notice is that there
+appear
+to be some lines going off the chart here.
+That's because I didn't set the y lim to
+be equal to the full range of the data
+set.
+So we could have fixed that but I won't
+bother with it right now, we can fix it
+later.
+But now we can see that each of the
+states,
+have, how, how, how they progressed over
+the many years here.
+So some states kind of have barely, really
+moved at all, so this state right here.
+Has barely really moved at all.
+And the lines kind of connecting the dots
+help us
+see what the trends are at the individual
+state level.
+Alright so that's basically, that's kind
+of a first exploratory
+analysis of some air pollution data in the
+United States.
+As you were just to summarize the, the
+basic question we were trying
+to answer was, you know, have particular
+matter levels decreased between 1999 and
+2012.
+And we looked at it for the whole country
+between
+1999 and 2012.
+We looked at it for an individual monitor
+between those
+two time periods, and we looked at it for
+individual states.
+And so through a combination of, kind of,
+summaries, five number
+summaries, box plots, scatter plots,
+things like that we can get
+a very nice look at the data, right, and
+get a
+since of what kinds of questions we can,
+can continue to ask.
+And what kinds of things we should, we
+should follow up on.
+So that's just a, that's a base kind of a
+simple case study
+of how, of how to do exploratory analysis
+and I hope you find it helpful.
+

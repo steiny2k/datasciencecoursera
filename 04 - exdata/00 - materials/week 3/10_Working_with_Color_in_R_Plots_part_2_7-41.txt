@@ -1,0 +1,252 @@
+So the grDevices package has a few
+different
+functions to help, you deal with colors
+and the
+ones that I'm going to talk about in this
+lecture are the colorRamp function and the
+colorRampPalette function.
+basically, these two functions do take
+palettes of colors and interpolate between
+them.
+So the, the, the model that you could
+think of is basically, you know,
+if a painter has, his palette, and there
+are of four, two or three
+blotches of specific colors on that
+palette.
+And then what you might do is take your
+brush,
+and kind of mix between the various colors
+of the various
+per, blotches on that palette, to create
+new colors that are
+blends of the original colors that you had
+on the palette.
+So I've never done any actually painting,
+so
+I just the only thing I know about
+painting
+is you know from TV and movies but, that's
+kind of what I imagine a painter would do
+is take these primary colors and then
+blend them together with the brush.
+And so, that's what the colorRamp and the
+colorRampPalette functions
+do, they take a set of colors that make up
+a palette and they interpolate between
+them numerically of course
+to make new colors that are blends of the
+original colors.
+Another function that may be of interest
+to you is the
+colors function which just, you just
+executed with no arguments and it
+gives you a character vector of all the
+names of
+the colors that you can use in a plotting
+function.
+So these are colors that you can reference
+by name rather than having to
+reference their kind of red, green, and
+blue values that we'll talk about later.
+So the colorRamp function specifically
+takes a
+palette of colors and it returns another
+function.
+And this, this function that's returned by
+colorRamp will take values
+between 1 and 1 indicating the extremes of
+the color palette.
+And so, a similar function that already
+exists in R is the gray function.
+And the gray function interpolates between
+black and white.
+And so it gives you kind of all
+the shades of gray there between black and
+white.
+The colorRamp function is a generalization
+because it will take any
+set of colors in your palette and it will
+give you
+a function back that takes numbers between
+0 and 1 and
+it kind of interpolate between the
+extremes of the color palette.
+The colorRampPalette is a very similar
+type of function it takes a palette
+of colors and what it does it returns
+another function that rather than taking
+a value between 0 and 1.
+It would takes an integer argument and it
+will return a vector of colors
+interpolating that palette.
+So, this is similar to the heat.colors
+function or the topo.colors function.
+So, So let's just.
+A very quick example here.
+In the top here, I've created I'm going to
+use
+a palette that consists of two colors, red
+and blue.
+So you can imagine that on your
+little painter's palette here, you've got
+a blotch
+of red and a blotch of blue, and you're
+going to
+mix them together in varying degrees to
+create new colors.
+So I, when I pass this through colorRamp
+it returns function back and
+that function I've called pal, and, and
+now pal can take numbers between 0 and 1.
+So when I say pal (0).
+What do I get back?
+I get a little matrix here with one row
+and three columns.
+And the three columns
+indicate, are, are, represent the colors
+red, blue and green.
+And so in the first column, I've got 255
+which is the
+maximum value that I can have in this, for
+the, for these colors.
+The numbers that you specify go between 0
+and 255, so
+there's 256 total numbers that you can
+specify for each color.
+And so when pal is when I, when pal
+(0), it gives the argument 0, basically
+what it gives
+me back is red, because that's kind of one
+end
+of the color spectrum that I've specified
+in my palette.
+The other end being blue, of course.
+And so I've got the maximum value for red,
+I've
+got 0 for green, and I've got 0 for blue.
+So that color is red.
+When I say pal (0) down here you see, I've
+got 0 for
+red, 0 for green, and then I've got the
+maximum 255 for blue.
+So this just gives me the color blue.
+So that's the other end of my color
+palette.
+So what if I do something in between, like
+pal (0.5)?
+So this gives me something that, this
+should give me a
+color that's kind of in the middle of red
+and blue.
+So it's going to give me 127.5 for red,
+and then 0 for green, then 127.5 for blue.
+So it's kind of half red, half blue,
+whatever that color is happens to be.
+Notice that there's no green in any of
+these
+calls because when in interpolate between
+red and blue,
+you don't encounter green along the way.
+So if I were to give a sequence of numbers
+between 0 and
+1s pal would give me a sequence of colors
+between red and blue.
+So here I'm giving a sequence between 0
+and 1 that's that's, that's a length 10.
+So it starts at 0 and it ends at 1 and and
+there's a eight numbers in between.
+And so when I pass the sequence to pal,
+you'll see at the very top here, I've
+got, I start with red, so it's maximum
+red, and then, 0 for green, 0 for blue.
+And
+I slowly reduce the red amount and
+increase the blue amount, till I get
+to the bottom here, where I've got all
+blue and no green and no red.
+So those are the various colors that you
+get
+in between red and blue as you interpolate
+the palette.
+So, that's the colorRamp function.
+The colorRamp palette function is very
+similar but it just
+it, the type of function that it returns
+is slightly different.
+So here I'm passing it a different
+palette.
+So this palette has two blotches, it has a
+red and a yellow
+blotch on it and we're going to try and
+interpolate between those two colors.
+And so I've got a function here that's
+returned by colorRampPalette
+called pal and now pal is going to take
+integer arguments not
+numbers between 0 and 1.
+So, suppose I give it 2, so pal
+(2) will return two colors that
+interpolate the palette.
+Now, because the palette itself only has
+two colors
+they will, when I just give a 2 it'll
+just give me the two colors on the palette
+so the first being red and the second
+being yellow.
+And so, that the way that the format here
+is slightly
+different instead of giving a matrix with
+red, green, and blue values.
+It gives me a character vector
+which has numbers for, or, or values for
+red, green, and blue that are represented
+in hexadecimal.
+And so if you ignore the pound symbol
+there, you'll see there are two digits.
+There are six digits in, in each character
+string.
+The first two represent red, the second
+two
+represent green, and the third two
+represent blue.
+So you can see for the first number here
+I've got FF0000.
+So in hexadecimal
+F is the largest number you can have.
+So FF on the red, the red pair means a
+maximum for red is 00 for green 00 for
+blue.
+So that's red.
+In the second string here, I've got FF for
+red, FF for green and then 00 for blue.
+So I've got the maximum on red and maximum
+on green and I got nothing for blue.
+So what does that gives me?
+Well, that gives me yellow and by
+combining red and green I get yellow.
+So that's the other end of the spectrum on
+the palette.
+So, when now, if I say pal (10), you'll
+see the first element here
+is going to be red, because it's FF on red
+and 0 on everything else.
+The last element here is going to be
+yellow, because it's
+FF on red, FF on green, 0 on the blue.
+But then in between, I've got my
+interpolation of colors, so you'll see
+that there's, there'll be there'll be,
+there'll be some red, and then there'll
+be some mix ins, a little bit of green as
+you go along here.
+For more, for all the colors there's no
+blue, because there's,
+you don't encounter blue when you
+interpolate between red and yellow.
+So you can see now the representations of
+the colors
+in hexadecimal here changing as you go
+from red to yellow.
+[BLANK_AUDIO]
+

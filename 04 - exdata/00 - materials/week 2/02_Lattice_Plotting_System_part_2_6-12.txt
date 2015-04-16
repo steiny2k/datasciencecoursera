@@ -1,0 +1,229 @@
+So lattice has what are called panel
+functions.
+So, you know, when you have a multi-panel
+plot, there's a function that gets
+called to, to kind of plot the data in
+each one of those panels.
+And that controls what happens to each one
+of these panels.
+Lattice package comes with a number of
+default panel functions, but you
+can supply your own if you want to
+customize what happens in each panel.
+And so basically, each panel function
+receives the x
+and the y coordinates of the data points
+in that
+particular panel.
+So remember, each panel's going to
+represent a subset of the data,
+which is defined by the conditioning
+variable that you give it.
+And so you, you, each panel function will,
+for each panel, the panel
+function will get the x/y coordinates of
+the points that are in that plot.
+And so you can see here, I'm generating
+some random
+data that are, that are kind of, follow a
+linear model.
+And I create a factor variable which is
+basically just separating out Group 1 and
+Group 2.
+And now I'm going to plot x and y by
+group.
+And so here I got two panels in Group 1,
+it looks like
+a strong linear relationship, and in Group
+2, it looks like there's no relationship.
+So you can, here, you can see, I'm, I'm
+calling a custom panel
+function, my, via the panel argument, and
+I give it, I give it
+a function, so the first two arguments are
+x and y, and then
+followed by dot, dot, dot, which means any
+other arguments that may get passed.
+And so, in my custom
+panel function, the first thing I do is I
+call
+the default xyplot panel function just to
+make the points appear.
+And then my customization is I add a
+little, a horizontal line at
+each panel, which is the median of the y
+values in that panel.
+So now I can see there is a dash line in
+each panel
+right at where the median of, of the y,
+the y coordinates is.
+Another fancier thing I can do is rather
+than
+add the median, it might be useful to add
+a
+regression line, so you can look at the,
+the linear
+relationship between x and y within each
+of the panels.
+So here again, I, I pass a custom
+function, and
+I call, first thing I do is I call the
+panel the xyplot function to just kind of
+make the
+points appear, and make all the axis
+labels, and everything appear.
+And then I call panel.lmline to add the
+regression line to the panel.
+One thing that's worth noting
+is that you can't use any of the
+annotation functions from the base
+plotting system in the
+lattice system, so any of the functions
+that are
+in the base plotting system can't be used
+here.
+As a general rule, you can't mix functions
+between different plotting systems.
+And so you have to use all the
+functions that are relevant to the given
+plotting system.
+So as one quick, one more quick example of
+showing on a large, larger data set.
+This comes from the Mouse Allergen and
+Asthma
+Cohort Study which was conducted here in
+Baltimore City.
+To look at the indoor environment of
+children with asthma living in Baltimore.
+Many of these children are allergic to
+mouse allergen.
+So this is an observational study where,
+in which there was a baseline home visit.
+And then there was a visit every three
+months
+for a year, so for a total of five visits.
+And so, one thing, one question you might
+want to ask is how does the indoor
+airborne mass allergen vary over time and
+across subjects.
+So, what I want to do is I basically
+want to make a plot
+of the airborne, indoor mass allergen for
+every subject for every visit.
+So there are 150 subjects in this data
+set, and they each have five visits,
+so you can, so there are going to be 750
+data points here that we want to look at.
+And so, what's a compact way
+to do that?
+Well, actually, a very easy way to do that
+is
+use x/y plot, and use a multi panel
+lattice plot.
+And so that's what we've done here, you
+can take a look at
+the data, one, and, and these are all the
+subjects in the study.
+And this is all their airborne mouse
+allergen levels.
+Well, it's the log of their airborne mouse
+allergen levels.
+And so you can see the variation within a
+person, so within each panel, you
+can see that their allergen levels can go
+up or down, or can vary from
+visit to visit.
+You can see the variation across subjects
+so you can see that some
+people have just very high levels, and
+some people just have generally lower
+levels.
+So it's kind of that cross sectional
+variation in addition to the within person
+variation.
+You can see that a number of people have
+missing values, so not
+everyone has five values, some people only
+have two values or one value.
+And so it may be useful to kind of follow
+up on those subjects to see why this
+subject only
+have four values or three values.
+You can see that some subjects, have a lot
+of
+variations, so they go up and down a lot
+between visits.
+And some have almost no variation at all,
+and
+every visit is the same level of mouse
+allergen.
+And so you may or may not want to follow
+up on some of
+this some of these patterns, depending on
+what exactly you want, you're interested
+in.
+And so you can see that with essentially
+one or two
+function call, you can make a massive plot
+like this, look at
+a lot of data without having to go through
+a lot of code.
+And so that's what, that's a, that's part
+of
+the power of the lattice system, which
+lets you
+look at a lot of data, as long as they're
+kind of kind of formatted in certain ways.
+So again, this is the, the relationship
+between the visit
+number and the log airborne mouse allergen
+levels by subject.
+Right, and so this is a very quick way
+to kind of summarize all the data in this
+study.
+So just to summarize, lattice plots are
+constructed with a single
+function call to one of the core lattice
+functions, like xyplot.
+Things like, the, one of the nice things
+about lattice plots
+is that things like margins and spacings
+and labels are automatically handled.
+And so you don't have to set them all the
+time using, like you did in the base
+plotting system,
+where you had the margin option and the
+and the
+kind of spacings and the m texts and the
+outer margin.
+And so you don't have to worry about
+that very much in lattice plots.
+And the lattice system is really ideal
+when you have data
+sets that you can look at by conditioning
+on certain variables,
+so basically, you typically look, you
+want to look at a relationship,
+but you want to look at it within levels
+of another variable.
+So you want, want to look at kind of the
+same kind of plot but under many different
+conditions.
+And you can use the customized panel
+functions to modify
+exactly what goes on in each of the plot
+panels.
+And so that gives you a lot of power
+to kind of customize the look of these
+panel plots.
+And so I, I find the lattice system very
+useful for looking
+at kind of a lot of data in a very quick
+way.
+And so, I encourage you to try to look at
+it and look at some of the
+other functions, like bwplot, box plots
+and scatter
+plot matrices to see how they work for
+you.
+

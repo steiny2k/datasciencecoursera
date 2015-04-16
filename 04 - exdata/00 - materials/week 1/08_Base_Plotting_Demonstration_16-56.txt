@@ -1,0 +1,512 @@
+So here I started up Bar, and I'm just
+going to do a little bit of
+simple plotting just to kind show what
+the,
+the basics are of the the plotting
+options.
+So, I'm going to simulate a little, a
+little bit
+of data here just so I can make a plot.
+A hundred normal random variables here.
+And I'm going to call Hist to make a
+histogram, of the plot.
+So the first thing you'll notice when I
+call Hist, is that a plot window opens up.
+So let me just move it over here.
+And the
+histogram of the data is shown.
+And so you can see that even though I
+didn't specify any arguments in
+the Hist besides the data themselves a
+number of things appear on the plot.
+Without my specifying them.
+So for example, there's a title here.
+Then there's an x label here, so here the
+label is
+just x because that's what the object
+called when I passed hist.
+The label here is frequency which is the
+default for histogram so it tells you the
+number of elements
+within this range, so for example, between
+minus one and zero.
+There's going to, there's a little over
+thirty elements of the vector in that
+range, and you can see that the histogram
+is roughly like a normal distribution.
+So let me just generate some more data
+here.
+So we can make a little scatter plots I'm
+going to generate
+some more data.
+And I'll plot xy here.
+So now, the plotting window is already
+open, so when
+I call plot it's not going to launch a new
+plotting window.
+It's going to send the plot to the current
+plotting window, which is this one here.
+So, I've speci-, I've called plot and you
+can see the mixed scatter plot of the
+points.
+The default plotting symbol here is an
+open circle.
+You can see.
+And again
+the label, I didn't specify besides x and
+y but
+that a number of things have occured in
+the plot.
+For example the label here is specified as
+x on the
+x-axis, and the label on the y-axis is
+specified as y.
+If I had changed the name of the objects,
+so let's
+say I say [UNKNOWN] here, and I plot x and
+z.
+Well the plot looks different because the
+data are different but you
+can see that the label here turned, turned
+to Z because that's
+the name of the object.
+So let me just go back to x and y.
+And so a number of things on the plotting
+region are important for example the
+margins here are.
+There's four margins here, one for each
+side.
+This is side one.
+This is side two.
+This is side three, and this is side four
+over here.
+And you can see that the margin for the
+bottom is
+is, is the largest.
+So there's, there's five lines of margin
+text available.
+On the side two, there's four lines of
+margin text available.
+On the top, there's also four, so, side
+three.
+And on the right side, side four, there's
+the smallest amount of a margin text
+available.
+So you can adjust that using the Mar
+function.
+So for example, I can just say par, and
+then I say Mar equals, let's say
+I want two on every side.
+So two, two, two, two.
+Excuse me.
+And then I can plot again.
+And you can see that now the plot the
+margins have gotten a
+lot smaller and the plot kind of extends
+farther out into the window.
+But the problem you can see is that on the
+x and the y axis, I lost my label.
+And so even though I have the tick marks
+there I don't have my x and y labels.
+So we probably
+need to make them a little bit bigger than
+that.
+So maybe I'll say four, four.
+Like that.
+So now if I plot again now you can see
+there's
+just enough room for the x and the y label
+there.
+I'm just going to demo a couple of the
+other options that
+may be of interest to you as you're cri,
+constructing your plot.
+So first is the plotting symbol I can say
+plot, x,y then PCH equals, say 20.
+That gives me a solid circle here.
+I want a slightly solid symbol here, I
+would say PCH equals 19.
+Or I can, you know, specify PCH equals
+two, that gives me
+triangles, three gives me little plus
+signs, four gives me x's, etcetera.
+So you can see, so you can see that
+there's many
+different plotting symbols to try, you
+might be wondering how I
+know all the numbers for these plotting
+symbols, well, it just
+comes after many years of use, I've
+memorize most of them all.
+But, of course, if you haven't memorized
+them quite yet a
+handy tool is the example file for points.
+So if you just say points examples are
+points.
+It'll go through a number of Demos so you
+can see the capabilities that R can do
+with plotting.
+But most important is their little plot
+I'm sorry little chart of the symbols
+here.
+And so you can see that's for example one
+is
+the circle, two is the triangle, three is
+the plus etcetera.
+Here at 20 was the solid circle small, 19
+was the larger circle if you wanted the
+solid square that's 15.
+Solid triangle is 17 etcetera.
+So you can
+specify what type of symbol you what and
+you just by, using the number here.
+Another things, if you notice the symbols
+21 through 25.
+Those are actually symbols that are
+similar to say.
+But to ones that are, have been previously
+shown, just for example, one thru six.
+However the difference is in 21 through
+25, those symbols have a
+have have boundaries so you can see the
+boundary is red and they have a fill which
+to this case is yellow.
+So you can specify the two different
+colors, one for
+the boundary of the outline and one for
+the color.
+And so the boundary color specified using
+the col col argument.
+And the, the background color, the fill
+color, is specified using the bg argument.
+So you can specify two different colors
+like that if you
+want.
+Here's another chart of the plotting
+symbols, and
+you can continue through the demo here for
+points if you want.
+And I'll just finish it up here.
+Just some of the special symbols that you
+can plot if you want.
+This is in a different font and let me
+just click out of here.
+So so that's one way to Change the symbol
+here.
+I'm going to go back to my plot here.
+I'll say pch equals
+let's say 20.
+Excuse me.
+I have to regenerate my data because it
+was overwritten by the example.
+[NOISE]
+So here's my data again.
+My little scatter plot.
+Now, I can add a title to the plot by
+using the title.
+Now I'll just say this is my scatter plot.
+And that adds a title.
+I could add some text if I wanted to, so
+for example,
+I could use the text function to say add a
+little label here.
+Let's see, I'll give it the coordinates
+I'll say minus 2 and then minus 2.
+See that the label appears there.
+I can add a legend if I wanted to.
+Say the legend.
+And the legend, you can give it, kind of
+location specifications.
+So, for example, top-left will put the
+legend in the top-left.
+And then I'll say
+I'll just give it a stupid label, excuse
+me let me
+just pull plots in there so now I've got a
+legend there.
+So there's all kinds of annotations that
+you can
+add to the data as you kind of go along
+so for example if I want to plot a line to
+the data I could fit a linear model.
+A lot that using the LN function.
+Then the AD line function
+will add the linear model fit on top of
+the here and the data aren't related
+to the other, each other so that the
+linear model is the line is pretty flat.
+If I wanted to adjust the thick, thickness
+of that
+line, I can use the AD line and specify
+the LWD.
+To be let's say three.
+And you see that.
+Now, a new line is plotted over that,
+which is much thicker.
+So you probably wouldn't want to do this
+from the get go.
+If you wanted to remake this plot, you'd
+probably just
+specify from the get go, LWD go up to
+three.
+You don't want to necessarily plot two
+lines on top of each other.
+But, I'm just showing this for demonstra-
+Demonstration sake.
+I could have also changed the color.
+So make the color, say blue.
+And that would make it blue.
+And so there's lots of different types of
+options you can specify here.
+When you're, as you're making the plot
+So usually, you're going to want to create
+x labels and y
+labels which are kind of, represent what
+the data are.
+So you can plot, you can put a lot of
+these options in the plot function itself.
+So I can say plot x,y and, and maybe x-lab
+is let's say, weight.
+And then y-lab, or y-lab, will be, say,
+height.
+The main will be scatter-plot.
+PCH will be 20.
+So that gets.
+Now, I have actual labels on the X-axis
+and Y-axis.
+I can put my legend back if I want.
+Maybe I'll put it in the top right this
+time.
+And then I can add my little line here.
+So I can say, fit is,
+[BLANK_AUDIO]
+Or maybe I'll make the line red this time.
+So, that's my plot, with the labels of the
+linear regression line.
+And with the legend.
+Now let's see what happens when we try to
+put more than one plot on the page.
+So for example, let's say I have another
+variable, which I'll call z, and
+maybe it's a, I don't know, maybe I'll
+make us some Poisson data here.
+Oh, excuse me.
+And let's say I want to plot z versus x
+and that
+I also want to plot y versus x on the same
+canvas here.
+So the first thing I can do is let's say I
+want to put,
+let's say I want to put the plots right on
+top of each other.
+So let's say par mf row equals so that
+it's going to happen, I
+want to have two rows of plots and then
+one column of plots, right?
+So that's what we want to see.
+So now I'll apply the x and y on the top,
+and x and z on
+the bottom.
+So x and y, so PCH equals 20.
+So you can see that goes on the top, and
+on the bottom here,
+I'll give x and z say it equals 19, and
+that goes on the bottom.
+So now you can see that the margins are a
+little bit large here, lar, probably
+larger than we would want.
+and you see that the, that the margin that
+I have, that's specified here.
+Is
+that.
+And so we want to adjust the size of the
+margin now
+that we've kind of re- rearranged the
+configuration of the plots.
+So we can maybe say something like
+par, let's see, par equals
+Now if I plotted again,
+they get a little bit bigger.
+So like 20 again.
+So that's how, now I put two plots on the
+screen.
+I could have done it the other way.
+I could have said instead of them having
+top
+and bottom, I could have had them right
+and left.
+So by saying par name of row, equals a 1,
+2.
+Now I can plot like this
+like that.
+So you can see, I made the margins a
+little
+bit too small, because I lost my y-axis
+label here.
+So maybe I'll just say par.
+I'll go back to four, four, two, two like
+this.
+And make it positive
+again.
+So you can see that when you've rearranged
+the plotting layout, you might want
+to rearrange the canvas itself to kind of
+remove some of the white space.
+I won't do that for the moment, just so I
+can continue with the demo here.
+But for example, you can put four plots on
+a page.
+Like say, mar equals, sorry, mf row.
+Equals 2, 2.
+That means two rows, two columns, so I can
+say plot x and y.
+That'll go in the upper left.
+And you see, now, I can plot x and z.
+You might wonder, well, where's the next
+plot going to go?
+Well, because I specified mf row, the
+plots are going to go across the row.
+So the next plot's going to be in the
+upper right.
+And then the next plot's going to be in
+the lower left
+so let's say I'll plot z and x instead of
+x and z.
+And then the last plot's going to go in
+the lower right here.
+So that, now I've got four plots on
+a page by specifies, specifying the mf row
+option.
+If I'd specified mf call the same thing
+would have happened but the order in which
+the plots occurred Would have been
+different, so now I can say plot x, y, and
+that appears in the same place, but the
+next
+plot now is going to appear on the lower
+left, and
+the next plot's going to be in the upper
+right,
+and the last plot's going to be in the
+lower right.
+So that's the difference between mf row
+and mf col.
+The last option I'll talk about here is
+the points function, just as
+a demonstration to how you can annotate a
+plot by adding things to it.
+So, let me just reset the plot region so
+that I'm only doing one plot at a time
+here.
+Now suppose I generate some data and, and
+suppose the data consists of say, men and
+women.
+So there's two groups of people, here.
+So I'm just going to generate some data
+here.
+And maybe I'll give them a little
+relationship,
+so it not, a little bit more interesting.
+And let's say I've got another variable
+here which is the group and it's going to
+be half and half so the two groups in the
+fifty level fifty iterations of each.
+Let me just give them names.
+We'll say labels.
+So, I got males and females in this group
+of people here.
+You can see it is a factor variable of two
+levels.
+So, suppose I wanted to plot the data.
+If I just plot the data X and Y you can't
+tell who are the males and who are the
+females, right?
+Because they're all the same color for
+example and So, suppose I want to plot the
+data and plot the, make the males
+one color and the females another Another
+color.
+So how do I do that?
+So the first thing you want to do, the
+basic idea is
+you're going to set up the plot region,
+but
+you're not going to plot any of the data.
+And then you're going to add the data by
+gender, so you're going to
+maybe add the females first, and then add
+the males, and the
+idea is that each time you add the data
+points, they'll be
+of a different color, or perhaps a
+different plotting symbol, or whatever.
+So first, let's set up a plotting region,
+so I'm
+going to say plot xy So I'm going to pass
+at the data.
+But I'm going to say type = N.
+So this means make the plot, but don't
+actually put the data in there.
+So you can see that when I hit,
+execute this function, everything happens
+just like before.
+The labels are put in.
+The tick marks are put in.
+The margins are specified.
+Everything is there, except for the data.
+So the only thing that's missing is the
+data.
+And so what I'm going to do is, I'm
+going to add the
+data, but I'm going to add them one group
+at a time.
+So let's say I add the males first.
+So I can say points x, and then
+I'm going to subset the vector so that the
+g, I
+only take the points where g is equal to
+male.
+Right, so that's a subset.
+And then I'm going to say y, and then g is
+equal to male.
+So this is only going to plot, plot the
+points, so where where the values of the
+g variable are equal to male, let say I'm
+going to set, make the, that color green.
+Okay.
+So next I see the points on the, on the
+screen, are green.
+Those are, those represent the male points
+only.
+So I can do the same thing for the female,
+so
+I can say points x and then g is equal to
+female.
+And the y g is equal to female.
+And let's say I'll make these, blue.
+So now you can see that there are blue
+circles
+for the females, and there's green circles
+for the males.
+And so you can see the two groups,
+separately within the scatter plot.
+And so, sub-setting based on a grouping
+variable is very common when making plots
+and the points function can be used to
+kind of add points sequentially by group.
+So that you can specify different types of
+properties for each group.
+You can also, in addition to varying the
+color I could have changed the plotting
+symbol.
+So I could have said pch equal to let's
+say 19.
+So this is a kind of solid circle here.
+And that would have given me a solid blue
+circle
+for the females and an open green circle
+for the males.
+So that's one way to separate out.
+Groups of data points on a single scatter
+plot.
+

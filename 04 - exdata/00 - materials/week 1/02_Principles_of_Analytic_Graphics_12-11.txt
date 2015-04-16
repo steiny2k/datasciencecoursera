@@ -1,0 +1,450 @@
+This lecture's going to be about some
+basic principles for building analytic
+graphics.
+The basic goal is to provide some general
+rules that one can follow when we're
+building
+analytic graphics from data, and we're
+trying to
+tell a story about what's happening in the
+data.
+I find these rules to be quite useful when
+thinking
+through building data graphics and they
+apply to many different situations.
+so, I've kind of cribbed these rules from,
+a book by Edward Tuffey.
+I'll give
+the reference at the end of the lecture.
+This is from his book, Beautiful Evidence,
+where he,
+where he kind of goes through a number of
+principles,
+and so, I'm going to talk through some of
+these ideas
+and kind, and kind of show them, in, in
+context.
+So, the first principle, that Tufty talks
+about, is to show comparisons.
+And this is a very basic idea in all of
+science.
+And the basic idea is that evidence for a
+hyp, for a hypothesis or an idea about
+the world, is always going to be relative
+to another hypothesis, right?
+So evidence is always relative.
+And so, if you're comparing Hypothesis A,
+there has to
+be some alternative hypothesis that you're
+going to compare it to.
+And so, so whenever you hear a statement
+or hear a a summary of
+evidence, based on data you should always
+be asking a question compared to what?
+Alright, so here's a quick example.
+The basic idea is that
+we have a, a boxplot which looks at the
+effect of an air cleaner
+on the asthma symptoms of children who in
+a certain, in a set of homes.
+So the idea is that an air cleaner was
+introduced
+into a child's home, to reduce indoor air
+pollution levels.
+And we want to see if their asthma
+symptoms are improving.
+So the outcome is, it's what's called
+symptom-free days.
+So a higher number is better.
+And here we can see that the group of
+children that got the
+air cleaner in their home had an increase
+in their symptom-free days.
+About, on the median increase was about
+one symptom-free day over 2 weeks.
+So that's a positive outcome, and we might
+be inclined
+to think that of course that the air
+cleaner works.
+But of course, the real question is
+compared to what?
+So what do we compare the air cleaner to?
+And so the, the what we compare them to in
+this case, is nothing.
+So our, our control setting where
+the air, or the control set of houses are
+have
+no air cleaner, and just kind of live
+their daily lives.
+So this was a randomized control trial
+that looked
+at installing an air cleaner in a child's
+home.
+And, and, and installing nothing in the
+child's home.
+And you can see now that in the control
+homes,
+the average change in the symptom free
+case was about 0.
+So there's really no change.
+And then the average change in the air
+cleaner
+homes was about 1 symptom free day for, 2
+weeks.
+And so, just now you can
+say okay, well relative to doing nothing,
+the air cleaner is actually
+a little bit better at showing an
+improvement in the child's symptoms.
+So it's always important to show a
+comparison in a plot.
+So that you can, you can have a basis to,
+to compare what you're
+showing and, c, so you can compare
+the evidence to, between 2 different
+hypothesis.
+The 2nd basic principle, is to show
+causality or mechanism or,
+to, to make an explanation and to s, to
+kind of show what's going on, show some
+systematic structure.
+So I mean, the, the use of the
+word causality here is not supposed to be
+formal.
+But rather, is just to show kind of what
+you believe, and how you believe the world
+works, right.
+So you need to be able to show what, how
+you believe the system is kind of
+operating, so to speak.
+And so so what's the causal framework for
+thinking
+about the question that you're kind of
+interested in?
+And so if I might extend the
+example from the previous slide,
+previously we saw that
+if you install an air cleaner in a child's
+home,
+that on average, they're going to
+experience a one symptom-free
+day increase, so a better outcome in their
+asthma symptoms.
+Now, we might ask, okay, well why does
+that occur?
+Why is it that installing an air
+cleaner in a child's home, improves their
+symptoms?
+Well, of course, we hypothesize that the
+air cleaner is cleaning the air.
+It's removing particulate matter from the
+air, and
+so this particulate matter that's not,
+that's being removed, is no longer
+going in the child's lungs, and no longer
+triggering their asthma symptoms.
+So that's kind of how we believe things
+work.
+And so we can show a plot, that might
+corroborate that evidence.
+And so we can show another plot, which has
+the symptom free days on
+the left hand side, and then the
+particulate matter, on the right hand
+side.
+So now we can see what was the effect of
+the air cleaner on the, on the particulate
+matter levels
+inside the child's home?
+And you can see that for the control
+group,
+there was basically no change in the
+particulate matter levels.
+Maybe in the slight increase, in the, in
+the levels.
+But there was a pretty, substantial
+decrease in particulate matter levels.
+For the group of homes that got the air
+cleaner.
+So now we can see that not only did a
+child's symptom free
+days increase when they got the air
+cleaner, that they're that they're indoor
+air particulate matter levels decreased,
+also when
+they got the air cleaner on average.
+So, we can think about, you know, what is
+the explanation for,
+you know, why the the air cleaner seems to
+improve symptoms in children.
+And we can, and we can show, using the
+data that
+we observed, that it does seem to decrease
+their particulate matter levels.
+Now, of course, to really confirm that
+this
+hypothesis that the air cleaner operates
+through, by reducing
+PM, we'd have to do a lot, a
+little bit more investigation and perhaps
+more experimentation.
+But this graphic kind of suggests a
+possible explanation.
+The third principle that that [INAUDIBLE]
+talks about is to show multivariate data.
+And the basic this rule can be boiled down
+to
+show as much data on a single plot as you
+can.
+And the reason is because, data are, the
+world is
+inherently multivariate, there's lots of
+things going on all the time.
+And if you just plot 2 variables, or maybe
+even 3 variables.
+It's not going to show the real picture of
+what's happening in the world.
+So if you can, you can integrate, if you
+put
+a lot of data on a plot, then you'll be
+able to tell a much richer story.
+So here is an example of a plot which is
+another air pollution
+example, but now we're, this a, a, if data
+comes from outdoor air pollution.
+So on the X axis we have, particulate
+matter less than 10
+microns in aerodynamic diameter, the
+concentrations of those, from day to day.
+So, every circle on this plot represents a
+daily concentration.
+And on the y axis, we have
+the daily mortality in New York City.
+This is for the time period 1987 to, 2000.
+And you can see that overall, when, there
+seems to be
+a night-, a slightly negative association
+between PM 10 levels and mortality.
+Cause you can see that the regression line
+that I put through there, is slightly
+downwards sloping.
+So that seems interesting, cause you
+might,
+one might hypothesis that higher air
+pollution
+levels might be associated with higher
+mortality, not lower mortality.
+So but you can look at other variables.
+So there's not just air pollution and
+mortality that
+is kind of, kind of, that is of interest
+here.
+There are other variables that may be of
+interest.
+And may kind of be part of the system, and
+may confound this relationship.
+So, one of the things that we can look at
+is see, well, how does this relationship
+change across different seasons.
+So if you look at, you know,
+particulate matter and mor-, and mortality
+in winter,
+spring, summer, and fall, what does that
+look like?
+So, we can make a, a different plot to
+show that relationship.
+And this is the plot that we can make.
+So this plot shows the relationship
+between pm10 and mortality.
+So, it's the same plot as we saw as we
+showed
+on the previous slide, but it's split
+across the different seasons.
+So we see it separately for winter,
+spring, summer, and fall.
+And we can see that in each plot, the
+relationship is actually
+now slightly positive.
+So within each season, the relationship
+between PM and mortality is
+positive, but if you look overall, the
+relationship appears to be negative.
+So this is an example of Simpson's
+Paradox.
+If you may have heard it.
+But the basic idea is that the season in
+which we look
+at the relationship, is confounding the
+relationship between PM 10 and mortality.
+And so when we look across with with the
+[INAUDIBLE]
+we look at the relationship within each
+season it changes.
+So it's important to show as many
+variables as is reasonable at a given
+time,
+so that you can sh, get a clear picture of
+the relationships in your data.
+So the fourth principle is to integrate.
+The evidence that you have.
+And, and the basic idea here is that you
+want to use as, as
+many different modes of evidence, or as,
+or displaying evidence as you can.
+And so there's no reason to say if you're
+just, if you
+have a tool that makes a plot, to only
+show a plot.
+Or if you only have the ability to make a
+table, to only show a table.
+You should be able to combine different
+modes
+of evidence into a single presentation,
+to, to make
+edit, to make your graphic or whatever
+display
+that you're making as information rich as
+possible.
+And so, the idea is not, is not to let the
+tools
+that you use to drive the kinds of plot
+that you make.
+You should make a plot that you want to
+make,
+and not just let the tools do the
+thinking.
+And so what, that's one of the nice
+advantages
+of a system like R, because the, the tools
+are
+very flexible in R, and you can make all
+kinds of customized plots to show the data
+and to
+kind of integrate different modes of
+evidence.
+So this is just one very quick example
+from a published paper.
+In the Journal of the American Medical
+Association, looking at
+the relationship between coarse
+particulate
+matter and hospitalizations in the
+elderly.
+And the basic idea is the details of this
+plot are
+not particularly important, but I just
+wanted to show that they're,
+there are kind of point estimates here,
+which are in the
+solid circles, and then there's confidence
+intervals indicated by the lines
+going through the confident, through the
+solid circles.
+But then on the right hand side here you
+see this
+label called posterior probability that
+the relative risk is created in 0.
+And so this is a measure of the strength
+of the evidence
+that the, the kind of the association
+between coarse particulate
+matter, and, and hospitalizations is, is,
+in fact, different from 0.
+And so, so here, we integrate, the, the,
+kind
+of, the point estimates as, as dots and
+lines.
+Then we also have texts on the right which
+also, it shows another piece of
+evidence, which is kind of the strength of
+that evidence, as encoded by the posterior
+probability.
+So you can use these kinds of tools to put
+lots of
+information on your plots.
+And now, I have to resort to putting
+diff-, putting information
+in different places where they may be
+difficult to track down.
+The fifth principle is to det-, to
+describe and document the evidence
+that you present, with using labels and
+sources and, and whatever, and, and,
+and in particular, if you're going to be
+making a plot with, a system
+like R, it's important to preserve the
+computer code that made the plot.
+So the idea is that you want to lend
+some credibility to the evidence that you
+present.
+So, sources of where the data came from
+that's very
+important and how you made the plot is
+also important.
+So that's a very basic principle and it's
+important
+for your credibility.
+The very last principle of course is that,
+content is king, so if you don't have
+an interesting story to tell, then there's
+no
+amount of presentation that will make it
+interesting.
+So when, when you're making plots, when
+you're making figures, and you're making
+graphs, the first thing about what's the
+content that you're trying to present?
+What's the story you're trying to tell?
+What's the data that you have?
+And then think about well what's the best
+way to present that?
+How am I going to present it?
+And what is it
+going to look like?
+Because if you don't have very good
+content, then there's
+really not much you're going to be able to
+do beyond that.
+So just to quickly summarize the, the
+6 basic principles are, first show
+comparisons.
+Always show something relative to
+something else.
+Show causality or mechanism, or explain at
+least
+try to explain how the system is working.
+How the world is working, at least
+according to your ideas.
+The third is to show multivariate data.
+So always try to show
+more than 2 variables, because the world
+is complex and involve many variables.
+Principle number 4 is integrate multiple
+modes of evidence.
+So that you can use things like tables and
+plots and texts all together.
+You don't have to keep them separate, if
+you don't want to.
+Describe and document your evidence.
+Always have sources and, and source code.
+And, and, to lend credibility to your
+plots.
+And finally, always remember that the
+story that you tell
+and the data that you use are the most
+important
+elements of any graphic.
+So just the, the P reference that I would
+use for this presentation is, Edward
+Tufte's book, Beautiful Evidence.
+And you can, you can read about it at his
+website which I point to here.
+It's an excellent book, I highly recommend
+it.
+So, so that's some, these are some basic
+principles about building analytic
+graphics, and then we're,
+and, in, and in future lectures we'll talk
+about how to do that using the various
+plotting systems in R.
+

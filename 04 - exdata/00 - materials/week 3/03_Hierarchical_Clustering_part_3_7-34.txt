@@ -1,0 +1,277 @@
+So the cluster dendogram that's produced
+by default in R is relatively nice, but
+it, it is, there is possible to kind of
+make it a little bit nicer.
+So this myplclust function which is
+available on the
+course website, you can download it
+straight from there.
+And once you source it into R.
+You can get this function which in
+turn, produces a cluster dendrogram, but
+then all
+the, the, the points in the individual
+clusters are A, labeled by their cluster
+label.
+And B, they are
+colored in separately, so you can see
+cluster one is labeled with all ones.
+And it's and it's they're, they're colored
+black.
+Cluster two is colored red and cluster
+three is colored green.
+So of course, in order to do this, you
+have to determine, you have to specify the
+how many clusters there are before you can
+actually
+you know, label them one, two, and three,
+etc.
+[BLANK_AUDIO]
+Now you can go to the RGraphGallery to see
+some kind of more
+interesting cluster diagrams and, and to
+look
+at some software that people have used.
+To create really nice clustering diagrams.
+So if you want to look at some, for
+example, this cluster dendrogram which has
+labels on the, on the leaf nodes, and it's
+colored each of the groups.
+It's added a little bit of other
+information.
+You can take a look at this gallery, which
+a lot of other really nice plots on it
+too.
+So, the other i, issue when it comes to
+using hierarchical clustering is how do
+you merge points together?
+And so the question is, you know, when
+you, when you, when
+you, when you merge a point together what,
+what represents its new location.
+And so one is called average, so average
+linkage.
+And the idea is that if you take two
+points and their new com,
+coordinate location, it's just the average
+of
+their x coordinates and their y
+coordinates.
+So it's kind of like the roughly the
+center
+of gravity or the middle of tat group of
+points, now that seems logical and it can,
+and it can, it will, it will lead to a
+kind of certain type of clustering result.
+[NOISE] The other type of, of approach is
+called complete linkage and there the
+idea is that if you want to measure the
+distance between two clusters of points.
+Then you take the farthest two points from
+each, from the two clusters, as the
+distance.
+So for example, in this picture, if you
+look
+at the upper cluster, and the kind of
+lower
+left cluster, the distance between those
+two clusters is
+the equal to the distance between the two
+farthest points.
+And so that gives you the kind of complete
+linkage approach.
+The average linkage, of course, gives you
+the distance between the two centers of
+gravity.
+So that's the difference between the two
+pluses here.
+So you can see that in the complete
+linkage example
+that distance is relatively far.
+Where as in the average linkage example
+the distance is somewhat shorter.
+And so, it's not like there is one right
+or one wrong way to do it.
+But the point is to show that each of
+the, the two different merging approaches
+can get to,
+give you very different results and so
+it's is
+useful to try, it's often useful to try
+both approaches.
+To see what kind of clustering results you
+get, in
+the end and whether one set makes more
+sense than another.
+The last function I want to highlight here
+is the heatmap
+function which is a really nice function
+for visualizing matrix data.
+So if you have an extremely large table or
+a,
+a large matrix of numbers that are kind of
+similarly scaled,
+and you want to, just take a look at them
+really
+quickly in an organized way, you can call
+the heatmap function.
+And what the heat map function does is
+essentially runs a hierarchical
+cluster analysis on the rows of the table
+and on the columns of
+the table.
+So think, on the.
+So if you can imagine the, the you know,
+rows of the table are like observations.
+And then it runs a cluster analysis on the
+rows of the table.
+And then, think of the columns of the, of
+the table as, as sets of observations.
+Even if they're not actually observations.
+The columns, for example, might be
+variables or something like that.
+But think of them as just different
+observations.
+You can write a cluster
+analysis on that, too.
+And the idea with the heatmap function
+is that it uses the hierarchical
+clustering function
+to organize the rows and the columns of
+the tables so that you can visualize them.
+You can visualize kind of groups or blocks
+of observations within the table using the
+image function.
+So, what it does is it creates a image
+plot here, and and it
+reorders the columns and the rows of
+the table according to the hierarchical
+clustering algorithm.
+So here you can see that for example,
+along the rows I've got this
+hierarchical, this cluster dendogram which
+shows that
+there are probably you know, three
+clusters.
+And those clusters, rows are all grouped
+together.
+And then there are only two columns in the
+data frame.
+So it's not particularly interesting to do
+a hierarchical cluster analysis on that.
+But if you had many,many columns, you
+know,
+you would reorganize the columns so that
+we,
+they would be kind of, the closer ones
+would be closer together, and the farther
+ones would
+be farther apart.
+And so, the heatmap function is really
+useful for kind of, or,
+as a very quickly visualizing this kind of
+high dimensional table data.
+So this is summarize what for heirarchical
+clustering.
+It's a really useful technique for looking
+at high-dimensional data.
+It organizes the data in a kind of logical
+and intuitive way and partic, in
+particular, functions like
+the heatmap function are, are really
+useful for kind
+of looking, for quickly looking at table
+or matrix data.
+And so, of course, you need to know, you
+need to define a
+notion of what it means for two points to
+be close or far apart.
+And you have to have a
+merging strategy.
+So we talked about complete linkage and
+average linkage.
+So given those two things, you can run,
+the hierarchical
+clustering algorithm will run, and it will
+produce a cluster dendrogram,
+which shows you kind of how the merging is
+done, or
+how the, how the points got merged
+together through the algorithm.
+So one of, a couple of issues when it
+comes to, hierarchical clustering.
+And this is often true for many clustering
+algorithms.
+Is that the, the clustering picture may be
+unstable.
+And so, for example, if a few points were
+to change.
+Or, for example, if you have some
+outliers.
+Then the clustering, if you were to remove
+those points.
+Or modify them a little bit.
+Then the clustering dendogram or whatever
+the
+final products might be, could change a
+lot.
+And so you have to be sensitive to that
+possibility.
+So you might, so the, often the use, a
+useful thing is to try different
+metrics, distance metrics, to make sure
+it's not to see how sensitive it is to
+the different distance metrics.
+Maybe change emerging strategy to see what
+kind of
+picture emer, comes out if you change
+merging strategy.
+And also clustering algorithms could be
+sensitive to the scalings of
+a given variable, so you might, if, if one
+variable, for
+example, is, is measured on with units
+that are much larger
+than another variable then that can
+sometimes throw off the algorithm.
+So, it may be useful to scale certain
+variables so that they're more comparable
+to each other.
+One nice thing about hierarchical
+clustering, at
+least the algorithm as discussed here, is
+that it is deterministic so there's no
+random starting point, there's no
+randomness in it.
+If you run it once, it will run, and with
+the same
+parameters and the same data, it will give
+you the same picture.
+Of course, a key question in any
+clustering approach is the, is where to
+cut.
+And the general idea is, you know,
+determining how many clusters there are.
+It's not always obvious
+to figure out how many clusters there are.
+And, and so, but there are a number of
+algorithms
+that has been proposed, to try to figure
+that out.
+But I think the best use of hierarchical
+clustering is
+probably just for exploratory analysis and
+just for looking at
+your data, visualizing your data, getting
+a sense of what
+patterns are there, if there are any
+patterns at all.
+And then, you can kind of take these ideas
+and formalize them later in a more
+sophisticated models.
+So I give you some links, the kind of more
+details
+about these approaches.
+And I encourage you to take a look at them
+to explore further.
+

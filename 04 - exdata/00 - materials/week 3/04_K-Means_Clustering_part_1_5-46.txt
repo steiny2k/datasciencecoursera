@@ -1,0 +1,220 @@
+This lecture is going to be about K-means
+clustering.
+And K-means is actually a relatively old
+technique that was developed
+quite a while ago but it's, it remains
+very useful we're
+going to, were kind of summarizing high
+dimensional data and we're getting
+a sense of, you know, what, what patterns
+your data shows.
+wha, What kinds of observations are
+similar to each
+other, and what observations are very
+different from each other.
+So we're going to talk a little about
+K-means
+works, and show what it can do for you.
+So the basic principle behind
+K-means clustering is that to first define
+how, what does it mean for things to be
+similar to each other and what does it
+mean for things to be different from each
+other.
+So in some sense you want to define you
+know?
+What does it mean to be close?
+How do we group things together, and how
+do we visualize this grouping?
+And then once we visualize the grouping
+how do we interpret what we see?
+So I think The basic.
+The most important thing is defining: what
+do we mean by close?
+And we need a distance metric
+to define you know, what it means for two
+things to be close together.
+Because depending on the context, two
+things could
+seem close, but not, but not be very
+close.
+And then in a different context, you have,
+you
+could have a totally different meaning of,
+of distance.
+And so this is a very important step.
+And if you don't do it well.
+You end up with nonsense at the end.
+So, get kind of the classic garbage in,
+garbage out.
+So the couple of t, traditional distance
+metrics and
+this in, statistics are, you having a
+notion of continuous distance.
+Which is like euclidean distance, so this
+is like the straight line between two
+points.
+Another continuous measure is basically
+like a correlation similarity between.
+Let's say two variables and so you can see
+how correlated they are, or how similar
+they are.
+So highly correlated points would be
+similar.
+And then another distance is called the
+Manhattan distance.
+And this is kind of, we'll, we'll talk a
+little bit more about this a little bit
+later on.
+So, you need to pick a distance or
+a similarity metric that makes sense for
+your problem.
+So k-means clustering is a way of
+partitioning a
+group of observations into a fixed number
+of clusters.
+And so the idea is that you have, you have
+to
+set, say beforehand how many clusters of
+data, of points are there.
+So for example, if you have 100
+observations in your data set you
+might think that they could be neatly
+divided into say four different groups.
+Okay?
+So you have to have a sense of how many
+clusters there are first.
+And then each of these groups
+is going to have a centroid.
+Right?
+So it's going to be like a center of
+gravity around which each group kind of
+gathers.
+And then once you have these centroids, we
+kind of defined we
+kind of assign each of the observations to
+each of these centroids.
+And that's how we do the group kind of
+assignment.
+And so the basic approach is to kind of
+pick some, or the
+algorithm for writing K-means is to
+kind of pick some, pick a centroid.
+You know, assign all the points to the
+centroids.
+Then maybe recalculate the centroids and
+reassign all the points.
+So you kind of iterate back and forth
+until you reach a solution.
+And so the things that you need, you need
+a distance metric.
+You need a number of clusters, so a
+fixed number of clusters that hit the
+specify beforehand.
+And you need an initial guess as to where
+the centroids are.
+And often you might just pick some random
+points, just
+to start the algorithm in terms of where
+the centroids are.
+But K-means clustering algorithm will
+produce
+a, a final kind of estimate of.
+Where the cluster centroids are.
+And it will tell you which centroid each
+observation is assigned to.
+Here's a quick example of how you might
+use the K-means clustering algorithm.
+I've generated just some random data here
+that
+are in two dimensions so it's easy to
+visualize.
+And so the x coordinates and the y
+coordinates
+all come from a normal distribution with
+different means.
+So I specifically
+created three different kind of clusters
+for these twelve observations.
+So each cluster has four observations in
+it.
+So when I plot the data, it's very obvious
+that there are three clusters.
+And I put labels on each of the points.
+So here we see that the algorithm started.
+And I've just chosen some three random
+points.
+To be the centroid.
+So you can see there's kind of red plus,
+and a purple plus,
+and an orange plus down at the bottom.
+So those are the random starting points
+for the centroids.
+You're going to see the first thing we're
+going to do.
+Is we're going to take each of our data
+points and assign to it the closes
+centroid, right?
+So you can see for example point number
+eight at the very top.
+The closest centroid is the red plus over
+in the upper left.
+So that gets assigned to that cluster.
+And then point number four down in the
+lower
+left here, that gets assigned to the red
+cluster also.
+And then the three points one, two, and
+three they
+get assigned to the orange plus in the
+orange cluster.
+And then, the rest of the points are
+closest to the purple little plus there.
+So, they get assigned to the purple
+cluster.
+And so, that's the first kind of initial
+grouping
+of the of the points to the three
+different clusters.
+And then the next thing we're going to
+do is we're going to recalculate the
+centroid.
+So now we have the cluster definition.
+Every point is assigned to a cluster.
+We can recalculate
+the centroids, so for example, by taking
+the mean of that cluster.
+So now you can see that the purple pluses
+has
+moved slightly to be in the middle of that
+cluster.
+The red plus has moved a little bit to be
+in the middle of that cluster.
+And the orange one is now in the middle of
+the three orange dots.
+And so the, the the cluster centroids
+gets, get recalculated.
+And then you kind of repeat the process
+again.
+So you take each data point and you say
+well what cluster centroid
+is it closest to now?
+And I can see that point number four for
+example used to be in the
+red cluster but now it's closer to the
+orange cluster so now it gets reassigned.
+And then you see for example point number
+seven is now
+closer to the red plus so its in the red
+cluster.
+and, and then we recalculate the centroid
+from this, you see,
+now the centroids are kind of moving
+toward you to the point.
+So, you can see how the clusters are kind
+of forming as you go step by step but
+the two processes are to assign the points
+to each
+cluster, and then to update the cluster of
+the centroid locations.
+

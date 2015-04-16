@@ -1,0 +1,228 @@
+Hi, everyone, this lesson is going to be
+about ggplot2 or the ggplot2 package.
+And we're going to, I'm going to talk
+about how to
+do some basic plots using the ggplot2
+package and what it's about.
+And in this, in the next lecture I'll talk
+a little bit in more detail
+about how it's designed and how you
+can make extensions to various ggplot2
+plotting functions.
+So the first question very basic.
+You know, what is ggplot2?
+Basically it's a package
+in R that you can download from CRAN.
+And and it implements what's called the
+grammar of graphics, which is originally
+written by
+Leland Wilkinson and it is described in a,
+in a book called the Grammar of Graphics.
+Now the Grammar of Graphics is a
+description of how
+kind of graphics can be broken down into
+abstract concepts.
+You can, so think of the grammar of a
+language like English.
+You have things like verbs and nouns and
+adjectives.
+And so
+the question is, you know, what are the
+verbs, nouns, and adjectives of a data
+graphic?
+And the Grammar of Graphics kind of
+describes kind of those basic elements
+so that you can put them together to make
+new types of graphics.
+Just like you could take a verb and a noun
+and an
+adjective and make a new sentence that
+maybe no one's ever heard before.
+You could take the grammar of graphics and
+put together various aspects
+of plots and make a graphic that no one's
+ever seen before and
+so that's the basic idea.
+It's a very powerful concept to kind of
+organize all kinds of data graphics.
+And until recently there was no specific
+implementation for it
+in R, but Hadley Wickham who when he was a
+graduate
+student at Iowa State implement the
+Grammar of Graphics as an
+R package called ggplot and its current
+implementation is called ggplot2.
+So one could think of this as almost
+a third graphic system in R.
+Even though it's based, is built upon the
+grid graphic system which is, which comes
+with R.
+It's kind of a third mode of, of plotting
+that has become very popular.
+So if you think of the first mode as like
+the base plots using functions like plot,
+and hist, and
+boxplot, and then the second mode as the
+lattice plots
+so using XY plot and these kinds of
+trellis type functions.
+And then the third mode is ggplot.
+So you get the package from CRAN.
+You can, you can use install.packages.
+It installs on all almost all sys...I
+imagine on all systems.
+You can go to the ggplot website which is
+ggplot2.org.
+And so the nice thing about ggplot is
+that, is that, is that it is based
+on this grammar of graphics, and so, it,
+in a sense, there's a theory of the
+graphics.
+So you can take this theory and kind of
+reassemble the different pieces to make
+new types of plots.
+And as Hadley Whitcomb says in his book,
+you know, the basic idea
+is that you want to shorten the distance
+from the mind to the page.
+So if you have some data that you're
+looking at, And you want,
+and you thin of a way that you want to
+visualize that data.
+You want to be able to rapidly take those
+ideas and turn them into a picture on your
+screen.
+So, from the GG plot two book,
+this sentence kind of summarizes the basic
+idea.
+But the idea is that, the grammar tells us
+the statistical graphic is mapping from
+data to aesthetic attributes.
+So color, shape and size.
+- of geometric objects, so, points, lines,
+and bars, and the plot may also
+contain statistical transformations of the
+data and
+is drawn on a specific coordinate system.
+So, we have things are that, we have a
+mapping from data to aesthetics, geometric
+objects, we have statistics.
+Now we have a coordinate system.
+So in this lecture I just want to talk
+about
+the qplot function which is kind of the
+most basic
+function and it's probably the best place
+to start for
+someone who is transitioning from say the
+base plotting system.
+So in the base plotting system you know
+the work horse function
+is the plot function and so qplot which
+you can think of as
+standing for quick plot Is kind the work
+horse function for for
+GD plot and its analogous to the plot
+function and the base system.
+So one
+key difference that you have to get used
+to when you're using
+GD plot is that typically when you make a
+plot and you pass
+data to the q plot function you want to
+tell it where the
+data comes from and the data will always
+come from a data frame.
+So a data frame is going to be.
+So, your data have to be organized in a
+data frame.
+And then when you plot variables those
+variables are going to come from the data
+frame.
+Now, you don't have to specify a data
+frame.
+You can
+if you don't specify a data frame the the
+cue plot function or
+all the plotting functions will, will look
+for the data in your workspace.
+But it's generally a good idea to specify
+the data frame.
+That way when you read the code that
+generated
+the plot You know exactly where the data
+came from.
+So then so the data frame is
+very important to organize before you
+start plotting.
+Once you start plotting the plots are made
+up of aesthetics
+and geoms and so aesthetics are things
+like the size, shape,
+and color of things.
+Points and the geoms are sort of
+the objects that you're pointing, plotting
+I'm sorry.
+So are you plotting points Are you
+plotting
+lines, are you plotting bars, you know,
+whatnot.
+One aspect that's important for the qplot
+function, and also is similarly
+important when you're using lattice
+functions,
+is the idea of using factor variables.
+So factors are very important because they
+indicate subsets of your data.
+So if you imagine you have a data frame or
+you have a y variable and a x
+variable and then a factor variable the
+factor will
+indicate subsets of your data in the data
+frame.
+So for example you might have factor that
+indicates the gender.
+So you have a bunch of
+males and a bunch of females.
+So those are subsets of your data and you
+might want to plot a certain relationship
+divided by
+the various subsets or you might want to
+color
+certain points, depending on whether
+they're male of female.
+And so the categories that are indicated
+by various
+factor variables can be useful for
+annotating a plot.
+And so, one aspect, so one thing that's
+important about this feature is that, is
+that when
+you have factor variables in a data set,
+you want to make sure that they're
+properly labeled.
+So it's usually not useful to label a
+factor variable
+as one, two, and three, even if you have
+three categories.
+One, two, and three is not particularly
+informative.
+Usually you want to label them with the
+more informative labels
+so that you know what those factor
+variables are trying to encode.
+Now the qplot function is a fairly
+straight forward function
+to use.
+I think it's very easy to pick up.
+It hides a lot of the details of, of what
+ggplot is doing underneath which is fine
+for many cases.
+But the ggplot function is really kind of
+the core function of the system.
+It's very flexible and you can use it in
+combination
+with a lot of things that g, that qplot
+can't do.
+

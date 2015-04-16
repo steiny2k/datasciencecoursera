@@ -1,0 +1,274 @@
+Principal Components Analysis and the
+Singular Value
+Decomposition are a really important
+techniques, both in
+the exploratory data analysis phase, and
+also,
+in the more kind of formal modeling phase.
+The techniques I've been, can be used in,
+very easily in both eight, stages.
+But I'm going to talk a little bit about
+kind of,
+how it's used in the exploratory phase,
+and I want to
+talk a little bit about, kind of, what,
+what, what
+goes on underneath, and kind of what their
+underlying basis is.
+So,
+if you look, suppose we have some matrix
+data
+here and I just generated some random
+normal data
+here using this code right here, and you
+see
+that the matrix that I plotted here using
+the
+image function, it's not particularly
+interesting, it looks pretty
+noisy and there's no real pattern as we
+would
+expect there, to not be, Now, I could just
+run a hierarchical cluster analysis on
+this data set.
+I just, I can do an hierarchical, a
+cluster
+analysis on the rows of the data frame or
+the rows of the matrix and the columns of
+a matrix.
+And I can do this using the heatmap
+function very easily in R.
+So when I run the heatmap function, you
+can see that the cluster analysis
+is done, I get the dendrograms printed on
+both the columns and the rows.
+But again, there's no real interesting
+pattern that emerges, and
+that's because there's no real interesting
+pattern underlying in the data.
+So so that's fine.
+But now, what if we add a pattern to the
+data set.
+So let's try to add something and
+I, I do it with this code here, with this
+four loop here.
+So I loop through all the rows, and on a
+random row I
+flip a coin, and if it turns out to be a
+one I just
+add a pattern, I just, so, so that five of
+the columns have a
+mean of zero, and another, and the other
+five have a mean of three.
+So, I just kind of add a little shift here
+across the columns.
+So now if I plot the data you see that
+their at the
+right, on the right hand five columns are
+a little
+bit more yellow which means that they have
+a higher value
+and in the left hand side five columns
+which are, which
+are little bit more red which means
+they've a lower value.
+That's because some of the rows have a
+mean of three in the right hand side
+and some of the rows only have a mean of
+zero on the right hand side.
+So, you can see there's an obvious kind of
+step pattern there.
+So now, if I do, if I run a higher, higher
+group of cluster analysis on
+the data, you can see that, that the
+the two sets of columns are easily
+separated out.
+So you can see that the dendrogram on the
+top
+of the matrix which, which is right on the
+columns.
+I see it, it has, it clearly splits into
+two clusters,
+there's five on the left, and there's five
+on the right.
+On the rows, it's not so obvious, because
+there's no real pattern that goes along
+the rows.
+And so that kind of get reorganized into
+a random pattern and, and that's the
+picture that emerges from the heat map.
+Now, we can take a look at a closer look
+at the patterns in the rows
+and columns by looking at kind of the
+marginal means of the, of the rows and
+columns.
+So for example I can look at ether the ten
+different column
+means or I can plot the 40 row means in
+this matrix.
+So here with this code, that's exactly
+what I've done
+on the left hand plot I've got the
+original matrix data.
+That's been kind of reor, that's been
+reordered to
+look according to the kind of hierarchical
+cluster analysis of the, of the rose.
+And and and I've plotted in the middle
+plot here the mean for each of the rows.
+If you look, on, on the y-axis I've got
+the row number which goes from
+one to 40, so that kind of is roughly
+parallel with the image on the left.
+And and on the x-axis I've got the mean of
+that row.
+So for example, you can see that for row
+ten
+the mean is roughly, you know, minus 0.25
+or something like that.
+And then for row 30 the mean is roughly
+1.5.
+And so we see that there's a clear shift
+in the mean as you go across the rows.
+Similarly, if you go across the columns,
+you can see, across the
+ten columns, there's a clear shift in the
+mean of each column.
+So the first ten columns have roughly a
+mean of zero or close
+to it and then the next ten columns have
+roughly a mean of two because, there's a
+shift there.
+So using the plots on the, on the, in the
+middle on the
+right you can see a clear pattern, in the
+rows and the columns there.
+So, some related problems that, that so,
+closer analysis are, is
+useful for kind of identifying these types
+of patterns, but we
+can maybe take a little more, a slightly
+more formal approach,
+that kind of takes advantage of the matrix
+structure of the data.
+And so the base, there are two kinds of
+problems you might want to look at and so
+if
+you have a lot of variables and we want,
+we want to create a new set of variables
+that
+are uncorrelated and explain as much
+variance as possible.
+So the idea is that we have a lot of
+different variables.
+Suppose we have hundreds or maybe
+thousands
+or tens of thousands of variables in
+our data set and the idea is
+that they're not all independent
+measurements of something.
+Right?
+So a lot of them will be related to each
+other.
+They will be correlated with each other.
+So for example, you'll have two
+measurements
+that are like height and weight and so
+those will obviously be related to each
+other and so they're not all independent
+kind
+of like factors.
+And you see the idea is that we want to
+create a set of variables that is smaller
+than the original set of variables that we
+have and that are all uncorrelated with
+each other.
+So that they kind of represent different
+types of variation in your data set.
+And similarly, we want this reduced set of
+variables to explain
+as much of the variability in your data
+set, as possible.
+So another related problem is that if you
+put all the variables together
+in one matrix so like the matrix that we
+showed in the image.
+You want to find the best matrix that's
+created with
+fewer variables, the and, but still
+explains the original data.
+The idea is if you, the more technical
+term is that you want to find
+a lower rank matrix and that somehow
+explains the, the original data reasonably
+well.
+So the first goal here is a statistical
+one and it's,
+it's a common problem that's solved by
+the method of, of principle components
+analysis.
+And the second goal here is more of a kind
+of data compression problem,
+where you want to find a, a kind
+of smaller representation of the original
+data.
+And one way to think about that problem is
+with the singular value decomposition.
+So the singular value decomposition can be
+written in mathematical terms, in matrix
+terms as if you have a matrix x where
+each, the, all, we can think of each
+column in this matrix as a variable or a,
+a measurement And each row of
+the matrix as an observation, so you might
+have many, many observations for a given
+metric.
+So for example, the rows of your matrix
+might represent individual people, and
+each column would represent
+a measurement on those people.
+So for example, the first column might be
+the
+height, and the second column might be the
+weight.
+So then the idea is that if you have a
+matrix x, that's formatted in this way
+then the singular value
+decomposition or the SVD is a matrix
+decomposition that can,
+where it, which decomposses the original
+matrix into three separate matrixes.
+One is U, one is called D and the other's
+called V.
+And so they, the column of U are
+orthogonal
+so they're, ind, they're kind of
+independent of each other.
+They're called the left singular vectors
+and the columns of
+V are also orthogonal and they're called
+right singular vectors.
+And then D is a diagonal matrix which
+contains the singular values.
+So that's the basic idea of the singular
+valued composition.
+We'll talk about these components a little
+bit later on.
+Principle components analysis, also
+usually known as PCA,
+is related, uses the single valued
+composition as a related technique
+And the basic idea is that if you were to
+take
+the original data matrix, and subtract the
+mean of each column
+from each, so subtract each, the column
+mean from each column.
+And divide by the column standard
+deviation, and then, and
+then run a SVD on that kind of
+re-normalized matrix.
+The principle components would be equal to
+the right singular values
+of the matrix, so the V matrix.
+

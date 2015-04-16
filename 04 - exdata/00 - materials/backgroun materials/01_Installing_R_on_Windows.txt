@@ -1,0 +1,39 @@
+This video is going to show how to install
+R for Windows.
+If you go to cran here, click on download
+R for Windows, you want to
+hit the base sub directory, and then click
+on the link download R 2.15.1 for windows.
+So this is going to download and you want
+to save it to somewhere on you hard drive.
+Okay, once that's done downloading you
+want to find
+it on your computer and then open up the
+setup package, which is an executable that
+you
+can double click and it'll start the setup
+program.
+So you want to choose English for now and
+we're going to start running through the
+setup wizard.
+This'll be pretty straightforward.
+You have to accept the license.
+Choose the default install directory and
+choose the default e
+32 bit user installation which should be
+fine for most people.
+You don't need eh, to modify the start up
+options if you don't want to.
+and, creating a start up menu item is
+usually a good idea.
+So, the, you hear the defaults are all
+okay, once you
+click through that you'll see the program
+file start to install.
+Okay, so now it's done installing, you hit
+finish, and you'll notice that there is a
+R icon on your desktop now, so you can
+double-click on that icon to launch R,
+and here we are, so that's installing R on
+Windows.
+
