@@ -1,0 +1,97 @@
+Hey everyone, this lecture is
+about the dplyr package in R,
+which is a package specifically designed
+to help you work with data frames.
+So in this lecture I'll just cover
+the basics to introduce the package and
+we'll talk about the verbs arrange,
+filter, select, mutate and rename.
+And we'll show you how to use these
+functions to manipulate data frames and
+to manage data in a more efficient and
+kind of, easy-to-use way.
+The dplyr package is about working
+with data frames because data
+frames are key data structure in
+statistics, and in R, in general.
+So the basic assumptions that are made by
+the dplyr package are that the data in a,
+in a given data frame, each
+observation is represented by one row.
+And then every column represents
+a variable or a measure or characteristic.
+So, these are con,
+basic concepts from the I,
+from the notion of kind of tidy data,
+right?
+And so the so there are a number
+of different implementations for
+the dplyr package, in terms of back
+ends for representing data frames.
+But we'll use for this presentation
+just the default R implementation.
+But you can dplyr with things
+like the data table package and
+with relational database systems.
+So the dplyr package was developed
+by Hadley Wickham at RStudio in,
+it often can be thought
+of as an optimized and
+distilled version of the plyr package
+which we also talked about here.
+And now, and it doesn't necessarily
+conceptually provide any new
+functionality, but it greatly simplifies a
+lot of the existing functionality in R and
+it makes it a lot faster.
+And the verym and
+one of the reasons it's a lot faster is
+because a lot of the operations are coded
+in C++ you know, kind of at a low level.
+So some of the basic
+dplyr verbs are select,
+filter, arrange, rename, and
+mutate as well as summarize.
+And so we're going to cover each one
+of these, verbs, so to speak, in the,
+in the, in the grammar of data
+manipulation in, in this presentation.
+So, select basically returns a subset
+of the columns of a data frame.
+Filter extracts a subset of
+rows arrange allows you to
+reorder the rows of a data frame while
+preserving the order of the other columns.
+rename, lets you rename the variable,
+and mutate kind of transforms or
+adds new variables to a data frame.
+And then finally summarize,
+helps you generate summary
+statistics of the data frame.
+So all the dplyr functions kind
+of have a similar format, and
+so the first argument
+is always a data frame.
+And then the subsequent arguments are just
+kind of, describe, what to do with it.
+So, in the select function, for
+example, you would refer to different
+column names by their name.
+In the filter function,
+you might create a kind of logical,
+a logical, test, to see two subset rows.
+And so that, that's what,
+that's what goes into the second
+argument of each one of these functions.
+The result is always a new data frame, so
+each one of these functions takes data
+frame as an argument and
+always returns a data frame.
+So and so you have to be careful
+that your data frames are always
+properly formatted and annotated.
+For example, the factor levels are,
+are all kind of annotated and
+that the variable names are all there, for
+any, for all these functions to be useful.
+

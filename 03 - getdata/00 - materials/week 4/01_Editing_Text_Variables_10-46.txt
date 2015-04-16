@@ -1,0 +1,352 @@
+A very common data cleaning step is to
+have text variables that are in, sort of
+a nasty format or have extra spaces or
+periods, or underscores that you need to
+remove.
+And so this lecture's going to be able
+how do you manipulate those texts
+programmatically in
+order to get nice, decent variable names;
+but
+also text in the actual data set itself.
+So again, we're going to go back to this
+Baltimore fixed camera data, because I
+can't stop thinking about all of the park
+er, speeding tickets that I get.
+So again the first thing that we're
+going to do
+is download the data set from the Web, so
+we're going to check and see if this data
+directory
+exists and if it doesn't, we're going to
+create it.
+Then we're going to download the data from
+this URL
+and we're going to read it into R with
+read.csv.
+And so, the first thing that we can do is
+look at the names of this camera data.
+And so this is the column names and you
+can see for example, one
+of them is this variable cross street, and
+it has a capitalized S in it.
+This seems like not a big deal but, every
+time that you're going to type that into R
+you might
+see you have this extra capital letter,
+and you might
+miss it and so R might give you an error.
+So one thing that you might want to do is
+make all of the letters
+lower case, and so one way to do that with
+R is to just use tolower.
+So you can make the names all be
+only lower case letters by using the
+tolower command.
+There is also a twoupper command if you
+need that,
+in order to make the the letters all upper
+case.
+Another thing that you might want to do is
+separate
+out variables that have values that are
+separated by periods.
+So if we go back to this page you can see
+for example, that this location variable
+here, it's separated with a dot.
+And that often happens when you have
+variable names loaded into R from files.
+So what we can use is something called the
+string split command so that's
+s-t-r-s-p-l-i-t, and so then we can pass
+it the names of our data set.
+And we can tell it to split on period.
+So here I have to use this escape
+character because the period is a reserved
+character.
+And so what I get if I look at the, this
+data
+set it er, that comes out splitNames,
+which is just a list.
+You can look at say the fifth element
+and that's the element corresponding to
+the intersection variable.
+And you can see that nothing happened
+there.
+It's just one variable because there were
+no periods in that variable name.
+But if you look at the sixth element
+of that list you see that the location
+variable
+has now been split into two components the
+location
+and the one, and the dot has been removed.
+So, we've been able to split that variable
+out.
+So one thing that you might want to be
+able to do then is go through and sub
+set out and just take the part of the
+variable name that doesn't have the dot in
+it.
+I want to give you a very quick aside
+on lists because the function that we're
+going to talk
+about in a minute depend on that, and we
+want to make sure that we remember how
+they work.
+So here, I'm creating a variable myList
+and I'm doing
+that by passing it a letters, numbers, and
+a matrix.
+And so if I look at the list I can see
+that
+it has these three different components to
+it including some named components.
+So I can select out the first element of
+the list, and it returns the letters.
+I can actually subset by the name of the
+variables, or I can actually
+subset out just the vector by just taking
+the first element of that list.
+So one thing that I might want to be able
+to do is actually
+remove all the periods and then only get
+the first part of the variable name.
+So you can see if I took the sixth element
+of this list, remember it had two parts
+to it, it had the location, and then it
+also had the one that came after the dot.
+So if I just take the first element of
+this list element then I get just the
+location value.
+And so, what I can do is I can write a
+function called firstElement.
+And firstElement will just take the first
+value that comes out of the, that list.
+And so I can use sapply to split the name,
+apply to the splitNames, which is a list.
+I can apply the firstEement function,
+which will go through and then
+to each element of that list, it will take
+the first element out.
+In this case, it'll take out just the
+variable names and, when you
+look at location, you'll see that it has
+removed the period from that location.
+So that's one way that you can remove say,
+periods from names and data frames.
+I'm going to go back to this peer review
+experiment data to show you some other
+ways
+that you can manipulate sort of text
+variables
+in order to get the answers that you need.
+So again, I'm going to download the data
+from the
+Internet, and I'm going to store it into
+two data frames.
+One is the reviews data frame, and one is
+the solutions data frame.
+Where reviews is the set of problems that
+have been reviewed by peers in this
+experiment.
+And solutions is the set of the
+SAT questions that have been submitted by
+people.
+So, I can see the data set again looks
+like this.
+And so a couple of the things that I might
+want to be able to do is substitute out
+say characters.
+So in this case, I can see that a couple
+of the variable
+names are solution ID and reviewer ID, and
+they have these underscores in them.
+And so, I might want to remove the
+underscores from those variables.
+Also from this variable time left over
+here.
+And so, one thing that I could is I could
+use this sub-command.
+I can say, every time that you find an
+underscore, replace it with nothing in the
+names of reviews.
+And what you end up with is variable
+names, where all of the underscores have
+been removed.
+I can also gsub to replace multiple
+instances of a particular character.
+So for example suppose I have a variable
+name that has multiple underscores in it.
+If I use sub it will just replace the
+first underscore.
+So if I say, substitute underscore with
+nothing and testName.
+It will find the first underscore, replace
+it, but leave the next two underscores
+alone.
+If I use gsub on the other hand it will
+replace
+all of the underscores, so you just get
+one variable like this.
+So you can use that to replace underscores
+in
+variable names so that you have nice clean
+variable names.
+Or you can also have this happen in actual
+the text values that you have in your data
+set.
+The next handout I'm going to cover is
+searching for
+specific values in variable names or in
+variables themselves.
+So here I'm going to go back to the camera
+data, the
+fixed camera data, and I'm going to look
+at the intersection variable.
+So one thing that I might want to be able
+to do is find
+all of the intersections that include the
+Alameda as one of the roads.
+So, what I'm going to do is I'm going to
+use the grep function.
+The grep will take as input a search
+string that you want to look for, the
+Alameda.
+And it will look through this variable and
+find all
+of the instances in that vector where the
+Alameda appears.
+So it appears in the fourth, fifth
+and thirty sixth element of the
+intersection variable.
+The other thing I can use is the grepl
+command, with a l at the end of the grep.
+And so, what that will do is it will look
+for this version, the Alameda.
+It will look for it in this intersection
+variable, and it will return
+a vector that's true whenever Alameda
+appears, and false whenever Alameda
+doesn't appear.
+And so in this case, you can see that,
+in the, three of the times, the Alameda
+appears, and
+so if I make a table of the true and false
+values, it's true in three of the times.
+So the other thing that you can do is you
+can sort of subset.
+So for example, suppose I want to find all
+the cases where
+Alameda appears in the intersection, and
+then I want to say if
+Alameda doesn't appear then I want to
+sub-set to only that sub-set
+of the data, I can do that using this
+grepl command.
+So you can use that to sub-set your data
+based
+on certain searches that you want to be
+able to find.
+A little bit more about grep, you can also
+use
+value equal true as one of the parameters
+sent to grep.
+And what that will do is, instead of
+telling you which of the elements
+it that Alameda appears in, it will
+actually return the values where Alameda
+appears.
+You can see these are the three
+intersections
+where the Alameda appears in the camera
+data.
+The other thing that you can do is you can
+look for values that don't appear.
+So say for example JeffStreet does not
+appear in the intersection data,
+and so it will return integer zero when
+that value does not appear.
+If you look at the length of that it
+actually turns
+out to be zero, so that's a nice way to
+check.
+So suppose you want to check and see if a
+particular value
+appears in a vector you can look, you can
+grep for that
+value and then look the length of the
+vector and if it's
+equal to zero then you can say that that
+value doesn't appear.
+A couple of other useful string functions
+appear both
+in the stringer package and in the base
+package.
+So the NCHAR will tell you the number of
+characters that appear
+in a particular string, so they're 12
+characters in my name here.
+The other thing you can do is you can
+substitute take out part of the string.
+So in this case, I want to take this
+string, and
+I want to find the first through the
+seventh letters.
+In that case, that's just my first name.
+Another thing that you can do is you can
+paste two strings together.
+So, suppose I have these two strings, and
+I apply the paste
+function to them, I get one string that's
+separated by a space.
+You can actually set the separation with
+the sep argument, s-e-p.
+A very useful version when you're doing
+data analysis is often
+you just want to paste things together
+with no space in between.
+And the way that you do that is there's
+actually a separate
+function called paste zero that pastes
+things together without any space in
+between.
+In the stringer package there's a very
+nice function called string
+trim and what it'll do, is it'll trim off
+any excess space
+that appears at the end of a string, so
+you get
+a nice string without excess space at the
+beginning or the end.
+So, a couple important points about text
+in data sets.
+Whenever possible, you'd like to have all
+lowercase, because missing caps
+can lead to very difficult to find bugs in
+data analysis.
+You'd like them to be descriptive, so in
+other words,
+you'd like it to say diagnosis as opposed
+to Dx.
+You'd like the variables names not to be
+dupli, duplicated and not to
+have underscores or dots or white spaces,
+which we showed you how to remove.
+Variables with character values should
+usually be made into
+factor variables as we've talked about
+creating factor variables.
+Although this depends a little bit on the
+application.
+They should also be descriptive.
+So for example you want to, if you have a
+true and false variable they
+should be labeled as true and false
+instead of zero and one or one and zero.
+And male and female should be labeled as
+such
+as opposed to m versus f, zero versus one.
+it just makes it easier to see what's
+going on in the data set.
+

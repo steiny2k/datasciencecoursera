@@ -1,0 +1,342 @@
+This lecture is about creating new
+variables.
+Once you loaded the data set into R,
+sometimes you will find that some of
+the variables that you're looking for are
+not
+actually in the raw data that you load.
+So you may need to transform the data a
+little bit to get the value you'd like.
+Usually you'll add those values back into
+the data frame.
+This is particularly important when you're
+doing something like prediction, where
+you want to create new variables that you
+might use as predictors.
+Common variables that people create are
+Missingness indicators, so pointing out
+where
+you might have missing data, that's, one
+really common variable to create.
+Also, cutting up quantitative variables,
+creating variables that are
+factor versions of a quantitative variable
+corresponding to a
+particular values that might be of
+interest, or applying
+transformations to deal with data that
+have strange distributions.
+So we are going to be using this Baltimore
+restaurant data set as an example.
+So again, you can go to the URL and
+then click over here on this export button
+to get
+the URL for a particular version of the
+data
+set in this case I am using the CSV
+version.
+Again, I see if the data directory exists,
+then I download the
+file from the internet and I load it into
+R using read.csv.
+Now I've got a data set restData which is
+the restaurant data that was created from
+this data set.
+And so, one thing that I'm going to talk
+about first
+before I get into analyzing the data set
+is creating sequences.
+Sequences are often used to index
+different operations that you're going to
+be
+doing on data, and so it's good to know
+how to create them.
+The command that you use is Seq.
+And so usually what you do is you tell Seq
+the minimum value and the maximum
+value and then there's two ways in which
+you usually specify how many values to
+generate.
+One is to use the by command.
+So by equals two, means it creates it
+starts at one,
+and then creates new values increasing
+each new value by two.
+Right another way to do it is to specify
+the length of the vector.
+And so, what that means is it'll start at
+one
+and end at ten, and it will create exactly
+three values.
+A third way is to say, suppose we have a
+vector x, and it has five values in it.
+And suppose you want to create an index so
+you can loop over those five values.
+You might use this Seq(along=x), which
+will basically
+create a vector of same length as x
+but with indexes, consecutive indexes you
+can use
+for looping or for accessing subsets of
+data sets.
+So one kind of variable that you might
+want to create,
+is a variable that indicates which subset
+another variable comes from.
+So for example here, we have this
+restaurant data,
+we actually have the neighborhoods that
+the restaurants are in.
+And so I might want to find all the
+restaurants that
+are in two neighborhoods near me, Roland
+Park and Homeland.
+And so if I use this percent and percent
+command it
+will allow me to find only the
+neighborhoods that are in those
+two or only restaurants that are in those
+two neighborhoods will
+return true if you're in that
+neighborhood, and false if you're not.
+And then what I'm doing is I'm appending
+this near me variable onto the restaurant
+data set.
+So this allows me to now subset that data
+set only
+by the restaurants that are near me, which
+is kind of
+a nice, clean way of subsetting the data
+set, as opposed
+to always having to use this longer
+percent in percent command.
+Another thing you might want to do is
+create binary variables.
+So for example, we want to might want to
+to find
+the cases where we know the zip code is
+wrong.
+So again, I'm assigning to the data frame
+the variable zipWrong.
+And here I'm using the ifElse command.
+So for the ifelse command, I first send it
+a condition.
+In this case, I'm going to send it the
+condition, is the zip code less than zero?
+So if the zip code is less than zero, we
+think that zip code must be wrong
+and so the first thing that I return is
+true if the condition holds true.
+So in other words all the cases where the
+zip code is less than zero.
+I will get a true and then this is
+what the function returns if the condition
+is false.
+So if the condition is false, in other
+words if
+the zip code is positive then I get a
+false.
+So at the end of the day when I could use
+then make
+a table of whether zip code is wrong and
+whether the zip code is
+less than zero and you can see that and
+all the cases where
+the zip code is less than zero are,are
+greater than zero, I get false.
+And in the one case where [UNKNOWN] is
+greater
+than zero, or sorry less than zero, I get
+true.
+And so that might be a value that I
+want to filter out of my data set.
+This makes an easy way to filter those
+values out.
+You also mi, might want to make
+categorical variables out of quantitative
+variables.
+So for example, we might want to break the
+zip code I put into consecutive numbers.
+So here I'm going to create a variable
+that I'm calling Zip Groups and so,
+what I'm going to use is this cut command,
+going to apply it to a
+quantitative variable, the zip code and
+I'm going to tell cut command that I want
+to break that up according to some values,
+some list of values that I get.
+In this case I'm going to break it up
+according to the quantiles of that zip
+code.
+So what that then will return is a factor
+variables, so zip groups is a factor
+variable where it will break the variable
+zip code up
+into the zero quantile to the 25th
+percentile the 25th to the 50th
+percentile, the 50th to the 75th and the
+75th to the 100th percentile.
+And so, for example, there are, about 375
+of the
+values that land between the 25th
+percentile, and the 50th percentile.
+And so, then, what I can do is I can make
+a table that
+shows you which of the zip codes fall into
+which of these different, clusters.
+And so you can see, say the low values
+fall into the first
+cluster, and then the median values fall
+into the next cluster and so forth.
+So what this does is it breaks
+a quantitative variable up into a
+categorical variable.
+An easier way to do that, I had to specify
+all
+the breaks with the quantile function in
+the previous version of cut.
+If you go into the Hmisc package and you
+use the cut2 function, you can actually
+specify, I
+want to break the zip code up into four
+different
+groups, and I want to break them up
+according quantiles.
+And so when I do that, it will actually
+find out the quantiles for
+me, and break it up into four groups,
+according to the quantiles, which is
+kind of a nice way to do it, if you don't
+want to have
+to set the breaks in advance then cut two
+function in the Hmisc package.
+Another thing that you might want to do is
+you might want to create factor variables.
+So for example, the, zip code variable is
+the integer variable when you load it into
+R.
+But you might want to turn it into a
+factor variable, another words it's not
+clear that being, it, in, incrementing the
+zipcode by one changes quantitatively the
+variable.
+So you might want to turn that into a
+factor variable and
+the way that you do that is with the
+factor command.
+So it takes an input of this integer
+variable and
+it turns it into a factor variable; which
+I'm calling ZCF.
+So, if I look at the first 10 values of
+zcf it
+shows me these values, and they look just
+like they did before.
+They look like the values that are the zip
+code values, but
+then it tells me how many different zip
+code levels there are.
+There are 32 different zip code levels,
+and if I
+look at a class of this variable, it's a
+factor variable.
+So, a couple of other things that you
+might want to know about factor variables.
+So, here, what I'm going to do is I'm
+going to create a, just a
+dummy, vector, so that we could see some
+other properties and factor variables.
+I'm going to create a vector of yeses and
+nos, and so I'm going to do that randomly.
+I'm going to generate a size ten vector of
+yeses and nos.
+And, I'm going to turn that into a factor
+variable.
+And I'm going to, by default what it's
+going to do is it's going to
+create lowest value alphabetically as the
+first value in the factor variable.
+But suppose I wanted to treat the sec, the
+yes value as the lowest value,
+and then I can tell it to take the levels
+and create them in this order.
+And so for example what I can do is I can
+relevel that
+variable and just make the reference class
+be equal to the yes value.
+Another thing that you can do is, you
+can use the as.numeric command to train,
+to change
+that factor variable back into a numeric
+variable if
+you want to use it in certain kinds of
+models.
+This can be a useful thing to do.
+And one thing that it'll do is it'll start
+with sort of the lowest valuing,
+call that one, and then the next lowest
+value and call that two and so forth.
+So, cutting produces factor variables.
+We saw before that I wanted to create this
+zipped groups variable, where
+I cut the ZIP codes up into four separate
+groups by their quantiles.
+And so if you make a table of them, you'll
+get to see
+this table and the class of this object
+zipGroups is now a factor variable.
+You can actually use the mutate function
+to create a new
+version of the variable and simultaneously
+add it to the data set.
+This is part of the plyr package.
+So what I'm going to do here is I'm
+going to create a new data frame.
+This new data frame is I'm going to apply
+the mutate function to the old data frame,
+and I'm going to add a new variable,
+zipGroups, which is equal to a function of
+one
+of the variables in the original data,
+restData
+data frame, and so what happens now is
+The new data frame will be the old
+data frame rest data with the new
+variables added.
+So now I can make a table of the zip
+groups and
+I can see that it appears in this data
+frame rest two.
+Another thing that you're probably
+going to do with quantitative data
+is in an exploratory analysis maybe apply
+some different transformations.
+So, here's the list of the most common
+transformations.
+Taking absolute values and square roots.
+You might take the ceiling or the floor if
+you
+want to round values up or down to the
+nearest integer.
+You can also use the round function to
+round to as many digits as you'd
+like or the signif function to round to as
+many significant digits as you'd like.
+All the standards for calculator functions
+like cosine and sine
+and r as well as logs, which are commonly
+used
+when you have skewed data or data with a
+lot
+of outliers, and then you can also
+exponentiate data as well.
+There's a lot more about this, at these
+two links that I've provided
+here at the bottom [UNKNOWN] lecture notes
+as well as, this stat methods page.
+Even more further notes are available from
+the plyr tutorial, as
+well as the lecture notes of that Ferguson
+transformation from Andrew Jaffe as well.
+[SOUND]
+

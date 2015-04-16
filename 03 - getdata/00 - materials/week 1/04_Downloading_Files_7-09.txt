@@ -1,0 +1,234 @@
+One way we might get a data set is
+somebody actually might actually
+write down the numbers on a piece of paper
+and mail it to you.
+But more likely in this era of the
+internet, you'll probably
+going to be downloading a lot of your data
+from the internet.
+So this lecture is about how do you use R
+to download files?
+And the reason why we want to use R to
+download files as opposed to
+pointing and clicking is because then the
+downloading
+process can be included in the processing
+script.
+And so you get a more complete picture of
+how the data were collected and generated.
+So, the first thing we keep in mind is
+that, we need to know what directories
+we're working in.
+So if you took the data scientist tool
+box, you learned a little bit about CD
+and the current working directories and
+moving around within the directories.
+So the two main command when we're dealing
+with
+directories in R are going to be getwd and
+setwd.
+And so getwd is, does exactly what you'd
+expect.
+It gets the working directory.
+It tells you what directory you're
+currently in.
+And setwd actually sets a different
+working
+directory that you might want to move to.
+So one way that you can do that is you can
+actually use it, a group relative.
+So, for exampl,e if you use setwd../ like
+this, what'll
+end up happening is you'll move it up one
+directory.
+So remember when we were talking about
+directory structure directory is up if
+it's a
+superset if it's above the directory that
+you're
+currently in You can also use absolute
+paths.
+So, for example, you can type
+setwd('/Users/jtleek/data/').
+And what that will do is that'll move
+you into that directory that you've
+specified there, exactly.
+And so an important distinction in Windows
+is that
+you have to use backslashes rather than
+forward slashes.
+So this is an example of the way that a
+path may look
+on a Windows machine, as opposed to a, a
+Mac or a Linux machine.
+So if you need more help with that go
+check out the data science tool dot, tool
+box lectures.
+So one thing that we might want to do is
+just, before we collect a
+bit of data is to create a directory for
+that data to fall into.
+So file.exist is a function in R, so if
+you are in a directory and you type
+file.exist directory
+name like this, it will look within that
+directory and
+see if there is a sub directory called
+directory name.
+And so if it doesn't if it does exist it
+will
+return true, and if it doesn't exist it
+will return false.
+And so dir.create like this will actually
+create a directory if it doesn't exist.
+So here's a little bit of code that checks
+to see if there's a data directory.
+So it says, if the data direct,
+subdirectory exists, then this will return
+a true.
+And so what will end up happening is this
+will be false and nothing will happen.
+If the data directory doesn't exist, this
+will return false and
+this exclamation point will negate it, so
+that will be true.
+And so then it will create a directory
+called data.
+So you'll be seeing a command a lot like
+this throughout the lecture,
+and that's where you create a data
+directory if it does not already exist.
+So the main way that we get data from the
+internet, if we're talking about files, is
+with the download.file function.
+And so the download.file function
+downloads a file from the internet.
+You can do this by hand of course.
+You can go to the in website that
+you're interested in and click and press
+download.
+but, if you do it by
+using download.file(), it'll actually
+improve the reproducibility,
+if you take a math class, you'll
+understand what I mean by that.
+And if not, it'll just, you can imagine
+intuitively, it's easier to keep track of
+everything that you've done if you've
+included
+the download process as part of your
+script.
+The important parameters are the url, so
+that's the
+place that you're going to be getting data
+from.
+The destfile that's the destination file
+where the
+data is going to go and then the method.
+So we will talk a little bit about why the
+method needs to be specified particularly
+when dealing with https.
+So it's useful for downloading
+tab-limited, CSV files, Excel files,
+a whole bunch of other different files
+from the internet.
+So it's sort of agnostic to the file type
+that he might be downloading.
+So an examp, as an example, we're going to
+be using the Baltimore fixed camera data.
+So these are speed cameras that are set up
+around Baltimore, which have
+unfortunately caught your instructor more
+than once speeding, and send him a ticket.
+And so you might want to be able to
+download
+these data and figure out where they're,
+where they are.
+So if you go over here under the Export
+button on
+this website, you actually get a bunch of
+different kinds of files.
+And so, for example, you might go down to
+this CSV, which is one of
+these types of files that you would see
+over here on the right hand side.
+And if you right click, you can copy the
+link address.
+So now that's the link address just to the
+CSV
+file that we might want to download with
+these camera positions.
+And so then what we do is we take that
+link that we copied, and we put it right
+here.
+We save it into a variable called file url
+just like this.
+And then we pass the download file, that
+file URL that we collected off a website.
+And we say we'd like to put it in
+this data directory, and we'd like to call
+it cameras.csv.
+We're using .csv because that's the
+extension used for comma separated files.
+And the method we're going to use is
+called curl.
+This is necessary because this website is
+an HTTPS secure website.
+And so if you're doing this from a Mac,
+you need
+to specify the mechanism curl in order for
+it to work.
+If you're working from Windows, I don't
+think you need to set
+the method to be curl, the default method
+would work alright for you.
+So then if you list the files in this data
+directory.
+So this is sort of like the ls command
+that we saw in the command line interface.
+You see that we now have one file in that
+directory, and it's the cameras.csv file.
+An important component of downloading
+files in
+the internet, is that those files might
+change.
+So for example, if they update the
+cameras, there might be a
+new set of cameras in the data that we're
+analyzing might different.
+So you want to keep track of the date you
+downloaded the data.
+You can do that with the date function.
+So you just assign to date downloaded a
+very, the command date,
+and that will get you the date that those
+data were downloaded.
+So with those data, having been downloaded
+and knowing the date, you can go back and
+see if you can find the right version of
+the file if you have trouble later on.
+So if the URL starts with HTTP, you should
+be okay.
+Even if the URL starts with HTTPS, on
+Windows you should be okay.
+On a Mac, you need to set the method equal
+to curl if you have HTTPS.
+One thing to keep in mind is that this is
+actually going out and downloading a file
+from the internet.
+And so, depending on the size of the file
+and your internet connection, this can end
+up taking awhile.
+So sometimes what you may want to do is
+have the instruction list.
+But when you actually run new versions of
+the processing software, you don't
+rerun the file download every single time
+if it's a really big file.
+And remember to record when the file was
+downloaded, so that you can go back
+and check the versions of the file later,
+when you're trying to figure things out.
+So that's how you download a pop from the
+internet in R.
+

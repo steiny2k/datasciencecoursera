@@ -1,0 +1,145 @@
+Some data scientists show a certain
+snobbery about Excel files.
+But Excel files are still probably most
+widely used format for sharing data.
+I think the reason is because a lot of
+people are used to using spreadsheets.
+So, whether you're working in business
+applications
+or in science, people know how to
+use spreadsheets to collect and put data
+in and share it with each other.
+It's true now even more than ever things
+like Google
+spreadsheets, which allow people to share
+them collaboratively on the Internet.
+The problem for you is that when you're
+analyzing data
+with the scripting language like R, you
+need to be
+able to extract the data out of those
+files, so
+that you can do downstream analysis and
+processing on them.
+So, we're going to go back to the
+Baltimore camera data.
+I guess I must be getting a lot of
+speeding tickets
+lately, because I've been thinking about
+this data set a lot.
+And so, now, we're going to actually
+download
+the, Excel version of this, data set.
+And so in this case, the URL is a little
+bit different.
+Again, you just pick the URL off the
+website.
+And then, what we're going to do is we're
+going to actually download
+the file as a .xlsx file, because that's
+the extension for Excel files.
+And so, now, we've downloaded this file;
+we've again
+used download file, which remember, is
+agnostic to the
+file type, so it just downloads the file
+and
+puts it in this file name that you've
+stated here.
+And again, we're going to collect
+information on when the file was
+downloaded so that we can know when the
+analysis was performed.
+So, the library that the, R library that
+is useful for this is the xlsx package.
+There's other packages XLConnect, that can
+also be used, if you would like to.
+They might be, provide a little more
+flexible interface.
+But, I liked xlsx.
+So, what we do is we actually use the
+command read
+.xlsx, and we assign it again to the
+camera data variable.
+And now, we need to pass a couple of
+parameters.
+So, we need to pass the sheetIndex.
+So, we need to say which sheet is the data
+store on.
+And again, we're going to tell it if there
+is
+a header line, so that the column names
+are labeled.
+And so, when we load that into R again, it
+looks almost
+exactly like the data that you got when
+you read the csv file.
+And you read it straight out an Excel
+file.
+One thing to keep in mind is that you can
+read specific rows and specific columns.
+So, for example, if you want to read just
+the second and third columns and you
+want to
+read just the first through fourth rows,
+you
+can actually pass those as variables to
+colIndex and
+rowIndex to this file read.xlsx, and
+you'll actually
+only read a subset of the Excel file,
+which
+might be useful if you only want to
+extract
+a little part of the file that you have.
+So, some further notes that might be
+useful
+for you or that you can use write.xlsx.
+So, if you're working with people that
+like Excel files,
+you can actually write them back out after
+your analysis.
+Share them with people.
+It's very similar.
+You pass it the object that you want to
+write out
+with the file name, and it will write that
+file out.
+read.xlsx2, I've found is quite a bit
+faster than read.xlsx.
+But especially if you're reading subset or
+subset of rows, it
+might be a little bit unstable or at least
+in my experience.
+And XLConnect, as I mentioned is a lot
+more flexible for reading, writing and
+manipulating Excel files.
+And so, if you really need to do a lot of
+serious
+processing in Excel files, I think the
+XLConnect might be little bit better.
+If you're going to be doing that the
+XLConnect
+vignette is actually a really great place
+to start.
+It has a lot of information about how you
+can do all different things.
+How you can manipulate and create files
+directly from R.
+In general and for the purposes of this
+class,
+but also for the purpose of most analyses,
+it's a
+little bit faster and easier to read files
+that you
+store them as comma separated or tab
+separated [UNKNOWN] files.
+They're also a little bit easier to
+distribute and
+not everybody has Excel, it's not
+necessarily a cross
+platform as using something like a plain
+text file
+with just comma set separated or tab
+separated values.
+

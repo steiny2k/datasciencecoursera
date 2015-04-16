@@ -1,0 +1,199 @@
+Sometimes you'll load in more than one
+dataset into R
+and you'll want to be able to merge the
+datasets together.
+And usually what you'll want to do is
+match those datasets based on an ID.
+This is very similar to the idea of having
+a
+linked set of tables and a database like
+My SQL.
+So, what we're going to be talking about
+here is data from this peer review
+experiment.
+And so, this is an experiment that I was
+actually an author on.
+And so, we collected data on people
+who submitted answers to questions like
+SAT questions.
+And then people who reviewed those answers
+and
+tried to decide whether they were right or
+not.
+And this was a model system for how
+the peer review system works in scientific
+studies.
+So, what we can do is download the peer
+review data.
+The peer review data is actually available
+from my Dropbox account.
+And so, we can get the reviews and the
+solutions from this dataset.
+And so, we download these two files.
+And so, there are two data frames, one
+corresponding to all
+the SAT problems that were solved by
+people in the study.
+And one by all the people, of course,
+bunch
+of all the times that those problems were
+reviewed.
+So we read them both into two data frames.
+We can look at the reviews data frame,
+which has these variable names.
+So you can see, one of the variable names
+for this data frame is
+solution id, and that corresponds to the
+id that appears in the solutions dataset.
+You can see the solutions dataset also has
+a problem id and a subject id.
+Those will be matched to other datasets
+that we're
+not going to be talking about in this
+particular example.
+So, the first thing that we might want to
+use
+is, the merge command, to merge the
+datasets together.
+So, again, if we look at the names of
+these two variables.
+We can use the solution id and the reviews
+variable or dataset
+and the id variable in the solutions
+dataset to merge these datasets together.
+So, the important parameters to merge are
+x and y, so those are two data frames.
+And then, you can use either by, or by.x
+or by.y
+to tell a merge which of the columns it
+should merge by.
+By default it merges by all of the columns
+that have the common name.
+So, for example, in this dataset, it would
+try to
+merge by id, start, stop, time left, and
+so forth.
+Because those variables also appear in
+solutions because
+id is here, start, stop, and time left.
+Even though those variables might not
+necessarily mean the same thing.
+So, what we're going to do, instead, is
+tell
+merge which of the variables it should
+merge on.
+So, it merges the reviews and the
+solutions for the x data frame in
+this case is the reviews data frame, we're
+going to merge on the solution id.
+And in the solutions data frame, we're
+just going to merge based on the id.
+Here I'm going to tell it, all equals
+true.
+Which means if, if there's a value that
+appears
+in one but not in the other, it should
+include
+another row but with na values for the
+missing
+values that are, don't appear in the other
+data frame.
+And so, we can look at the top of this did
+new merge dataset and
+you can see now that the solution id has
+now taken the place of the id.
+And it's ordered by that variable and then
+this id variable
+is the id variable that's left over in the
+reviews datasets.
+So, this is the reviews main id that's
+appears here in this dataset.
+So you can see that this has merged
+the two datasets together, based on their
+common id.
+So that then you can analyze it as one
+dataset.
+The default again is to merge based on all
+column names common column names.
+So, if you do an intersection of the names
+of the solutions data
+frame and the names of the reviews data
+frame, you get these four variables.
+And so, if you try to merge without
+telling it what to merge on the
+basis of, it will try to merge on the
+basis of all those four variables.
+So, what ends up happening is, the id
+variable will match up sometimes between
+the two datasets.
+But the start and the stop times won't
+necessarily match up.
+So, what it ends up doing is it just
+creates a data frame that's larger that
+applies multiple rows.
+One for each row of reviews and each row
+of solutions.
+You can also use join in the plyr package
+to join datasets together.
+It's a bit faster than merge but, is a bit
+less full featured.
+In other words, in other words, it only
+can merge on
+the basis of common row er, common names
+between the two datasets.
+And so, you couldn't merge the two
+datasets we talked about just a
+minute ago because it, we need to merge by
+solution id and id.
+And join will only merge on the basis of
+id even though it's faster.
+So, here's an example.
+I created two made up data frames with a
+common
+id identifier, but I've sampled them, so
+they're in different orders.
+And so, what I can do is, I can join the
+two datasets together.
+It will join them by id, and then I can
+use
+the arrange command to arrange them in
+increasing order by id.
+And so you see I've arranged the two
+datasets together in that way.
+You can play around with these commands to
+see how you could join datasets together.
+The nice thing about the plyer package,
+and the reason why I bring it up is
+that if you have multiple data frames it's
+relatively challenging to do it with the
+merge command.
+But if they have a common id, it's very
+straightforward to do it with the join all
+command.
+So, what I do is I create my three data
+frames, in this case, and
+I put them all on a list, so one big data
+list of data frames.
+So it's a data frame list with three data
+frames in it.
+And then I just use the command join all,
+which merges
+all of the different datasets on the basis
+of the common variables.
+In this case, id.
+So, that's a nice way to merge together
+multiple datasets very quickly.
+The r da, data merging page is very good,
+as is the plyr page for merging datasets
+together.
+Before you start doing this intensively,
+it's worth paying
+attention to, whether you're performing
+different kinds of joins.
+Whether you're doing a sort of left joins,
+or right joins.
+And the best way to learn more about that
+is to go read about joins in databases.
+For example, here, this is the information
+about joining for SQL database joins.
+

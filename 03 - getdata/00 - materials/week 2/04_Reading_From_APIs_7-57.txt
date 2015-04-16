@@ -1,0 +1,261 @@
+This cover, lecture covers getting data
+from the APIs.
+APIs are application programming
+interfaces.
+So for example, most internet companies
+like Twitter or Facebook will have
+an application inter, programming
+interface, or
+an API, where you can download data.
+For example, you can get data about, you
+know,
+which users are tweeting, or what they're
+tweeting about.
+Where you can get information about what
+people are posting on Facebook.
+You can usually get these with GET
+requests with specific URLs as the
+arguments.
+And so what we're going to be able to do
+is to use
+the HTTR package to be able to get data
+from these web sites.
+Usually the first thing that you'll need
+to do is create an account.
+And, in this case, I don't mean an account
+like a user account You actually have
+to create an account with the api or
+with the development team out of each
+particular organization.
+So, for example, here we're going to go
+to dev.twitter.com/apps and we're going to
+create an application.
+And in this case, we're going to make an
+application using the Twitter handle from
+my blog, simplystats.
+And so, what we've done now is, we've
+logged on using our Twitter details.
+And so, you can see I'm logged on as
+simply statistics.
+And, what I can do is, I can click on this
+button to create a new application.
+And what that'll do is, that will give me
+some numbers that I'm
+going to later use to be able to
+authenticate the application through R.
+And access data.
+So you can see here, I've actually already
+created an application, which I call
+Simply Statistics blog.
+And so if I click on that application,
+then what
+I'm taken to is a page that looks
+something like this.
+So you can see, this is the application,
+and
+this is the URL of the application up
+there.
+And there's some information that I
+haven't filled
+in about my organization and my
+organization's website.
+Down here under the Oduff settings, I've
+actually see that I have read
+and write access to the API and then there
+are a bunch of numbers.
+I black them out here cause these numbers
+are
+private to you in the application that you
+build.
+But you'll have a number a number for your
+consumer key Consumer secret.
+A request hoping URL, and a authorization
+URL.
+You are going to want to copy that down
+all
+of those numbers, once you've created an
+application,
+because we're going to use them later in
+the R code to be able to access the A-P-I.
+[SOUND] So, here's what we're going to do.
+We're going to use the HTTR package.
+So,we're going to load that package and
+then we're going to use this command here.
+Oauth app so what this is going to
+do is start the authorization process for
+your application.
+And so what you need to do is to you name
+the application, this isn't
+actually going to get sent to the a p i,
+this is just for your convenience.
+So I've named it twitter here, because
+it's going to be the twitter APP.
+From me and then I'm going to input here
+in quotes my consumer key that I got from
+the application website and I'm going to
+put my consumer
+secrete here that I got from the
+application website.
+Then what I'm going to do is take that
+application and
+I'm going to sign in and I'm going to sign
+in using the
+token Here that I col, collected from the
+website as
+well as my TokenSecret that I collected
+from the website here.
+So once I've done this, I've actually sort
+of created the credentials that will allow
+me
+to access data that is privately held by
+Twitter that's only available to people
+with an application.
+So now what I do is I'm using the GET
+command,
+this is very similar to what I did when I
+was
+reading data off the Internet, now I'm
+going to use a very
+specific URL, this is the URL that
+corresponds to the twitter API.
+So that's this part of the URL right here.
+This is the version of the API that I'm
+using,
+1.1, which is the current version of the
+twitter API.
+Then I'm going to look, then I pass it
+some more
+components which correspond to which data
+I'd like to get out.
+So in this case, I'd like to get the
+statuses on my home timeline, and I'm
+going to
+get it out as a JSON file, which is
+currently the only kind of data supported
+by Twitter.
+And then I'm going to pass it, instead of
+authenticating with the username or a
+password, I'm going to pass it the
+authentication
+I used with this O Auth sign in.
+And so what I'll get back is actually the
+page that corresponds
+to this url which actually is going to be
+just some JSON data.
+So what I can do is actually use the
+content function to extract
+the JSON data, so this content function
+will actually recognize that it's JSON
+data.
+And create it's going to use the from
+JSOBN function from the R JSON
+IO package, so that will return sort of a
+structured R object.
+Which is a little bit hard to read I font
+so what
+I'm going to do is I'm going to use the
+JSON lite package to reformat
+it as a I data frame, so what I do is I
+take
+the JSON structure that I got out from the
+original command to content.
+And I convert that struc, structured R
+objects back into JSON.
+And then I use the JSON lite version of
+the from JSON argument to create a data
+frame.
+And so, what this data frame is now is a
+data
+frame where each row corresponds to a
+tweet in my home timeline.
+And so here you can see I'm going to look
+at the first row of this data frame.
+Which is at the time that I extracted the
+data.
+The most recent tweet in my home timeline.
+I'm going to look at the first four
+columns.
+The first four columns tell me the time
+that the tweet was created, the ID number
+for the tweet, the ID string here and then
+it's actually the text of the tweet.
+So this is the tweet that was the most
+recent tweet when I collected the data off
+the internet.
+So you can do this to actually extract
+information from Twitter.
+This is actually just the request for how
+do you
+actually collect information about what's
+happening on my home timeline.
+But, there's a whole bunch of other
+requests that you can do.
+There's a bunch of different data that you
+can get access to through Twitter.
+And so, how did I know what URL to use?
+You actually go into the do, the
+documentation for the Twitter API, so this
+is the same website as before only I'm
+going to look at the Twitter documentation
+and what I'll get to see is what URL, see
+it says resource URL
+down here, and that's the URL I'm going to
+be passing to my Get command.
+It also has a bunch of parameters down
+here.
+And so, if you look up how to format which
+parameters to
+send to an API You can actually send a
+bunch of different parameters
+say you can it how many tweets to collect
+from what time
+to collect it and so forth depending on
+what URL you are accessing.
+If you want to get other information, not
+just the information about your
+home timeline, you can actually go the
+main Twitter documentation so this is
+the documentation for the latest version
+of the API version 1.1 and
+it'll give you information about Getting a
+bunch of different kinds of information.
+So, you can get all sorts of information
+about, just, mentions.
+You can get information about the user
+timeline.
+You can get information about the home
+timeline.
+You can get information about retweets.
+You can download all that information, and
+you
+can also search through, Twitter, the
+Twitter feeds,
+and get, specific, tags that you're
+interested in
+or hashtags that you might be interested
+in following.
+So in general, you have to look at
+the documentation, HTTR allows get, post,
+put, delete
+requests if you are authorized as you can
+see, I was authorized to read and write.
+Particular to the time line of simply
+stats,
+because that's who I created the
+application through.
+You can also authenticate with a user name
+or a password, in some cases.
+Most modern API's though use something
+like
+oauth, like we saw just now with twitter.
+HTTR works well with Facebook, Google,
+Twitter, Gethb and so forth.
+If you go to the HTTR demo component on
+Gethub you
+can actually see a bunch of examples of
+how you access
+the different APIs for the different
+websites and that's actually where
+I modeled this lecture on was the demo for
+the Twitter API.
+

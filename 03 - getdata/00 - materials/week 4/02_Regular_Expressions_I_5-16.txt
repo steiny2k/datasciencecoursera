@@ -1,0 +1,166 @@
+This lecture's about regular expressions.
+You've already seen how the text functions
+sub, G sub and Grep can
+be used to manipulate strings and identify
+patterns that might be of interest.
+In this lecture we'll talk about regular
+expressions
+which extend the idea of searching for a
+specific
+bit of text to searching for a bit of text
+that might fit a more broad pattern.
+Regular expressions can be thought of
+as a combination of literals and
+metacharacters.
+So to draw an, an analogy to natural
+language, think of literal
+text forming the words of the language and
+the metacharacters defining its grammar.
+Regular expressions have a rich set of
+mar, metacharacters that allow use to
+search through
+strings to identify specific patterns of
+interest that
+might be very hard to identify with
+literals.
+So here's an example of what I mean by
+literals.
+So literals consist of words that match
+exactly.
+So for example the literal nuclear would
+match all
+these lines because nuclear appears here
+in this line.
+Nuclear appears here in this line.
+Here in this line.
+Here in this line, and here in this line.
+So that's the exact letters match in all
+of those different lines.
+The literal Obama would match all of these
+lines because it appears here.
+It appears here.
+It appears here.
+It appears here, and it appears here.
+So you kind of find that each of these
+different
+lines and you can actually match exactly
+what you observed.
+Regular expressions consist in the
+simplest form of only literals.
+A match occurs only if the exact sequence
+of
+literers, literals occurs anywhere in the
+text being tested.
+But what if we only want the word Obama,
+or sentences that end
+in the word Clinton, or clinton, or some
+other much smaller phrase like clinto?
+We need a way to express whitespace and
+word boundaries, sets of literals, the
+beginning and end of a line, or maybe
+alternatives, things like war or peace.
+So what we're going to use here are
+metacharacters in order to specify
+these more general search terms that we'd
+like to be able to identify.
+Some metacharacters represent the start of
+the a line.
+So for example if you have a caret.
+Followed by, I think, it will match the
+start of a line followed by, I think.
+So that will match all of these lines,
+I think we all rule for participating, and
+so
+forth, but it wouldn't match necessarily,
+if the I
+think came somewhere in the middle of the
+line.
+Dollar sign represents the end of the
+line.
+So, for example, if you have the phrase
+morning dollar sign, then that will
+match all of the lines here, because
+morning is the last word in the line.
+However, if morning was a word that
+appeared only
+in the middle of the text, then it
+wouldn't match.
+[BLANK_AUDIO]
+We can also consider lists or sets of
+characters that
+will be accepted at any given point in the
+match.
+So, for example, you might have either a
+lowercase or
+a capital b, either a lowercase or a
+capital u.
+Either a lower case or upper case S.
+And either a lower case or capital S H.
+So that will match all versions of the
+word bush, regardless of which letters are
+capitalized.
+So for example, this version has a capital
+B.
+This version has all lower case values.
+This version also has all lower case
+values.
+Here we have another upper case value, and
+another upper case value.
+So it will match any of those, because it
+will match both lowercase and uppercase at
+every possible letter.
+The next things that you can do is you can
+start combining these together.
+So for example, you can say, I want to
+look at the beginning
+of the line to see either a capital I or a
+lowercase I.
+So that will either match lines like this,
+whereas a lower
+case i or a capital I, begin the line,
+followed by am.
+So what it does is it allows the
+beginning, the start of the
+line, either one of the lowercase or
+capital I, and then the literal am.
+The other thing that you can do is you
+can specify actually range of characters
+or range of letters.
+So if you put in square brackets A-Z, that
+will match any letter a to z that's lower
+case.
+If you do a-z lower case or a-z upper
+case, you
+will actually look for any of the letters
+whether they're upper case or lower case.
+So for example, if you make this search
+right here, it's going to start at the
+beginning on the line and it's going to
+look for a number between 0 and 9.
+Followed by any letter.
+So, it'll match any of these lines because
+each of the lines starts with a number at
+the beginning of the line and is followed
+by
+a letter as the next letter in the line.
+Used in the beginning of a character
+class, the caret is also a metacharacter
+and
+indicates that it will, it should match
+any
+of the characters not in the indicated
+class.
+So for example, here we're looking at the
+end of the line with the dollar sign, and
+we're looking for any line that ends in
+anything other than a period or a question
+mark.
+because this means either a period or a
+question mark, and
+this caret means that it's not either of
+those two characters.
+So it will match all of these lines
+because most of them
+don't have any punctuation, and some have
+exclamation points at the end.
+

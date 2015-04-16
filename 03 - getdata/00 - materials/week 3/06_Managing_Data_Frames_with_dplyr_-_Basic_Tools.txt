@@ -1,0 +1,380 @@
+So first thing, of course,
+is you need to load the dplyr package.
+And you'll get some warning messages as
+you load the dplyr package but but you,
+because there are other functions
+that have the same name.
+But you don't have to worry about that for
+the moment.
+So, the first function we'll talk
+about is the select function.
+And so, I'm going to use a sample
+data set here that you can
+download from the web site.
+And so I'm going to load it here.
+And it's, it's a data set on air,
+kind of air pollution and temperature.
+And sorry, air pollution and weather
+variables in the city of Chicago for
+the years 1987 to 2005, and
+it's kind of daily data.
+So if you take a look at the dimensions
+of the data set you'll see
+that there are 60,940 rows and eight
+columns, and here are the first couple of
+rows of the data of the data set and
+the first five columns.
+Now one of the things you can do for
+any data frame is to look at the names,
+of the variable names
+using the names function.
+So, here I'm going to print out
+the first few var, variable names.
+And one of the nice things you can do
+with the select function in dplyr is to
+actually access the columns or
+set of columns.
+In the data frame using the names rather
+than the, the indices into the column.
+So here I, let's say if I want to look
+at the columns starting with city and
+ending with D DPTP,
+which is the dew point column.
+I, and I want to include
+all the columns in between.
+I can just say, I can use this notation,
+which is city colon DBTP.
+Which is not a notation that you can that
+you would normally be able to use in
+other functions but you can use here in
+the select function and you can see it
+selects all the columns between the city
+column and the dew point column.
+So it's a nice and
+handy way to look at subsets of columns or
+data frame by just you referring
+to them by their names.
+Similarly you can use the minus
+sign to say, I want to look at
+all the columns except for these, the,
+the columns indicated by this range.
+And you can use the select function to
+just say minus on that city colon dew
+point sequence.
+And you'll get all of the columns,
+except those few columns.
+So, the equivalent code to do this
+in kind of regular R, without
+using the deplyr package is a little bit
+tricky because you have to find, you know,
+the index for where the city column is and
+you have to find the index for where
+the dew point column is and then you need
+to take the negative of those indices.
+So, it's not particularly complicated but
+it's an extra two lines of code and
+perhaps not as readable.
+The filter function is the next function
+in deplyr that we'll talk about and
+it's basically used subset
+rows based on conditions.
+So, for example, you might want to take
+all the rows in the Chicago data set
+where pm 2.5 is greater than 30, so
+I've got that condition here as the second
+argument, and so that just creates a
+logical sequence and it subsets the rows.
+In the Chicago data frame based
+on that sequence and you can see,
+we can see the first few rows
+here that I printed out.
+All of the values of pm2.5
+are greater than 30.
+But you don't have, you don't have to just
+subset rows based on values in one column.
+You could take multiple columns and create
+a more complicated logical sequence.
+So here I'm looking at
+pm2.5 greater than 30.
+As well as temperature greater than 80.
+I can see that now in this,
+when I list, when I print out
+the few first couple rows here, all of the
+temperature values are greater than 80 and
+all the pm2.5 values are greater than 30.
+So you can have an arbitrarily complex
+logical sequence there, and it will set,
+and filter function will subset the rows.
+Based on that sequence.
+And again, the nice thing about this
+function, just like with select,
+is that you can refer to the variable
+names directly using their names and
+you don't have to kind of subset each,
+out each variable using these,
+using the various subset operators.
+The next function of range
+has a simple purpose.
+It's basically used to reorder
+the rows of a data frame based on
+the values of a column.
+And this is something that can be kind
+of a pain in the neck to do in R and
+the range function makes it quite
+a bit simpler and easier to read.
+So here, this example is very simple.
+I just want to arrange.
+When I order the, rows by data frame
+according to the date variables.
+I want the date variables above,
+kind of the lowest date to be on top, and
+the highest date to be, or
+the latest date to be on the bottom.
+So I arrange the Chicago data set to,
+by the date variable.
+And you can see that the first
+couple of rows, start in 1987.
+And then when I use the tail function
+to look at the last couple rows,
+you see that they all end in 2005.
+So the const, the data set is
+ordered now according to the date.
+Now of course, we might want to also,
+for example, arrange the rows in
+descending order, so the desc, function,
+or the d-e-s-c indicator, it can be used.
+In the arrange functions to say you want
+to sort the rows in descending order of
+date in this case.
+You can see now when I print
+out the first few rows a,
+they start with all the values of 2005 and
+go, and go backwards.
+And the last few rows end in 1987.
+So I've just reversed the order of all
+the rows in the data frame according,
+according to the date.
+The rename function is very simple.
+It just,
+it can be used to rename a variable in R,
+but actually this is
+a surprisingly hard and
+annoying thing to do in R if you
+don't have a function like this.
+And so here you can see that I,
+I've got the, the,
+the names of the variables here and
+the pm2.5 variable is called pm25tmean2.
+Which is a bit of a mouthful, and
+I may want to simplify that,
+maybe I just want to call it pm2.5.
+similarly, the dew point
+variable is called dptp,
+which is not particularly, intuitive, so
+I might want to rename that variable too.
+So here, I just call the rename function,
+again, I pass it a data frame.
+And then I say, I want it,
+I give it the new name, and I say
+equals and then I give it the old name.
+So now I want it to say
+dew-point equals dptp.
+And I give it pm2.5 equals pm25tmean2.
+And that renames those two columns
+in the data frame, and it,
+and it leaves all the other
+columns untouched.
+So now when I print out the first
+couple rows of this data frame you can
+see that the dewpoint variable
+is there properly named and
+the pm25 variable there is properly named.
+The mutate function is used to simply
+transform existing variables or
+to create new variables.
+So here in this example I want to create
+a new variable called pm25detrend.
+And this is basically this, the pm2,
+2.5 variable with the mean subtracted off.
+So I want to kind of center the variable.
+And so here I've just created this
+new variable called pm25detrend and
+I said equals pm2.5, sorry pm25
+minus the mean of that variable.
+And when I,
+when I looked at the first couple rows of
+the pm25 and the pm25detrend variable.
+You can see that the pm25
+variable's unchanged,
+it's it's in micrograms per meter cubed.
+But the pm25detrend variable is in, is, is
+kind of a deviation from the mean and so
+it will have kind of negative and
+positive values.
+So finally the group by
+function allows you to kind of
+essentially behind the scenes
+split a data frame according to.
+Certain categorical variables.
+So in this example, what I'm going to
+do is I'm going to create a temperature
+category variable which will indicate
+whether a given day was hot or
+cold, depending on whether the temperature
+was over 80 degrees or not.
+So I create this factor
+variable called tempcat, and
+then I use the group by function to
+create a new kind of data structure.
+Based on the original data frame and
+this tempcat variable.
+And so I call that new data
+structure hotcold, and
+and you can see it look,
+you can print it out here.
+And it has a slightly different format.
+So now I can use the summarize function,
+and and being from the U.S., I
+use the z spelling for summarize, but you
+can also use the s spelling for summarize.
+So I summarize the group,
+this hot, cold object now.
+Which has been split based on
+the temperature category variable.
+And I just want to, what I want to know
+is what's the mean pm2.5 for both hot and
+cold days.
+What's the maximum ozone for
+hot and cold days, and
+what's the median nitrogen dioxide or
+no2 for both hot and cold days.
+And you can see here that if I just print
+it, it prints out a little data frame.
+That has the value, the levels of the 10th
+cat variable which are cold, hot, and
+NA so there are some missing values.
+And it gives you the summary
+statistics for pn2.5 and ozone and
+no2 in each of those categories.
+Now actually so there, there is
+missing date in the pn2.5 variable so
+I need to specify.
+The na.rm equals true in order to get
+some the means of those values but
+the ignoring the missing values.
+So now you can see that that pm2.5 is
+tends to be lower when it's cold and
+hi and higher when it's hot.
+And so and
+these are the summary statistics for
+each of the pollutants in
+these temperature categories.
+I could also categorize the data set on,
+on other variables so
+for example I might want to do a summary
+for each year in the data set.
+And so I can create I can use the mutate
+function to create a year variable.
+Which is based on the date I can
+extract the year information from
+the date variable by using
+the as.POSIXLt function.
+And then I group by the Chicago
+data set by year now instead of
+previously we had this
+temperature category.
+And I can use the summarize
+function in the same way.
+And I get, now I get a summary for
+each of the three different
+pollutant variables for
+each of the years in the data set.
+And you can see that in, in general for
+particularly, particularly for pm2.5,
+there's a kind of a downward
+trend over time, which is nice.
+So, the dplyr package
+implements a special operator.
+That allows you to kind of chain
+different operations together so
+much like the way we did in the previous
+kind of operations that I showed you.
+[COUGH] And does it in a way that kind of
+allows you to see what operations
+are happening in a kind of readable way.
+And so it's indicated by a percent symbol
+and then the greater than symbol and
+then the percent symbol.
+And so I'll just call it
+the pipeline operator for now.
+And so the idea it that you
+kind of take a data set and
+you feed through a pipeline of
+operations to create a new data set.
+And so
+here I've got the Chicago data set and
+I want to mutate to create
+a month variable because I
+want to create a summary of each of
+the pollutant variables by month.
+And so I I create the month
+variable with mutate and
+then I want to take the output of mutate.
+And then group by it.
+Use according to this month variable.
+And then I want to take
+the output of group by and
+then run it through summarize.
+And so notice that when I call mutate,
+group by and
+summarize, you,
+when I use the pipeline operator.
+I don't have the specify the data
+frame as the first argument.
+Because that's kind of implied by
+the use of the pipeline operator.
+So you can skip that argument and
+go directly to.
+The operation that you are trying to
+do with either the mutate, group by or
+summarize functions.
+So you can see that the output of this
+long pipeline of, of operations is a,
+is a data frame that shows you
+the summary statistics of each of
+the three pollutant variables by
+each of the 12 months of the year.
+So the pipeline operator is
+a really handy tool because it
+prevents you from having to kind of assign
+a number of temporary variables that you
+subsequently feed into another function,
+and it allows you to kind of change
+a bunch of operations in one sequence
+that's both readable and and powerful.
+So a couple other benefits just to,
+to do dplyr,
+use dplyr, is that that you can work
+with other data frame backends so
+this is just using
+the default R implementation.
+But for example, you can use
+the data.table package which is for
+designed for very large and fast tables.
+Similarly the SQL interface or relational
+databases via the DBI package can be used.
+So if you had data stored in
+a relational database you can
+use all the same functions
+in the dplyr package and
+manipulate the data in either the
+data.table object or a an SQL database.
+And without having to relearn
+a whole new set of tools.
+So that's really handy
+once you figured out,
+once you've kind of gotten
+fluent in dplyr package you can
+translate those skills to other
+database backends almost immediately.
+

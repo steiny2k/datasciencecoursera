@@ -1,0 +1,218 @@
+Once you've loaded your data into R, then
+you might want to do is manipulate
+that data, and so you can set it up to be
+a tidy data set.
+Variables in the columns and observations
+in the rows, and
+only the observations that you want to be
+able to analyze.
+So this, first lec, part of this lecture
+is going to
+recover some of the information that
+you've already seen about subsetting,
+that you've probably seen in your R
+programming class, in
+case you don't remember it off the top of
+your head.
+So what I'm going to do, is I'm going to
+create a data frame here, and I'm going to
+create that data frame with three
+variables that
+they're labeled var one, var two, and var
+three.
+And then what want to do is I'm actually
+going to scramble
+up those variables so that they're not in
+a specific order.
+And I'm going to make some of the values
+be missing.
+So I'm going to make some of the values
+NA.
+Once I've done all that, I see that this
+is the data set that I've created.
+So, you can see in any of the
+columns that the va, values aren't
+necessarily in order,
+and you can see that for variable two,
+there's a couple of missing values with
+the NAs.
+So, the first thing that I can do is I can
+subset a specific
+column by doing x comma one, where I have
+x open bracket comma one.
+And what that'll do is actually open up
+just the first column of that data frame.
+The other thing I can do is if I want to
+subset
+by a column, I can again do x open bracket
+comma.
+And then I can actually use the variable
+name
+before the close bracket to subset just
+that column.
+I can subset by both rows and columns at
+the same time.
+So for example, this command here, x, open
+bracket, one colon two, comma var two,
+will
+actually output the first two rows of x,
+and the first and the second column of x.
+So you could subset both on rows and
+columns at the same time.
+So, the other thing is that you can do is
+you can subset using logical statements.
+So, for example, suppose I want to find
+out all the rows
+of x where variable one is less than or
+equal to three.
+And variable three is greater than 11, so
+to define
+those rows I can pass it this logical
+argument like
+that, to subsetting the rows and I end up
+with
+just the rows where both of those
+conditions are met.
+I can also use an or, so I can try to find
+the
+places the rows where, variable one is
+less than or equal to three or,using
+type command here variable three is
+greater than 15 ,and the result is this
+data frame here where one or the other of
+those two conditions is met.
+Finally, if I'm dealing with NA values
+subsetting on NAs
+will not produce the actual rows, and so
+what you want to do, is you
+want to use the which command, so if you
+use which, it will
+return the indices where variable two is
+greater than eight in this case.
+And so when it returns the indices where
+variable two is greater than
+eight, it doesn't return the NAs, and so
+you can subset the data set.
+Even dealing with the NAs that you might
+have.
+You can also sort variables.
+So using the sort command.
+So if you type sort and then pass it x
+of variable one, it'll sort the values in
+increasing increasing order.
+You can tell it to sort them in decreasing
+order with the parameter decreasing set
+equal to TRUE.
+And then the other thing you can do
+is, when you're dealing with a variable
+that has
+missing values, you can tell it to put all
+the NA values at the end of the sort.
+So you can say, na.last equals TRUE.
+The other thing that you can do is, you
+can actually order a data frame by a
+particular variable.
+So suppose that I want to order the data
+frame,
+in other word I want to sort all of these
+rows.
+By the values of variable one, so that the
+varia, values
+of variable one are in increasing order as
+I go down.
+So what I can do is take this function
+order and apply
+it to that variable one, and then pass the
+results of that ordering
+as the selection to the rows of the matrix
+x, and what that'll do is
+reorder the rows so that variable one is
+in increasing order.
+You can also order by multiple variables,
+so for
+example, you can pass it variable one and
+variable
+three and so what it'll do, is it will
+first sort so variable one is in
+increasing order.
+And then if there are multiple values of
+variable one that are the same,
+it will sort the values of variable three
+in increasing order within those values.
+So it sorts the first variable first, and
+the second variable in the first variable.
+You can actually do that the same thing
+with the
+plyr package, which is a package written
+by Hadley Wickham.
+And what you can do, is once you've
+loaded that library, you can use the
+arrange command.
+So the arrange command takes a data frame
+and then you can tell it a variable.
+And that variable will the variable that
+the data frame is sorted on.
+So now you can see we've sorted on
+variable one,
+and so variable one is in an increasing
+order here.
+You can also tell it to do decreasing
+order by just passing
+the, to the arrange command, the data
+frame, and variable one but wrapped
+with the desc function which will tell it
+to put it in ascending order.
+You can also add rows and columns to data
+frames,
+quite straight forward process so you just
+basically say x of
+variable four, so this is a variable that
+wasn't in
+the data frame before, we are going to
+assign to that variable.
+A new vector that that's random normal
+vector of length the
+same dimension as the number of rows of
+the data set.
+And then you can see that, that variable
+has
+just been added to the data set like that.
+Another way that you can do this is by
+using the cbind command,
+so what that will do is it will take the
+data set, the data
+frame x, and it will column-bind the new
+vector to [UNKNOWN] basically add
+a column to basically add a column on the
+right hand side of x.
+If I put these in any other order, if I
+put rnorm five here, and then put
+x second, what it would do is it would
+bind that column to the left side of x.
+Which is sort of intuitive.
+If you want to bind the rows, you can use
+the rbind command.
+So it's the same command, only with an r
+at the beginning.
+And so if you put the rnorm at the end
+what it'll do is it'll bind it to the
+bottom
+of the data frame, and if you put it
+before,
+it'll bind it to the top of the data
+frame.
+There are a lot more notes that are to be
+had on subsetting
+and reordering and sorting in the R
+programming course in the data science
+track.
+And I've taken some of these information
+from these nice set of lecture notes by
+Andrew Jaffe, who teaches the Windsor
+Institute here
+at the John Hopkins School of Public
+Health.
+And you can check out his lecture notes
+for more information as well.
+[SOUND]
+

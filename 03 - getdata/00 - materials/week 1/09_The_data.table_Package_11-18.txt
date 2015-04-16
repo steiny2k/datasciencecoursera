@@ -1,0 +1,358 @@
+This lecture is about the data dot table
+package, which is a often faster and more
+memory efficient version of the data
+frames that
+you commonly use when you're analyzing
+data in R.
+So, the data that table inherits from a
+data frame.
+So all functions that accept data to frame
+should work on data table, and
+there's a pretty steady up, set of updates
+to data.table, in case it doesn't work.
+It's written in C, so it can be much, much
+faster
+than some of the functions that are done
+in data frame.
+It's much, much faster.
+It's subsetting grouping variables and
+updating variables than data frames are.
+But it requires you to learn a little bit
+of a new syntax.
+So, there's a little bit of a learning
+curve.
+So if we load the data.table package, we
+can create a data
+frame like this, is the usual way that we
+create a data frame.
+And if we look at that, we see it has you
+know,
+three variables: x, y and z, stored in
+each of the columns.
+And we can also create a data table.
+And we create it in exactly the same way.
+And so, we just pass it, the arguments for
+the variables
+that we want to create, and if you look at
+the top
+of that data frame, you see it looks very
+similar to
+what you would expect if you had created a
+data frame.
+So one thing that you can do is see all of
+the data
+that tables in memory, and so you do that
+with the Tables command.
+It has an S at the end.
+It's different than the Table command.
+And so what it will tell you is the name
+of the data frame, how many,
+or data table, how many rows, how many
+uh,megabytes, how many columns, and if
+there's a key.
+And so I'll talk a little bit more about
+what I mean about a key in a minute.
+So the first thing that you might want to
+be
+able to do is sub-set rows, and so just
+like with
+sub-setting the rows of a data frame, you
+can sub-set
+with the first spot in the square brackets
+before the comma.
+You can also sub-set just like you did
+rows
+just like you did with the data frame in a
+similar way by accessing a particular
+element y and looking
+at only the values where y is equal to a.
+One thing that is a little bit different
+is when you
+sub-set with only one index it sub-sets
+based on the rows.
+So if I do this data table and take the
+second and third elements,
+that's going to take the second and third
+rows that come out of that data table.
+What happens when you try to subset
+columns?
+If you just try to subset columns the way
+you're used to in
+data frames, this is where they really
+diverge data table and data frame.
+It's not actually trying to subset the
+columns using
+the same subsetting function that happens
+with data frame.
+It does something a little bit different.
+And so, what it's using is expressions to
+be
+able to summarize the data in various
+different ways.
+So any expression is sum of a set
+of statements that are between curly
+brackets, like this.
+So, here's an example of statement that
+says print
+ten then five, and so this actually prints
+out
+ten, but when you tell k to print, it just
+prints out the variable five at the end.
+So this will come into play in a minute
+when we try to use expressions to
+summarize data sets.
+So for example, you can instead of putting
+an index
+here in the second part of the brackets,
+you can
+actually pass a list of functions that you
+want to
+perform, where the functions are applied
+to variables named by columns.
+So here x is one of the variables in the
+data
+table, and z is one of the variables in
+the data table.
+And note, we don't have to use parentheses
+or, sorry quotation marks.
+It will just recognize what the variables
+that you're trying to use are.
+And so, this will report the mean of the x
+values, and the mean of the sum of the z
+values.
+You can also do that to perform pretty
+much any function.
+You can say, for example, get a table of
+the y values.
+And so any time you pass a list into this
+second argument, it'll perform those
+functions, and return the values.
+That's good for summarizing data.
+Another thing that it does very fast, and
+very memory efficiently, is to add new
+columns.
+So suppose you wanted to add a new column
+to your data
+table, where the new column was equal to
+the z variable squared.
+You can use this command where it's colon
+equals to add that
+variable w to the data table and the nice
+thing is usually when
+you're adding a new variable to a data
+frame, and R will
+copy over that entire data frame and add
+the new variable to it.
+So you get two copies of the data frame in
+memory.
+And so when we dealing with big data sets,
+this is obviously going to cause lots
+of memory problems, which you don't have
+with
+data table, because a new copy isn't
+created.
+You have to be a little bit careful with
+that, though.
+So suppose we set a second data table to
+be assigned the first
+data table, and then we make a change to
+the first data table.
+Because a copy hasn't been made, if we go
+back and look at the first data table,
+obviously we've made a change to that,
+we've
+changed the y-variable to be all equal to
+two's.
+But the data tab, the second data table
+was assigned to be the first data
+table, and since a copy wasn't made,
+you've actually changed data table two, as
+well.
+So, you have to be able to if you're
+trying to create
+a copy, you have to explicitly do that
+with the Copy function.
+So, if you use the function Copy, you'd be
+able to copy the data table over.
+So the next thing that you can do is that
+you can perform multiple step functions to
+create new variables.
+So, for example, here I have an
+expression.
+See, it starts with a curly bracket and it
+ends with a curly bracket.
+And each statement is followed by a
+semi-colon.
+So the first statement is, I'm going to
+assign the
+to the temporary variable the values of x
+plus
+plus z, and then I'm going to take the
+log base two of that temporary variables
+plus five.
+And so, as you remember, the last thing
+that gets
+returned from this expression is the
+evaluation of this last statement.
+So what ends up happening is, you this
+variable m will be
+assigned to be log base 2 of x plus z plus
+5.
+So those sorts of multi-step operations
+can
+be handled very easily with data table.
+You can also do plyr like operations.
+So for example, we can add to this data
+table of variable a, which is greater than
+zero
+when equal to true when x is greater than
+zero and falls when x is less than zero.
+So now we have a binary variable a that we
+can work with.
+So suppose we want to summarize another
+variable by the cases where, when
+x is greater than zero versus the cases
+when x is less than zero.
+So for example, we can take the mean of x
+plus
+w, and we can do it grouped by a variable
+a.
+And so what that's going to do is take the
+mean of x plus w when a is equal to true,
+and it's going to place that mean in all
+the rows where a is equal to true.
+Then it's going to take the mean of x plus
+w where a is equal to
+false, and place that mean in all the rows
+where a is equal to false.
+So it creates a new variable that's equal
+to the
+aggregated mean, aggregated over the
+variable that you use by four.
+There' some special variables in data
+table that
+allow you to do some things really fast.
+So one is .N.
+It's an integer, length 1, and it's
+containing
+the number of times that a particular
+group appears.
+And so for example, if I create a data
+table
+that has large number of a's, b's and c's
+in it.
+So about one hundred thousand a's, b's,
+and c's.
+Then, what I can do is, if I want to count
+the number of times each of those letters
+appear, I can use data table, data
+table,.N, and then
+by, grouped by the x variable, and what
+that'll do is it'll count .N
+is just count the number of times divided
+by that er, grouped by the x variable.
+So does that very fast compared to say the
+equivalent
+operation which is just doing a table of
+dt $ x.
+A unique aspect of data tables is that
+they have
+keys and so if you set the key, it's
+possible
+to sub set and sort a data table much more
+rapidly than you would be able to with the
+data frame.
+So here I'm going to create a data table,
+and it's going to have a variable X.
+And it's going to have a variable y, and
+I'm going to set
+the key for the data table to be the
+variable x.
+Then if I want a subset on the basis of x,
+or if
+I, if I put in quoted a here, it knows to
+go and
+look in the key, and the key is x, and it
+very quickly
+subsets the data to only the values of x
+that are equal to a.
+You can keys to facilitate joins between
+data tables.
+So for example, here I've created two data
+tables where they have a variable
+x and a variable y, and in this case, the
+second data table has a variable z.
+And so I can set the key in both cases to
+be equal to x, so this same key for both
+data tables.
+And then, I can merge them together.
+This is actually quite a bit faster than
+merging with the data frame as
+long as you have the same key for both
+operations for both data tables.
+It can be very fast.
+[SOUND]
+It can also be advantageous to use data
+tables if
+you want to be able to read things fast
+from the disc.
+So here, I've created a big data frame.
+So it's a data frame with two very large
+variables in it.
+And then I set up a temporary file with
+this command right here.
+And I write our big data frame out to that
+file.
+Then I'm going to time how long it takes
+to read it in using the Fread command.
+The Fread command can be applied to read
+in data tables just like,
+it's basically a drop in substitute for
+read.table with a tab separated files.
+And so you can see it takes about 0.32
+seconds.
+If I tried to do that same operation, if
+I just tried to read.table that file, it
+would come
+in quite a bit slower, well, well more
+than ten
+times slower to be able to read that file
+in.
+So it's actually must faster to read files
+with data, data.table as well.
+To summarize, data table can be both
+faster and more
+memory efficient than data frames,
+although it requires you to learn
+a little bit of new syntax, and sometimes
+to be
+a little bit careful in terms of copying
+over data tables.
+The latest developments can be found on
+the development version of
+the package, which can be found at this
+website right here.
+They've already started to develop melt
+like operations and decast like
+observations for data tables, and they're
+going to continue to update that package.
+It's a very rapidly developing package.
+And then, this website here is very nice
+because it
+gives you comprehensives ish list of all
+the differences between data.table
+and data frames, and so, that would be
+very useful
+if you're transitioning from using data
+frames to using data table.
+The notes that I've used today are very
+largely based on
+the notes that Raphael Gottardo has put up
+here on github.
+And they were originally from Kevin Ushey
+and I think that both of them
+deserve credit for the excellent notes
+that
+I have largely copied here for this
+lecture.
+

@@ -1,0 +1,205 @@
+This lecture is about working with dates.
+It's going to be sometimes a little bit
+tricky to
+work with as data because they have all
+sorts of
+quirks, like starting over after the end
+of a
+week or starting over after the end of a
+month.
+So we're going to start really simple.
+We're going to look at the date function.
+So, this is the date function right here
+and if you click
+on it, you'll actually get the time at, as
+it's happening right then.
+So this is the time that the slides were
+processed.
+The class of this variable is actually
+just a character.
+So, the date function just returns a
+character that gives you the date and
+time.
+But in general, it's not always so simple.
+So, for example, if you use the Sys.Date
+function, you actually end up with
+something here that
+looks a little bit just like a date, just
+like you saw before, but maybe without the
+time.
+And if you look at a class of
+this variable here, it's actually a date
+variable.
+So, it has some different properties that
+make
+it a little bit nicer in terms of
+analyzing
+date data, but a little more difficult or
+tricky
+Then dealing with just text files in some
+respects.
+So the first thing that we might want to
+do is reformat that into a different
+format.
+So for example, we would use the format
+function.
+We would apply it to that date.
+And then we would say, we would like to
+see
+the abbreviation for the day, the
+abbreviation for the month.
+And then the actual date that you seen so
+that gives you Sunday January 12th just
+like this.
+You can use different characters in these
+quotes and so for example you
+can get a day as a number, you can get
+percent a as.
+Abbreviated weekday, capital percent A's,
+unabbreviated weekday, lower case percent
+M is month, zero to 12 and so forth, so
+you can use all of this to get the dates
+into any format this is nice and visually
+appealing to you.
+You can also take character vector like
+this.
+So here's a character vector where I have
+a bunch of different dates.
+And I can turn them into dates by
+telling the function at.date that you
+should be looking
+for a day, you should be looking for a
+month and you should be looking for a
+year.
+And so what that will then do is turn
+these into dates.
+The nice thing about these is that then
+you can sort of
+manipulate them and figure out how far
+apart they are among other things.
+So for example if I look at the difference
+in
+time between the first day and the second
+day there's a
+time difference of negative one A's so if
+I subtract off
+the second day from the first day, I'm one
+day behind.
+And so, you can actually turn that into
+a numeric variable, so you can actually
+get the
+differences between dates, in terms in the
+number of
+days apart that they are, very easily,
+using dates.
+You can also convert them to Julian as
+well as to other different variables.
+So for example, if you want to know what
+weekday it is, you can
+use the weekdays function, and it'll tell
+you that this date happened on a Sunday.
+You can find the months, so that happened
+during
+January and you can turn it into a Julian
+date and And so what that is, is the
+number of days that have occurred since
+the origin.
+And it'll tell you here what the origin
+is, and
+in this case the origin is the first of
+January, 1970.
+So, that's the number of days that have
+occurred since the origin date.
+The Lubridate package is actually very
+nice and makes working with dates even
+simpler than it is with the as dot day
+function along with others.
+So, if you load the Lubridate library,
+then what
+you can do is convert a number to a date.
+And you can do that regardless of what the
+format is.
+So, if you tell it YMD.
+That means it's going to look for the year
+first, followed by the month, followed by
+the date.
+In any, sort of, the standard [INAUDIBLE]
+that you might imagine.
+So, in this case, it's going to find 2014,
+then
+01, then 08 and turn that into a data.
+You can also tell it to look for the month
+first
+and then the day and the year with the MDY
+function.
+So that's month, day, year and it'll turn
+it into
+a date as well, or you can tell it to look
+for day month year, so that's going to
+find the day is
+three and the month is four and the year
+is 2013.
+So it's very nice because you don't
+actually have to format
+the date, it's for the characters before
+you turn them into dates.
+You can also do the same thing with time.
+So you're going to start with year, month,
+day and then
+you're going to have an underscore and
+then, hours, minutes, seconds.
+We'll turn this into a time, including
+hours, minutes and seconds.
+If this was in a different order, so if it
+started with seconds,
+then minutes, then hours, you could make
+this YND underscore seconds, minutes,
+hours SMH.
+And so, you can also set the time zone.
+So, here's a date or a time that you would
+like to turn into a date object.
+And you can do that by setting the time
+zone to be a specific time zone.
+And I'm getting this From this tutorial
+that was on statistics.com about luber
+date.
+And so if you want to learn more about
+what time zones, how to set time
+zones and what time zones are and are
+you can look at question mark system time
+zone.
+Some functions have slightly different
+syntax.
+So, if you're using the base date
+manipulation functions, you use week day.
+But if you are using the luber date
+package, you're
+going to use W day, like this, to get the
+week day.
+And this'll give you, sort of number here
+which is going to be three and then if you
+want to know the weekday in terms of
+actual abbreviation
+you're going to have to same label it as
+true.
+And then it'll tell you that it's Tuesday,
+the third day of
+the week according to the levels that have
+been defined this variable.
+So a lot more information is available on
+this very nice luridate
+tutorial from which I borrowed some of the
+inf Information for this.
+You can also find similar content in the
+lubridate package vignette.
+And ultimately, you want your dates to be
+of the class POSIXct or POSIXlt.
+And so, for more information, type
+question mark POSIXlt, and that will
+give a little bit more information about
+how to deal with dates.
+This will become relevant later when we do
+some modelling
+in the prediction class that deal with
+dates as well.
+

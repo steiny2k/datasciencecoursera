@@ -1,0 +1,376 @@
+So the key process of data cleaning is
+looking at the
+data set that you've loaded into R, and
+identifying any sort
+of quirks or weird issues or missing
+values, or other problems
+that you need to address before you can do
+downstream analysis.
+So the first thing that you're want to
+going to be able
+to do is summarize the data that you have
+loaded in.
+So we are going to be looking at this
+example data set
+here, and this is actually data set about
+restaurants in Baltimore.
+And so, we collected this data set again
+from the web.
+And so, if you to this URL and then you go
+to export,
+you'll be able to see a list of different
+versions of this data size.
+We're going to look at the csv version of
+the data set.
+And so we create a data directory, and
+again, this is the URL that points to
+the CSV version of the data set that
+we're going to be talking about, the
+Baltimore City data.
+And so we're going to download that file
+and then read it in with read.csv.
+So this is what you remember from reading
+data in the internet sources.
+So the first thing that you're going to
+want to do is look at your data set.
+So one thing that you can do is just type
+the name of the data frame that we have.
+So in this case it could be rest data.
+You could just type that in and hit
+return, and it will return the entire data
+frame.
+But often the data frame will be a little
+bit too
+big for you to be able to see it all very
+neatly.
+So, the first command we're going to talk
+about is the head command.
+So if I type head of the data frame that
+I'm interested in and I tell it the number
+of
+rows I should report, it will just show me
+the
+top three, in this case rows from that
+data frame.
+By default, it will show me the top six
+rows of any data frame.
+So if I don't give it the n command or the
+n
+parameter, it'll just return the top six
+rows of the data frame.
+The tail command is another command that
+will
+give you a little bit of the data set.
+In this case it will show you the bottom
+part o the data set.
+So if I pass it this data frame and tell
+it n
+equals three, it'll show me the bottom
+three rows of the data frame.
+The other thing that we can do is, we can
+use the summary command to
+get a little bit of a, an overall summary
+of the data set that we have.
+So what this will do is, for every single
+variable, it'll give you some information.
+For variables that are text-based
+variables or factor variables,
+it will tell you the count of each factor.
+So, for example, in this data set, there
+are
+eight McDonald's and there seven seven
+Popeye's Famous Fried Chicken.
+For variables that are quantitative, in
+this case
+it's treating zip code as a quantitative
+variable.
+It'll tell you the minimum, the first
+quartile, the median, and so forth.
+So this has already given us an
+interesting bit of information because one
+of the
+zip codes is actually coded as a
+negative value, which obviously probably
+shouldn't have happened.
+You can also use the STR command to give
+you a little bit more information about
+the data frame.
+So, here it tells you the class of
+variable it is, it's a data frame.
+If it was a matrix, it would tell you it
+was a matrix.
+It tells you a little bit about the
+dimensions of the data frame that you
+have.
+And then it also tells you all the
+different classes that the different
+columns correspond to.
+So, for example, neighborhood is a Factor,
+zip code is an integer, and so forth.
+So that, they give you a little bit of
+extra information so that you can
+know if you need to manipulate things and
+change quantitative variables to
+qualitative and so forth.
+You can use quartile to look at,
+variability and quantitative variables.
+So, for example, if I look at the quartile
+of the councilDistrict variable.
+If I, look at that variable I see that the
+smallest value is
+1 and the top value is 14, and the median
+value is 9.
+So, you can also tell it to look at
+different probabilities.
+So, if I pass qurntile probs, it
+will look at different quartiles of the
+distribution.
+So, the zeroth quartile is the minimum
+value.
+The 0.5 quartile, the medium 99th
+quartile.
+You can give it a sort of 99th percentile
+of the data set.
+So you can do this to look at different
+percentiles if your interested in them.
+You can also make tables.
+So another way to look at the data is
+to look at specific variables and make a
+table.
+And so in this case we're making zip code
+table and we can see
+that only of the varou, one zip code is
+coded as a negative value.
+You can also see where the bulk of the zip
+code values are.
+So for example 21201 has a lot of values.
+So does 21202 and 21 21224, and so forth.
+I've added a little bit here to the inside
+the table command.
+I say use NA if any.
+And so what this will mean, is if there
+are any missing values, they'll be an
+added column
+to this table, which will be NA, and it'll
+tell you the number of missing values
+there is.
+By default, the table function in R
+actually
+does not tell you the number of missing
+values.
+So it's important to use the command,
+useNA ifany
+to make sure that you're not missing
+missing values.
+You can also make two dimensional tables.
+So in this case, I'm again using the table
+command.
+And now I'm passing in two variables, the
+councildistrict, and the zip code.
+And so now it breaks down a table
+that's two dimensional by zip code and by
+district.
+And so, for example, you see that district
+two has 27 restaurants in the 21206 zip
+code.
+And so you can do this for different
+quanti, qualitative
+variables and get a sense of the
+relationship between those variables.
+The next thing that you might want to do
+is check for missing values.
+So, the function that could be useful
+there is that is.na function.
+So, if you used the is.na function and
+apply it
+to this variable the councilDistrict and
+then take the sum
+of the kind that is.na, is.na will return
+a 1
+if it's missing and a zero if it's not
+missing.
+So, if the sum is equal to zero, that
+means there are no missing values.
+You can also use the any command.
+The any command will just look through
+this entire set of values.
+In this case, is.na re, returns true or
+false, and what it can do
+is then check and see if any of these
+values are equal to true.
+In that case, there would be any value
+that's equal to na.
+In this case none of the values are na, so
+any returns false,
+because all of the values are false,
+they're not, none of them are na.
+You can also look at all all which I can
+see if.
+So, for example, every single value
+satisfy the condition.
+So we would hope that all the zip codes
+are greater than zero, but it turns out
+that
+actually one of them isn't greater than
+zero, so
+you can see that again with that all
+command.
+Another thing that you might want to do is
+take sums, so
+for example, you might want to take sums
+across columns or across rows.
+You can do that with the colsums and
+rowsums command.
+So here I'm going to take the column sums
+of the is.na applied to the entire data
+set.
+So I've applied is.na to the entire data
+set, and that will
+be true whenever there's any NA value and
+false whenever there isn't one.
+And then I take the sum down every column
+of that variable, and I
+see that there are zero NA values for
+every single variable in this data set.
+And then I can apply all to the column
+sums
+and show that all of them are equal to
+zero.
+In other words, there are no missing
+values in this data set.
+I can use some other commands to find
+specific characteristics within data sets.
+So, for example, suppose I want to find
+all the zip codes that are equal to 21212.
+I could just use the equals equals command
+to see if that's true, but I could
+also say, are there any values of this
+variable that fall into this, this vector
+over here.
+In this case, are there any values that
+are 21212.
+That's not very useful when you only have
+one value you care about, so, but suppose
+you want to find all the zip codes that
+are either equal to 21212 or 21213.
+Then you can use the %in% command to say,
+are there any ZIP
+codes that are either equal to one or the
+other of these values.
+And so in this case you see there's a few
+more,
+there's 59 values that are equal to either
+21212 or 21213.
+The
+next thing that you can do is you can
+actually use this logical
+variable that you've created by doing
+this, just a subset a data set.
+So suppose I want to get only restaurants
+that appear on 21212 or 21213, I would
+create this logical variable here with the
+%in% function.
+And then I would pass that to the row
+subsetting
+component of the rest data variable, and
+what would end
+up happening is I would end up with only
+the
+rows that were equal to 212121 or 21213
+zip codes.
+The next thing you might want to do is
+make some sort
+of summaries or cross tabs about the data
+sets that you observe.
+So, for example, I'm loading here data on
+Berkeley admissions data.
+This is sort of one of the classic data
+sets in R.
+And so I can create a data frame using
+that data set.
+And if I do a summary I can see
+there are four variables: Admit, Gender,
+Department and Frequency.
+And so it tells you how many people
+each of the different categories are
+admitted to vertically.
+So one thing you might want to do is make
+cross tabs.
+So identify where the relationships exist
+in this data set.
+So what you can do is on the left this is
+going to
+be the variable that you want to be
+displayed actually in the table.
+So this is frequency and the table.
+And then you might want to break that down
+by some different kinds of variables.
+So you might break it down by gender and
+you
+might break it down by weather they were
+admitted or not.
+So then this tells you the frequency that
+males were
+admitted, and this is the frequency that
+say, females were rejected.
+And so when you do cross tabs, you have to
+tell
+it what data you want to perform the cross
+tabs from.
+One thing that you can do too is do cross
+tabs for
+a larger number of variables, but they are
+often kind of hard to see.
+So here I'm using the warp break data set
+which another one of the standard R data
+sets.
+And I'm actually adding in another
+replicate variable just to illustrate this
+point.
+So, I've got the replicate data sets and
+so, I can create an xtabs.
+Again where I'm going to have the value
+that appears in the table to be equal
+to breaks and I'm going to break that down
+by all the variables in the data set.
+So when I do that, there are three
+different variables I can break it down
+by.
+There's replicate, tension and wool.
+And so to create a table like this
+I actually have to create multiple two
+dimensional tables.
+This is a little bit hard to see, because
+there'll be a long list of output.
+You can make flat tables by taking the
+cross
+path that you made previously, applying
+the ftable command.
+And all that will do is it will summarize
+the data in a much smaller, more compact
+form.
+So it's easier to see when you have these
+large tables.
+The last thing that you might want to do
+is
+actually just sieve the size of the data
+set.
+So, here, I've just generated some fake
+data with r norm.
+And then, what I might want to do is use
+the object
+size command to see how many bytes that
+data set is.
+And sometimes that's not very
+interpretable.
+You might want to know on a different
+scale, so you can use the print
+command and you can tell it what units
+you'd like to see it measured in.
+Whether it's megabytes or gigabytes or so
+forth.
+So those are some ways that you can just
+take a
+look at your data when you first load it
+into R.
+

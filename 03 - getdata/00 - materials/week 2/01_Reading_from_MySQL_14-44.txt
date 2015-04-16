@@ -1,0 +1,509 @@
+This lecture's about reading data from a
+MySQL database.
+MySQL's one of the most widely used open
+source databases, and it's widely
+used because it's, partially because it's
+free
+but also because it works really well.
+And it's, again, widely used in
+Internet-based applications.
+Data are structured in databases, and then
+the
+databases, within each database, there's a
+series of tables.
+And then within the tables, there a series
+of fields.
+So, you can think of each table sort of as
+the data set,
+and each field as, say, one of the calms
+of that data set.
+So, each row in the database is called a
+record.
+If you want to know a little bit more
+about MySQL structure, you can
+look at the the Wikipedia page,
+or there's quite extensive documentation
+at MySQL.com.
+So, here's an example structure that you
+would get for a particular database.
+So, what you have is here this is a
+database of employees.
+And so, what you might have here are
+several different tables that are all
+linked together.
+So, for example, you might have the
+departments
+that the employees are employed in, the
+employees themselves.
+You might have information about their
+salaries in a different table, and
+you might have information about who their
+managers are in yet another table.
+And information about their titles in yet
+another table.
+For each table, you get a slightly
+different kind of data type.
+And so, one thing to note is that what
+this data table pretty much shows is each
+table you
+can think of is corresponding to, so one
+box
+corresponds to one data frame in R, so to
+speak.
+And, all of these are listed variables
+here, or you could think
+of it as the column names for that data
+frame in R.
+And so, you'll notice that one of the,
+sort of, common ids
+appears in all of these tables, so that
+they're, sort of, linked tables.
+So, it's possible to go and sort of
+access, say, for an employee, which
+department they come from and what their
+salary is and what their title is.
+And so, you could figure out also who
+their department manager is, and then the
+department managers are then organized
+into departments sort
+of in a, sort of a structured format.
+So, you can follow that back and find out
+who the employees are.
+So, this is an example of MySQL database,
+and so you have the
+data sorted all these tables, and you
+want to be able to access them.
+So, the first step in the using the MySQL
+package is actually installing MySQL, so
+this is a
+little bit complicated because it depends
+a lot on
+your operating system and the particular
+structure that you have.
+So, if you go to this website that I've
+linked to down
+here at the bottom, you'll be able to
+install MySQL, and you
+can see that there's a version of MySQL
+for just about every
+kind of operating system that you might be
+interested in installing it on.
+And so, there are pretty explicit
+instructions on how
+to install MySQL on all of those web
+sites.
+We're actually going to be showing in this
+lecture, an example of a web-facing MySQL
+server that we'll be able to access, but
+as a act of good citizenship to
+the world I would appreciate if you didn't
+all go and try to access that
+one server because we'll probably
+overwhelm them with
+the large number of people in the class.
+So a better example is to try to create
+MySQL
+database on your own system and then play
+around with it.
+So, the first thing that you need to do is
+install RMySQL
+with an R, so on a Mac, you can just do
+install.packagesRMySQL.
+For Windows, it's actually a little bit
+more complicated
+because of the way that the database
+drivers need to
+be set up and so forth, so you can
+actually
+see the official instructions here on this
+website and then
+this guide I found to be actually quite a
+bit more sort of intuitive and useful so,
+if you
+are having a little bit of trouble getting
+it installed
+on Windows, that might be a good place to
+go.
+If you have more trouble, please go to the
+forums and ask questions.
+So, we're going to be using a web-facing
+version of a
+MySQL database, so that we can just show
+how the R
+of MySQL package works, without having to
+install R my, install
+MySQL and go through the process of
+actually building that database.
+The important point to keep in mind here
+is
+that as a data scientist what role that
+you will
+have is likely to collect data from a
+database, and
+maybe later you're going to put some data
+back in it.
+But usually, the basic data collection has
+already been formed before you get there,
+so
+you usually be handed a database and
+trying, having to get data out of it.
+So, this is information about the human
+genome
+that's collected by University of
+California Santa Cruz.
+It's one of the most famous databases for
+genomic.
+And so, they have a public facing MySQL
+page, sort of MySQL server.
+And so it gives you information here on
+how to connect.
+If you have MySQL installed on your
+computer, how to connect to their MySQL
+server.
+And so we're going to use that information
+actually just connect with an R.
+And what we're going to try to do is
+access the database
+and collect some information about a
+particular genome that we're interested
+in.
+So, the first thing that we need to do is
+once you've loaded RMySQL package in R.
+You're going to use the dbConnect command
+to connect to a
+database, and so in this case, it's a
+MySQL database.
+You can actually use this dbConnect to
+actually
+connect to other kinds of databases as
+well.
+And so, you saw from the page on the
+previous
+slide that the user that we're going to
+pass it is genome.
+And then, you're going to pass it, the
+host,
+which is just where the MySQL server is.
+And in this case, it's this website, web
+address here.
+So what this does is it opens a
+connection, and that connection is given
+this handle: ucscDb.
+So, you should always assign the handle
+each connection a handle.
+And then, what you can do is you can
+actually apply a query to that database.
+So, what you can do is you can use the
+dbGetQuery command.
+So, what that does is it'll go to the
+connection.
+In this case, the connection is to this
+database.
+And it'll run this MySQL command.
+So, this actually isn't an R command; it's
+actually a MySQL
+command that we're sending to this
+database through the dbGetQuery function.
+And so then the end after I run that
+command, I'm going to use dbDisconnect.
+So, I'm going to disconnect from the MySQL
+server.
+It's very important that whenever you're
+done analyzing data or collecting
+data from a MySQL server that you
+disconnect from that server.
+And you should get a true response.
+That true is coming from the dbDisconnect
+because it's
+saying that we did, in fact, disconnect
+from the server.
+Then, if I go and I look at result, what
+result will show is a list of all the
+databases that are available for that all
+the databases that are available
+within the MySQL server that is located at
+this particular host address right here.
+So, we're going to actually focus on one
+in particular,and that's hg19.
+Hg19 is a particular build of the human
+genome.
+So, it's the 19th build of the human
+genome.
+And so, what we can do now is just run
+that dbConnect command again,
+but instead of just passing it the user,
+we'll also pass it the database.
+We'll say, we're going to, we want to
+access this database within this MySQL
+server, and
+then what we might want to do is see what
+are the tables within that database.
+So remember, on a server, there might be
+multiple
+databases and within the database, they'll
+be multiple tables.
+Each table corresponding to what you might
+think of as a data frame.
+So, what we can do is look at all the
+tables that exist in the hg19
+database, and so if you look at the length
+of that, in this case, it's very long.
+They're a ten, over 10,000 tables that are
+in that single database.
+So, this is one nice thing about MySQL: it
+can store
+a large amount of data that we can get
+easy access to.
+So, if you look at the first, say, five
+tables, you get these tables here.
+These are all different tables
+corresponding to various
+different elements that describe
+components of the human genome.
+Each table corresponds to a different kind
+of data set.
+So, you can kind of think about it in the
+same way that the tidy data principle is.
+You thought about each data set
+corresponds to its own file.
+It's the same way here; you get a, each
+different data type gets its own table.
+So, one thing that we can do is just
+suppose we know what table that we're
+interested in.
+So, this is for a particular kind of micro
+array, which
+is a measurement technology used to
+measure something about the genome.
+So, you can actually say, okay, I want to
+look at this database;
+this is the connection we made to the hg19
+database within the MySQL server.
+And I want to know what are all the fields
+in this particular table.
+So, remember a table corresponds to
+something like a data frame.
+And the fields correspond to something
+like the column names that data frame.
+And so, you can see if we look at the
+fields
+here, there are things like bin, matches,
+misMatches, and so forth.
+So, what we can do now is suppose we
+want to find
+out, say, how many different rows there
+are in this data set.
+So, we already know something about the
+columns, right?
+Because this dbListFields told us all the
+column names.
+And so, there's something like 22 columns
+in this data set or in this table.
+Then, what we want to, might want to know
+is how many rows it has.
+And so, what we're going to do is send
+another query to the database.
+So, it's dbGetQuery again.
+So again, we're going to pass a, in quotes
+a MySQL command.
+This is a very special MySQL command that
+says, select count star from this
+particular table.
+So, what it's doing is it's basically
+going to
+count all of the records in the table.
+And it's going to return the number of
+records.
+So, if you wanted to look at the number
+of records in a different table, you would
+just send
+this exact same command with the database
+you are interested
+in here and the table you are interested
+in here.
+And you would get the count of the number
+of elements in that table.
+So then, the next thing that you can do
+is,
+suppose you want to get one of the tables
+out.
+You can basically get the data frame out
+from the data set.
+And so, what you do is, you're using
+dbReadTable.
+So, we pass a database that we're
+interested in getting the table
+from and the table name that we're
+interested in getting the data from.
+And so, what that'll return is then the
+data frame itself.
+So, if you look at the top part of that
+file, you can see this is the
+data that's actually been extracted now
+from that MySQL
+server, from that particular database and
+that particular table.
+So, you can extract the data one table at
+a time.
+One important thing to keep in mind is
+that often if
+I use MySQL databases, there'll be a huge
+amount of data stored.
+And so, any particular table might be
+gigantic
+and might be too big to read into R.
+So, one thing that you might want to do is
+select only a subset of the data.
+So, you can do that with the dbSendQuery
+command.
+So, what you do is you say dbSendQuery,
+and you give it the database again.
+And then, we're going to send it a
+different MySQL command.
+And so, the MySQL command here is select
+star.
+So, it's going to select all the different
+observations from this table, the affy
+U133plus2 table.
+Where the mismatches variable, so you
+remember that's one of
+the columns in that data set, is between
+one and three.
+So, what we do is we send this query to
+the database.
+And so now, that's stored remotely at the
+database, and then if we
+want to fetch the results of that, we use
+the fetch command like this.
+And that'll return this affyMis, which
+will give us some information about
+the, the, only the samples that we've
+selected using this database query.
+So, if we look say at quantiles of
+mismatches.
+So remember, we selected the mismatches
+between one
+and three, and you can see that the
+quantiles reflect that, that we only had
+data
+for which the mismatches are between one
+and three.
+So, the other thing that you can do is you
+can actually just fetch.
+So remember, when you used the SendQuery
+command, it sent it to the database,
+but it didn't try to suck the data back to
+your personal computer yet.
+If you only want to suck out a very small
+amount of data so,
+so, suppose you just want to see a little
+bit of the data and make
+sure that you don't accidentally suck down
+a gigantic table, you can use the
+fetch command, and you can tell it only
+bring back the top 10 records.
+And so, what you've got now is just a very
+small
+data set that only contains the first 10
+rows of that table.
+When you do that, you need to clear the
+query.
+So, you remember you sent a query out to
+the MySQL server, and now, it's still
+sitting out there.
+And you fetch the data back, but it didn't
+stop
+that query from still being out there, at
+the MySQL Server.
+So, you need to do dbClearResult to re
+clear that query from the
+remote server, and it should return true
+again because you've cleared that result.
+So, if you look at the small data set
+where we fetched only the top 10 rows or
+observations,
+you can see that that produces a data
+frame
+that actually has a dimension of 10 rows
+as well.
+So, what we've done is select a very
+specific subset.
+An important point here is that you can
+basically send any
+MySQL query that you would like up here
+within the quotes.
+So, it's a little bit beyond the scope of
+this class to teach you all of the
+different queries.
+The most important ones are the queries
+that
+I've shown you about selecting, the sort
+of
+the total count and selecting all of the
+observations that are subject to some
+particular conditions.
+But if you go to the MySQL documentation,
+you can
+actually come up with a query that will
+allow you to
+very flexibly select almost any sort of
+subset of rows or
+columns from a data set that you're
+actually interested in selecting.
+Remember to close the connection.
+So, this is one of the most common
+mistakes when using accessing a database
+from R,
+is that you open a connection; you select
+some data out; you go happily on your way.
+You should try to close the connection as
+soon as you don't need the connection
+anymore.
+So, immediately after extracting out the
+data that you're interested in, you
+should close the connection and move on
+with the rest of your script.
+The RMySQL vignette is very good.
+It gives you access to a bunch of other
+MySQL commands
+that might be useful for selecting data
+for your particular examples.
+There's also this very nice collection of
+MySQL commands here, very nicely organized
+that
+will give you a lot more information if
+you want to be able to use them.
+One thing to keep in mind is that I
+have shown an example here about public
+spacing MySQL server.
+And so, you, what I've done primarily for
+this analysis is select data from that
+server.
+Please, please do not acces that server to
+delete, add or join things.
+In other words, don't push anything back
+into the server,
+only sub things or select things out of
+the server.
+So, you should only be using the select
+command.
+Another important component is that we
+again, are a large class.
+So, if you all hit that server at the
+same time, it will likely cause problems
+for them.
+It's much better to practice on your own
+local version of MySQL.
+In careful, in general, you need to be a
+little bit careful with
+MySQL commands because you can delete data
+that other people are working on.
+So, a nice blog summarizing some other
+commands that are used with MySQL and
+R is right here, and so if you want to
+take a look and
+learn a lot more, there's a ton more that
+can be learned there, and
+R and MySQL play very nicely together if
+you want to get data out.
+

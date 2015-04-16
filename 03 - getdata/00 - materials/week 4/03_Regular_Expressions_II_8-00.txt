@@ -1,0 +1,244 @@
+This is a continuation of our lecture on
+Regular Expressions.
+So we're going to continue talking about
+metacharacters; which
+we can think of as the grammar, where
+the literals are actually the words in the
+language that we're going to be talking
+about.
+So another metacharacter is actually just
+the dot, and
+so the dot means it could be any
+character.
+So if you search for the term 9.11.
+What that's going to look for is any place
+where it sees
+a nine followed by any possible character
+followed by an 11.
+So it matches all of these phrases because
+there's a nine and
+an eleven separated by exactly one
+character in all of these different
+examples.
+Another metacharacter is the or
+metacharacter.
+And so what it can do, be used, is combine
+two different expressions.
+The subexpressions are called
+alternatives.
+So here it's combining the expression
+flood and the expression fire.
+And there are the two alternatives, so
+we'll match all of these lines
+because there's either fire or flood in
+every single line that we see here.
+You can include up to any number of
+alternatives that you'd like.
+So here it can match flood, earthquake,
+hurricane, or a coldfire.
+So all of these different lines get
+matched, even though it's a different
+character that ident, or a different
+literal that's identifying in every single
+one.
+The alternatives can also be expressions.
+Regular expressions and not just literals.
+So for example what we're searching for
+here is the beginning of the line,
+and then either a capital or lowercase
+good or anywhere in the line a bad.
+So for example here you see good at the
+beginning
+of the line, and here you see bad and it
+doesn't
+have to necessarily be at the beginning of
+the line
+because the alternative here doesn't have
+a carrot at the beginning.
+An alternative is to include parenthesis
+to make sure, to constrain the
+alternatives.
+So here we're looking at the beginning of
+the line and you have to have either good
+or bad lower case or upper, or uppercase
+at the beginning of the line.
+But, in this case, we've now constrained.
+Even if we're looking for bad, it has to
+find it at the beginning of the line.
+If
+you have a question mark that follows a
+parentheses
+like this, it suggests that the indicated
+expression is optional.
+So, here we have a lower case or a capital
+w and then we have a period.
+And it's an optional in this particular
+phrase, so we're looking
+for George Bush with potentially the w in
+the middle, but
+it will match this line because it doesn't
+necessarily have to
+have the w in the middle to be able to
+find it.
+Something to note is that, here, we
+actually had to escape the character dot.
+And that's because dot, it can be viewed
+as a meta-character.
+And so, by adding this backslash, what
+we've done
+is said, don't consider this to be a
+meta-character.
+Consider it to be the literal dot.
+Some more metacharacters are star and the
+plus sign.
+So star means repeat any number of times
+including none of
+the item and plus means at least one of
+the item.
+So here we are searching for something
+between parentheses and
+it can be any character repeated any
+number of times.
+So that will match everything from
+something like this, where
+you have a phrase in between the
+parentheses to something like
+this where you just have parentheses with
+absolutely nothing in
+between because the star can include,
+including no repetition at all.
+The plus sign includes at least one of the
+items.
+For example, here we're looking for at
+least one number,
+followed by any number of characters
+followed by at least
+one number again, so here we see one
+number followed
+by some large number of characters,
+followed by another number again.
+We see this again here, and so this allows
+us to look for
+any possible combination of numbers that
+are separated by something other than
+numbers.
+We can use the curly brackets as interval
+qualifiers to let us specify
+both the minimum and the maximum number of
+times to match an expression.
+So here what we're looking for is bush,
+either capital or lowercase.
+And at the end, debate, and in between
+what
+we're looking for is at least one space,
+followed by
+something that's not a space, followed by
+at least one
+space, I want to see that between one and
+five times.
+In other words we want to see something
+like
+space, word, space, up between one and
+five times.
+So that will match all of these because in
+this case there are five words that occur
+between
+Bush debates in this case there are three
+words
+that occur between Bush and debates and so
+forth.
+So as long as there is between one and
+five word
+like objects between the two we'll
+discover it with this expression.
+If you use m, n within the curly brackets
+that means at
+least m times but not more than n matches
+if you only
+use one number m it means exactly that
+many matches if you
+use m, that means at least m matches to
+that regular expression.
+In most implementations of regular
+expressions, the parentheses
+not only limit the scope of the
+alternatives provided
+by this or, but they can also be
+used to remember the text matched by the
+subexpression.
+We refer to the matched text with escaped
+numbers like escape one, escape two and so
+forth.
+So for example here, what we're looking
+for is
+a space followed by some, at least one,
+but possibly
+more, characters, followed by at least one
+space, followed by
+the exact same match that we saw within
+the parentheses.
+So for example, here we see night space
+night, which will
+match this part plus a space and then a
+replication of the exact same phrase.
+So that'll happen again with blah, blah,
+blah or so, so itchy and so forth.
+So, that's looking for repetition of a
+particular phrase.
+The star is greedy, so it always matches
+the longest possible string that satisfies
+a regular expression.
+So, in this case, we're starting at the
+beginning
+of a string, and we're looking for an s.
+Followed by some possibly large number of
+characters, followed by another s, and
+so it's going to match the entire phrase
+here because it goes for the
+longest possible string that satisfies the
+expression and that's true for all of
+these phrases because they all start with
+an s and end with an s.
+If we want to make it less greedy, then
+what we can do is
+we can actually use this question mark to
+change the greediness of the star.
+So now we start with the s.
+Now we follow up with some smaller number
+of characters.
+It's not good to try to find the maximum
+length of the
+string, followed by something with an s at
+the end of the string.
+So in summary, regular expressions are
+used
+many different languages, not just in r.
+They're composed of literals, that's the
+actual text that you're looking
+for, and metacharacters which allows us to
+look at alternatives or
+look at specific places in a line or look
+at places
+where there are spaces, and find classes
+of characters or words.
+Text processing via regular expression is
+particularly
+powerful when you're dealing with sort of
+unfriendly sources.
+So sources where the data may be in free
+text format or in
+structure data format where you're trying
+to just get access to a particular phrase.
+They're typically used with functions
+grep, grepl, sub and
+gsub like we've talked about; when we're
+searching for strings
+or trying to do some kind of text
+processing
+to either the variable names or to the
+variables themselves.
+I like to thank Mark Hanson for some of
+the lecture material in this lecture.
+For Roger Tank for putting them together.
+[BLANK_AUDIO]
+
