@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Rapp.history
+.httr-oauth
 00_coursera-dl
 *.mp4
 *.srt
