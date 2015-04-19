@@ -5,3 +5,4 @@
 00_coursera-dl
 *.mp4
 *.srt
+**/rawdata/
