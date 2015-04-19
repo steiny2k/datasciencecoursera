@@ -1,0 +1,179 @@
+So the other question is, who reproduces
+research?
+And I think, this is, I don't know, I'm
+not in, this area of,
+kind of, genomics and computational
+[UNKNOWN], I
+don't know how much this is an issue.
+But, it's a big issue for me, the, so, in
+order for
+reproducibility to be effective in any
+way, someone has to do something, right?
+So if I just say I published this paper,
+and it's reproducible.
+That doesn't necessarily mean anything,
+until you get your
+hands on, or someone gets their hands on
+the data
+coding, and looks at it, and does
+something, and maybe even reproduces it,
+right?
+So someone has to do something.
+You have to rerun the analysis.
+Check the code, whatever, try some
+alternative approaches.
+So I think, and this is kind of, in my
+sense, it's
+kind of the analog of replication, it's
+kind of inherited from that tradition.
+But the question of who is something and
+what is their goal?
+Who is this someone and what are their
+goals, is very important, and the way
+that I kind of characterize it is that
+there's kind of three different types of
+people
+who may want to reproduce your research.
+So if you are the original investigator up
+here, you say that the truth is A.
+There's one group, the general public who
+doesn't care.
+So that's so that's a large, that's the
+largest group of people.
+Then there's one called scientists who
+either agree
+with you maybe that they, that they agree
+with, they think the truth is A they may
+also, but they also may think the
+truth is B.
+Okay, so that's fine.
+Everyone's got a hypothesis about how the
+world works.
+And then there's this group of people over
+here which believes that
+the truth is just whatever the opposite,
+it's not whatever you're saying.
+>> [LAUGH]
+>> And the size of the boxes is
+proportional to kind of the
+likelihood that these people, that the
+people
+in that box will reproduce your work.
+>> [LAUGH]
+>> Scientists like you are likely to
+reproduce it, but they're kind
+of busy doing their own thing.
+So, so there's an issue here that this, in
+my opinion, is not really science.
+They don't have a specific idea of how the
+world works.
+They just want to know that it's different
+from whatever you're saying.
+And so they're very interested in
+reproducing my work.
+I had it, and thankfully, my work's mostly
+been, almost all has been reproducible.
+So, so I'm fine with that but it
+has the potential to make your personal
+life miserable.
+So,
+so, so far my thinking is that you know,
+so reproducing brings
+transparency which is critical I think,
+and,um, also increases the transfer of
+knowledge.
+There's a lot of discussion about how to
+get people to share data, which is
+important.
+Data sharing is key, obviously for
+reproducibility.
+But I think the key question of can we
+trust this
+analysis that we see up there
+is not fundamentally addressed by
+reproducibility.
+And so further more, reproducibility is
+this very down stream
+type of element.
+And a lot of these secondary types of
+analysis are coloured by the
+interests and motivations of others, and I
+spelled coloured with a u for Candice.
+So so this, so that brings us to what I
+call evidence-based data analysis.
+And so, I think no one will, everyone
+here's familiar with the idea that,
+you know, a true data analysis involves
+stringing together a whole lot of things.
+Lots of tools, lots of methods, as this
+long pipeline of stuff that you
+have to do to do any real data analysis.
+And so, a lot of times the methods are
+standard, you know,
+everyone does the same thing for a given
+piece of the pipeline.
+Or, if there's no standard, then you just
+kind
+of make up whatever you want to do, right?
+So and the basic idea is, I think, if,
+and, to kind of what I, that I want to
+kind of
+translate to kind of a lot of climatical
+science is
+that we should just use thoroughly
+applied, thoroughly studied methods
+that are that we kind of agree upon in our
+subgroups in the
+scientific, the scientific community, that
+these are the appropriate methods to use.
+You don't have to be perfect, but we have
+to kind of, these, hopefully they're like
+the 85% solution.
+And there should be evidence to justify
+the application of certain
+methods, and you know, as statisticians,
+we do this all the time.
+We, prepare different methods, you know,
+either
+by simulation or [COUGH] theory or what
+not.
+I mean you kind of say, which method is
+more appropriate in certain, in a given
+circumstance?
+So, just a very quick example.
+This is a histogram that generated R I
+just took hist x and, you know, of course,
+the histogram is just a smoother, and the
+most
+important thing in a smoother is the bin,
+right?
+So I didn't do anything I just made this
+histogram, so how did the bin get chosen?
+So it turns out there was a paper written
+by Sturgis
+in 1926, published in [UNKNOWN], paper is
+actual a very generous term
+this thing was like this long, but Booth
+suggested that the band,
+the bandwidth should be done according to
+this, you know, formula basically.
+Later on, when the kind of kernel
+smoothing became
+popular, David Scott wrote a paper in
+Biometrico of
+which talked about, you know, choosing the
+bandwidth based
+on kind of the integrated means for
+multivariate measures.
+So anyways, the default bandwidth is just
+programmed in and there it is, alright?
+No one argues for the most part with, with
+him,
+sometimes when they get smaller and bigger
+that's fine but use
+the default.
+It's pretty good, and there's actually
+some
+research behind what that bandwidth should
+be.
+

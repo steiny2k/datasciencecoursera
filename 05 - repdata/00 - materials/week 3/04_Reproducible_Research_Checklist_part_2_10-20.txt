@@ -1,0 +1,392 @@
+So, the antidote to doing things by hand
+is that you should always, you
+should try to teach a computer to do
+whatever it is about to do.
+So, that's the so the idea is that you're
+going to, you want to
+try to automate, in some sense everything
+that you do in your analysis.
+So if you, if something and particularly
+if you're doing,
+working with data, the parts of your kind
+of project
+that work with the data, that process the
+data, you
+should always try to teach a computer to
+do it.
+for, there's two reasons why you should do
+this.
+One is that if you can, if you can teach a
+computer to do it, then you have a
+solid rules and solid, kind of concrete
+instructions for what to do.
+And so there's no room for fuzziness to to
+kind of play into the
+data analysis because the computer doesn't
+accept,
+generally speaking, won't accept that kind
+of fuzziness.
+They need exact programming instructions.
+And so, when you give instructions
+to a computer, essentially what you're
+doing, is you're writing down
+exactly what you mean to do and how it
+should be done.
+And that is essentially the definition of
+reproducibility, right?
+So, if you can teach a computer, it's
+almost guaranteed that what
+you're going to do is re, is reproducible
+to a large extent.
+And so even if you're going to do
+something just once
+it's useful to try to teach a computer to
+do it.
+And it may involve using a different,
+using a variety
+of programming languages.
+You might use R, you might use something
+else.
+But if you can get your computer to
+do something for you that's always better
+for reproducibility.
+It may be less convenient for you because
+it takes longer to program a computer.
+But it will, it will pay you back in the
+sense
+that everything that you do in this way
+will be reproducible.
+So, as a quick example something that's
+very common that you'll have to do
+in, in most projects is to download some
+data and this data might be available
+on the web.
+So for one example you can might go to
+the UCI machine learning repository go to
+that website.
+And then you might go to simply like you
+know, there's the Bike
+Sharing Dataset, so you click on the bike
+sharing data set web page.
+You click on the data folder and then
+inside the data folder
+is a link to the zip file which contains
+the data set.
+You can choose the kind of save linked
+file
+as in your web browser then you down,
+then,
+then you have to name a file on your local
+computer and a folder and then save it,
+right.
+So these are all things that are very
+natural to do.
+But you'll notice that the list of
+instructions that I had
+to discuss was actually rather lengthy for
+this very simple operation.
+So, an alternative is to just teach your
+computer to do all that.
+And in fact, in R, it's quite
+straightforward.
+You can use the download.file function.
+And, and then just download the file
+directly onto your computer.
+So, one of the nice things, actually,
+this, the the example has some advantages.
+Because, first of all you'll notice that
+the
+full URL to the dataset is specified,
+right?
+So, there's no ambiguity there.
+You don't have to click on the website,
+then
+click on the folder, then click on the zip
+file.
+You get the whole URL to the, to the
+dataset.
+It's right there.
+It's very specific And furthermore, the
+name of the
+file that you save to your computer is
+also specified.
+So, for example, if you download a file
+using a web browser,
+you always have the option of renaming the
+file to be something else.
+But if that's not documented then, then
+it's very difficult to
+link the renamed file to the original
+dataset on the web.
+But here I explicitly specify in the code
+that the local dataset is going to be
+called Bike-Sharing-Dataset.zip.
+And so.
+Now I know what file to look for after
+this code has been executed.
+I know exactly which directory I saved the
+data set to.
+So I saved the data set to a directory
+called ProjectData.
+And so now I don't have to wonder what
+directory the
+dataset was saved to, well, you know, for
+example in
+the, in, downloading it from the website
+through the web browser.
+And this code can always be executed in R,
+can, even if you only need to do this
+once.
+Someone else could execute this same exact
+code, as
+long as they're using R and they'll, as
+long
+as the URL and the website hasn't change,
+they'll
+download the same data site, the, the same
+dataset.
+Now, of course there are many things that
+are out
+of your control, so for, so for example,
+if you don't
+run the website then you're.
+You'll have to depend on the operators of
+the website not making lots of changes.
+But to, to the extent that things are in
+your control, the more that you
+can code things like this for example,
+this simple download.file function the
+better you'll be.
+Another general piece of advice is to use
+some verse, some sort of version control
+software, right.
+And there are many different types of
+software
+in this course and in this series in
+general.
+We, we tend to focus on Git which is
+a very nice version control software and
+it's coupled with
+nice websites like GitHub and BitBucket
+which can be used
+to kind of publish code and other types of
+projects.
+So, I think the main
+feature to keep in mind when you use a
+version control system in a
+data analysis project is that it helps to
+slow you down a little bit, okay.
+So you might, that might sound like a bad
+thing but slowing people down is often
+good, because we
+often, when you have a project and you're
+very excited
+about the data, and you want to get into
+it.
+You just start doing things and you start
+working with
+the data, and you're not really keeping
+track of what's happening.
+And so diversion control software whatever
+it is that you use will
+help to kind of make you stop, think
+about what's been done, think about what
+changes have
+been made, commit changes to a repository
+so that
+you can have a record of what's been done.
+And then kind of move along step by step
+and this is useful for a data analysis
+because you have a log of kind of what
+has happened and what and what direction
+you've gone.
+If you want to go back, you can go back
+and there's a record of what you found.
+So, if in, in the course of, for example,
+your exploratory
+analysis or whatever it is you're doing.
+You find something interesting.
+You have a history of kind of how you got
+there.
+And so, version control systems can be
+very
+useful for this type of for this purpose.
+Of course software like Git can be used
+to,
+you know track and tag snapshots of, of,
+the project.
+You can revert to old versions.
+All of this kind of stuff is pretty
+standard in version control systems.
+And so it's useful if you can to as
+you're progressing in a project to add
+project, to add changes in small chunks.
+So don't just add like 100 files at once
+in a massive commit.
+But, if you can break your analysis down
+into
+logical pieces and add them piece at a
+time,
+this will help you into in reading the
+history
+and understanding kind of what was done in
+the past.
+Keeping track of your software environment
+is very important
+for reproducibility because a lot of
+complex projects will involve
+chaining together many tools and merging
+different datasets and
+some tools and datasets may only work with
+certain environments.
+And so the software in the general
+computing environment can
+be, can in fact me critical for
+reproducing an analysis.
+So, there are a number of different
+features that you might
+want to keep track of in your software
+environment and not all
+of them are necessarily critical for every
+type of
+project but just keep a couple things in
+mind.
+Which are fairly common.
+The first is your computer architecture
+and this is generally, it's
+usually not too important it was probably
+more important in the past.
+But but a general understanding of what
+kind of computer architecture you're
+working on is useful if you need to
+communicate that to someone else.
+So the CPU that you are using, is it an
+Intel chip, is an AMD chip, an ARM chip.
+Who makes the CPU can
+be useful.
+Another aspect of that is whether it's
+32-bit or
+64-bit that can have an impact on some
+software.
+Are you using graphical processing units
+or GPUs.
+Things like that are useful to keep, to
+kind of have in your mind to keep track
+of.
+The operating system can be very
+important.
+So, are you using a Windows operating
+system, Mac OS, Linux, Unix?
+Some other version of Linux?
+This can be very important because some
+software only works on Windows.
+Some only works
+on the Mac, etcetera like that.
+So, if someone wants to reproduce what
+you've done.
+And you've used a piece of software that
+only runs on Windows.
+Then they're going to have to find
+themself a
+Window, a Windows machine or use a Windows
+emulator.
+Your software tool chain is very important
+and typically
+you'll be using lots of different pieces
+of software.
+Some of it will be standard for example
+the
+Web browser pretty much everyone will have
+a Web browser.
+But things like compilers and interpreters
+the shell that you're using, are you using
+the Bash shell or something like that.
+Different programming languages that you
+use, C, Perl, Python, R or whatever it is.
+If you're using different database
+back-ends, it's important to
+know which ones you're using to any data
+analysis software.
+All these things should be noted because
+people,
+if someone wants to reproduce what you've
+done, they're
+going to have to reproduce this entire
+environment, all
+the compilers that you used, etcetera
+things like that.
+And so, that's very important to keep in
+mind.
+Any supporting software particularly
+things like
+libraries software libraries or R
+packages, which
+are, and other types of dependencies are
+going to be important to keep track of.
+Any external dependencies so these are
+things that are kind of outside your
+computer.
+You know external websites.
+Are you downloading data from, from
+central repositories.
+Are there other remote databases that
+you'll be querying.
+Do you get your software from other
+software repositories.
+So things like that.
+Maybe important for your analysis.
+And for all of these things, it's usually
+important to keep track of the version
+numbers because as other people develop
+the software
+they're going to make changes that may
+break dependencies
+And so, if your project was done with a
+certain version of an operating system
+or software it may be that it's only
+reproducible using that version and that
+future versions
+are not or cannot be used.
+So, knowing the exact version number for
+everything if
+it's available, is important to keep a
+note of.
+So one small example for example, is in R.
+If you use the sessionInfo function.
+What this tends, what this will do is
+it'll tell
+you kind of as much as it can about your
+environment.
+You can see this is the output from my
+computer here.
+I'm using R version 3.0.2 Patched and you
+can use
+maybe the subversion or vision number
+which
+is 64849 so it's actually quite precise.
+I'm on a 64-bit Intel compatible computer
+x86 and I'm using an an Apple computer.
+And I'm in the kind of the the US
+English locale, so that's the kind of
+language environment.
+these, I have the following R packages
+installed,
+stats, graphics, grDevices these are all
+the base packages
+that come with R.
+I've got other packages installed.
+And then there are other packages that
+are,
+I'm sorry, loaded, and there are other
+packages
+that are not loaded but their name space
+is available, so things like knitr,
+markdown yaml etcetera.
+And so these are all kind of what my, my
+R environment looks like as I was doing my
+analysis.
+Of course, this is just a small piece of
+my entire software
+environment but it's useful to have this
+kind of detailed information in general.
+

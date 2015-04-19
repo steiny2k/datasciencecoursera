@@ -1,0 +1,313 @@
+[BLANK_AUDIO]
+In this lecture I'm just going to present
+the short checklist
+of things that I think you should think
+about when doing
+any sort of data analysis project or any
+sort of investigation
+involving a lot of data and, and kind of
+processing and analysis.
+This by no means a comprehensive checklist
+and it doesn't come with necessarily any
+guarantees that everything is going to go
+well for you, if you follow the checklist.
+But I think over the through my
+experience, and through the
+experience of you know people I worked
+with a lot of
+the items that I'm going to talk about in
+this checklist I
+think are important, and, and will at
+least be a basis
+for you to kind of do your analysis in a
+reproducible manner.
+All right, so, I'm just going to, just a
+couple
+of do's and don'ts that I'm going to go
+through.
+And then at the end I'll summarize, kind
+of,
+the basic questions that you want to ask
+yourself.
+Any time your doing any sort of data
+analysis or project that's kind of beyond
+a trivial
+kind of analysis.
+[BLANK_AUDIO]
+So, the first thing you want to start with
+is some good science.
+So, and the idea here is you gotta be
+working on something that's
+interesting to you, that you think is to
+come interesting to other people.
+Because if you start with something that's
+but,
+that you don't like or you don't think
+is good, then you're just going to end up
+probably with something that's not good on
+the out.
+So, garbage in, garbage out is the, is
+the, is the basic idea here.
+So start with some good science.
+And we're, and make sure you have a, a
+question or
+a goal that's relatively focused and
+coherent.
+it, that's not always possible, depending
+on the
+types of, of problems that you're working
+on.
+But in general, the more coherent and
+focused question that you can,
+fo, then you can work on the simpler that
+your problem will be.
+And because, because a narrower question
+or a more focused type of question tends
+to rule out a lot of possibilities that
+you won't have to worry about.
+But if you have a very broad and very
+vague
+type of question then you'll have lots of
+things to deal with and
+lots of things to think about and
+generally increase the complexity of your
+problem.
+Of course you should always work with
+people who
+are good collaborators, people who you'd
+like to work with.
+People that, you think that have a good
+kind of, working relationship with, with,
+because we don't have good working
+relationships,
+then this can lead to other bad practices.
+So good work collaborators generally
+reinforce
+good work practices.
+And of course make sure that something
+that is interesting to you.
+Because if you are interested in the idea
+then hopefully
+that will motivate you to kind of have
+some good habits.
+So, in just, so the first thing you should
+always deal with is, you know,
+start with something that's good, start
+with some
+good science, start with some good
+interesting topics.
+I think if there's one rule, if I were to
+boil everything down to
+one rule when it comes to reproducibility,
+it would be don't do things by hand.
+Alright, so doing things by hand is
+usually where most investigations get
+tripped up.
+and, and were things that were not
+reproducible come into play.
+And so I just give a couple of examples
+here of things that are often done by
+hand.
+The first, the first one being, you know,
+editing a spreadsheet.
+So if you use something like Microsoft
+Excel
+or something, or a similar type of
+program.
+It's all, it's, it's tempting to kind of
+load the data
+in Excel, and then just clean up some of
+the messy data.
+Like you might have some outliers
+that you just want to remove, or if your
+doing some QA QC you know, on the
+data and some values might be, you know,
+out of the range or something like that.
+So you just fix them right there.
+You might validate certain types of
+measurements like by using,
+you know, a couple of experts or something
+like that.
+These kinds of things are very easy to do.
+And it's particularly in spreadsheet
+programs
+and it's very tempting to do that.
+But the problem with doing that kind of
+kind of in
+the spreadsheet analysis is that it's not
+really reproducible at all.
+Unless you write down exactly what you
+did, and how you
+did it, and what were the criteria for
+doing certain things.
+For example, if you're going to remove
+outliers, what's the
+criteria for determining what an outlier
+is etc like that.
+So unless you write down everything very
+precisely like
+that editing a spreadsheet by hand is
+often not reproducible.
+And so you should try to avoid it if you
+can.
+Editing things like tables and figures of,
+this is maybe less of an issue.
+But it still may be, leads us to something
+that's not reproducible.
+For example, we change if you change the
+rounding in a table, or something like
+that.
+that can be, lead to, lead to something
+that is not reproducible.
+Something as innocuous is maybe
+downloading data from
+a website, which maybe you do you might
+have to do a lot, if you're, you're
+kind of assembling many different data
+set, data
+sets.
+You might think that well, this is very
+simple.
+I'm just going to open my web browser,
+click on a link, and download a data set.
+But that's again, that's something that
+you do by hand.
+And if you were going to tell someone how,
+how to, someone else
+how to do it there would be a lengthy set
+of instructions.
+You, you'd have to tell them you know,
+what website
+to go to, what link to click on and etc.
+So that's something that you should be
+careful
+about and you should, make sure you write
+down
+everything that you did.
+Because it, it can determine whether
+someone else can kind of
+obtain the same data set to do the
+analysis that you did.
+Even something simple like moving data
+around, moving files around on your
+computer or maybe taking a large data file
+and splitting it in half.
+If you do these by hand, there's no record
+of you ever doing it.
+And, so someone wants to repeat what you
+did, they have no instructions
+for how to do it or where to move things
+or what to do.
+So, you should
+think about this before you do them.
+If you can, and, and ask yourself if it's,
+if it's really necessary to do.
+And if it is then you should document it
+carefully.
+it's, it's always very tempting especially
+in the beginning of
+analysis to think, well we're just
+going to do this once.
+So we don't really need to, kind of write
+a computer program to do it or something
+like that.
+Or write it down very carefully.
+For example you might only download the
+data just once.
+And so you don't need to kind of automate
+that procedure.
+But just be careful with any, if you find
+yourself saying we're
+going to do this just once, make sure you
+still, everything is documented and,
+and set to the point where someone else
+who doesn't know you or
+doesn't work with you could, could
+potentially repeat what you're about to
+do.
+And so the general rule is that, why, the
+reason you shouldn't do things
+by hand is because anything that you do by
+hand has to be precisely documented.
+And this is a task, from my experience,
+this is a task
+that is much, much harder than it sounds.
+Because things, little details that you
+may not
+think are important are actually very
+important to
+other people when they don't have the same
+context and the same background that you
+have.
+Next rule is is related to the first and
+involves not using the point and click
+type software.
+And so there's a lot of software that
+has what are called graphical user
+interfaces, or GUIs.
+And graphical user interfaces are very
+convenient,
+they're very nice, they're very, often
+very
+intuitive and easy for most people to use,
+they don't involve a lot of instruction.
+And so it's nice to use a GUI and a lot of
+software has these types of interfaces.
+But the
+problem is that a lot of the actions that
+you take with
+a GUI, like pointing and clicking are
+difficult for others to reproduce.
+So unless you specifically write down,
+here, I clicked on this menu, and then I
+clicked on this option it's difficult for
+someone else to know exactly what you did.
+So that's the danger of using things,
+using graphical user interfaces
+in any type, any type of data processing
+or statistical analysis.
+Some programs, if they have a GUI,
+will produce the, a log file or a script
+that includes the
+kind of equivalent commands that to the
+pointing and clicking that you did.
+And so these log files and scripts can be
+saved and can
+be examined by another person in the
+future if, if they have to.
+So in general any data analysis software
+or data processing
+software that is highly interactive you
+should be careful of.
+Because interactive software
+tends to be very nice to use and you can
+kind of do a lot of
+exploratory things with it, but this ease
+of
+use can come at the price of
+reproducibility.
+And so just be careful when you are using
+interactive software that doesn't
+oh, that doesn't log what you do or keep
+track of the history.
+now, of course, there may be other
+software
+packages that you use that are not
+directly
+related to the analysis of data or, or the
+kind of, or the kind of data
+analysis pipeline.
+Which may have GUI's and that's fine.
+For example, like your graph editor may
+have a graphical user interface and that,
+something that you use to write the code
+or, or to write a report.
+And that is usually, that is usually fine.
+Because your analysis may not depend
+critically
+on exactly which text editor you use.
+However, if on that rare case it does,
+then you
+need to be careful that everything is kind
+of appropriately documented.
+

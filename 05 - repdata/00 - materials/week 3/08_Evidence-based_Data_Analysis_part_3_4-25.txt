@@ -1,0 +1,147 @@
+So I just take this analogy from [UNKNOWN]
+slides sometimes when I talk about asthma.
+So if you think of different kinds of
+asthma, allergic sensitization, and the
+path of genesis.
+You know you think you might have some
+allergy exposure, which you brings into
+your body,
+the specific [UNKNOWN] you know
+[INAUDIBLE] which has
+been sensitized and these [UNKNOWN] that
+to our mediators.
+And these plans where mediators
+create classical symptoms, of bronchial
+construction,
+mucus, generations like that.
+And the way that we can attack this, is
+primarily
+through medication So you have like your
+inhaled corticosteroids over here.
+You've got your anti-leukotriene type
+modifiers over here.
+You've got your anti-IgE type stuff over
+here.
+And, and so that all does varying type of
+jobs of,
+of, affecting people's asthma But then,
+there's also this part up here.
+So one of, one of the reasons I'm excited
+about a lot of this
+environmental intervention stuff that
+we're doing is that it kind
+of affects the most upstream part of the
+disease process.
+And not only does it affect this most
+upstream part.
+But it's actually very inexpensive
+relative to all this medication.
+So, it's efficient, and it's potentially
+powerful.
+And so that's kind of this, that's kind of
+nice.
+So if you were to translate this over, to
+kind
+of a way that research is disseminated so
+there's people,
+people conducting research over here that
+may be problematic,
+it may be incorrect in terms of the
+analysis.
+They submit a paper to some journal, that
+goes through some, the, and the paper
+gets published, and after the paper's
+published, you
+get the data and you get the code.
+And you can see what they did.
+So, the typical kind of safe guards are,
+[INAUDIBLE]
+maybe editor thinks it stinks so he
+rejects it.
+Or if they send it out then there's peer
+reviews.
+And the peer review's supposed to be a
+check on something.
+And if it, then if it gets past your
+review it gets published, so
+that's where reproducible research comes
+in at
+the most downstream aspect of the process.
+And so there's a lot of discussion now
+about doing this, and so the
+idea is that okay well why would wait for
+all the data and the
+code to available after the thing is
+published.
+Why not do it as part of the publication
+process?
+And I think that's, that's a noble goal,
+but I think totally unrealistic.
+Because I don't think it's realistic to
+expect peer reviewers to kind of reproduce
+everything.
+I speak from experience.
+So Of those of you who are not in
+statistics, you know, are not
+used to waiting the typical six to twelve
+months for your review to come in.
+And if you add on top of that the need to
+reproduce the entire analysis you would be
+promoted 40 years from now.
+So so, so that's reasonable and I'll give
+an example of that.
+But I think the questions well, is there
+something we can do?
+I mean in the most upstream part of this
+process.
+And so that's what I want to talk about
+today.
+So this one example of moving the
+reproducible part to the peer reviewed
+passport, it's not exactly up here but
+it's somewhere up screen a little bit.
+This is just, we have a policy at the
+journal of bio statistics, which is easily
+the best
+statistics journal in the world, and and
+I'm the
+associate editor for what's called the
+associate editor for reproducibility.
+And we have a very light policy, it's
+totally voluntary,
+where you can submit your date and your
+code to the
+editor, the associate editor for
+reproducibility
+and he, [INAUDIBLE], will reproduce it.
+And if you if it's not a very, it's not a
+hundred percent fool
+proof policy but it's never happened that
+I haven't been able to reproduce anything.
+But if you, it is really useful, you get
+this little R stamped on the top of your
+paper.
+Now there's two other options, there's a D
+and a C.
+If you submit your code, then you get a
+little C over there.
+I don't check that, I just assume that's
+fine.
+If you submit your data, you get a D.
+If you submit your data and your code, you
+get a D and a C.
+And if I reproduce it, you get an R.
+So and then this is Jeff's only
+contribution to this work.
+[LAUGH] And [UNKNOWN] these papers.
+He got an R.
+And it took me a week to reproduce it, but
+it was fine.
+So anyway, so that's one model.
+This is not really a kind of a deterrents,
+so to speak,
+because it's old voluntary happens after
+the paper is deceptive from pure evil.
+So but, anyway so this is one model
+[UNKNOWN].
+

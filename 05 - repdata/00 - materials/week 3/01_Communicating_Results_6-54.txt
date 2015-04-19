@@ -1,0 +1,272 @@
+This lecture is not so much about
+reproducible research, per se.
+But it's more about how you can
+communicate your results, in a way
+that people can understand them, and can
+check your results, if they need to.
+So particularly, when you're doing a large
+data
+analysis, or, you know, a complex kind of
+project.
+And you do your work in a reproducible
+manner.
+You're going to generate a lot of content
+and a lot of files and a lot of
+output and a lot of data.
+And those all cannot be presented at once.
+And so when you present your, your kind of
+findings to another person you're going to
+have, there's going to, there's a kind of
+hierarchy of information that you're
+going to want to present.
+Ranging from kind of least specific to
+most specific.
+So the bottom line is that, you know, most
+people are, these days are very busy.
+People like managers and
+organization leaders are going to be very
+busy.
+And so they are going to have to kind of
+accept content that you present.
+At a, at a kind of a, at a, at a, at a, in
+a kind of hierarchical matter.
+So the idea is that, you know, many times,
+when you, when you present a
+data analysis, it will be in an oral form
+like a presentation or in a meeting.
+But often the kind of early results or
+intermediate
+results are, are presented via, via a
+medium like email.
+And it's useful to break
+down the results of an analysis into
+kind of different levels of specificity or
+granularity.
+And so here's a link to just some general
+advice
+on kind of how to get email responses from
+busy people.
+But the basic idea is that you don't want
+to kind of blast a ton of information to
+someone
+in one go, because it'll be overwhelming,
+and people will
+be less likely to read what you have to
+say.
+So if you think about you know, what a
+typical research
+paper might look like, you know, there's
+a, it's
+a hierarchy of information built into a
+research paper.
+So typically the first level is going to
+be the title.
+Which is descriptive of what the paper's
+about, hopefully it's interesting, it
+tells you
+a little bit about what's going on, but
+there's really no detail in a title.
+Just the kind of the topic that's covered.
+The next will be the abstract, which would
+be, usually
+be a couple hundred words, about what the
+paper's about.
+You know, what motivated the problem
+what they did to solve the problem.
+What the, kind of the bottom line results
+were.
+So that's only going to be in the
+abstract.
+Then of course you have the paper itself.
+You know, the body of the paper will show
+you, will have the, you know, the methods.
+And more details about what you really
+did.
+There will be the more detailed results
+any sensitivity analyses you
+know, things can, things like that will be
+in the paper.
+And a much longer discussion of the
+implications of the results.
+But of course,
+even the written paper these days, for
+a complex data analysis, doesn't specify,
+really, all
+the details that need to be used to need,
+that are needed to reproduce the findings.
+So then you typically might have some
+supplementary de, materials which
+have a lot more of the details about what
+was done.
+And, and then if you really, really
+want to
+kind of do what was done to a level of
+precision that is kind of useful, you
+probably need
+to get the code, the data and all the
+gory details of kind of what happened.
+So that's kind of like the, the range of
+things that you
+might be able to present from least
+specific to most specific, so
+not everyone, of course, is going to be
+writing a research paper,
+but there is an analog to kind of most
+presentations of data analysis.
+And so, if you're going to be you know,
+mailing results to a person.
+Either a colleague, or a manager.
+then, you know, the, the first line of
+information is the
+subject of the email, all right, so the
+subject of the
+e-mail is kind of like the title.
+And you want to have it, kind of concise,
+you want to
+be descriptive, and at a minimum, you want
+to have one, all right?
+So don't leave it, don't, don't send an
+e-mail without a
+subject, so it's not specific as to what
+the e-mail is about.
+If you can summarize kind of what you've
+done in one
+sentence, the, then it may be useful put
+that in the subject.
+That way people reading the subject can
+kind of get a sense
+of what's happening and maybe even make a
+decision based on that alone.
+The next level of information of course is
+the email body.
+And you, you don't want to go, even though
+there's no technical limit
+on the size of the email body, you don't
+want to go too crazy
+with this, But you want to have, you know
+provide a brief description of
+the problem maybe if someone doesn't, you
+know, if the person may not remember.
+If they're working on many different
+things at
+once, they may not remember what the
+problem
+is, precisely what you're working on, so
+give
+them a little context, give them a little
+description.
+Recall, you know, if there was a meeting
+previously.
+You know, talk about what was
+proposed and, you know, and what you
+actually did.
+Summarize some of your findings and your
+results and maybe, you know, for
+a total for one to two paragraphs in this
+whole, the email body.
+If you need this, the person that you're
+presenting the
+information to to take some sort of action
+based on these,
+the results of this presentation, then you
+should try to
+suggest some options that and make them as
+concrete as possible.
+Alright.
+So and
+if there are questions that need to be
+addressed,
+if you want them to kind of comeback with
+an answer, it's usually best to try to
+make
+them yes no questions or as simple as
+possible.
+After the email body, of course, you might
+be able
+to attach something that's quite a bit
+longer, a PDF file
+or another type of document, and so this
+can be like
+a report containing more detailed
+analyses, figures, tables, things like
+that.
+You can, this can be derived from an R
+markdown file.
+You can use it, you know, something that
+you create with knitr.
+But of course, even in the report like
+this where you may
+be allowed, you know, a couple of pages
+to, to present things,
+you still want to stay concise, you don't
+want to spit
+out pages and pages of code and tables and
+results.
+We know that your code is available
+because if you
+use something like knitr then obviously,
+you have to kind
+of put the code in with the results, but
+you
+don't necessarily have to present it all
+in the report.
+Your opportunity to do something like that
+of course
+will be, if, if you, if you have someone
+who
+really wants to look at what you put, what
+you
+did precisely, you can give em a link to
+some
+sort of repository, like GitHub, or a
+project
+website that would have all of the
+details.
+Or all your code files.
+All your data sets.
+All your, all that kind of, all the nitty
+gritty like that.
+All your, your software environment,
+things like that.
+And so.
+So that's kind of the level of, different
+levels
+of detail that you might want to present
+to someone.
+And so people who are truly interested in
+everything
+that you did, you know, or really want to
+know
+kind of the details, they might go to your
+GitHub repository and start pulling your
+code and start looking
+at it and start looking at the detailed
+results.
+But someone who wants kind of top line
+or I should say, you know, top line
+summaries.
+You know, they'll, they'll read the email,
+they'll
+look at the subject, they'll read the
+brief description.
+And might flip through the report.
+And so different, the point is that
+different people are going to
+be interested in different levels of
+details of, about what you've done.
+So you want to be, and so you want to
+present people with those different
+levels, so that they might
+be able to choose the level that they are
+most interested in.
+And so this is just kind of a generic
+template for kind of how you
+might present a an analysis or a data, or
+a project that you've worked on.
+Not every presentation will kind of need
+all
+these different levels but I think that, I
+find this to be a useful breakdown of
+the different types of presentations that
+you can make.
+

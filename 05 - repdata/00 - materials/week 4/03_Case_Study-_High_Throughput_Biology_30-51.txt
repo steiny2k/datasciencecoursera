@@ -1,0 +1,1150 @@
+[BLANK_AUDIO]
+Hey everyone, this lecture features Keith
+Baggerly, who is a professor
+in the Biostatistics and Bioinformatics
+Department
+at the MD Anderson Cancer Center.
+Here in this lecture, he's talking about a
+case that happened with some
+researchers at Duke University regarding
+using
+high dimensional genomic signatures in
+cancer outcomes.
+So take a look at this lecture.
+It's a really important story and I think
+there are
+a lot of important lessons that you can
+learn from the experience that you went
+through.
+>> Okay.
+So, thank you for sticking around for the
+very last session.
+We're in the home stretch.
+And I really appreciate you being here.
+So that's a very good thing.
+And I want to talk a lot about a theme
+that we haven't focused on explicitly
+in this conference so far, which is the
+importance of reproducible research in
+high throughput biology.
+As these, as we're generating better and
+better essays, and we're generating more
+and more measurements, thousands of
+things,
+it becomes increasingly important since
+the analysis
+takes a larger and larger chunk of time
+That at some stage, not
+only us, but others, should be able to
+precisely reproduce what we did.
+In other words, if they start with the
+same numbers, should they get the same
+results?
+And we'd like that to be true.
+Now, this is actually really important in
+high-throughput
+biology for a somewhat different reason.
+Which is simply that.
+And once I will get this advanced then we
+will tell you what it is.
+Let's see.
+Okay, well, I can gesture and I can tell
+you what it is.
+Which is simply that our intuition about
+what makes
+sense in high-throughput biology actually
+is pretty darn poor.
+What I mean by that is that in many cases,
+I've worked
+with clinicians where I've gone in and
+said, this gene has gone up.
+And that means these people are most, more
+likely to develop advance cancer.
+And the clinician turned to me and said
+no, what that means is that you've
+got strumble contamination in your samples
+because I've worked with
+that gene for 15 years and I know how it
+behaves.
+And they're right.
+They have intuition for single genes.
+On the other hand, if I go to that same
+clinician and I give
+them a, the following signature of 100
+genes and I say this goes up.
+Well, they all stare at this list at 100
+genes and they'll say yeah,
+I can see that because this will influence
+this and this will influence this.
+And it's wonderful it's a Rorschach test
+for biologists to give
+them a gene list of 100 things.
+And unfortunately we've tried the null
+experiment of giving a random
+list to some of our biologists and they
+still find patterns.
+So this is somewhat of a warning.
+Now, in light of this, we find it somewhat
+dismaying that when we go to the
+literature and we
+take a, take a typical paper, and we try
+to
+figure out what was done, the
+documentation is often poor.
+And if the documentation is poor, in some
+cases, if the finding
+is important, we are forced to resort to
+what
+we have come to refer to as Forensic
+Bioinformatics.
+Which involves starting with the results
+and the
+raw data and saying what must they have
+done to get from one place to the
+other, regardless of what the methods say
+they did.
+Okay?
+And I want to illustrate this, and how
+important
+this might be, by considering a specific
+clinical example.
+Specifically using signatures,
+genomic signatures, to try to predict
+response to chemo-sensitivity.
+And this is actually based on work that
+appeared
+a few years ago now at the end of 2006.
+This is a paper that showed up in Nature
+Medicine and what they said,
+what they claim in this paper was that
+they figured out a really great thing.
+Specifically, starting with cell lines,
+they figured out how to come
+up with genomic signatures of sensitivity
+to a whole bunch of drugs.
+So here's how this worked, they're
+not just working with any panelist,
+[INAUDIBLE].
+They're working with the NC160, and the
+NC160 as was
+eluded to in the last talk, is a very
+special thing.
+One reason it's very special is that it's
+a
+standard panel maintained by the National
+Cancer Institute and what
+that means, is that if you've got a new
+chemotherapeutic,
+that agent will be sent to the National
+Cancer Institute.
+And they will test it for efficacy against
+this panel of 60 cell lines.
+And that takes, that information about
+which drugs
+are most effective against which cells,
+that's public data.
+You can go and you can download it and you
+can download this information for every
+single chemotherapeutic now available.
+So, if you configure it, how to leverage
+that information, that's potentially a way
+to use or choose the best single drug
+that's out there for a given patient.
+So what they said was they said, okay if
+using the NCI60, let's start with a drug
+of interest like Docetaxel.
+Let's pick the sudden most sensitive, and
+most resistant cell lines.
+Okay, those are our extremes.
+Let's take array profiles of those cell
+lines, okay, fine.
+Let us contrast them and identify the
+genes that
+are most different between group one and
+group two.
+These genes will comprise elements of our
+sensitivity signature and then they say
+let's fit
+a model to come up with the sensitivity
+signature and for doing this they use meta
+genes which sounds really cool.
+But to mathematicians, we otherwise know
+it as
+principal components and I'm going to use
+that terminology.
+And they're going to say okay, using these
+meta
+genes lets try to fit the cells lines and
+predict
+on clinical samples and they tried this
+with a whole
+bunch of public data sets using seven
+commonly used agents.
+They reported great results and I know
+this was
+really flashy because within two weeks of
+this paper appearing,
+we had three different groups of MD
+Anderson coming to us
+in Bioinformatics and saying we want to do
+this, help us do this.
+And being helpful bioinformaticians we
+said sure, we'd love to do that.
+And in particular, since all of the data
+involved is public, we should be able to
+go out and figure out how to do
+it ourselves, and generalize it to other
+trials.
+So okay.
+Let's, so let's, let's try that.
+And we decided to try that starting with
+docetaxel.
+So we're, starting with the most sensitive
+and most resistant
+cell lines.
+In this case, we're going to be using U95
+A arrays for the NCI60.
+And these arrays were run in triplicates,
+we've got three for each.
+And when we did this, and we tried to fit
+the training data,
+here is a plot of the first two principle
+components of these things.
+And what you can see, not too
+surprisingly,
+is that you have some pretty clear
+separation
+between all the resistant ones at the
+left,
+and all the sensitive ones at the right.
+This little triangle of three things,
+those
+are three replicates of the same cell
+line.
+So that's sort
+of what we expect to see.
+Now this separation should not surprise
+you.
+This is the training set.
+We have picked the genes specifically to
+achieve this separation.
+What we now what to see is we now want to
+see clinical samples projected
+into this same space and see the
+separation so that we can use it
+ourselves.
+So we took the predicted, the actual page
+information, and we projected it into the
+space.
+And we did not see the separation that we
+were really hoping and expecting to see.
+So of course, this led to the natural
+question of, did we do something wrong?
+And this is of course, well now we're
+going to start to reconstruct exactly what
+was done.
+And to do this we begin by saying, okay,
+well okay, what were
+the signatures or the, the specific genes
+that they used for the individual drugs?
+And this is actually somwhat easy because,
+in the supplementary material
+to their paper, they included, here are
+the
+lists for each drug of all the accumetric
+proset IDs that are involved and all the
+genes that are involved and in, then in
+the paper they also gave some exp,
+explanations
+about Here are some genes that make sense
+in the context of this drug, because it
+explains the biology and so on, like that.
+So, okay.
+So we decided to pick one of the drugs,
+and we started with 5-Fluorouracil.
+And what we want to be able to do with
+this, is
+we want to be able to construct a heatmap
+that looks like this.
+This is a heatmap that actually
+showed up in the paper.
+This is of the 45 genes that they picked
+out for 5-Fluorouracil.
+And one of the things that you can see is
+this plaid pattern
+because every one of the 45 genes has a
+pattern that we like.
+In other words, high in one group and low
+in the other, four low then high.
+So, okay.
+Extreme separation, that's what we expect.
+That's what we want in the cell lines.
+So, well, how'd they pick these?
+Well, they picked these using two sample
+t-tests, and I'm a PhD level
+statistician so I figured out how to do
+two sample t-tests by this point.
+So we tried it ourselves.
+So here's our best 45 using t-tests.
+So okay, great.
+And then we said, all right, let's take
+the list of affymetrix probeset IDs for
+there 45
+and take a look at that heatmap, and we
+didn't see, again, what we were expecting
+to see.
+So we then decided to try something which
+we've learned to unfortunately do
+every once in a while, which is to be just
+a bit paranoid about
+the data.
+And what we did then was we took our list
+and theirs, and we put them side by side.
+So there's their list and there's ours.
+Does anybody notice a pattern here?
+[LAUGH]
+What we have here is an off by one
+indexing error.
+This is true for all of the genes in this
+signature.
+Now what does that say to you about
+whether or not certain
+genes making sense in terms of the
+biology, really holds.
+When they're referencing a set of genes
+that actually isn't involved.
+So now of course this is just one drug.
+They looked at seven.
+So there's six others, so what we decided
+to
+do for these six others was we basically
+took
+their reported affymetrix IDs, moved down
+one, and looked
+at the p.values to see if they're really
+small.
+So let's see.
+Well!
+Topo Tico yep, they're all off by one!
+And Topo side off by one.
+Adriamycin is mostly off by one.
+There's a few we can't explain.
+Paclitaxel mostly off by one.
+Docetaxel mostly off by one.
+And Cytoxan we have no earthly idea what
+they did with this drug.
+So OK, fine.
+We've got this, and we know that's one
+problem.
+Now, how is it that this problem could
+arise?
+And to answer that one, we went in and
+we looked at the software that they were
+using.
+And as a side note, if you want to read
+documentation on how
+this software works.
+You should go to our website, because I
+wrote it, because we couldn't find any.
+And one of the things that we noted was
+that
+their software, in order to work, required
+two input files.
+The first input file is the quantification
+matrix, genes by samples and this
+matrix needs a header, where the header is
+either zero, one or two.
+To indicate that this is a training sample
+sensitive, training
+sample resistant or a test sample whose
+outcome we don't know,
+that's the first input; the quantification
+matrix.
+The second input is a list of gene IDs,
+gene
+names in the same order as in the
+quantification matrix.
+But, for their software to work correctly,
+this
+second input must not have a header row.
+So if you start with an excel file and you
+copy and you paste
+and you've got a title at the top that
+says gene name, guess what happens?
+You will get an
+off by one indexing error.
+And if you run this through your software
+we tried this with Docetaxel and
+we perfectly matched the heatmaps and we
+also got some of these offset genes.
+So we know that works.
+But again that's one drug Docetaxel out of
+seven so what happens with the other six.
+Well, let's take a look.
+Okay [UNKNOWN] we can perfectly match the
+heatmaps.
+We know what cell lines are involved.
+We know what genes they should be
+producing.
+Okay, fine.
+Adriamycin perfect, Etoposide perfect,
+5-FU perfect,
+Paclitaxel well, they mislabeled it as
+cyclophosphamide in the paper but okay.
+And cyclophosphamide we still have no
+earthly idea what they did this sheet.
+So okay.
+There's, There's, There's we can perfectly
+match the
+heat maps for six of the seven drugs.
+We understand what they did.
+Now actually, before we go on, I should
+note that this should actually bother you.
+And the reason it should bother you is
+that we've
+perfectly matched the heatmaps for six of
+the seven drugs.
+But we managed to perfectly match the gene
+lists for
+only three.
+For four of the drugs, there are included
+other genes that we can't explain just
+yet.
+They are outliers.
+And we'll come back to those because
+before
+we get there, we also noticed in using
+their
+software that something that was more
+important to
+us, which was that their software also
+gave predictions.
+And this is the clinical thing that we're
+really interested in.
+We want to know, is this patient going to
+be sensitive or not.
+So, we wanted to see, can we get good
+predictions
+out of the software.
+And the way we're going to check this
+well, there's a
+bit of a problem in that the paper doesn't
+say,
+for the fit and data sets that they fit,
+this
+patient turned out to be sensitive, this
+one resistant, no.
+They just gave us an overall rate of
+accuracy, okay, so that
+they got, if they got 24 patients, they
+got 22 of them right.
+Okay, fine.
+So we're going to say that we understand
+the classification algorithm or
+this thing well enough to use it if we can
+get accuracies
+at least as good as the ones that they
+report, okay?
+That's our bar.
+So that of course, brings about the next
+question, which
+is, just how good are the accuracy rates
+that they obtain?
+So we're going to look at this in the
+context of Docetaxel.
+And this top plot is a figure from the
+paper and you can see the
+scores for the sensitive patient's and
+they are
+mostly low with blue squares and that's
+good.
+Resistant ones are high and they've got
+red triangles and that's good.
+And I have a question here.
+I have an analysis
+question for the audience.
+The analysis question is how many blue
+squares are
+there?
+13.
+That is correct.
+We have up there in the top plot.
+13 sensitive samples and 11 resistant
+ones.
+Now there's a second panel on this page
+right here.
+The thing is this panel doesn't come from
+this paper.
+This panel comes from a paper by Chang et
+al.
+They're the ones that actually introduced
+the test set being analyzed here.
+And according to Chang et all they thought
+that they had 11 sensitive and 13
+resistant.
+So 13 and 11 or
+11 and 13.
+That may be a problem so we decided to
+take a look at a different drug.
+Namely Adriamycin and for those of you who
+are real math whizzes here.
+How many red triangles are there?
+Okay?
+For those who are not quite that
+ambitious,
+are there more red triangles or blue
+squares?
+Come on.
+This is not a trick question.
+I hear red triangles are what.
+So basically we've got a whole bunch of
+patients that are resistant to therapy.
+The problem is, in this case, the
+underlying dataset that's applied
+to this thing, this was from a paper on
+childhood leukemia.
+The reason this is a problem is that
+childhood leukemia is a
+disease for which we've actually got a
+pretty good cure rate, around 80%.
+And what that means, is that if we've got
+a drug to
+which most of the patients are resistant,
+which wouldn't be using it.
+And indeed, if we go
+back to the original paper that submitted
+it,
+they thought that most of their patients
+were sensitive.
+So what do we think is going on?
+We think, that for zero and one, they
+swapped the interpretation in
+feeding it into the data and they didn't
+realize what they were doing.
+Now, what does this mean clinically?
+It means that what, well, their going to
+use that signature, and they're going
+to use Adriamycin just for the patients
+who will derive no benefit from it.
+This is poor clinical practice.
+So, we don't think this is a good idea.
+So, given this there is the question of,
+okay, if they're mixing things up
+this badly, how is it that they're getting
+good predictions in the first place?
+And actually, this leads back to one of
+the things that we passed
+on just a few minutes ago which is that
+there were some other genes.
+And in particular, for docetaxel, there
+were 50 genes.
+If we take our list of Docetaxel and we do
+this off by one trick, we match 31 that
+leaves 19.
+Of these 19,
+there's the question of where can they
+come from?
+Well, if you go back to the initial paper
+by Chang et al that supplied the test set.
+They say if you want to separate R
+resistance from R
+sensitives, here's a list of 92 genes
+that'll do the job.
+So we said, okay, let's take a look at the
+19 we can't match and compare them
+with the 92 they report and we find out
+that there is an overlap of 14 genes.
+There you go, they are entries 7 through
+20 in this list, one contiguous block.
+I think we have some statisticians in the
+audience, so quick question.
+If I pick 14 items at random from a list
+with 92 in
+it, how often do they all, all appear
+right next to each other?
+The p value is small, you can get
+published with this one.
+okay, now of course, this still leaves
+five.
+What are the other five?
+Well, they're ERCC1, ERCC4, ERBB2,
+BCL2L11, and TUBA3.
+The thing that kind, that, the common
+theme of these five is
+that these are the genes mentioned by name
+in the paper to explain
+why the signature works.
+So for the docetaxel signature we have the
+genes
+that work to split the test set, the genes
+that work to split the training set, and
+the
+genes that are there to explain why it
+works.
+And there is no overlap between these
+three.
+We thought this was somewhat disturbing.
+So we wrote a letter to Nature Medicine.
+And one of the things about this being a
+talk on reproducible
+research, is that you don't have to take
+my word for it.
+Which means that you can go to Nature
+Medicine, you can read
+the paper.
+You can also read our reports, which
+contain all of our code.
+You can run it through R, and you will get
+the same numbers we do.
+As a side note for data compression our
+note to nature medicine is 700 words.
+There's 140 pages of supplementary
+material for those 700 words there.
+So there's a bit of a compression there.
+So that one's fun.
+And so all the data's there.
+And then of course we waited to see okay
+is there a response.
+So they say oh well whoops we got it
+wrong.
+We'll fix it next time.
+Well no that wasn't quite the response.
+The response was well, unfortunately the
+analysis of Baggerly
+and Coombes is deeply flawed and amongst
+other errors.
+Well, first off for adriamycin the labels,
+this is
+the one where they have a lot of red
+triangles.
+The labels are actually correct.
+And we've posted details on our website to
+illustrate this.
+And they must be wrong because we've
+gotten this approach to work
+again and in their rebuttal they note that
+they've done it twice.
+In new papers with editorials and things
+like that.
+So we must have
+screwed up.
+And well given the timing I'm not going to
+be
+able to go through all of these but I want
+to look at some of the data for one or
+two of these just to illustrate what might
+be going on.
+So let's start with Adriamycin.
+For Adriamycin they say they've got the
+labels correct on their website.
+So we went to their webpage and we said
+what's there?
+Well actually, when we went there we saw
+that there's a table of quantification for
+144 samples.
+22 for training
+cell lines, and 122 for test.
+These are the patient ones, for which
+they're making predictions.
+And we said, well, maybe we can find
+something that separates the
+responders from the non-responders, so we
+decide, let's try to cluster it.
+And as a prelude to that, let's just
+check the correlations between individual
+pairs of elements.
+And what I'm going to show you now, is a
+plot of
+all the really high correlations we see in
+this matrix of 144 samples.
+Here's the sub-matrix corresponding to the
+training data, the cell lines.
+And here's the test data.
+Now the red line on the main diagonal we
+expected.
+Samples are indeed highly correlated with
+themselves, that's good.
+However, we didn't expect these red dots
+off the main diagonal.
+What's going on?
+Well, turns out they have 122 test
+samples, but the 122 are not all distinct.
+There are some samples that they have
+reused two,
+three, or even four times.
+And there's a sample right about here
+which has been reused four
+times which has been labeled as resistant
+three times out of four.
+Now that's the same sample.
+So we're pretty pretty convinced that the
+labels are not all correct even now.
+So we set a further note to Nature
+Medicine about
+this and Nature Medicine forwarded this on
+to the authors.
+And then they got back to us and said well
+they'll adjust it so we see no publish
+your note.
+Okay, fine and,
+indeed, what they said later in August of'
+08, was that
+they had redone the analysis using only
+the 95 unique samples.
+And they had, again, gotten great results.
+Now, for those of you were listening to me
+carefully before, you
+will recall that I said that there were
+actually 84 distinct samples.
+So hearing that there were 95 was a bit of
+a surprise to us.
+So, okay, but fine.
+And what'd they do now?
+Well, when they corrected this in August
+08, they actually
+took down the quantifications and they
+just put up a list.
+Of the 95 geo
+IDs of the areas involved.
+So, lemme show you the first 20 of the 95
+they now list.
+And I've highlighted a few of them,
+because that used twice,
+that used twice, this one used twice and
+labeled both ways.
+So actually, of the 95, which is, the is
+the second correction, by the way, 15 are
+in duplicate.
+Of those 15, 16, six are labeled both ways
+and furthermore since
+they've actually note, now told us the Geo
+I.D.s of the individual arrays.
+We can actually go back and figure out
+what the initial submitters
+thought they were, in terms of resistant
+or sensitive.
+So, the group, the dup group says that 61
+are resistant, 13 are sensitive, and six
+we don't know.
+The people submitting the data thought
+that 22 were
+resistant, 48 were sensitive, and 10 they
+labeled as intermediate.
+They didn't classify them.
+So for Adriamycin, we're not convinced
+this works.
+Well, all right, there's still other
+things that they put out there.
+There's other papers with editorials.
+So let me show you one of those.
+This is a paper
+that showed up in the Journal of Clinical
+Oncology, by Hsu et al.
+And in this paper, they extended the
+approach
+to deal with two new drugs, Cisplatin and
+Pemetrexed.
+These are important in treating lung
+cancer.
+And one of the things that they thought
+was really neat was
+that they said, okay we actually don't
+like the NCI60 for all drugs.
+So we're going to shift to a different set
+of cell
+lines and these cell lines were profiled
+on Affy U133 Arrays.
+And one of the things that they did using
+this, was they came up with a signature
+for Cisplatin.
+For Cisplatin, they pointed out something
+important.
+Specifically that the signature they found
+contained ERCC1, ERCC4 and DNA repair
+genes.
+That's important because there have been
+several papers in the New
+England Journal saying these are related
+to how you treat lung cancer.
+So, that's really cool.
+So what'd we do?
+Well, we took the data and we said all
+right let's try to see if we
+can match the heatmaps so we know the cell
+lines and the, and the genes involved.
+And after with some work and that's
+another compression thing there.
+We did manage to exactly
+match the heatmaps.
+And for Cisplatin, after we exactly
+matched the heatmap, we
+took a look at the genes involved and we
+discovered that
+we could match 41 of the 45 genes they
+report
+after accounting for this off by one error
+that's still there.
+There's four that we can't match at all.
+Do I have any guesses from the audience as
+to the identities of those four?
+[LAUGH] The four that we cannot match are
+ERCC1, ERCC4, ERCC1 again, and FANCM, and
+of these four, the last two are special.
+Because as it turns out, those two aren't
+on the U133A arrays, they're on the U133B.
+So two of their best genes they haven't
+measured yet, but
+hey, who needs to conduct experiments if
+you know the answer?
+This is a wonderful finding.
+Okay, great.
+so, we were disturbed by this.
+As a side note, we submitted a correction
+for this one to JCO,
+and they sent us a note back saying we're
+sorry, we can't publish this.
+And we said okay fine.
+And over the next few years what went on
+from there
+is that there were other papers that kept
+on coming 07,08,09.
+But middle of last year, we learned
+something new
+that sort of disturbed us and what we
+learned middle
+of last year was that they'd already
+started running clinical
+trials using these rules to allocate
+patients to treatment arms.
+They're doing this using pemetrexed versus
+cisplatin, pemetrexed
+vinorelbine, docetaxel and doxorubicin.
+And for several of these drugs, these are
+in cases
+where the posted signatures, they've
+gotten the sensitivin resistant labels
+reversed.
+So we think this is a problem.
+So we wrote up a paper on this.
+We first circulated it to a biological
+journal and got the comment
+back that we're sorry, this story seems
+too negative, can you fix that?
+[LAUGH].
+At which point we said well, we probably
+can't.
+So we sent it off to the Annals of Applied
+Statistics
+on the first of September.
+It was accepted and published online by
+the fourteenth.
+At which point was covered by the press,
+Duke starts an
+internal investigation and suspended the
+trials
+pending the outcome of the investigation.
+That was October of last year.
+So what happened next?
+As of the end of January of this year,
+Duke decided to restart the trials.
+And in particular, they said that their
+investigation, which was now concluded,
+had strengthened their confidence in this
+evolving approach to personalized cancer
+treatment.
+Now, we were not really pleased by this.
+And the main reason we were not really
+pleased is
+that we asked them well, okay, we don't
+understand the data.
+Can you show us the data and stuff you
+used to reach
+this conclusion.
+And they said well, no.
+While the reviewers that conducted these
+things approved of our sharing our
+report with the National Cancer Institute,
+we consider it a confidential document.
+So, no, you can't see it.
+Which disturbed us, and, as a side note,
+there's just one more thing.
+Which is, that this investigation took
+place between October and January.
+Well as it happens in
+November, something new happened.
+In November they posted data, they posted
+new data for one paper for dealing
+with cisplatin and pemetrexed; these are
+two
+of the drugs they're using in clinical
+trials.
+And in this data, they said here are the
+59 samples
+that we're using as a validation set, to
+show that this works.
+These 59 samples are a subset of this one
+geo dataset and we're using it to make
+predictions.
+So we said okay, cool.
+We see these 59 samples.
+We've got the ovarian ones.
+Lets go in and take a look at them.
+So the very first thing we did with these
+59 samples we said lets go back to the
+geo dataset and see if we can match them
+up and when we did here's what we found.
+So what, if the names matched up for all
+the 59 samples
+we should see 59 red squares lying on this
+blue diagonal line.
+How many red squares do you see lying on
+that blue diagonal line?
+This is not a heart pounding question.
+[LAUGH].
+None.
+43 of the samples they got the labels
+wrong.
+For 16 they didn't get the labels wrong or
+at
+least, the problem is for these 16, we
+can't tell.
+The reason we can't tell is that for those
+16, they've scrambled the
+gene labels so badly that we don't know
+what samples they correspond to.
+What this means is that for their
+validation data set, every single sample
+is incorrect for two drugs they've been
+using in clinical trials for two years.
+We think this is disturbing.
+So what happened next?
+We pointed this out at the end of January.
+No response.
+So we then said, can we do anything else?
+And it occurred to us that they said,
+well, we won't show
+you the report But the reviewers approved
+us sending it the NCI.
+Now the NCI in the US, is a federally
+funded institution
+and what that means is that they are
+subject to Federal law,
+specifically the Freedom of Information
+Act.
+So, in April we filed a request with the
+NCI to get the report under the Freedom
+of Information Act and the start of May
+a redacted version of the report was
+indeed supplied.
+And we looked at it and we found a few
+things
+that were rather interesting in the report
+or weren't in the report.
+The two main things that we found were
+that first off
+the review committee that went through
+this stuff the people who evaluated
+it said by the way we couldn't figure out
+from
+the data that has been published how to do
+this.
+The only way we got it was because there
+was extra information
+supplied to us and we really recommend the
+investigators make that public.
+So that's one thing.
+The other thing that we found rather
+disturbing was what wasn't there,
+specifically, this report
+makes no mention of those problems with
+cisplatin
+and pemetrexed that I just told you about.
+It's not there.
+So we pointed this out in May, and also in
+May, we asked the
+National Cancer Institute, what do you
+think about what's going on?
+And well, they said, let's look at the
+trials.
+We actually don't fund those three clin,
+clinical trials.
+We do fund another one that's a phase
+three.
+And actually based on that they
+re-investigated the rationale and they
+yanked that
+signature form the phase three clinical
+trial in the middle of the trial.
+That's mid-May.
+We said okay, is there anything further
+that's going to
+happen with these, with the three ongoing
+trials at Duke?
+Nothing happened.
+Nothing happened for two more months and
+then in mid-July
+we found out something new.
+That's a bit orthogonal from your normal
+statistics.
+One of the PIs used to claim he was a
+Rhodes Scholar.
+The Rhodes Trust, in Britain, says no, no
+he wasn't.
+So indeed, it appears there was some CV
+fudging involved.
+Now, what happened then was, I knew there
+were a few statisticians
+who's been talking about saying, maybe we
+should write a letter or something.
+So, I emailed a few of them, the day this
+came out and said,
+you know, if you want to write a letter,
+now's about the best time.
+So, the following
+Monday, three days later, there is a
+letter from
+31, 33 biostatisticians find a few that
+you like.
+And the cancer letter comments that Duke's
+administrators have accomplished
+something monumental, they triggered a
+public expression of outrage from
+biostatisticians.
+[LAUGH] Who, cool.
+But the fun thing about this letter was
+that it went to the newly appointed head
+of
+the National Cancerous Institute, Harold
+Varmus and to
+Duke and to the DoD, and to the press.
+So,
+this one got some coverage.
+So what happened then?
+Duke suspended the trials.
+This has since been covered, just a bit,
+in a few other
+outlets like NPR, Science, Nature, and
+some other fly by night journals.
+And a few other investigations are under
+way.
+And there's actually a new Google group
+devoted
+entirely to reproducible research and
+things like that.
+But, as we've been looking at this, there
+is
+a caveat that I think we should keep in
+mind.
+And that caveat is that
+unfortunately, some of these mistakes,
+like the off by one.
+We've seen them before.
+This is not the only time.
+We've seen some of these examples going
+back to 2002, 2003, 2005.
+These types of errors have been around for
+awhile.
+This is an egregious combination But the
+problems are there.
+So some observations.
+The most common mistakes are simple ones.
+For example, in statistics, the simplest
+one here
+for genomics is complete confounding of
+the experimental design.
+Others involve, mixing up sample labels,
+gene labels,
+things that are easy to do in excel, okay.
+Those are easy to mistake.
+Now the fun thing about simple mistakes is
+that if you see them, they're easy to fix.
+But if the documentation is poor, you
+won't see them.
+So they will slip by, because our
+intuition is no good.
+And what that means, is that if you go out
+to the literature,
+we sort of suspect, yet the most simple
+mistakes
+are more common than we would like to
+admit.
+Now what would we like to have happen?
+Well, for papers we've got a little thing
+of saying here's some things we
+really would like to see in addition to
+data like the stuff at geo.
+We'd really like some idea of if you're
+going to
+supply us with a table of qualifications,
+please label the columns.
+Tell us which samples are which and
+provide code.
+So these are some
+other things.
+And these are recommendations for papers,
+but we think
+they should be absolute requirements
+before you start clinical trials.
+Now, do we as the phrase goes, walk the
+walk?
+What do we do?
+Well, partially in response to this, about
+in early 2007, Kevin Coombes and I
+went into our Department of Bioinformatics
+at MD Anderson and we said, guess what?
+Henceforth we
+are announcing, by fiat, that all reports
+that we write are
+now going to be written in Sweave
+combination of R and LaTeX.
+The fun thing about Sweave is that you can
+take these reports, you can run
+them through R, somebody else can run them
+through R and get the same numbers.
+As a side note, most of our reports now
+go, are written by stat analyst, faculty
+member teams.
+The analyst writes the report, submits it
+to the faculty member.
+The faculty member proofreads it.
+Reruns the code
+if necessary, and only after the second
+approval
+does it go off to the biological PI.
+This has actually helped our
+reproducibility, quite a bit.
+So actually, if you ask us what we did in
+any report
+going back for about three years now, we
+can tell you exactly.
+We find that useful.
+But the buzz phrase in all of this is
+reproducible research.
+Now, so, I've given you some observations
+and
+I've told you lessons that I really want
+you
+to derive from it, so I have one
+last slide and that is to acknowledge some
+folks.
+So, Kevin Coombes is my primary co-author
+in all of these things.
+Some other folks at MD Anderson, the
+various groups that provided money at MD
+Anderson.
+And, of course, if you want to read more,
+you can go to the
+Annals of Applied Statistics and you can
+read the paper, you can look at
+the code, even better, you can site the
+paper because that will make me
+famous and my mom happy and she can buy
+more [UNKNOWN] ties for Christmas.
+And I have one last acknowledgement which
+is to you, my kind audience for bearing
+with me for the past half hour, and that's
+what I got.
+Thank you.
+[SOUND].
+>> Thank you very much.
+

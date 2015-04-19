@@ -1,0 +1,256 @@
+One kind of quick rule that I try, try to
+keep in
+mind when I'm doing data analysis is, is
+the don't save any output.
+Now this may seem a little strange,
+because
+you need some output eventually, and yes,
+that's true.
+You will need things like tables and
+figures and summaries so, if
+you're going to write a report or a paper
+or something like that.
+But it's good to not keep that until the
+very end when you're
+actually doing that kind of, kind of end
+stage activity ,because output a,a
+stray output file is just sitting in your
+project directory if you don't
+know where it came from or how you
+produced it is not reproducible.
+So,if it's not reproducible its almost not
+worth saving at all because you'll
+always be wondering how you got those
+numbers or how you made that figure.
+So rather than save a piece of output like
+a table or a figure it's
+better to save the data and the code that
+generated that table or figure right,
+so, that way you can always reproduce
+whatever it
+is you, that type of output that you need.
+Of course, in a very large project,
+there's going to
+be a very long pipeline of analysis that
+you do.
+So,maybe starting with raw data and then
+going to processed data and
+then maybe processing the data even more
+and then doing some analysis.
+And so there may be a lot of intermediate
+files that are generated in this process.
+And that's fine.
+It's usually fine to keep those around
+because
+it, it will make the analysis much more
+efficient.
+Then if you have to kind of
+reproduce everything every single time.
+But if you do keep intermediate files
+around you have to make sure
+that, it's critical that you make sure
+that every every intermediate file is
+documented.
+Then you have code that generates that
+intermediate file and that
+the data set that goes into it is, is
+clearly documented.
+So So, it's it's usually better to not
+save any
+output because if you can save the code in
+the data
+instead but if you need to save things
+like intermediate files, then make
+sure you have the code and the data to go
+along with them.
+Uh,this one is a very specific issue, but
+it's very
+important because um,it can lead to very
+non reproducible results.
+So if you every generate random
+numbers,um, almost all random number
+generators will generate pseudo random
+numbers based on a seed, something called
+a seed.
+The seed is usually a number or a set of
+numbers that
+kind of initialize the random number
+generator and the the random number
+generator
+kind of goes in a sequence and generates
+random numbers based on
+the seed so for example in R you can use
+the set.seed function.
+And you just give it a single integer
+which will you will kind of initialize the
+random
+number generator and then generate a
+sequence of random
+numbers, if you use, if you call set.seed
+and
+then generate numbers that sequence of
+random
+numbers will be always be exactly
+reproduceable
+as long as you kind of set the seed again
+at a later time.
+Ah,and so these are important for things
+like simulations.
+For things like markup chain Monte Carlo
+analysis.
+Anything that involves generating random
+numbers ah,will need ah,to set the seed.
+And so, you should always remember to do
+this, because
+otherwise you'll get, your numbers will
+just not be reproducible.
+And if you do an analysis, if you
+publish an analysis that's using random
+numbers that you
+don't use the seed, it's basically
+impossible to go
+back and try to figure out what it was.
+So think about this anytime you use random
+numbers.
+So finally I just want to mention that,
+that,
+that the, the entire process of data
+analysis at,
+and And kind of and, and kind of working
+with data is, is usually a very long
+pipeline.
+And starting with kind of very raw data,
+maybe you got it
+off the web, or you got it from some
+investigation or experiment.
+All the way to kind of cleaning it, to
+processing it,
+to analyzing it, to kind of making the
+summaries and figures.
+And then Generating
+the data.
+I start generating the results.
+It's a very long process and you should
+think
+about that entire pipeline as you're
+working on it.
+And to think about how, whether each piece
+of it is reproducible.
+So as you go down on this pipeline, you
+know.
+The, the thing about, the, how you get to
+the end is
+just as important as, you know, the final
+product that you produce.
+So the analysis of the report that you
+produce at the
+end There's going to be a small subset of
+all the work
+that you did to get there.
+And, but the fact of the matter is that
+all of the work that you got, that
+you did to get there is, is, is just as
+important to keep track of and document.
+And as a general rule the more, the
+more of the data analysis pipeline that
+you can,
+that you can make reproducible the better
+it is
+for you, the better it is for other
+people.
+And the more credible your results will
+be.
+So think about the entire pipeline It's
+all important.
+It's not
+just the final product that's important.
+So taking all these rules and summarizing
+them I just, I put together a simple list
+of, of, questions that you should ask
+yourself
+as you're doing any sort of DNA analysis.
+So of course, number one, are we doing
+some
+good science, is this interesting, is this
+worth even doing?
+Was any part of this analysis done by
+hand?
+Now, this may be unavoidable.
+You may have to do some things by hand.
+So the only real issue here is that if
+you do something by hand, is it precisely
+documented?
+and, and, and, and in particular, you need
+to make sure
+that if it is documented that
+the documentation actually matches the
+reality.
+Because many times when you document
+something, you write it down.
+But then later on, you actually change
+what it is that you
+actually did, because you need to update
+something, maybe there was a mistake.
+So if you do update or change something
+then you have
+to change and update the corresponding
+documentation that goes with it.
+So does the documentation match the
+reality of what you did?
+Um,of course
+you want to be able to teach a computer to
+do as much as possible, so have you
+coded as much as possible and have you
+kind
+of written down In a precise manner what
+you did.
+Cause any time you teach a computer to do
+something, this is a good idea I think.
+Are we using a version control system?
+Are you using something like GID or sbm or
+something like that?
+Have you documented the software
+enviroment so every,
+tool, every library, your operating
+system, your architecture,
+these all have to be noted.
+Have you saved any output that can not
+be reconstructed from the original data in
+code.
+Right so and generally you want to avoid
+saving any output that
+can't be, can't be kind of derived from
+some data in code.
+So it's better to save the data in the
+code rather than the output.
+And then a final question might be, you
+know,
+how far back in the analysis pipeline can
+we go.
+Before the results are no longer
+reproducible.
+Now, if you're
+all, if you're working on a piece of the
+pipeline it may not
+be possible to go all the way back, for
+example, to the raw data.
+You may only go back to some processed
+version of that data.
+And that's fine.
+But just think about, you know, the entire
+pipeline and
+see how, and try to make it as
+reproducible as possible.
+So these are my, kind of general tips for.
+Thinking about reproducibility in
+a generic type of data analysis project.
+I think a lot of these will help you get,
+kind of, organize a project and make
+sure that you're thinking along the right
+things.
+The key things are, you know, be careful
+when you do things by hand,
+try to code as much as possible
+and to document everything as precisely as
+possible.
+

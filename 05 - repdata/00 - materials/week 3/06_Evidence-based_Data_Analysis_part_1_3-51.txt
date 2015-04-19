@@ -1,0 +1,134 @@
+I'm going to talk a little about,
+replication, reproducibility.
+And I think in a lot of,
+circumstances, people tend to use these
+words interchangeably.
+But for the purpose of this talk,
+[UNKNOWN].
+There's going to be a distinction.
+So, when I think, when I think about
+replication, I think
+we talk about like the usual thing that
+happens in science.
+The purpose of replication is to address,
+in my
+opinion, the kind of validity of a
+scientific claim, right?
+So if you say that x is related to y.
+The first question is well is this claim
+true?
+So you have to replicate it in another
+study or a series of other studies.
+With new investigators collecting new data
+using different
+alloquital methods, laboratory instruments
+whatever it may be.
+And you have a bunch of replications and
+no one can sign, no one
+can find the same thing now you think
+okay, well that's probably not true.
+But if everyone finds the same thing,
+roughly the same thing, in independent
+studies, then you think okay, that's
+probably a reasonable claim.
+So replication's kind of how we've always
+done things.
+And it's still, I think, the
+ultimate standard for strengthening
+scientific evidence.
+So that's replication.
+Reproducibility in case you haven't heard
+the term is y referred
+to as kind of saying the validity of the
+data analysis right?
+So here you have situations where data are
+collected and you analyze with someone
+else and
+they say something like x is related to y.
+So here the idea is that you have two
+investigators but you
+look at the same data and, and you used
+the same methods, perhaps.
+See if, you know, what they claimed is
+actually produced from the data that, and
+the analysis.
+So the real question, I think the question
+here is not so much, Is the claim true?
+But really, Can we trust this analysis?
+Okay?
+So that's kind of, in, what I see, the,
+the key question
+of reproducibility tries to address.
+Can we take their approach, apply to their
+data, and get the same thing that they've
+gotten?
+And I think this is key.
+A reproducibility is, is particularly hard
+in my area
+of work in, in which replication is just
+not possible.
+So this is where I'm starting.
+And just so, I think some background
+everyone's familiar with this
+is, there's been a lot of talk about
+reproducibility in recent years.
+Some of the transars just have, a lot of
+stages that can't replicated they're huge.
+I switched edimology and have these 25
+year covert studies that just can't
+be replicated in a reasonable amount of
+time.
+There's a lot of technology, which is
+affecting the rate of data collection.
+The complexity is very high.
+You have these, kind of, databases that
+people are
+just merging together like crazy, I'm one
+of those people.
+And I've seen a lot of these data used off
+label.
+So for example you have administrative
+data sets that are being used
+for health studies and things like that so
+this is very common.
+And then because it's inexpensive
+computing
+power is very sophisticated now so
+we can do very kid of complex analysis on
+just small data sets.
+And so, and then for every field x, there
+is a computational x.
+So.
+To sum up the results, so basic analysis
+can be very difficult to, to
+describe now, in just kind of like your
+standard method section in a journal.
+Oftentimes there's very heavy
+computational requirements that
+are thrust on people with very little
+training.
+And so just a little bit of the context
+that kind of, from where coming, I,
+I think, you think of the range of kind of
+computational ability from low to high.
+You know, most of the people in the room
+are over here.
+All the people in the room are over here,
+maybe, you know, Jeff's over here.
+[LAUGH] But there's a whole slew of people
+on this end of the spectrum.
+Who are doing computational, who have to
+do computational work for, whether they
+like it or not, and the reasons they've
+got all this data coming in.
+So and so that can lead to problems.
+You can have errors introduced into
+long-term analysis pipelines.
+And you can't tell people what you've done
+in a reasonable
+amount of space.
+That complicates the transfer of
+knowledge.
+So in many cases, there is a sense that
+complicated analyses can't be trusted.
+

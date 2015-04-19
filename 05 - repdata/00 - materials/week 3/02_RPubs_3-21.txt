@@ -1,0 +1,115 @@
+[BLANK_AUDIO]
+One of the nice things about using R
+Markdown knitr and R Studio
+together is is a little service that R
+Studio provides called R Pubs.
+So I thought I'd bring that up, just to
+show you kind of how it works, here.
+So we go to rpubs.com.
+You can see that this website is brought
+to you by R
+studio, and you need to you need to create
+an account on here.
+So the basic idea is that once you've
+created
+an account you can publish, mark down, or
+knitr documents
+to the website that can be used to share
+with
+people, share with other people and share
+with the public.
+So the first thing you need to do is
+register for an account, so
+you can just enter your name, and your
+email, and your username and a password.
+Once you've got your account, then you can
+start publishing things to RPubs.
+So, I'm going to sign in here.
+I've already got an account, and so, and
+then you can go to my, I can
+go to my account page, look at my
+profile and see, I haven't really
+published anything.
+And so why don't we, try to publish
+something here.
+So let me put this away.
+I'll start up R studio.
+And as R studio starts up here you can see
+I've
+already got a markdown document here on
+the left, as part of
+a demo and so maybe the first thing I'll
+do is I'll
+just I'll knit it and I'll see what the
+HTML looks like.
+And you can see here it says, basically
+I'm loading the air quality data set here.
+I'm making a paris plot of the variables
+in the air quality data set.
+And then if you go down a little bit, I'm
+fitting
+a linear model of ozone and on wind, solar
+radiation, and temperature.
+And then I have the results of the linear
+model here.
+So nothing too special but I want to be
+able to share this with the world.
+So you'll notice at the top of the preview
+window here I I can, there's a publish
+button.
+So I can hit, I mean just click on
+the publish button you'll, you'll get a
+little notice
+about R pubs and you can just can click on
+publish.
+And if your already signed into your
+account at our
+Pubs it will put it, it'll bring it right
+there.
+If you're not here I'll bring you up
+Safari so, and so, you can give it a
+little title give it a little description
+here So, some analysis
+of the air quality data set in R.
+And you can give it a little identifier
+here if you want to or you
+can just let it, you can just not do
+anything, just hit, just click continue.
+You can see up here at the top that it
+gave it a little
+identifier here 11879, so this is the kind
+of permit URL for this analysis.
+And you can see it looks just like the
+HTML output that was shown in R studio in
+the preview window, but now it's on a
+website And you can share
+this with people.
+People can comment on it.
+There's a comment button here.
+You can click on the share button, here.
+You can send it to, various social
+networks or email it to someone.
+So it's a really useful service.
+It's totally free.
+The one thing that is important to
+remember is that everything that you put
+on
+here is public, immediately, so there's no
+there's no time period in which it's
+private.
+And so you need to be careful just to make
+sure
+that you don't publish anything that you
+didn't mean to publish.
+Of course, if you,
+if you did publish something by accident,
+you
+could always delete it down here at the
+bottom.
+so, that's RPubs.
+It's a really useful service for
+publishing and sharing kind of
+statistical analyses that are written in R
+Markdown and using Knitr.
+And I think it's worth a try.
+

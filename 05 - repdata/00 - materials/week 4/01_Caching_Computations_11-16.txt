@@ -1,0 +1,431 @@
+So one idea that I'm kind of building
+on is this idea of literate statistical
+proming, programming.
+So this is, comes from the literate
+programming idea.
+Which is that, you know, so here you think
+of an article as a stream of text and
+code.
+There's analysis code that has, you know,
+it
+analyzes the data or does something with
+data.
+And those are chunks, and then there's
+each
+code hunk kind of does something with the
+data.
+There can be presentation code, that kind
+of formats results and then
+there's text kind of all around
+that, which explains what's going on,
+presumably.
+And these literate, statistical programs
+can be kind of weaved to produce
+a a human readable document, and tangled
+to produce a machine readable document.
+So this all comes from this, you know,
+idea of Don Knuth, all right.
+So and so the literate so the literate
+programming concept requires two things.
+One is a documentation language and a
+programming language.
+And so there is one particular package in
+I should have mentioned that,
+that I am talking most about the R
+statistical kind of analysis environment.
+And so there's one particular package
+called Sweave, which uses
+LaTeX as its documentation language and R
+as its programming language.
+And it was developed by Friedrich Leisch.
+And it has a nice website.
+And there are other kind of combinations
+that you can use.
+And so, so one thing that I was interested
+in doing is taking,
+okay, is taking the kind of definition
+that we had of having analytic
+data and computational resul, and analytic
+code, and say, okay, well, let's take
+the process here, presumably the
+article's, you
+know, available, because it's in a
+journal.
+And then we, let's make this part
+available, too.
+So here's that, well, we kind of store
+these things in some sort
+of database of of, of sorts, and then make
+it available to the readers.
+So the reader kind of wants to go this
+direction.
+They want to take the article and dig in.
+And articles and authors are kind of
+taking their data and they're going that
+way.
+They're producing articles.
+So the idea is to take these kind of
+aspects of the of the
+work and kind of store them in a database
+to make it available to readers.
+So, in the kind of literate statistical
+program framework, you have, like,
+your paper here, which has text and code
+and text and code.
+You take the code chunks and you store
+their results.
+So the code chunks kind of do something
+with the data.
+You store the results and the code in some
+central, in some database.
+Make that, you publish essentially the
+database part along with the paper.
+And so, and then this is the paper here
+which, which is generated so that you
+generate the figures and the tables and
+the,
+and the, from the materials stored in the
+database.
+So that's, so I, so that this, so we
+came up, there's kind of two packages that
+we have.
+One is, this called cacheSweave which is
+for, that I
+won't talk about today, but it's, it
+interacts with Sweave.
+And the other one is called cacher here,
+which is a stand alone package.
+And the idea is that it, it's so, it
+assumes that you have some code in an R
+file.
+And and basically, it, it kind of reads
+your code, evaluates
+it, and stores the results in, in a kind
+of key-value database.
+So, so the R expression, so the code
+expressions, are all given kind of SHA-1
+hash
+values so that, so if there are any
+changes that, you know, they can be
+tracked.
+And code can be reevaluated if necessary.
+And the idea is that you kind of put
+everything, the code and
+data in a, in a package that you could
+just give to someone, right?
+And we call this, I call this the cacher
+package.
+So and the other people can kind of, can
+get the analysis or clone,
+or clone the analysis and look at subsets
+of code or inspect specific data objects.
+So the, and one assumption that I made is
+that
+other people do not necessarily have the
+resources that you have.
+And so they may not want to run the entire
+Markov chain Monte Carlo simulation that
+you did to get the, you know, posterior
+distribution, or the histogram you've got
+at the end.
+So, I mean, they might just want to look
+at specific end products of that.
+Or, and then maybe, when they're, when
+they see
+the end products, they say, oh, well, you
+know?
+Actually, maybe I do need to look at the
+whole MCMC.
+So, but the idea is that, you know, you
+kind of peel the
+onion a little bit rather than just go
+straight to the core.
+Alright.
+So and so the model is basically that you
+have some code source file.
+There's code that goes in.
+There's data that goes in.
+And out comes results.
+Alright.
+So so as author, the idea of cacher is
+that it kind of parses the source file.
+It creates directories and sub-directories
+for storing things.
+And then it evaluates each expression.
+And also, if you run it multiple times, if
+it,
+if an expression hasn't changed it won't
+run it again.
+So it just kind of, it just load the kind
+of,
+it as it runs expressions, it caches the
+results in the database.
+So, if you run it again and nothing's
+changed, it just kind of loads the results
+back from the database, And then it writes
+out a bunch of metadata for each
+expression.
+And so, and the, and then, once it's, once
+you've kind of evaluated your whole
+analysis, and, granted,
+this might take a long time everything,
+all the
+kind of intermediate results are stored in
+the database.
+And and you can kind of wrap that up into
+a package.
+So that's the idea here with this
+cachepackage function.
+And this, it basically it just becomes a
+zip file,
+a package, and it can be kind of
+distributed to others.
+So that's kind of what happens as an
+author here.
+And so a very simple analysis.
+You know, you're loading some packages.
+You're loading a dataset.
+It fits some simple linear model.
+And then you, if you want to summarize
+what the
+fit was, look at the regression
+coefficients, things like that.
+And then you make a plot here.
+So here you're just plotting some
+diagnostics here.
+So the idea is that any, any expression
+that kind of has, that
+does something then the results of that
+something are stored in the database.
+So if an expression doesn't do anything,
+like maybe just
+prints something to the console then, then
+nothing is stored.
+>> So when you say it does something, you
+mean creates a variable or, or modifies a
+variable?
+>> Right.
+So, in R.
+>> If something is created in the
+environment, then that is stored.
+Yes.
+>> So a figure, like you said, a figure
+does not count.
+.
+>> The figure, so, yeah, right.
+So, we don't store the figure itself,
+right.
+And then the idea is that the package
+would have an identifier like the SHA-1
+here.
+And and then, so the idea is that you
+could say, if you were writing an article
+you
+could say, well everything in this article
+can be
+found in this package and here's the
+identifier string.
+So it's ugly, but, you know, you can just
+use the four, you can
+use the first four characters, and that's
+usually enough to identify the package
+itself.
+So on the reader's side then, if you're
+reading something like this
+in a journal, you could say, okay, well
+I'll take this string.
+And maybe I don't want to read the whole
+thing,
+but I'll just get the first four
+characters out.
+And you can clone the whole thing, right.
+And so, and I'll get to the where it comes
+from later, but.
+And the idea is that, you can see, so you
+can clone, you can see what files were
+cached there.
+And and then kind of go through the
+analysis.
+So some local directories are created.
+The source code files and the metadata are
+downloaded.
+But the data themselves are not downloaded
+initially.
+Right?
+Because it could be a lot.
+Right?
+You don't, and, so that's not done by
+default.
+and, but references to the various data
+objects that have been created are loaded.
+So that if what, you know, is the
+idea is that these are lazy-loaded into
+the environment.
+Once you want to look at something, then
+it gets downloaded into your into, onto
+your computer.
+And so the idea is, if you look at the
+code
+and so this is just some simple analysis
+that I've done.
+You can make a graph of the code.
+So this takes all the data objects in your
+kind of this simple analysis
+that I've done, and it kind of map, graphs
+how they've kind of come together.
+So like these three things, this cities
+variable, the classes
+and this vars thing came together to
+create this data.
+And then the data was combined with the
+quasipoisson function to create estimates.
+And then, you know, so, and the estimates
+were
+later created, used to create this effect
+and standard error.
+So, I mean, that's the kind of rough graph
+of how the analysis worked.
+And so the idea is that, okay, well,
+someone might look at this, and, and well,
+and
+of course, you have to do some reading to
+figure out what exactly is going on here.
+But the idea is, if you were interested in
+this and knowledgeable a
+little bit, you can say okay, well, I'm
+interested in this data object.
+You know, what was, what went into the
+creation of that data object.
+And so the this objectcode function.
+You can grab the name of the object, and
+it will show
+you the, the specific lines of code that
+were used to generate that.
+So, you know, if you, if you have a file,
+there may be many lines
+of code, but only some subset of which
+were important to generating a specific
+object, right.
+And so, and so these specific lines.
+So, it turns out it's just 1 through 5.
+But these specific lines of code were,
+were what kind of created this data
+object.
+Right?
+So there may be different types of objects
+in the, in the analysis.
+And you can kind of hone in on some of
+them,
+and say, okay, what was the coded that
+generated this object.
+You can also execute the code with the
+runcode function.
+And what it does is it it, it, it runs the
+code, but it runs it in a
+way that it just, that it just loads
+things
+from the database without actually
+executing code by default.
+So if you just kind of want to run it and
+see kind of some results at
+the end as a first cut, then it's
+not going to do everything from scratch by
+default.
+And so, and so it's a lot faster on the
+first go.
+But then, of course, things that don't,
+things that aren't still in the database.
+So, if you make a plot, you know, it's
+still going to
+have to generate the plot, because that's
+not stored in the database.
+but, but by default it just loads things,
+loads objects from the database to make
+things faster.
+You can of course just force it to run
+everything from scratch.
+And then it will just, you know, it will
+do all the calculations from scratch.
+But there may be, for example, there may
+be
+some expressions that you want to run from
+scratch and some
+that you just want to load from the
+database, because they're
+going to take, you know they're going to
+take a long time.
+But in our, not important, maybe.
+So, the checkcode function evaluates all
+the expressions from scratch.
+So it doesn't load anything from the
+database, it runs it all straightaway.
+And then the evaluations are checked
+against stored results.
+So the idea is that if a function creates
+an
+object, when the author created the
+package the kind of signature
+for that object was stored so that if you
+create the
+object again, it'll check the signatures
+to see if they match.
+Of course you've got to set things like
+random
+generator seeds for this kind of thing to
+work.
+And of course, and then, there's, there's
+another kind of side function that checks
+each
+individual data object to see if, you
+know, any corruptions it basically checks
+the signatures.
+So you can load, so you can, you can look
+at specific data objects and so, by, with
+this loadcache function.
+So what the loadcache does is all, is
+it just loads, loads pointers to specific
+data
+objects that are kind of, that may be
+stored on a server or something like that.
+And the idea is that once you want to,
+once you print something out to the screen
+or you
+want to make a plot, any time you access
+the
+object, it will transfer it from wherever
+it's coming from.
+So here the cities transferring from the
+cache database file,
+and then, each object has a signature and
+that's the signature.
+And then it prints, and then it shows you
+what it is.
+So once it's loaded into your system, it's
+loaded for good.
+You don't have to do it every single time,
+just the first time.
+And these are just different things that
+you might want to look at.
+That are transferred from the, from a
+server.
+So so the summary of the, basic idea of
+this package is that you can, authors can
+kind
+of create, their, can kind of package
+their analysis
+in some sense, and then just give it to
+people.
+And then people can down, readers can
+download the analysis and
+look at, you know, specific objects or
+maybe rerun the whole thing.
+But there's some flexibility in terms of
+not having to kind of
+recreate the entire environment if it's a
+very complicated type of thing.
+So it's, I try, the goal, one of the goals
+is to be mindful of
+other, of the reader's resources and to
+only kind of efficiently load things that
+are needed.
+

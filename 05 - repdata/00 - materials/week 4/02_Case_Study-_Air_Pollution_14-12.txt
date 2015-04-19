@@ -1,0 +1,474 @@
+This Reproducible Research Case Study
+involves trying to
+identify the harmful elements of
+particulate matter air pollution.
+So, one thing that you have to understand
+is that when you
+look at air pollution in particular if you
+look at particulate matter pollution.
+The particles are just, you know, the, you
+can feel them it's just dust that you
+inhale.
+But the dust is not just one monolithic
+piece of you know, of dirt or soot.
+It's actually composed of many different
+chemical constituents.
+Metals inert things like salts and other
+kinds of components.
+And so, there's a thought that, you know,
+that one possibility is that,
+is that a sub, subset of
+those constituents are the really harmful
+elements.
+And if we could figure out which one of
+those subsets are, are harmful.
+Then we could think about trying to
+regulate the sources that generate those
+chemical instituents.
+Now it's very hard to do this and the,
+the research involved in this area is
+still fairly preliminary.
+But so but so there's a lot of interest in
+trying to identify the harmful chemical
+constituents of particulate matter.
+Because in theory, that could lead us
+to targeting or tailoring things like
+regulations.
+That can that can that can control the
+sources of
+air pollution that are the most harmful to
+human health.
+PM is composed of many different chemical
+constituents.
+And it's important to understand actually
+that the EPA, or the
+Environmental Protection Agency, monitors
+the chemical
+constituents of particulate matter on a.
+And has been doing so since roughly 1999
+or 2000 on a national basis.
+and, and there's a general understanding
+that, perhaps, some of
+the components of PM might be more harmful
+than others.
+And if that were true, that would, prob,
+that would likely
+imply that some sources of particulate
+matter are more dangerous than others.
+Because some sources of particulate matter
+generate certain combinations of chemical
+constituents.
+And some sources generate other com,
+combinations of chemical constituents.
+And so the idea is that we can, if we
+can identify the particularly harmful
+chemical constituents of particulate
+matter.
+Then that may lead us to strategies for,
+to better
+strategies for controlling sources of, the
+sources of particulate matter.
+One thing that you need to understand is
+the
+way that particulate matter is regulated
+or controlled now.
+Is we just regulate, our, the total amount
+of
+power, the total amount of particles in
+the air.
+Without regard to where the sources of p,
+of PM what
+the sources of PM are or where they are
+coming from.
+And so if, if we can do, and, and, and so
+this
+strategy is, it does help them pro, has,
+doesn't improve public health.
+Because know that particular manner, as a
+whole, is harmful.
+But it doesn't perhaps lead to the most
+efficient strategy
+and the most helpful strategy in terms of
+public health.
+Because we don't, we don't control things
+with respect to which
+toxic elements are the most, are, which
+elements are the most toxic.
+So, I just want to talk about one
+particular study and
+one examp, one case study of, of this type
+of research.
+And how, and I'll talk a little bit more
+how it relates to reproducibility in a few
+slides.
+But the basis of this case study is, is
+the
+National Morbidity Mortality and Air
+Pollution study or the NMMAPS study.
+And this was a national study of the
+short term health effects of ambient air
+pollution.
+So this parti-, this particular national
+study
+focused on particulate matter or PM 10.
+So this is particles less than 10 microns
+in diameter and ozone.
+So for this partic, this lecture I'm just
+going to talk about PM 10.
+The health outcomes in the study were
+mortality from
+all causes and hospitalization for
+cardiovascular and respiratory diseases.
+So I've got some links to some of the key
+publications from the NMMAPS study.
+And and, and this entire study was fu, was
+funded by the Health Effects Institute.
+One of the interesting aspects of the
+NMMAPS study was that it
+was, it was one of the most reproducible
+air pollution studies ever conducted.
+In particular, the investigators in N, the
+original investigators in NMMAPS decided
+to make the data and, the results and the
+software code available.
+Through, a website called the internet
+based
+health and air pollution surveillance
+system or iHAPSS.
+And so on that website you can find the
+air
+pollution data, the, the weather data, the
+software, the results.
+And many other things, on that can be
+downloaded for free.
+Since the data have been made available
+to the public many studies have been
+conducted.
+Based on this data that were independent
+of the original NMMAPS.
+So one particular study counted over 67
+publish, publications based on the NMMAPS
+data.
+So the data and the code that have been
+made available to the public.
+That has served as an important test
+bed for methodological development in this
+area.
+So one recent study that was published in
+the journal Environmental
+Health Perspectus involved the cardio,
+cardiovascular
+effects of nickel in the air.
+So, nickel is a common component of
+particulate matter.
+It's a transition metal.
+And it's thought to be very harmful and,
+and in particular, cause cardiovascular
+types of effects.
+And so, this study found partic, they
+found strong evidence that nickel in
+particulate matter modified the short term
+effect of PM 10 across 60 US communities.
+So basically what this is saying is that
+what they found is that in communities
+where the particulate matter had a larger
+concentration
+of nickel in it, relative to other
+elements.
+That those communities saw kind of worse
+health risks from PM 10
+than other, than other communities that
+had kind of less nickel in them.
+So the idea is.
+So, the, the inference that one might draw
+from that is that
+nickel is a one or maybe the only toxic
+element in PM 10.
+And if your particles are composed of more
+nickel
+then they are going to be more harmful to
+you.
+So that the, the evidence that they
+brought in this paper,
+or a part of the evidence that they
+brought in this paper.
+When they look at other chemical
+constituents of particulate
+matter, it didn't seem to have this same
+modifying effect.
+So if you looked at for example two
+cities, in
+where one city had much higher
+concentrations of sulfate for example.
+That did not lead to greater health risks.
+The, compared to a city that had lower
+concentrations of sulfate.
+So, the main, one of the main modifying
+effects came from this nickel element.
+And so the result was very attractive
+because it seemed to identify one or just
+a few elements as, that, that led to the
+kind of higher health risks of PM 10.
+And so it's almost like there was a single
+element that
+needed to be, or, or just a very small
+number of elements.
+That could be regulated or controlled.
+And so there is one, so there is a thought
+that, you know, perhaps this was too
+simple to be true.
+So Francesca Dominici and myself and some
+colleagues decided to look at the data
+again.
+And see you know what was driving the
+association between
+PM 10 risk and Nickel and another
+transition metal called vanadium.
+So we looked at the data, we re-examined
+it
+NMMAPS data and linked it with PM chemical
+constituent data.
+And one particular thought that we had was
+one of the cities in
+the U.S. that has extremely high levels of
+nickel, is New York City.
+And so, there's one possibility is that
+because
+New York City has such very high levels.
+Would the results of such an analysis be
+driven
+by the high levels of nickel in New York
+City?
+So here's a simple scatter plot.
+On the x-axis, we have the
+long-term average nickel concentrations in
+a community.
+And on the x, on the y-axis, we have the,
+essentially, the risk.
+The percentage change, the percent
+increase in
+mortality for a unit increase in
+particulate matter.
+So you can think of this as the
+particulate matter risk of mortality.
+And one of the things that you might
+notice
+is that there does appear to be, a
+correlation.
+Between long term average nickel
+concentrations
+in a community and their PM risk.
+In the sense that in the scatter plot if
+you go
+to the right there's, the risk seems to
+increase a little bit.
+Now on the other hand, one of the other
+things you might see
+in this plot is that there are, there
+appear to be some outliers.
+In the, on the right-hand side of the
+plot.
+There is three or few points that are
+very highly they are kind of skewed to the
+right.
+And so, one, and, and it turns out that
+the
+three right most points are all counties
+in New York City.
+So New York City is composed of five
+counties.
+And so the three that are kind of the
+right most
+point of the plot are three counties in
+New York City.
+So, here is the regression line that you
+can fit to this data.
+It's a simple linear regression line and
+you can see that it's positively sloped.
+Indiciating a positive correlation so that
+more nickel is
+associated with a greater risk of
+mortality from PM.
+And in their original paper their
+regression line was
+statistically significant with a p value
+of less than 0.01.
+And so that's very interesting.
+It would seem to imply that in communities
+with
+higher nickel concentrations you have
+greater risk of mortality.
+However, if you just remove the kind of
+outlying points, in particular
+the points that are asso, that are in New
+York City.
+Which has very high nickel levels, and you
+redo the regression line.
+You'll see that the blue line is what you
+get.
+And one of the important things about
+those three points
+to the right is those are called high
+leverage points.
+And so the regression line can be very
+sensitive to high leverage points.
+And so just removing three of them out of
+this data
+set can bring the bl-, the regression line
+down a little bit.
+So that you get the blue line, and that
+it's no longer statistically significant.
+And in this case, the p-value's about
+0.31.
+And so one of the things that you can see
+is that just a
+few points can make a big difference when
+looking at a correlation like this.
+On every analysis that we did, as we went
+through,
+and and recomputed the, the slope of the
+regression line.
+When you when you removed an individual
+country or a community in this study.
+So remember, there were 60 communities in
+the original.
+So what we did is we just went through
+each and just redid the analysis by
+removing one community.
+Just to see if there were any particular
+communities that the analysis was part,
+was sensitive to.
+And you can see that all the black dots
+here represent the
+kind of slopes of the regression line when
+you remove a given community.
+And because they're all kind of clustered
+around the same value.
+You can see that for the most part the
+regression line
+is not sensitive to removing any
+individual community from the data set.
+However, the red dot and red line at the
+very bottom indicates the
+kind of slope estimate and the 95%
+confidence interval when you remove New
+York.
+And you can see that when you remove the
+community of New York
+slope estimate goes down quite a bit and
+the confidence intervals goes up.
+It gets quite a bit wider than all of the
+other dots.
+And so, that's another indication that the
+slope
+estimate of that regression line is very
+sensitive.
+To the kic, just having the data points
+from New York City in there.
+So in this analysis that we published
+again in Environmental
+Health Perspectives there are a couple
+things that we learned.
+First of all we did confirm that New York
+does have very high
+levels of nickel and vinadium Much higher
+than pretty much any other U.S. community.
+And that there's evidence of a positive
+relationship between nickel concentrations
+and PM risk.
+Even if you remove the data from New York
+City the relationship is still positive.
+However, the strength of this relationship
+is highly
+sensitive to the observations from a
+single city.
+And so the idea is that the evidence that
+you can bring
+from the data, is really dependent on just
+a few data points.
+And so it's important to realize that
+although the, we still
+see this positive association between
+nickle and PM risk of mortality.
+The strength of the, the, the key, the key
+conclusion that you might draw from this
+reanalysis is that the strength of the
+evidence
+is perhaps not as strong as you would
+like.
+Due to the kind of very sensitive nature
+of the,
+of this, of the evidence to a single
+community.
+So, some of the lessons that we learned
+from this case study are that,
+is that the reproducibility of the end map
+study from the, from the very beginning.
+First of all it allowed for the secondary,
+the original secondary analysis to occur.
+To investigate this novel hypothesis that
+nickel
+is a harmful chemical constituent of PM.
+So that's very good and the idea is that
+it allowed other people to kind of explore
+new ideas.
+And so, the paper by Lipman et al is one
+example of kind of secondary analysis.
+The reproducibility of the study of course
+allowed critique of this new analysis.
+And to the and bring to the table
+additional new analysis.
+That was published by Dominici et al.
+And so one of the lessons that we learned
+from this paper of
+course is that the original hypothesis
+that Nicolas [UNKNOWN] was not really
+invalidated.
+But merely that the evidence that was
+originally
+presented is perhaps not as strong as
+originally suggested.
+And that more work needs to be done to
+investigate this hypothesis.
+So one of the other important lessons
+learned from this case study.
+Is that, you know, reproducibility makes
+any scientific
+discussion much more informed and much
+more timely.
+You can see that, in this case you know, a
+hypothesis was proposed that nickel was a
+harmful element of PM.
+So people brought data to address this
+hypothesis.
+They presented the evidence from the data.
+Other people, another set of
+investigators, took the
+same data, tried to look at this
+hypothesis.
+Confirmed that there was a positive
+association.
+But thought there was some weakness in the
+present,
+presentation of the evidence, and the
+strength of the evidence.
+And so there was a back and forth that was
+highly informed.
+Because everyone was using data, and
+everyone's kind of be, there's
+transparency and analysis.
+And people can see what others have done.
+And so this is how science evolves, how
+ideas come forward, how
+good ideas come to light and bad ideas are
+kind of put to rest.
+And that's how kind of good scientific
+exchange occurs and how science moves
+forward.
+Moves forward.
+So reproducibility is key to all this
+entire process.
+Because it makes the entire process form
+and move in a timely manner that's
+transparent.
+

@@ -1,0 +1,136 @@
+So just to diagram out this re, what
+kind of, the framework reproducible
+research I think about.
+Typically you have some published article
+that you view
+you know, in a journal, and that's all you
+get.
+You get everything that's in the article.
+You probably have some exposure to what
+their scientific question was, and these
+people went into into nature and it was
+all, and then there's nothing, right?
+And so, you have a, you know, you have a
+author whose kind of
+starting from here and went that way, and
+then the reader kind of starts to
+move there and wants to go this way.
+But for the most part, in most cases, the
+reader can start with the article, and
+then they're welcome
+to go back to nature, and just, you know,
+do it again, or replicate the study if
+they want.
+There's really not anything else that they
+can
+do, besides read the article and be
+impressed.
+So that's the express train to nature.
+So, but really, of course, there's all
+this other stuff, you
+know the data that I call the broad data
+or measured data.
+There's stuff that happens to that data,
+that, so a specific analysis can be done.
+There's all this code that is involved to
+do that,
+there's results, there's figures and
+tables, and this and that.
+So that all exist, but it's typically not
+available, and so the basic idea
+of reproducible research is to say, okay
+well lets all, lets just meet in the
+middle over here, and say let's make the
+stuff available to make the analytic
+data available, maybe, maybe make some
+code
+available, some of the preprocessing if
+it's important,
+things like that.
+So that's the kind of reproducibility
+compromise short of replicating the whole
+study.
+So, so I want to get a little into what
+problem this reproducibility solve.
+And I think one of the things that we get,
+from a reproducible study,
+is we get transparency of course, we have
+a better sense of what they've done.
+We get data, the data that they use, so
+that's available.
+If there's methods involved
+that are new, we get their methods.
+And we have this more, a kind of increased
+transfer of knowledge, because
+now we know exactly what they did, not
+what they meant to do.
+I, I, might be what we do, we don't get
+any
+sort of sense of whether the analysis was,
+was correctly done.
+And I think the main reason's because
+analysis can
+be very, be reproducible and still be
+wrong, and
+there are many examples of this in the
+literature
+where something was totally wrong but yet
+fully reproducible.
+So just
+because they don't, the people use the
+wrong methods, so they, you
+know, they kind of treated the data in the
+wrong way and whatnot.
+So, I think the fundamental question of,
+can we
+trust this analysis, is not really
+addressed by reproducibility.
+These things are all very important so I
+think that's fine.
+But we still have I think a little bit of
+a problem over here, so and one question
+you might legitimately ask is you know
+does requiring,
+if you required every study, every
+analysis to be reproducible,
+would that somehow deter people from doing
+that analysis.
+And I, I fundamentally think the answer is
+no.
+So,
+so some of the problems I have with
+reproducibility
+are, so the premise of reproducible
+research is that,
+you know, with all the data and all the
+code available to people, people can check
+each other.
+You can kind of validate someone else's
+analysis, and the whole
+system would kind of be self correcting in
+the long run.
+Alright.
+So one problem which I don't see here is
+that the long run sometimes is too long
+and then
+in terms of the context of the problems
+that
+you're dealing with I think
+reproducibility addresses what I call
+most, the kind of downstream aspects of
+scientific dissemination.
+Now, I'll be more specific about what I
+mean by that.
+Meaning that it kind of only happens post
+publication [INAUDIBLE].
+And another key thing which is important
+in my area, maybe.
+I mean, particularly in my area, is that,
+[COUGH]
+the ideas of reproducibility kind of
+assume that everyone
+plays by the same rules, and everyone
+wants to
+achieve the same goals, which is
+definitely not true.
+

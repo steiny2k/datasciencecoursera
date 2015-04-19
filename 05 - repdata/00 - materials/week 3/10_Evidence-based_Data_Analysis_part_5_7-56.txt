@@ -1,0 +1,310 @@
+So the, my only thinking is that we should
+just take this principle and apply it
+everywhere, right?
+As much as possible to create analytic
+pipelines from evidence-based components.
+So and to standardize it.
+And so jeff has a, another contribution to
+this.
+Is, he calls this the deterministic
+statistical machine.
+The idea that you have a algorithm or
+pipeline that produces
+a deterministic result given a set of data
+and a minimal,
+minimal set of inputs.
+And so once this evidence based pipeline
+is established, you don't mess with it,
+alright?
+So I call this, kind of, transparent box
+analysis, right?
+So it's a box, so you don't mess with
+it, it's like Al Gore's lock box, but it's
+transparent
+because you know exactly what's happening
+in there, alright, so
+it's not a black box, you can see what's
+happening.
+But the point is, you don't mess with it.
+So, one of the goals of this is
+to reduce the so-called researcher degrees
+of freedom,
+where people can tinker with every single
+tuning parameter
+in the whole pipeline, which is, kind of,
+growing exponentially.
+And to kind of get whatever they want out
+of the analysis.
+So I think a lot, this is kind of
+analogous to
+what something ideal with what it
+is [INAUDIBLE] pre-specifies clinical
+trial protocol.
+So when you run a clinical trail, you have
+to say
+everything you're going to do, including
+how you're going to analyze the data.
+And wouldn't it be nice if someone had
+just written this for you?
+Well, if you use a
+standardized kind of pipeline someone has
+written it for you.
+And you just, you can pre-specify exactly
+what
+you can do for him for a given situation.
+So, the basic structure of this the
+cartoon of course will depend
+on what you are actually, what question
+you're actually trying to ask.
+But you have some data set some minimal
+input metadata perhaps
+and then there's a series of modules that
+it goes through.
+Which can be quite long in the
+reprocessing and sort of statistical
+methods involved in all these pieces here.
+and, and you can imagine that there'd be
+like a benchmark set of
+data sets or data set that is used to
+evaluate various types of Statistical
+methods and then you can produce some sort
+of report which perhaps can
+be cut and pasted into a methods sections
+or posted in some public depository.
+I just wanted to do a quick case study for
+what I mean by this is one of the
+things I do a lot is estimate acute
+effects of avian air pollution exposure.
+So so these are cor-relational types of
+studies a lot of this
+stuff kind of originated from the 70's and
+80's so it's not.
+We start doing this yesterday, we have a
+long history of this kind of research.
+The basic question, are short-term changes
+in pollution
+associated with short-term changes in a
+population health outcome?
+These are usually conducted at the level
+of the community.
+And we have a lot, and there's a lot
+of statistical research that has gone,
+some of it done
+by myself, that has gone into this type of
+analysis.
+So this is what the data typically look
+like.
+We have, death counts, this is in New York
+City.
+We're going for a couple years here.
+And then you have particulate matter
+levels down here at the bottom.
+Now you can see there's not as much
+particulate matter data
+as there is mortality data, because
+there's a lot of missing data.
+So, essentially you just want to say, is
+this top thing correlated with the bottom
+thing.
+So question is, can we encode
+everything that we found in the
+statistical
+and epidemiological research into a single
+package?
+The answer is yes.
+Time series studies like this don't have a
+huge range of variation.
+And so they typically involve similar
+types of data.
+You know, it might be hospitalization
+instead of
+mortality or what not, but it's often very
+similar.
+And so can we create kind of
+a deterministic statistical machine for
+this area?
+So the basic
+kind of pipeline that looks, it's a very
+simple pipeline.
+This is not a very complicated analysis
+for the most part.
+You want to check the data, see if there
+are any outliers, high leverage types of
+points.
+Pollution data is often skewed, so you
+want to check for that.
+Look for overdispersion.
+Do you want to fill in the missing data?
+The answer is absolutely no.
+There's been a lot of work on that.
+It doesn't, it doesn't turn out well.
+The big question really here is model
+selection, so one
+of the things that we have to worry about
+is
+called unmeasured confounding in these
+types of time series studies.
+And you don't measure a lot of things that
+vary over time.
+So I guess this is like your batch
+effects.
+And so you have to, there are various
+approaches
+to estimating of how you adjust these
+unmeasured confounders.
+We use semiparametric progression methods
+to do this, so.
+Estimating the degrees of freedom, this
+is, has the most profound effect
+on any kind of association that you might
+estimate, so this is critical.
+So, but, you know, there is lots
+of research on how to do this.
+There's been a couple of papers One is
+mine.
+One of the various approaches to e,
+estimating
+this number of degrees of freedom and
+there, and
+you can settle on a, you know, one or
+two approaches that are That are better
+than others.
+So we can just implement that.
+Other aspects of the model tend not to be
+that important.
+Again, whether you adjust for temperature
+and weather and other
+things it kind of doesn't really matter
+how you do that.
+There's other things that you're typically
+interested
+in, multiple lag analysis and sensitivity
+analysis.
+So you want to see, you know, you can
+select a model here, but if you want to
+see
+if you can move the model back and forth
+a little bit Does your association change
+dramatically, right?
+So those are the typical things that you
+want to see, in this kind of analysis.
+And when I review, you know, one paper a
+month, of, of
+a time series study these are the things
+that I always ask for.
+So.
+>> Roger.
+>> Yeah.
+>> Is there a 15 second response to
+why.
+Computation is so bad in the setting?
+>> Oh, because the data
+are missing systematically so the, the,
+the pollution data is very difficult to
+collect, and so they typically only
+measure it only once every six days.
+So there's five days missing for every six
+to eight days.
+One observation for every six days.
+So, you can try to imp-to inpute it but
+you just
+add a lot of noise for a little bit of
+savings advice.
+So my thinking, I, I feel like this is,
+you know, you can't have one obviously.
+There's lots of various data analysis.
+Different problems require different
+expertise.
+I can't handle everything, obviously.
+So the idea is you can create a curated
+library of these machines.
+providing, kind of, the standardized,
+state
+of the art, analysis type, well, just
+state of the art in can have different
+meanings in different areas, obviously.
+Time series analysis solutions are a very
+well developed
+area, there's not a lot of research,
+statistical research,
+going on, a lot of the questions have been
+settled.
+So, we could have a, kind of, archive of
+these kinds of data analysis.
+An archive for data analysis.
+What analogy is this kind of Cochrane
+Collaboration which, I don't know if
+any of you are familiar with but
+it's basically an archive of
+evidence-based medicine.
+So you can go to the Cochrane
+Collaboration search for things like, you
+can just
+ask, you can search for, you know, can you
+use vitamin C to treat asthma.
+And so here, in the
+summary it says.
+You know, we reviewed evidence.
+So, they, they just basically did
+meta-analyses.
+They reviewed evidence from nine clinical
+trials of Vitamin C.
+[COUGH] In general, the evidence, the, the
+trails were very small.
+It's not possible to recommend either the
+use or the avoidance of Vitamin C.
+In asthma.
+Okay so.
+So, we don't have to worry about vitamin
+C.
+That's not going to help us, it's not
+going to hurt us.
+So, something like, so this, this is
+the basis of a lot of evidence-based
+interventions,
+evidence-based treatments.
+So something like this could be done for
+data analysis I think.
+So, we can have a packages that encode the
+analyses
+pipelines Curated by experts, you know,
+knowledgeable in the field.
+These don't have to be perfect solutions
+but it the idea is that, they'd
+be, they'd be pretty good solutions to
+kind of cover most of the bases.
+And then so, that's kind of all
+I wanted to say.
+I, I think, so, I, I, I kind of did a bait
+and switch.
+I didn't really talk about reproducible
+research.
+But I do think it's important.
+I, except for the fact I don't think
+it Really fundamentally addresses the
+utmost important question.
+Whether you can trust the analysis.
+And so I think, so the I think, so
+what I call this evidence based data
+analysis which
+some people don't like that phrase but I
+just
+come up with organized standardized best
+practices for given
+scientific areas and questions.
+And it's not that I don't think that they,
+I don't think they exist.
+Especially it's really professional kind
+of
+organizing and getting together and
+honest.
+I think this is something that could give
+reviewers a
+powerful tool and without dramatically
+increasing the burden on them.
+Like you know, requiring them to reproduce
+the analysis would I think that we should
+put more effort into kind of addressing
+the up stream aspects of, of scientific
+research.
+
