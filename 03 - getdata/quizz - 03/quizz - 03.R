@@ -56,7 +56,8 @@ length(dat3$Rank[na.exclude(dat3$Rank)])
 dat3$Country[13]
 # A3: St. Kitts and Nevis
 
-# Q4:
+# Q4: What is the average GDP ranking for the "High income: OECD" and "High 
+#     income: nonOECD" group? 
 library(dplyr)
 dat3 <- rename(dat3, IncomeGroup = `Income Group`)
 grouped_avg <- group_by(dat3, IncomeGroup)

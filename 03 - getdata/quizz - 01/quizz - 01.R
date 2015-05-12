@@ -48,7 +48,7 @@ library(XML)
 doc <- xmlTreeParse("rawdata/getdata_data_restaurants.xml", useInternalNodes = TRUE)
 # Q4: How many restaurants have zipcode 21231?
 sum(xpathSApply(doc, "//zipcode", xmlValue) == "21231")
-
+# A4: 127
 
 # Q5: 
 download.file(
