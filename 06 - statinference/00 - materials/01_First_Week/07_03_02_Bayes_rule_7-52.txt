@@ -1,0 +1,228 @@
+Perhaps one of the most famous
+uses of conditional probability is
+so-called Bayes' rule.
+This rule is named after a Presbyterian
+minister named Thomas Bayes who had his
+work published posthumously.
+Bayes' rule allows us to reverse
+the role of the conditioning set and
+the set that we want the probability of.
+So imagine in the event that we
+want the probability of b given a.
+When we have, or can easily calculate
+the probability of a given b.
+Well Bayes' rule says you can do that.
+You can evaluate b given a to a given b.
+But you need some other information.
+You need the probability
+of b marginalized over a.
+And this is quite useful in
+the sense of diagnostic test.
+And we'll go over some
+examples here in a minute.
+So, let's talk about conditional
+probability in the context of
+diagnostic test.
+One of the most important examples of
+conditional probability and Bayes' Rule.
+Let's let plus and
+minus be the events of the, be the event
+that the test is positive or negative.
+Let's think of a test for a disease.
+So plus being that the test says
+the person has the disease, and
+minus being that, saying that they don't.
+And then let's D and D complement be
+the event that the person either does or
+does not have the dis,
+disease, respectively.
+Then the sensitivity is the probability
+that the test is positive given that
+the subject actually has the disease.
+This would be a marker of a good test.
+You would want the sensitive,
+sensitivity to be high.
+The specificity is
+the probability that the test is
+negative given that the subject
+does not have the disease.
+Probability minus given D complement.
+Again, you want the specificity
+to be high for a test to be good.
+And notice in the development
+of diagnostic test,
+these things are at least
+conceptually obtainable.
+There is, of course, a lot of difficulties
+in finding good sensitivity and
+specificity estimates.
+But for example, in an HIV blood test,
+you could take people who you
+know to have the disease and
+apply the diagnostic test to that blood.
+You could also take people who you knew
+for sure did not have the disease.
+And you could apply the diagnostic
+test to the blood sample,
+blood samples from those subjects.
+If you happen to have a positive test,
+the number that is most of
+concern to you is the probability of
+having disease given that positive test,
+the so-called positive predictor value.
+If you have a negative test,
+your interested in the probability of not
+having the disease,
+given that negative test.
+The so called negative predictive value.
+We might say in the absence of a test,
+we might say the probability of
+having the disease is the so
+called prevalence of the disease.
+Let's go through an example.
+A study comparing the efficacy of HIV test
+reports on an experiment which concluded
+that the antibody tests have a sensitivity
+of 99.7 and a specificity of 98.5.
+So these are kind of made up numbers.
+So don't think of these as cardinal
+truths about antibody test for HIV.
+Suppose that a subject from a population
+with a 0.1% prevalence of HIV
+receives a positive test result.
+What is the associated
+positive predictive value?
+So mathematically, we want the probability
+of disease, given a positive test result,
+given the sensitivity and the specificity
+and the prevalence, P of D, 0.001.
+So let's plug directly into Bayes' rule.
+We want probability of disease
+given a positive test result.
+That's the probability of the positive
+test result, given disease,
+times the probability of disease,
+divided by this denominator right here.
+And again, it's not immediately
+clear where the numbers from
+the problem are coming from here.
+But let's just note that the probability
+of a positive test result,
+given that the person does not have
+the disease, is 1 minus the probability of
+a negative test result given that
+the person does not have the disease or
+that's 1 minus the specificity.
+And the probability of disease complement
+is 1 minus the probability of disease.
+Now we've rewritten it only in
+terms of things that we know.
+And we can just plug in the numbers and
+get 6% as our probability.
+So in this population,
+a positive test result only res,
+suggests a 6% probability that
+the subject has the disease.
+So in other words, the positive
+predictive value is 6% for this test.
+The low positive predictor value
+in this case is largely due to
+the low prevalence of the disease.
+However, imagine in the process of
+counselling this person about their
+positive test result,
+the counselor learned that
+the subject was an intravenous drug
+user that routinely had intercourse
+with an HIV infected partner.
+They would assume that the,
+the relevant prevalence for
+this person was much higher, and thus the
+positive predictor value is much higher.
+I want to now distinguish
+between the component that is
+dependent on this prevalence and
+the component that is what I
+would describe as the objective evidence
+of the positive test result, and
+that's what the diagnostic likely ratios
+are, and that's what we'll cover next.
+Here I just give the formula for
+the positive predictive value again
+as it's plugged into Bayes' rule.
+And remember, this formula then
+only depends on the sensitivity,
+1 minus the specificity in
+the prevalence of disease.
+We can do the exact same thing for
+1 minus this probability.
+One minus the positive predicted value,
+which is the probability of not having
+the disease given a positive test result,
+and you get this formula to the right.
+Notice that the denominator is identical
+in either of the two probabilities.
+And the numerator changes.
+So if we were to divide these two
+equations, we get the following.
+The probability of disease given
+a positive test result divided by
+the probability of not having the disease
+given a positive test result.
+Whenever you take a probability and
+divide it by 1 minus that probability,
+you get the so called odds.
+So here on the leftmost side,
+we have the odds of disease given
+a positive test result, and
+on the rightmost side, we have the odds of
+disease in the absence of the test result.
+Here this factor in the middle is
+the diagnostic likelihood ratio of
+a positive test result.
+So the equation is,
+the pretest odds of disease
+times the diagnostic likelihood ratio,
+equals the post-test odds of disease.
+So in other words, the diagnostic
+likelihood ratio of a positive test
+result is the factor by which you
+multiply your odds in the presence of
+a positive test to obtain
+your post-test odds.
+So let's go through our example.
+Suppose that subject has
+a positive HIV test.
+If we calculate using our sensitivity and
+specificity from before, the diagnostic
+likelihood ratio works out to be 0.997,
+divided by 1 minus 0.985,
+which works out to be 66.
+In other words,
+no matter what your pre-test odds are,
+you multiply them times 66 to
+obtain your post-test odds.
+Or in other words,
+the hypothesis of disease is 66
+times more supported by the data
+than the hypothesis of no disease.
+Now, if the pretest odds are very small,
+then still multiplying by
+66 will result in a still small number,
+though 66 times larger.
+Let's just very quickly go over
+an incidence when a subject has
+a negative test result
+in using the DLR minus.
+So, in this case,
+the DLR minus from the sensitivity and
+specificity given before is 0.003.
+So, therefore, your post-test
+odds of disease in the light of
+a negative test result is now 0.3% that
+of the pre-test odds of the te, disease.
+Or in other words, the hypothesis of
+disease is supported 0.003 times that of
+the hypothesis of the absence of
+disease given the negative test result.
+

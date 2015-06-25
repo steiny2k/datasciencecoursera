@@ -1,0 +1,448 @@
+So consider our example again.
+Suppose that n was 16 rather than 100.
+Then our test statistic remains the same.
+It's the sample mean minus
+the hypothesized mean,
+mean where remember we're
+testing H naught mu equal to 30,
+versus Ha u greater than 30.
+And then divided by the standard
+error of the mean where now we're,
+we have square root 16 rather than
+square root 100 and recall s was 10.
+This test statistic how many estimated
+standard errors from the hypothesized mean
+the sample mean is follows a T
+distribution with 15 degrees of freedom in
+this specific case.
+So under the null hypothesis,
+the probability that is larger
+than the 95th percentile of T sis,
+distribution is 5%.
+So we need to calculate that 5th
+percentile of the T distribution.
+This can be done with qt .95 and
+15 degrees of freedom,
+which works out to be 1.7531.
+Our test statistic,
+if we actually plug in the ten
+in our x bar of 32, works out to be 0.8.
+And so, we're failing to reject,
+because 0.8 is smaller than 1.75.
+Let's also go through a two sided
+test Suppose that we wanted redre,
+reject an hypothesis, if in fact
+the mean was too large or too small.
+This doesn't make a lot of sense in
+our specific scientific setting,
+because we were specifically
+interested in whether or
+not the, this particular population
+of obese subjects had a or
+respiratory disturbance index larger
+than 30, our reference value.
+However, it is often the case
+in scientific settings,
+a two sided test is demanded regardless of
+whether or not it makes scientific sense.
+So, it's, it's important to understand
+how to do two sided tests and the fact
+that there are some instances where you
+are mandated to do a two sided test.
+Even though it doesn't necessarily
+make that much sense to
+consider the other side.
+So we want to reject, in this case,
+if we were to do a two sided test,
+we want to reject whether or
+not mu is different from 30.
+So, in other words,
+we'll reject if our test statistic
+is either too large or too small.
+In this case because our test statistic is
+positive we only need to
+consider the large side.
+What does change, however,
+is in order to get that 5% in
+a way that allows our test statistic
+to be too large or too small.
+We need to split the probability as
+2.5% in either tail of the distribution,
+be it the t distribution for small
+sample sizes, or the z distribution for
+large sample sizes.
+So now, instead of the qt at 0.95,
+we're going to get to do qt at 0.975.
+Again, with 15 degrees of freedom.
+And so we want to reject if our
+test statistic is larger than this.
+Right, so let me draw an example
+of our t distribution.
+This will be the point qt .975,
+with 15 degrees of freedom.
+It would be 2.5% in that field.
+And this is the point qt .025
+with 15 degrees of freedom and
+that's 2.5% in that tail,
+that point right there.
+So we going to reject, if our test
+statistic is larger than this guy or
+smaller than this guy.
+However, because the lower quartile is
+the negative of the positive quartile,
+we can always say that's the same thing
+as taking the absolute value of our test
+statistic and
+rejecting if it is too large.
+That point is made right here.
+So, in this case we failed to
+reject the one-sided test.
+And now in this slide we're showing that
+we failed to reject a two sided test.
+However, I think you'll probably all
+ready noticed that because we've moved
+further out into the tails of the t
+distribution with our rejection that
+if you fail to reject the one sided test
+then you will have also failed to reject
+the two sided test.
+Usually we don't calculate the rejection
+region and perform the hypothesis
+test in the formal manner in which we have
+gone through in these slides by hand.
+Instead, we usually pass the data
+to a function like t.test.
+And, it outputs all
+the relevant statistics for us,
+for us to understand what's
+going on with the test.
+What's interesting is we
+already know how to do this,
+because we've used t.test in order
+to perform confidence intervals.
+We just haven't gone through the output
+to understand what it's doing for a test.
+Let's look at, in the using R package,
+the data father.son.
+And we'd like to test whether
+the population of sons' height
+was equivalent to the popsol,
+population mean of father's heights.
+Now the observations
+here were paired it was
+one son's measurement to one
+father's measurement, and so on.
+So it's, in this case we're
+going to take the difference and
+we want to test whether the difference in
+the heights is zero, or it's non zero.
+You do that with t.test,
+and you can either pass
+the difference directly to the function
+t.test or you could pass it the two
+vectors and
+then add the argument paired equals true.
+It gives you your t
+statistic right here 11.79.
+Its gives you your degrees of
+freedom right here, 1,077, so
+we had exactly 1,078 pairs that
+we took the difference of.
+Now 11 is a quite large t statistic, so we
+reject the null hypothesis in this case.
+Also notice that the degrees
+of freedom are quite large,
+so the distinction between a t-test and
+a z-test in this case is irrelevant.
+It very nicely gives us the t confidence
+interval automatically, when we do t.test.
+It's useful almost always to
+look at the confidence interval
+in addition to the output of the test.
+Simply because the confidence interval
+bridges this gap between statistical
+significance and
+practical significance quite nicely.
+You can see whether the range of values
+in the confidence interval are of
+practical significance or
+not because its expressed in the units
+of the data that you're interested in.
+Speaking of confidence intervals,
+in the previous couple of lectures
+when we covered confidence intervals,
+we investigated whether or not a
+hypothesized mean was supported by looking
+at whether ort not it was in
+the confidence interval or not.
+If it was in the confidence interval,
+then it'd seem to be
+a supported value of the mean.
+If it was outside, it was not.
+You might wonder,
+how does that procedure compare to
+formally performing the hypothesis test.
+Say, for example, the hypothesis
+test that the mean is equal to
+a specific value versus not
+equal to a specific value.
+Consider the previous example.
+We were interested in whether or not,
+father's and son heights were equal.
+We got the answer that, no, they weren't
+as far as the hypnosis test was concerned.
+We also got the answer that
+the interval did not contain zero.
+You might be wondering whether or not
+those two statements could ever disagree
+and it turns out that no they can't.
+Checking whether or
+not munot is in the interval
+is identical to performing the two
+sided hypothesis test with the caveat
+that the alpha that you use for
+the interval, for the hypothesis test.
+Has to be equal to 1 minus alpha for
+the confidence interval.
+In other words if you
+construct a 95% interval, and
+just look for whether or
+not munot is in that interval and
+failed to reject if it's in that interval
+and reject if it's outside the interval.
+That is the same as performing that
+hypotheses test with an alpha level,
+with a type point error of exactly alpha.
+This is stated here in
+this slide by saying
+the confidence interval can be constructed
+as the set of all possible values for
+which you fail to reject
+a null hypothesis.
+Now, with all the infrastructure
+that we have in place,
+both understanding confidence intervals,
+and understanding hypothesis tests for
+one group, two group intervals should be a
+very minor extension of what we're doing.
+Basically, the rejection rules are the
+same, and we want to now test whether or
+not the mean for one group.
+Is equal to the mean for another group.
+We have the same set of alternatives that
+mew one say is greater than mew two,
+that mew one is less than mew two
+versus mew one is not equal to mew two.
+Our test statistics will
+always be the same.
+It will be the estimate X
+bar one minus X bar two.
+Minus the hypothesized mean.
+In this case, the hypothesized mean
+difference, Mu 1 minus Mu 2 is zero,
+divided by the standard error of the mean.
+We'll go through an example
+to illustrate this.
+Recall it the chickWeight data.
+Recall it the chickWeight data that
+we looked at in the last lecture.
+We're going to do library(datasets),
+data(ChickWeight), and then remember we
+needed the reshape2 package to get
+it in the format that we wanted.
+Specifically the chick weight data
+is such that it's like this: chick,
+one, one, one, one, one, and
+then it has a bunch of measurements.
+At for that chick at several different
+times, so this is a so called long format.
+We wanted a wide format so
+we're going to use the dcast function.
+And then I, I want to rename it and
+then I want to define a variable that
+is weight gain basically time21,
+minus time0.
+In this case, almost all the chicks
+are about exactly the same weight at time0
+relative to their time21.
+So this doesn't make that
+big of a difference, but
+I also wanted to show people
+this mutate function,
+which makes it very easy to add
+a variable to a data frame.
+So I grab the subset of the diets in 1 and
+4 in this specific case.
+The reason being that this tilde
+operator in the t.test function requires
+that the predictor variable, diet,
+in this case only have exactly two levels.
+So, it's because I want to compare one and
+four, I did it that way.
+I'm going to say paired equals false,
+because in this case, the chicks that
+received diet one were a totally separate
+set of chicks than those that received
+diet four, so it wouldn't make an, sense
+to treat them as if they were paired.
+Chick one from diet one has nothing
+to do with chick one from diet four.
+I am assuming that equal variances in
+the in the last lecture we concluded that
+equal variance maybe isn't the best
+thing to do in this particular data set,
+so I would suggest that you try on your
+own running this example with var equal as
+FALSE to see how it change, changes.
+In this case our t statistic, which is the
+estimate, the difference in the average
+weight gain between the two diets minus
+the hypothesized value, in this case 0.
+Whenever you're doing two groups, unless
+you specify a hypothesized difference in
+the means it's going to assume that your
+interested in testing whether the means
+are equal under the null hypothesis or
+different under the alternative.
+The degrees of freedom is 23, those
+are the same degrees of freedom n1 plus n2
+minus 2 that we covered in
+the confidence interval lecture, or
+if you're doing the unequal
+variance degrees of freedom,
+you might get a fractional
+degrees of freedom.
+So the same thing we covered in
+the confidence interval lecture.
+And it gives you your confidence
+interval here again which
+is always good to look at whenever
+you're performing a hypothesis test.
+In the next lecture we'll talk
+about what a P value is and
+how it makes doing these kinds of tests
+fairly, a fairly easy thing to do.
+So our T statistic which calculates
+how many estimated standard errors our
+difference in means is from the hypothesis
+me, hypothesized mean that's negative 2.7.
+That's pretty far out in
+the tail of a t distribution or
+a normal distribution, and so
+it's well below our cut-off value.
+We don't actually explicitly t, get
+a cut-off value in this particular case.
+Because we know that it's pretty low and
+after we go through the p value lecture
+we'll be able to tell immediately
+that we know that this would be rejected
+if that was a 5% level test we'll,
+we'll know without having to actually
+specifically calculate the t quant.
+Let's go through a fairly simple example
+of hypothesis testing
+that's not a normal or a t.
+So remember this problem where your friend
+had eight children seven of which were
+girls and you wanted to evaluate
+that with respect to ID
+coin flipping thinking that maybe genders
+from a couple are like a coin flip.
+And you're interested in how much
+evidence is this, that the gend,
+genders are iid coin, fair coin flips
+between boys and girls for this couple.
+So you want to test the known hypothesis
+that p, the probability of the girl,
+is 0.5 versus the hypothesis
+that its greater than 0.5
+because you're a little skeptical.
+This, this, your friend had eight,
+seven girls out of eight children.
+So if you were to set up a hypothesis
+test what would be the number of girls
+that the couple could have in order for
+the probability of having that many or
+more the 5% under the,
+under the null hypothesis of a fair coin?
+Well, if we set up a rejection region, so
+in other words we're going to reject
+the null hypothesis if the couple had
+anywhere between zero and eight girls,
+well of course we'd always reject.
+If If we set up the rejection region, so
+that we're going to reject if a couple
+have one to eight girls, well it's
+still not 5%, It's, it's almost one.
+Okay, if we keep following down what we
+see is let's say seven girls, what we'd
+see is that if we set up or rejection
+region as being seven or eight girls,
+and the probability of rejecting under
+the null hypothesis is just under 5%.
+Notice we can't get it exactly equal to 5%
+because there's a jump if we set the rate
+rejection review to be six or higher,
+it's 14% if we set it to be seven or
+eight, it's 3%.
+If we set it to be eight, in other words
+you would only reject the hypothesis
+of a fair point, if, in fact,
+the coin came up heads all eight times,
+well, then you would have
+a type 1 error rate of .004.
+Let's give a couple of notes
+about this specific test.
+Now, what we see is that the closest
+rejection region is seven and eight.
+And the fact
+that your friend had seven girls means
+that we reject the null hypothesis.
+But we note it's also impossible to get
+an exact 5% level test in this case, but
+that's just because of
+the discreteness of the binomial.
+For larger sample sizes, you could
+have just done a normal approximation.
+You could have counted the coin flip as an
+average, treated it as if it was Gaussian,
+but, but you already know how to do this.
+For the two sided test, it's not obvious.
+I, in, in this case,
+if you wanted to test whether p was
+0.5 versus different from 0.5, and
+we'll talk about a way to do
+two-sided tests in the next lecture.
+And, I would say I think this gets
+a little bit easier when we think about it
+in terms of p values.
+So if this example is
+a little confusing to you.
+Wait til you hear the p value lecture.
+I think it'll, it'll make it
+a little clearer the exact binomial
+poisson conflicts or, or
+test will be a little bit easier.
+I would however say, it is interesting
+that if you can do a two sided test for
+a binomial or poisson,
+than you can invert those tests.
+You can think of the values for which you
+would fail to reject a known hypothesis
+and generated exact confidence
+interval for the poisson parameter and
+the binomial parameter, and
+that is exactly how they get those exact
+intervals in R where you
+don't do an asymptotic or
+central limit theorem type approximation
+but you get an exact binomial interval
+they're, they're inverting a two
+sided hypothesis test of this sort.
+So I look forward to, next time,
+talking about P values,
+where I think we'll solidify
+some of these con, concepts.
+And also make the performance of our
+hypothesis test a little bit easier.
+

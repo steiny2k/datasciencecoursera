@@ -1,0 +1,155 @@
+So, we actually covered an instance of
+a p-value previously in the class, and
+I wanted to go through it again now
+that we know what p-values are.
+So, suppose we're going to think
+of gender assignment for kids,
+that we're going to think of this for
+a specific couple as if it's a coin flip.
+Now, there's a lot of complexity to this
+problem, and we're going to reduce it, but
+let's just assume that it's a coin flip.
+And what we're wondering,
+because you have a friend that has, out of
+eight kids, had seven girls, whether or
+not the probability that that
+coin lands on girl, right?
+Let's say p is the probability
+of having a girl
+is equal to 0.5 versus greater than 0.5.
+So the null hypothesis
+is H0:p equal to 0.5.
+And the alternative is
+Ha:p greater than 0.5.
+Well, under the null hypothesis,
+we want to calculate the probability
+of getting evidence as or more extreme.
+Now, we don't know what a test, the test
+statistic is in this case, but the most
+logical one is just to count the number
+of girls out of the, out of the eight.
+So, seven or eight would be as or
+more extreme than was actually observed,
+so the p value calculation is
+the binomial calculation for
+7 plus the binomial calculation for 8,
+under the null hypothesis where p is 0.5.
+That works out to be about 3.5%.
+I also go through the calculation here,
+where I do pbinom instead of directly
+plugging into the binomial formula,
+and, of course, you get the same number.
+We, if we were testing that hypothesis,
+we would reject at a 5% level.
+We would reject at a 4% level, but
+we would not reject at
+an type 1 error rate of 3%.
+Now I would mention on this
+specific problem, it's not obvious
+what the two-sided p-value is,
+so I'll give you a simple trick.
+And the simple trick, in this case, is
+to simply, if you wanted to test whether
+0.5 versus p different from 0.5, then you
+just calculate the two one-sided p values.
+In this case, the probability of being 7
+or larger would be one one-sided p value,
+and the probability of being 7 or smaller
+would be the other one-sided p-values.
+You take those two one-sided p values, you
+take the smaller one, and you double it.
+And that's the procedure for
+getting a two-sided p value in these
+binomial, exact binomial calculations.
+Let's go through a poisson example.
+So suppose that a hospital has
+an infection rate of 10 infections per 100
+person days at risk, for
+a rate of 0.1 infections per person day at
+risk during their last monitoring period.
+And, we want to assume
+that the rate of 0.05
+infections per person day at
+risk is an important benchmark.
+If the rate goes above that
+they would implement some
+quality control procedures, let's say.
+But you don't want to just have this,
+this these expensive quality
+control procedures go into place
+just because of random fluctuation.
+So you'd like to formally test
+this hypothesis, accounting for
+the uncertainty in the data in here
+we're going to assume that the count,
+the number of infections is Poisson.
+Well, the null hypothesis then
+is that lambda's 0.05 versus
+the alternative that lambda is 0.,
+greater that 0.05.
+Or given that we're specifically talking
+about 100 person days at risk for
+this particular monitoring period, we
+could think of this as the null hypothesis
+is that the, the rate times 100 is 5,
+versus the rate times
+100 is greater than 5.
+So what we want to know is, if in fact
+the rate is 0.05 having been monitored for
+100 person days at risk,
+what's the probability of obtaining 10 or
+more infections.
+Okay, so this is a Poisson probability,
+we want the upper tail,
+so remember this little quirk of R.
+If you want the upper tail and
+you're doing a discreet distribution,
+you actually have to drop
+the number down by one.
+So we're going to, P-P-O-I-S.
+So, ppois, for the ppois on probability.
+We want to put in 9 because we want
+the upper tail and because of this
+issue that it does strictly greater
+than for the upper direction.
+Then the Poisson rate is 0.05 times
+the 100 person days at risk, so 5.
+And then we want to specify lower.tail
+equals false, to make sure that we don't
+get 9 and fewer, but we want strictly
+greater than 9, which is 10 or more.
+And that will give us
+our realm of p-value.
+So what is this probability?
+This is the probability of obtaining 10 or
+more infections if, in fact, the true
+rate of infections we've should've seen
+on a 100 person days at risk is 5, okay?
+And it turns out that that's
+a relatively low probability.
+It's unlikely for
+us to have seen as many as 10 infections
+for a 100 person days at risk.
+So only 3% chance of that occurring,
+if, in fact,
+the real infection was 5 for
+a 100 person days at risk.
+So this hospital perhaps should execute
+those quality control procedures.
+So hopefully what you've gotten out of
+this lecture, is that the way that you
+calculate a p value, is you calculate
+the probability of obtaining
+data as or more extreme than you actually
+obtained in favor of the alternative,
+where the probability calculation
+is done under the null.
+And all the p values are done this way and
+I think what we, what we saw was we saw
+the the kind of formal rules that you
+could execate, execute in the z and
+the t test which are, are kind of easy,
+but then we our way through some of these
+other examples like the binomial
+example and the Poisson example.
+

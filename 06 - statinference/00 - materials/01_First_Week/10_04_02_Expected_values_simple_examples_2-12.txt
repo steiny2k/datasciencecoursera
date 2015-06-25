@@ -1,0 +1,62 @@
+Now, lets talk about an example of
+obtaining a population expected value.
+So suppose a coin is flipped and
+X is declared 0 or
+1 corresponding to a head or a tail.
+What is the expected value of X?
+So again, the expected value is
+the property of the population.
+If we plug into our formula expected
+value of X, is the probability 0.5 times
+the value 0 plus the probability 0.5 times
+value 1, so all the values that the coin
+can take 0, 1 times the probability
+that it can take them, added up.
+This winds up to be 0.5.
+So notice the expected value is
+a value that the coin can't even take.
+However, if we were to think
+about this geometrically,
+the answer is quite obvious.
+If we have two bars, they are equal
+height, one at 0 and one at 1.
+And we wanted to balance them out.
+It's clear where exactly we'd
+put our finger if we wanted to.
+It would be right here at 0.5.
+Suppose that a random variable X is such
+that P, the probability that it takes
+the value 1 as p, and the probability
+it takes the value 0 is 1 minus p.
+This is a biased coin,
+where the probability of
+the head is not necessarily 0.5.
+The probability of the head is now p.
+What is it's expected value?
+We'll plug in directly and
+then formula 0 times 1 minus p plus
+1 times p which works out to be p.
+So the expected value of a coin flip,
+even a potentially biased coin
+is exactly the true long run
+proportions of heads you would obtain
+in infinitely many flips of the coin.
+What about a die?
+Suppose that a die is rolled, and
+X is the number that is face up,
+what is the expected value of X?
+So, here we take the values 1,
+2, 3, 4, 5, 6 and
+multiply them the, times the probability
+that the random variable takes them.
+One-sixth, one-sixth, and so on.
+You get 3.5.
+Again, a number that the die
+can't actually obtain.
+So again,
+the geometric argument makes this obvious.
+We have six bars, all of height one-sixth,
+and if we had to balance them out,
+it's clear that we would
+balance them out at 3.5.
+

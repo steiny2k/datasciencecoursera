@@ -1,0 +1,859 @@
+Hi, my name is Brian Caffo and this is the
+multiple testing
+lecture in the statistical inference class
+in the course area data science series.
+This class is co-taught by my
+collaborators Jeff Leek and Roger Peng.
+We're all in the department of bio
+statistics
+in the Johns Hopkins Bloomberg School of
+Public Health.
+And in fact, today, we have a very special
+guest lecturer, Jeff Leek.
+I don't have a picture of Jeff so lets
+just assume he kind of looks like this.
+You know, he sets things like Internet's
+rule.
+And so, I'll just let him take over from,
+from there.
+[SOUND].
+>> This video is about multiple testing.
+We talked about hypothesis testing early
+in the course
+and I mentioned that we when you perform
+more than
+one hypothesis test you have to do some
+sort
+of correction to make sure that you're not
+fooling yourself.
+This lecture is a little bit about how to
+do these corrections.
+The key ideas here are that hypothesis
+testing in significant analysis.
+Are commonly overused techniques.
+In particular, what people will often do
+is calcula, calculate multiple P values
+when
+analysing the same data set, and they will
+only report the smallest P value
+or report all of the P values but claim
+all P values less than
+.05 are significant which leads to some
+problems that I’ll demonstrate in a
+minute.
+So, what we would like to do is correct
+for multiple testing
+to avoid false positives or false
+discoveries when forming analysis with
+many variables.
+There are two key components to multiple
+testing corrections, first it's
+a definition of an error measure that you
+would like to control.
+Then a, a definition of a correction or a
+statistical method that's used to control
+that error mesh, measure.
+So this is related to three errors of
+statics, which appears
+in this book by Brad Efron, a professor of
+statistics at Stanford.
+So he talked about the three errors as,
+the first error being when
+huge census level datasets were brought to
+bear on simple but important questions.
+But it just collected a lot of data to try
+to describe a population.
+Then the classical period of statistics
+developed a theory of optimal inference
+for ringing as much information as
+possible out of small sample sizes.
+This is back when data was very expensive
+or difficult to collect.
+The third era, the era that we're in now,
+is the era
+of scientific mass production, when data
+is cheap and easy to collect.
+But this also means that we're performing
+more and more analysis.
+And if we don't correct for the fact that
+all of these analyses are performed,
+we're allowing for a small amount of error
+in each analysis, those errors can pile
+up.
+So, the reason for performing multiple
+testing corrections are because of
+these new technologies that are leading to
+this increase in data.
+These technologies range from next
+generation sequencing machines in
+molecular biology,
+to imaging of patients in clinical
+studies, or electronic medical records.
+Or personalized or individualized
+quantitative
+self-measurements that you might take
+with something like the Nike Fuel Band or
+the FitBit.
+So why should we correct for multiple
+tests?
+This is actually a cartoon to describe the
+key problem that you run into.
+So suppose that you were looking at a
+particular analysis
+where you wanted to see if jelly beans
+cause acne.
+So what you do is you send off a bunch of
+scientists to investigate.
+And they first look at just all jelly
+beans.
+And they look and see if people eat any
+kind of jellybeans, whether
+they get acne or not and their p value
+comes back greater than .05.
+And so, the next thing that they might do
+is go
+and run and tech test all the different
+colors of jellybeans individually.
+Say, well, is there a relationship between
+purple jelly beans
+and acne brown jelly beans and acne and so
+forth.
+And in each case they get a p greater
+than 0.05, so they don't report a
+significant result.
+Until finally after they test over 20
+different kinds of
+jelly beans they come up with one that is
+significantly associated
+with acne, green jelly beans and they say
+there's only
+a 5% chance of coinci, of this coincidence
+occurring by chance.
+But it turns out that they tested 20
+different hypotheses, so it was almost
+it became very likely that at least one of
+them would result in a coincidence.
+So in other words, we allow, if we allow
+for 5%
+chance of error in every hypothesis test
+that we perform, and we
+perform at least 20 hypothesis tests then
+we expect to find at
+least one error because 20 times 5 percent
+is about 100 percent.
+So I've been referring to p values and
+hypothesis testing
+as sort of interchangeable ideas but
+they're not really interchangeable.
+So you can imagine where you're performing
+a
+hypothesis test for para, parameter beta
+and you're
+trying to determine whether is equals zero
+versus
+the alternative that it does not equal to
+zero.
+>> And so this is an example of when that
+might happen
+is, say, you're fitting a linear
+regression model relating one variable to
+another.
+If the coefficient for, the variable
+that's the,
+covariant is equal to zero, then there's
+no estimated
+association between the two variables, and
+if it's
+not equal to zero, then there is some
+association.
+So you might fit that linear progression
+model
+and calculate a p value, as we've
+discussed previously.
+And then to perform a hypothesis test, you
+might look at
+that p value and calculate whether it's
+less than some particular threshold.
+And if it is less than the threshold, then
+you would say that.
+Beta does not equal to zero and if it's
+above the threshold you might say beta
+equals zero.
+This is called the hypothesis test.
+When you're performing a hypothesis test,
+this is
+the table of the possible outcomes that
+can happen.
+So, in each row you have a particular
+claim that you might make.
+Whether beta is equal to zero or beta is
+not equal to zero.
+And then in each column you might have the
+true state of the
+world where beta is equal to zero or beta
+is no equal to zero.
+So, if you perform lots of hypothesise
+tests, all the times when
+you say beta is equal to zero, and beta
+actually is equal
+to zero fall into this cell, and all the
+times when you
+say beta is not equal to zero, and is not
+equal to zero.
+And it really not equal to zero but they
+fall into this cell.
+So then there are two types of errors that
+you might make, so the first one type
+one errors or false positives are the case
+where you say beta is not equal to zero.
+In other words you say there is some
+relationship between the variables.
+But there actually is not a relationship.
+So we're going to denote by v the number
+of times that happens.
+The other type of error, type two errors
+or false
+negatives are the cases where you might
+claim that there's no
+that beta's equal to zero, in other words
+there's no relationship
+between the variables, but it turns out
+that there actually is.
+In general people tend to focus a little
+bit
+more on type one errors, or false
+positives when performing
+scientific investigations as we want to
+limit the number of
+times that we're led astray, or we find
+false positives.
+But in general the two error rates might
+be compared a different amount depending
+on what type
+of problem that you're looking at and
+whether one
+type of error is more costly than the
+other.
+So in multiple testing there are a couple
+of different error rates that we might
+consider.
+That's the first component of a multiple
+testing procedure.
+So the error rate in this case it might be
+the false positive
+rate, so this is just a rate which false
+results are called significant.
+So in other words these are the results,
+beta
+equals zero where there's no relationship
+between the variables.
+What rate do we call them significant?
+This is just the average.
+Fraction of the times that we call them
+significant when they're
+not, divided by the total number of not
+significant variables [COUGH].
+Then there's another error measure which
+is called the family wise error rate.
+And so, that is just the probability of at
+least one false positive.
+So, this V variable counts all the times
+where there's no
+relationship between the variables but we
+claim that there is one.
+So if we do that V times, the family wise
+error rate is controlling the
+probability that the number that we Make
+that
+false claim greater than or equal to one.
+The false discovery rate is a little bit
+different then
+the false positive rate in that it's the
+rate at which
+claims significance are false in other
+words r of the times
+we're going to claim that beta is not
+equal to zero.
+And V of the time we're going to be wrong
+about that decision.
+So E, the expected value of E divided by R
+is actually
+just the rate at which our claims that
+there's a relationship are false.
+So this is the false discovery rate versus
+the
+false positive rate, which is the rate at
+which.
+Actually truly false results are called
+true.
+So, the posi, false positive rate is
+closely related to the
+type one error rate and it's actually kind
+of a subtle distinction.
+And if you want to learn a little more
+about
+that I have a link to a Wikipedia page
+here.
+So the next part of multiple testing is
+now that
+we've defined the different error
+measures, how do we actually
+define a procedure that can be used to
+control that error measure.
+In other words, is there a way that we
+could perform a prof, procedure such that
+the rate of errors defined by that error
+rate is held in check in a particular way.
+So, first we're going to talk about
+controlling the false positive rate.
+And so, if P values are correctly
+calculated, you
+can actually just use the P values that
+you've
+calculated directly and call all P values
+less than
+sum threshold Alpha, where Alpha's between
+zero and one.
+To be significant, that will actually
+control the
+false positive rate at level alpha on
+average.
+In other words, the expected rate of false
+positives is less than alpha.
+So here's the problem with that.
+Suppose that you perform say 10,000
+hypothesis tests, this seems
+a little bit extreme, a large number of
+tests maybe.
+For people that are doing just one or two
+regressions but in many high dimensional
+settings or signal
+processing settings there are, this is
+actually a reasonably
+small number of hypothesis tests that
+might be performed
+and if you call all P values less than
+0.05 say significance and we say alpha
+equal to
+0.05, then the expected number of false
+positives is
+just the total number of tests that you've
+performed.
+Times the false positive rate that you're
+controlling the, error rate at.
+And so you get 500 false positives.
+So if you perform this many hypothesis
+tests and you get 500 significant results,
+it's pretty likely that they're mostly
+going
+to be made up of false positive results.
+So a question that we immediately comes to
+mind is how do we
+control, a different error rate so that we
+avoid so many false positives.
+So the first choice is the family-wise
+error rate.
+And I talked about that just a minute ago,
+which is we want to
+be able to control the probability that
+we're going to make even one error.
+So the Bonferroni correction is actually
+the approach for doing this.
+And I've linked to the Wikipedia page
+here.
+It's actually the oldest multiple testing
+correction.
+>> And the basic idea is that if you are
+doing m hypothesis tests
+and you want to control the family wise
+error rate at level alpha, in other
+words we want to make sure, try to ensure
+that the probability of making
+even one error is even less than alpha, so
+that's quite a stringent control there.
+We can calculate all the p values
+normally.
+And then [UNKNOWN], take the alpha level
+that we originally had for a single
+hypothesis test and divide it by the
+number of hypothesis tests that we
+performed.
+In other words if alpha is 0.05 and the
+number of hypothesis tests
+is ten then we get 0.05 divided by 10 is
+equal to 0.005.
+So then we get this new alpha level, and
+we count,
+call, all p values less thanum, this new
+alpha level significant.
+Then that will, on average, control the
+family wise error rate.
+The pros of this method are that it's easy
+to calculate and you don't make a lot of
+errors.
+This is guaranteed to make very few errors
+in the sense that this error rate,
+which is the probability of even one false
+positive, is actually controlled to be
+quite low.
+A con, though, is that it also may be
+very, very conservative.
+In other words, if you're doing a large
+number of hypothesis tests,
+controlling the probability of even one
+false positive might be pretty extreme.
+You might want to allow for a few pos,
+false positives if
+that will allow you to discover a lot of
+more real signals.
+So that's where the false discovery rate
+comes in.
+It's probably the most popular for error
+rate or
+multiple testing correction when
+performing very many hypothesis tests.
+These examples, like I said, came up in
+genomics.
+Imaging, astronomy or other signal
+processing disciplines in particular.
+But it also comes up in a lot of other
+different places.
+So the basic idea here is suppose you do m
+hypothesis
+tests, and you want to control the false
+discovery rate at level alpha.
+So the expected number of false
+discoveries divided
+by the total number of discoveries is
+controlled.
+You can think of this sort of as that
+level of noise in the results.
+So, if you have F, F, FDR of Alpha, you
+expect to
+have Alpha Percent of the things that you
+are claiming to be false.
+So, what you do is you just calculate the
+P values
+normally and then you order the P values
+from smallest to largest.
+And the way that we denote that is in
+parenthesis,
+we put the number that represents the
+order of the P-Value.
+So this is no longer the P value that we
+calculated.
+It's now the smallest P value that we
+calculate.
+And then we order them all the way up to
+the mth P
+value, so there are m hypothesis tests, so
+this is the maximum P value.
+Then you go through and for the ith order
+P
+value, you look to see whether there's
+less than, or
+equal to alpha times i divided by m, and
+if
+it's true, then you call it significant
+and if not.
+You don't, this then is procedure is
+designed to control this false discovery
+rate here.
+The pros are that it's still pretty
+easy to calculate like the Brom Brody
+correction.
+It's less conservative and maybe much less
+conservative if there's a
+lot of signal and you allow for just a few
+false positives.
+You might be able to find a lot more of
+the real signals.
+The cons are it does allow for more false
+positives,
+so if you let the error rate be very
+large,
+you might find a lot of false positives
+among the
+significant results, and it might also
+behave strangely under dependence.
+In other words.
+If you perform hypothesis tests that are
+related to each
+other, say for example including different
+sets of parameters in the
+same regression model and trying out a
+bunch of different regression
+models you can get strange behavior of the
+false discovery rate.
+So, here I'm going to show you an
+example of how these significance
+calculations are performed.
+Basically how the hypothesis tests are
+performed for the different corrections.
+And so I'm going to do this example of
+with P-values.
+And I'm going to control all of the error
+rates
+that we're going to be talking about at
+the level 0.2.
+So, here are the ten P-Values.
+They're ordered by how small they are.
+So this is the smallest P-Value up to the
+tenth P-Value, which is the largest one.
+And on the Y-Axis is the P-Value itself.
+And so the red line represents all of the
+P-Values that we would
+call signficant at L Alpha equals 0.2, if
+we did no correction at all.
+So it's basically just all the P-Values
+less than 0.2.
+And so this, there's no correction
+approach actually controls.
+The false positive rate, but remember that
+can lead to a
+large number of false positives if you're
+performing many hypothesis test.
+So the next thing to look at is the false
+discovery rate.
+So this is controlling the proportion of
+false positives at level of 0.2.
+In other words, we expect about 0.2% or
+sorry, about 20%
+of all the results we call significant to
+be false positives.
+And so the way that this is calculated is
+actually following this gray line.
+So, we're going to order the P-Values from
+smallest to largest and each time we're
+going to
+compare it to a a linear line where
+the slope is determined by this alpha
+level here.
+And so, we actually would just call this
+first three P-Values significant.
+So we find three significant P-Values.
+And we're controlling a slightly different
+error measure.
+Finally the Bonferroni correction, down
+here is actually just taking 0.2
+and dividing by 10, the number of
+hypothesis that we're testing.
+So in this case it's 0.02, is this line
+straight across here.
+And in this case we'd only dis, we've only
+discovered these two or called these two
+P-Values significant.
+And all the rest we would call
+insignificant.
+Not significant.
+But the Bonferroni correction here is
+controlling
+this much more stringent family wise error
+rate.
+So this hopefully shows you a little bit
+about how the different procedures work,
+sort of
+conceptually in terms of where the
+cut-offs are
+drawn for different sorts of sets of
+P-Values.
+Another approach is to adjust the P-values
+rather than to adjust the alpha level.
+And so in this case, we're going
+to calculate it's, what's called adjusted
+P-values.
+This is the, the reason why I bring up
+this approach is because it's easy.
+And sort of a direct calculation is
+available in R.
+Something to keep in mind is that once
+you've
+adjusted P-values, they are no longer
+classically defined P-values.
+In other words they don't have the same
+properties
+of classically defined P-values, and
+shouldn't be treated that way.
+But they can be used to control error
+measures directly without adjusting the
+alpha parameter [INAUDIBLE].
+So, here's an example of how this might
+work for the Bonferroni correction.
+So, suppose we have these m P-values.
+One thing that we could do is we could
+adjust them by
+calculating m times each P-value, and
+taking the max of that and one.
+So in other words the P-values can't be,
+the adjusted P-values can't be larger than
+one.
+Just like the P-value themselves can't be
+larger than one.
+But we have multiplied every P-value by m.
+So remember for the Bonferroni correction,
+we
+were going to divide the alpha level by m.
+So if instead, we multiply the p value by
+m, we can just calculate the number of
+times our
+new P-values are less than alpha and it
+will give
+you the exact same set of results that are
+significant.
+So in other words we can use
+these, familiarized error rate or
+Bonferroni adjusted P-values.
+To calculate significance by comparing it
+to the original
+alpha level that we might have been
+interested in.
+In this case say, 0.05.
+So if we multiply the P-values times the
+number of tests performed.
+And look at how many are less than alpha
+then
+we will control the familiarized error
+rate at level alpha.
+So here's an example with no true
+positives.
+So in this case, I've simulated a bunch of
+data sets, so a 1,000 data sets.
+In each case, I generate a normal y and
+a normal x that have no relationship to
+each other.
+And then, I fiddled in your model relating
+those to variables Y to X and I get
+the coefficients of that I, I take the
+summary
+of that linear model and get the
+coefficient matrix.
+In that coefficient matrix in the second
+row.
+The fourth columns the P-value for the
+relationship between y and x.
+So I calculate the P-value for all 1000
+different simulated examples.
+And then I look at the number of P-values
+less than 0.05.
+So remember in none of these cases was
+there actually a relationship between the
+two variables.
+But still we get 51 or about 5% of the
+tests being
+performed or called significant.
+Even though there's no relationship.
+So what happens if I, adjust the P-values
+and apply
+the false famiarlize wise error rate or
+the false discovery rate.
+So, for example.
+What I can do is use the P.adjust function
+in R, so I just say I apply
+P.adjust to the P-value vector that I
+calculated.
+So this P-value vector has all the
+P-values from all 1000 different studies.
+P.adjust gets applied to that.
+In the first case I say method equals
+Bonferroni because I want to do the
+Bonferroni correction.
+And again, now that I've corrected the
+P-values I
+can just compare them to a standard alpha
+level, in
+this case 0.05 and I look at how many are
+less than that and in this case there are
+zero.
+So, when there are no true positives we
+find very few true significant results.
+When we're controlling the famiarlize
+area.
+Which is good, we shouldn't find
+any significant results because there's no
+relationship.
+Similarly, we can do the same thing, but
+instead of controlling
+using the Bonferroni Correction, we can
+use what's called the Benjamini-Hochberg
+Correction.
+Which is that correction I just talked
+about
+a minute ago for controlling the false
+discovery rate.
+So I can again adjust the P-values and
+then look at the numbers that are
+less than 0.05, in this case again
+we don't discover anything which is good
+because.
+There shouldn't be any discoveries in
+the case that there's no significant
+relationships.
+So, I'm going to show another simple
+simulated
+scenario, and so in this scenario I'm
+going to
+have 50% of the time this is going to be a
+relationship between the two variables.
+So I'm going to simulate again one
+thousand
+different y and x variables for the first.
+500
+sets of variables.
+I'm going to generate, a y value that's
+independent of x.
+For the last 500, I'm going to generate a
+y value that has a
+mean that's equal to 2 times x so there's
+a relationship between y and x.
+So the first 500 beta is equal to zero and
+the last 500 beta is equal to two.
+Again I calculate a P-value for each of
+the cases.
+And then I can define the true status to
+be beta is equal to zero for the first
+500.
+And data is equal not, is not equal to
+zero for the last 500.
+Just so I can make a table and show what
+the results are from this analysis.
+So if we look at the number of P-values
+that is
+less than 0.05 by the true status this is
+with no correction.
+I see that for the case where the, there
+is actually no relationship between
+the two variables, I get again about 5% of
+the time a false positive result.
+And then in this case the signal's very
+strong.
+So I actually find that all of theuh,
+P-values for
+the cases where there is a relationship
+are less than 0.05.
+So I actually discover all of the, the
+real signals that exist in this data set.
+So if I use a familiarlize error rate, I,
+again, adjust
+now the P-values using p.adjust, apply to
+the p value vector.
+I set the method to be Bonferroni,
+calculate
+the number of times it's less than 0.05.
+In this case, I actually discover slightly
+fewer, significant results.
+In other words I missed 23 of the cases
+where there should be a signal.
+But now I actually have no false
+positives.
+And that's because I'm again controlling
+the probability of even
+one false positive to be less than 0.05 in
+this case.
+In the case of the false discovery rate I
+set the method to be equal to bh.
+And what I discovered is that here I, I
+do actually discovered all of this
+significant results, but
+I discover actually fewer false positive
+results than I
+would've discovered with out any kind of
+multiple testing correction.
+And in this case, actually about 5% of the
+cases were actually called there to be a
+true relationship.
+Only about 5% of the time are the is there
+not actually a true relationship.
+So, in this case, I'm looking at the
+percentage of the times that
+they're actually equal to zero but we
+claim that it's not equal to zero.
+So the other thing that you can do, all of
+this is not necessarily useful
+for performing the hypothesis test, it's
+useful
+for kind of understanding what P
+adjustment does.
+So I can plot the P values versus the
+adjusted P values corrected
+for both the Bonfferoni method and the
+Benjamin Hochberger, in the case of
+Bonferoni.
+What I'm doing is I'm just taking each P
+value and multiplying it by
+the number of tests that I perform, so in
+this case, multiplying it by 1,000.
+So, you can see the various smallest P
+values are still less than one.
+But then, after I get to this point here,
+all the P
+values multiplied by 1,000 are equal to
+one or greater and so.
+Since I don't allow the adjusted p-values
+to be
+greater than one, you just get a flat
+line.
+On the other hand with the benjamini
+Hochberger probe,
+you actually see this sort of increasing
+function, so
+the P value is on the x axis and the
+adjsusted P value is on the y axis.
+And you see that the adjusted P value is
+slightly
+larger across the entire range than the
+actual P value itself.
+But not dramatically larger, actually, for
+this particular case.
+Because you actually have a lot of
+significant results.
+So it's the notes and further resources.
+So first the notes, multiple testing is
+actually an entire sub field
+and there's a whole bunch of different
+corrections that you can possibly apply.
+Depending on the different dependant
+structures and all the different
+sort of choices that you made in the
+statistical model and.
+So depending on your problem you might
+want to do a little.
+Further research on what's right
+correction apply.
+The basic Bonferroni or Benjamini Hochberg
+Correction is usually enough for most sort
+of standard problems but there's actually
+if
+there's strong dependence between the test
+for
+example you might want to consider method
+equals BY in the p data chest function or
+looking to more direct adjustments for the
+dependents between the hypothesis tests.
+This is actually an area in which I've
+done a little bit of research,
+so hopefully you can take a look at some
+of my papers on the area.
+So, for the resources are this is actually
+quite a nice paper.
+A gentle introduction to multiple testing
+procedures with applications in genomics.
+Which is an area I work in and where
+multiple
+testing has really flourished in terms of
+a statistical discipline.
+Similarly, the statistical significance
+for genome wide
+studies is a very nice gentle
+introduction.
+Introductions in terms of a paper to read.
+again, it's focused on molecular biology
+but it's pretty easy to read.
+I think even if you're not an expert in
+that area.
+And finally this is a very nice sort of
+introduction to multiple testing that goes
+over to basics.
+A lot of what I've covered now but may
+be a little bit more depth in case you're
+interested.
+

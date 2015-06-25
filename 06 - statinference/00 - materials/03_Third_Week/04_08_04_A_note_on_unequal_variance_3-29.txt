@@ -1,0 +1,87 @@
+So hopefully the formula for
+the unequal variance case
+looks pretty familiar to you.
+It's the difference in the means plus or
+minus a t quantile times
+the standard error.
+The standard error is calculated
+assuming there's a different variance in
+each of the two groups.
+It turns out that if the x observations
+and the y observations are IID normal,
+potentially with different means and
+potentially with different variances,
+the relevant normalized statistic
+does not follow a t distribution.
+Instead, it can be approximated
+by a t distribution,
+where we choose a rather elaborate
+formula for the degrees of freedom.
+Now no one remembers this degrees
+of freedom calculation, and it's a,
+it's a very odd calculation because it
+just doesn't involve the sample sizes, but
+actually the estimated standard deviations
+and variances from the two groups.
+Nonetheless, if you plug in this
+potentially fractional degrees of freedom,
+you get a t calculation that very closely
+approximates the relevant distribution,
+which is not actually a t distribution,
+and
+it turns out that it works well enough
+that I can give the statement that
+when you're in doubt just use
+the unequal variance interval.
+On this page, I simply show churning
+through the calculations for
+the oral contraceptive
+example from earlier.
+You might want to go through this
+calculation just so you can at once
+convince yourself that you can plug
+into the standard deviation formula,
+particularly, the degrees of freedom
+that you get in this case is 15.04.
+Nonetheless, typically when we
+want unequal variance t tests,
+we simply use the r command t.test
+with var.equal equals FALSE,
+and that'll do the relevant t
+test with unequal variances and
+produce the reletant, relevant t
+quantile with unequal variances.
+So let's summarize what
+we talked about today.
+We talked about creating intervals
+using the t distribution,
+some of the handiest intervals
+in all of statistics.
+When we have single observations or
+paired observations for which we've taken
+the difference, we use the t interval
+to create intervals that are highly
+robust to the underlying assumptions
+regarding the distribution of the data.
+However, we have talked about a couple of
+cases where it's probably preferable to
+use something other than the t
+distribution and t intervals.
+For example, we talked about
+when the data are highly skewed,
+you may either want to take a log,
+or look for different procedures.
+In addition, when your data is binary,
+you might consider something like looking
+at odds ratios, which we will cover
+in our generalized linear model
+component of the regression class.
+The same can be said for count data,
+where we'll talk about Poisson models and
+generalized linear models for rates,
+again in our regression class.
+For several of the other
+two-group special cases, the class
+Mathematical Biostatistics Boot Camp 2,
+also on Coursera, covers many of them.
+

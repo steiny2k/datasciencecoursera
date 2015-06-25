@@ -1,0 +1,127 @@
+This test.
+Consider our respiratory
+disturbance index example again.
+A reasonable strategy, would be to reject
+the null hypothesis of our sample mean
+respiratory disturbance index
+was larger than some constant.
+Let's label that constant C.
+C will take into account
+the variability of X bar.
+Typically, C is chosen so that
+the probability of a type one error rate,
+this probability label is a low number.
+5% has emerged as sort of
+a benchmark in hypothesis testing.
+So to repeat, alpha,
+is the type one error rate.
+Which in other words is, the probability
+of rejecting the null hypothesis when,
+in fact, the null hypothesis is correct.
+That's a bad thing, you don't
+want to make these kind of mistakes.
+But as in our court of law example,
+you don't want to set this rate too low,
+because then we would never
+reject a null hypothesis.
+Let's see if we can choose
+this constant C, so
+that the probability we would reject
+is simply tolerably low, say 5%.
+The standard error of the mean is 10,
+the assumed standard
+deviation of the population.
+And here we haven't drawn a distinction
+as to whether we estimate, or
+this is just a number that I've given you.
+Divided by square root 100,
+that's the square root of the sample size,
+that works out to be 1.
+Here I just created the settings, so
+it completely worked out to be 1.
+Under the null hypothesis where
+under H not mute is equal to 30,
+the distribution of the sample mean
+X bar is normal with a mean of 30,
+and a variance of one which we just
+calculated as the standard error square of
+the standard error of
+the mean in the line above.
+So, we want to choose the constant C.
+So that the probability that
+X bar is larger than C,
+under the null hypothesis is 5%.
+So remember the 95th percentile of
+the standard normal distribution is
+1.645 standard deviations from the mean.
+So, if we set the constant as
+1.645 standard deviations,
+from the mean under the null hypothesis.
+We will have achieved a cup point, so
+that the probability that a randomly drawn
+mean from this population
+is larger than this is 5%.
+So in this case it's 30, the hypothesized
+mean under the null hypothesis, plus 1,
+the standard error of the mean times
+1.645, the number of standard deviations
+from the mean that we're considering which
+in this case works out to be 31.645.
+So, just to reiterate, the probability
+that a normal 30 with a mean of 30,
+and a variance of 1,
+is larger than this constant is 5%.
+So the rule,
+reject the null hypothesis when
+you receive an average larger
+than 31.645 has the property.
+That we will reject 5% of the time
+when the null hypothesis is true.
+Again, 5% of the time in the instances
+where the sample size is exactly a 100,
+and the standard deviation of
+the population is exactly 10.
+In the previous slide, we reverted
+the calculation of the rejection region
+C back to the original units of the data.
+However, I hope you got the gist
+from the problem that basically,
+whenever you are testing greater than,
+if the sample mean is more than
+1.645 standard errors from the mean, from
+the hypothesized mean, you would reject.
+And there is nothing particular about 30,
+and the standard error of the mean of 1.
+So, instead of
+calculating this constant back on units of
+the original data, we tend to convert our
+sample mean into however many standard
+errors from the hypothesized mean it is.
+So, take this specific example.
+If our observed sample mean was 32,
+our hypothesized mean is 30,
+and our standard error is 10 divided
+by square root of 100, we're in a real.
+Problem if 10 would be
+estimated from the data.
+So, be the sample standard deviation,
+this works out to be 2.
+This is greater than 1.645 the chance
+of this occurring is less than 5%.
+So we're going to reject
+the null hypothesis.
+I, I should reiterate that
+the chance of this occurring,
+under the null hypothesis is less than 5%.
+So, we're going to reject
+the null hypothesis,
+in favor of the alternative hypothesis.
+So, I've just simply written out this
+rule again here on the final line.
+We're going to reject whenever X
+bar minus the hypothesized mean,
+divided by the standard error of the mean,
+is grater than
+the appropriate upper quantile that
+leaves Alpha percent in the upper tail.
+

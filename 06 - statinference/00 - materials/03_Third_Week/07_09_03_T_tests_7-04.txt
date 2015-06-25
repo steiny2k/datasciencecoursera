@@ -1,0 +1,170 @@
+Consider our example again,
+suppose that n was 16 rather than 100.
+Then our test statistic remains the same.
+It's the sample mean minus
+the hypothesis me, mean.
+Remember,we're testing H0 mu equal to 30.
+Versus Ha mu greater than 30.
+And then divided by the standard
+error of the mean where now,
+where we have square root 16 rather than
+square root 100, if you recall s was 10.
+This test statistic,
+how many estimated standard errors from
+the hypothesised mean, the sample mean is.
+Follows a t distribution with 15 degrees
+of freedom in this specific case.
+So under the null hypothesis
+the probability that is larger
+than the 95th percentile
+the t distribution is 5%.
+So we need to calculate that fifth
+percentile of the t distribution,
+this can be done with qt 0.95 and
+15 degrees of freedom which
+works out to be 1.7531.
+Our test statistic, if we actually plug in
+the 10 in our x bar of 32,
+works out to be 0.8.
+And so we're failing to reject
+because 0.8 is smaller than 1.75.
+Let's also go through a two-sided test.
+Suppose that we wanted to re,
+reject the null hypothesis if in fact
+the mean was too large or too small.
+This doesn't make a lot of sense in our
+specific scientific setting, because we're
+specifically interested in whether or not
+thi, this particular population of obese
+subjects had a respiratory disturbance
+index, larger than 30 or reference value.
+However, it's often the case,
+that in scientific settings, a two-sided
+test is demanded, regardless of whether or
+not it makes scientific sense.
+So it's, it's important to understand
+how to do two-sided tests, and
+the fact that there are some instances
+where you are mandated to deal
+with two-sided tests,
+even though it doesn't necessarily make
+that much sense to
+consider the other side.
+So we want to reject, in this case,
+if we were to do a two-sided test,
+we want to reject whether or
+not mu is different from 30.
+So in other words,
+we'll reject if our test statistic
+is either too large or too small.
+In this case,
+because our test statistic is positive,
+we only need to consider the large side.
+What does change however,
+is in order to get that 5% in
+a way that allows our test statistic to be
+too large or too small, we need to split.
+The probability is 2.5% in either tail of
+the distribution, be it the t distribution
+for small sample sizes, or
+the z distribution for large sample sizes.
+So now, instead of qt at 0.95,
+we're going to get,
+do qt at 0.975 with, again,
+with 15 degrees of freedom.
+And so we want to reject if our
+test statistic is larger than this.
+Right, so let me draw an example
+of our t distribution.
+This will be the point qt 0.975,
+with 15 degrees of freedom
+would be 2.5% in that tail.
+And this is the point Q T .025
+with 15 degrees of freedom.
+And that's 2.5% in that tail.
+That point right there.
+So we're going to reject if our test
+statistic is larger than this guy, or
+smaller than this guy.
+However, because the lower quintile is
+the negative of the positive quintile,
+we can always say that's the same thing
+as taking the absolute value of our test
+statistic and
+rejecting if it is too large.
+That point is made right here.
+So, in this case,
+we've failed to reject the one-sided test.
+And now in this slide we're showing that
+we failed to reject the two sided test.
+However, I think you'll
+probably already noticed,
+that because we've moved further out
+into the tails of t distribution
+with our rejection region, that if
+you fail to reject the one sided test
+that then you will also have failed
+to reject the two sided test.
+Usually we don't calculate the rejection
+region and perform the hypothesis test
+in the formal manner in which we've gone
+through in the slides by hand, instead,
+we usually pass the data
+to a function like t.test.
+And it outputs all the relevant
+statistics for us,
+for us to understand what's
+going on with the text.
+What's interesting is we
+already know how to do this,
+because we've used t.test in order
+to perform confidence intervals.
+We just haven't gone through the output
+to understand what it's doing for a test.
+Let's look at, in the using R package,
+the data father.son.
+And we'd like to test whether
+the population of son's height was
+equivalent to the populat,
+population mean of father's heights.
+Now, the observations here were paired.
+It was one son's measurement to one
+father's measurement, and so on.
+So its in this case we're
+going to take the difference and
+we want to test whether
+the difference in the heights is 0 or
+its non zero, we do that with t.test.
+And you can either pass the difference
+directly to the function t.test,
+or you could pass it, the two vectors,
+and then add the argument,
+paired equals true.
+It gives you your t statistic right here,
+11.79.
+It gives you your degrees of freedom,
+right here, 1,077.
+So we had e, exactly 1,078 pairs
+that we took the difference of.
+Now, 11 is a quite large t statistic, so
+we reject the null
+hypothesis in this case.
+Also notice that the degrees
+of freedom are quite large so
+the distinction between a t-test and
+a z-test in this case is irrelevant.
+It very nicely gives us the t confidence
+interval, automatically when we do t.test.
+It's useful almost always to look at
+the confidence interval in addition to
+the output of the test.
+Simply because the confidence interval
+bridges this gap between statistical
+significance and
+practical significance quite nicely.
+You can see whether the range of
+values in the confidence interval
+are of practical significance or
+not, because it's expressed in the units
+of the data that you're interested in.
+

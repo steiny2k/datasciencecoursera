@@ -1,0 +1,194 @@
+Hi, my name is Brian Caffo and welcome to
+the resampled inference lectures part of
+the Coursera inference class, which is
+part of our data sign specialization.
+So the bootstrap,
+is a tremendously important and
+useful tool for construction confidence
+intervals and standard errors, and
+basically performing inferences where
+it would otherwise be difficult.
+Was invented in 1979 by a famous
+statistician named Ephron who's in
+the Stanford Statistics Department, easily
+one of the top statisticians in history.
+And I would say the bootstrap is one of
+the, the most important procedures that's
+been discovered in the,
+in the history of statistics.
+And, and the reason being that it
+really liberated data analysts,
+from having to do a lot of mathematics
+in order to perform inferences.
+So as, just as a simple example, if you
+wanted to do a confidence interval for
+the median, there are some kind
+of complicated asymptotics that
+you can appeal to, but
+it involves a lot of mathematics.
+On the other hand, you can just perform
+a bootstrap and it gives you a confidence
+interval for the median,
+without having to do all of that work.
+So it, you know maybe,
+maybe dangerously so but none the less
+it liberated people from having to do a
+lot of complex mathematics, to understand
+some distributional properties of
+statistics that they calculated.
+The phrase bootstrap, comes from that,
+of the dev, the name of the procedure,
+bootstrap, comes from the phrase, pullings
+one selves up from their own bootstrap.
+That phrase, I initially thought it came
+from the Baron Munchausen character,
+which, by the way, if you haven't seen the
+Monty Python movie, you definitely should.
+I, I, I thought it came from that, but
+I've since read that it, maybe,
+even existed earlier than that.
+And the idea of pulling oneselves up
+from one ow, one's own bootstrap,
+is the idea of doing something
+that's physically impossible.
+And that's not a terribly appropriate
+name, for what's going in this
+statistical procedure of the bootstrap,
+because we can draw a direct line.
+From the information that we're using
+to the inferences that we're making.
+So, so it's not at all like pulling
+oneself's up from one's own bootstraps.
+It's quite possible and
+how it's working is pretty clear.
+So, it's an important technique.
+It's very liberating.
+And I think it's also very much so
+in the spirit of data science.
+So, consider this example imagine if we
+wanted to evaluate the behavior
+of the average of 50 die rolls.
+So, our population distribution
+is this left hand distribution.
+The bar, equally weighted bars
+with the values one through six.
+And there's a couple of ways
+we might go about doing that.
+One is we could just try and
+mathematically figure out,
+what the distribution of the average
+of 50 die rolls is with no simulation,
+just doing the relevant
+algebraic calculations.
+Another way to do it would be to
+roll a die 50 times, get an average,
+and then repeat that process over and over
+and get lot's of averages of 50 die rolls.
+But, this is predicated on
+us knowing that the true
+population distribution is one
+sixth of each number, right?
+But, it does seem to be an easy way to do
+things cause it would be hard to sort of
+figure out exactly whats the probability
+of getting a of 5.5, right?
+Instead, it's easier to just
+roll the dice 50 times, take
+the average, repeat that over and over
+again, and get a pretty good sense of it.
+Now a lot of these things for
+the average we don't have to do,
+because we know things about
+the distribution of the average.
+We know that it's centered
+at the population mean,
+we know that its variance
+is sigma squared over n.
+Several things like that, but
+I'm going to talk about it with respect to
+the average first and
+then you'll see hopefully,
+how this extends to other
+statistics other than the average.
+So, let's consider a very similar problem.
+Imagine if you didn't know whether or
+not the die,
+that was generating your data was fair.
+We didn't know that it, the probabilities
+that placed on one, two, three, four,
+five or six.
+So, what we have is one sample of size 50,
+so
+we only have one average,
+not a distribution of average from the,
+from whatever the die was
+that was generating the data.
+So here, on the left-hand side,
+I'm showing you the histogram
+of the various occurrences one,
+two, three, four, five, six for
+one sample realization that
+we drew from this population.
+Now, I can't evaluate what's the behavior
+of averages of 50 die rolls from
+this population.
+Because, I don't know what the population
+is, I don't what die to roll from.
+To execute the simulation exercise.
+So what bootstrapping says is, well,
+why don't we do the next best thing?
+Why don't we sample from our empirical
+distribution, repeatedly sample?
+Collections of 50 die rolls not
+from the true distribution, but
+from whatever our sample
+size 50 estimates.
+So in this case,
+I would sample from these blue bars
+with the heights, with the probabilities
+related to the heights and
+I would do that over and
+over again and I would get averages.
+Repeated averages of 50 draws
+from this distribution, and
+that would tell me about the distribution
+of averages even though I only
+get to observe one real true average
+from the, from the real population.
+And that's the process of bootstrapping.
+Mechanically, what we're doing is
+taking each observation, each one, two,
+three, four, five, or six, that we get,
+and throwing them into a bag, and
+then drawing out samples of size 50.
+Where we're drawing with replacements,
+is the same number might,
+same data point might get taken
+up twice in this process.
+Sampling from that bag samples of size 50,
+taking the average and repeating
+that process over and over again.
+But, the fundamental idea,
+the fundamental idea is,
+is to exactly replicate
+our simulation experiment.
+That we would have done if we could
+roll the true population die,
+with the observed
+distribution generated by
+the specific one realization of
+50 die rolls that we got, okay?
+And, so
+that's the basic bootstrap principle,
+we use our data, our observed data.
+To construct an estimated population
+distribution, we simulate from
+that population distribution to
+figure out the distribution,
+of a statistic that we're interested it,
+and that's the basic idea.
+So let,
+we'll go through some examples with,
+with less contrived
+settings than this example.
+

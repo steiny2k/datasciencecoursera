@@ -1,0 +1,125 @@
+Hi, my name is Brian Caffo, and welcome
+to the lecture on asymptotics as part of
+the statistical inference class in
+the Courseera data science specialization.
+This class is co-taught by my
+co-instructors, Jeff Leek and
+Roger Peng, relative to Johns Hopkins
+Bloomberg School of Public Health.
+So, asymptotics is the term for
+the behavior of statistics as the sample
+size or some other relevant quantity of
+limits to infinity or, in some cases
+as something else limits to zero.
+We're going to deal only with
+the case with the sample size is
+the quantity that's limiting to infinity.
+Asymptopia is my name for
+the land of asymptotics where everything
+works out well and it should work out
+well because there's an infinite amount
+of data in the land of Asymptopia.
+So, asymptotics are incredibly useful for
+simple statistical inference and
+approximations.
+Asymptotics are like a little swiss
+army knife that you can pull out
+to investigate the statistical
+properties of many statistics,
+without having to do much computing.
+So, asymptotics also form the basis for
+frequency interpretation of probabilities.
+For example, everyone kind of intuitively
+knows that if you flip a coin and
+take the proportion of heads that that
+should limit to 0.5 for a fair coin.
+That property is the so
+called law of large numbers that
+we'll explore here in a minute.
+Fortunately, instead of diving into
+the mathematics of the limits of
+random variables, there's a set of
+powerful tools that we can rely on.
+These results allow us to talk about
+the large sample distribution of
+behavior sample means of
+a collection of iid observations.
+The first of these, we already intuitively
+know, the so-called Law of Large Numbers.
+It says that the average limits to what
+it's estimating, the population means.
+So for example,
+the average could be the result of n coin
+flips, the sample proportion of heads.
+As we flip a fair coin over and
+over, it eventually converges to
+the true probability of a head.
+Let's show the law of
+large numbers in action.
+[SOUND] I'm going to set my
+number of simulations to be 1000.
+Then I'm going to generate
+a thousand random normals, and
+I'm going to take their cumulative sum.
+Then dividing the cumulative sums by
+1 over n gives the cumulative means.
+In other words, the mean of
+the first observation by itself,
+then the mean of the first and the second
+observation, then the mean of the first,
+second, and third observation,
+[SOUND] and so on.
+What you see when you plot the cumulative
+means by the index is early on,
+there's a lot of variability in the mean,
+but
+then as time goes on, not as time as
+the number of simulation goes on.
+We get closer and closer to the true
+population value which is zero.
+[SOUND] Let's do it again,
+only this time let's ask r to flip a coin
+rather than generate standard normals.
+So the function sample,
+when I give the arguments 0 and
+1, samples from the elements 0 and
+1 with equal probability.
+Here I want n of them, 1,000.
+And replace equals TRUE, just means
+that I want to sample with replacement.
+So this command is exactly flipping
+a coin 1,000 times where 0 is a tail and
+1 is a head.
+I'm taking again,
+the cumulative sum, and then dividing it
+by 1 to n to get the cumulative means.
+When I plot the cumulative means,
+what I see again is variability in
+the sample proportion early on.
+But as the number of coin flips going into
+the sample proportion goes to infinity it
+converges to the true value,
+which is 0.5, which is right there.
+[SOUND] Let's have a brief discussion.
+We define an estimator as consistent if it
+converges to what you want to estimate.
+So, for example, the sample proportion
+from iid coin flips is consistent for
+the true success probability of a coin.
+As you flip a coin over and over, the
+sample proportion of heads converges to
+the probability of getting
+a head on that coin.
+The law of large numbers says that
+the sample mean of iid samples is
+consistent for the population mean.
+This is a very good property to have,
+because it's basically saying,
+if we go to the trouble of collecting
+an infinite amount of data,
+we get exactly the right answer.
+But it's not only true that sample means
+are consistent, the sample variance and
+the sample standard deviation of iid
+random variables are consistent as well.
+

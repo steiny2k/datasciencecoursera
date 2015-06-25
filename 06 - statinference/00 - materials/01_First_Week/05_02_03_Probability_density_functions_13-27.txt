@@ -1,0 +1,405 @@
+In contrast to the probability mass
+function, which assigns probabilities to
+specific values for discrete random
+variables is the probability
+density function, which is associated
+with continuous random variables.
+Just like a probability mass function has
+specific rules that it has to follow,
+a probability density function has
+specific rules that it has to follow.
+Specifically, to be a valid
+probability density function,
+a function must satisfy being larger
+than or equal to zero everywhere.
+And, then the total area
+under it must be one.
+And, then here is the basic rule
+of a probability density function.
+Areas under probability density functions
+correspond to probabilities for
+that random variable.
+So for example, if I say
+intelligence quotients are normally
+distributed with a mean of 100 and
+a standard deviation of 15,
+that implies that the population follows
+a specific bell shaped looking curve.
+And I am assuming that
+the probability that I draw sam-,
+that the probability, if I were to draw a
+sample, the probability that a person from
+that sample has an IQ between 100 and say,
+a hundred, 115, is this area right here.
+Note again, our probability density
+function is a statement about
+the population of intelligence
+quotients in this case.
+It's not a statement
+about the data itself.
+Again, we're going to use the data
+to evaluate that assumption and
+to evaluate statements about
+the population probability.
+But inherently whenever you
+say the word probability,
+you are talking about
+a population quantity.
+Interestingly note when we model
+continuous probabilities like this,
+or probabilities for continuous random
+variables like this, the probability that
+it takes any specific value is in fact
+zero because the area of a line is zero.
+This isn't a problem.
+This is just a quirk from modeling
+random variables as if they
+have infinite precision, but it doesn't
+gum up the works in any way at all.
+It turns out that the bell shaped curve is
+a rather difficult density to work with.
+At least until you learn how, which we're
+going to be doing in a separate lecture.
+So let's work with a much
+simpler density right now,
+specifically one that looks
+just like a right triangle.
+So f of x equals 2x for
+x between 0 and 1, and 0 otherwise.
+And let's give some context around it.
+Let's say it's the proportion of help
+calls that get addressed in a random day
+by a help line is given by this.
+So what does this mean?
+This means that the probability
+that between 20% and
+60% of the calls get addressed
+that day is given by this area.
+Let's ask the question,
+is this a mathematically valid density?
+I plotted the probability
+density function right here.
+It looks like a right triangle.
+Notice the R code is given here,
+and is given in the lecture slides
+itself because the slides are created
+using the slidify format.
+So it's important to actually use
+git to pull the course repository.
+And you can actually look in the rmd,
+or R markdown file, and
+get all of the code for all of
+the examples for all of the lectures.
+So at any rate,
+we need to discuss whether or
+not this probability density function is
+a valid probability density function.
+Notice, it's always bigger than or
+equal to zero.
+And then secondly,
+let's calculate its area.
+Well, that's not too hard
+because it's a right triangle.
+One half the area of the base,
+right, which is one half,
+times the height, which is 2.
+So one half times 2 is 1.
+So the area is 1.
+So in fact, this is a valid
+probability density function.
+Let's go through an example
+of working with this density.
+What's the probability that 75% or
+fewer calls get addressed in a randomly
+sampled day from this population?
+Well, it turns out quite nice that this
+is just another right triangle that we
+need to figure out.
+So the height at this point is 1.5,
+because remember the function is just 2
+times x, so at the point,
+point se, 0.75, the height is 1.5.
+And then of course,
+the value of the, the base is 0.75.
+But then we divide it by 2 because
+it's one-half the area of the base
+times the height.
+And that works out to be 56%,
+as shown right here.
+It turns out that this density is actually
+a special case of a known density,
+called the beta distribution.
+And I give you the R code here for
+directly getting this probability
+from the beta distribution.
+Of course, we don't need it,
+because it's just working with triangles.
+However, in more complicated settings,
+we're going to need these functions.
+I want to add that the word,
+the letter p, in front of
+a function asks for probabilities.
+So pbeta is going to ask for
+the probability from a beta
+density of being less than 0.75.
+Here the 2 and the 1 are the specific
+parameters that turn it into the exact
+triangle that we're using right here, and
+you see that you get the same number, 56%.
+Certain areas of the density are so
+useful we give them names.
+For example, the cumulative distribution
+function of a random variable x, returns
+the probability that a random variable
+is less than or equal to the value x.
+So it returns the probability capital
+X is less than or equal to little x.
+And this definition applies whether
+x is discrete or continuous.
+So remember in our beta distribution
+that we just looked at,
+the pbeta function in R always returns
+whatever the first argument is,
+the probability of being less than or
+equal to that.
+So in fact whenever you
+do pdensity name in R,
+it is actually just returning
+the cumulative distribution function.
+The survival function is sometimes
+interesting to work with instead of
+the distribution function, and it's
+just 1 minus the distribution function.
+So, instead of the probability
+of being less than,
+it's the probability
+of being greater than.
+So imagine if we wanted the cumulative
+distribution function of the density
+considered before.
+Say for example, we wanted to know
+what's the probability that 40% or
+fewer of the calls get
+answered in a given day?
+What's the probability that 50% or fewer
+of the calls get answered in a given day?
+And what's the probability that 60% or
+fewer of the calls get
+answered in a given day.
+Given the particular model
+that we have right now,
+which is this right triangle as a
+population, probability density function.
+Well, for any of those numbers,
+just looking at the picture,
+it's going to be very similar to 0.7,
+how we figured it out for 0.75.
+It's going to be a right triangle, so
+it's going to be one-half the area
+of the base times the height.
+That's always going to be one-half x,
+whatever x you're plugging in, times 2x,
+the height at that point,
+which works out to be x squared.
+So the function x squared takes the number
+that you're want to evaluate and
+gives the probability of
+that percent of calls or
+fewer getting answered on
+a randomly sampled day.
+Okay.
+So we see that here when plug in pbeta,
+which is our cumulative distribution
+function in R for these three values.
+The 2 and the 1 make it so that we're
+evaluating the specific beta density.
+And that works out to 16%, 25% and 36%.
+So, on 16, so
+the probability that 40% of the calls or
+fewer get answered on a given day is 16%.
+The probability that 50% of the calls or
+fewer get answered on a given day is 25%.
+And the probability that
+60% of the calls or
+fewer on a given day get answered is 36%.
+If you wanted the survivor function,
+it's 1 minus the cumulative distribution
+function, so it's 1 minus x squared.
+In the future we're going to have, work
+with more complicated density functions,
+but it'll actually be easier, because
+we'll just be relying, for example, on
+the pnorm and pbeta function, like this,
+instead of directly figuring them out.
+You've already heard of sample quantiles.
+For example,
+if you score into the 95th percentile,
+which is the 0.95th quantile on an,
+on an exam,
+know that 95% of the students scored
+worse than you and 5% scored better.
+These are the so called sample quantiles.
+We're going to define
+their population analogs.
+So remember in the sample quantile, if
+you want to define the 95th percentile or
+the 0.95 quantile,
+what you would do is line
+the observations from least to greatest.
+And you would find the exam score or
+the point,
+such that 95% of
+the observation lie below it.
+The alphath quantile of the distribution
+function with distribution function F is
+the point x sub alpha such that
+F of x of alpha equals alpha.
+That's quite a tongue twister, so
+let's see if we can draw a picture.
+If we were to draw a density, F of x,
+the distribution function evaluated at x,
+is the area below the point x.
+Which is the probability that a random
+variable from this population is
+less than or equal to x.
+So you might think of it as
+a population of test scores.
+And it's a infinite
+population of students.
+And here, this would be
+the probability of getting a score for
+a randomly drawn student from
+this population of x or lower.
+The alphath quantile is we
+move this line around until we
+find the point x sub alpha, so that
+exactly alpha probability lies below it.
+That is exactly what we are doing with our
+data when we find an empirical quantile.
+We keep finding the data points such that,
+for
+example, 95% of the test
+scores lie below it.
+That would be the sample 95th percentile.
+Now we move the x point along until we
+find the point such the probability of
+lying below it is 95% in this
+population distribution.
+Again, the percentile is simply
+a quantile with alpha expressed as
+a percent instead of a proportion.
+And the median is the per,
+perhaps the most well known quantile,
+is the 50th percentile.
+We're going to use quantiles a lot,
+so it's worth reinforcing this point.
+So the 95th percentile of a population
+distribution is the point,
+such that the probability a random
+variable is drawn from that
+population is less than that value is 95%.
+And the probability that a random variable
+drawn from that population is more is 5%.
+Let's work through our previous example.
+What is the median of the distribution
+that we were working with before?
+Remember that the distribution
+looked like a right triangle.
+In the distribution function,
+for example if wanted to
+find the probability that x proportion of
+calls got answered on a given day or less,
+that F of x, that distribution function,
+worked out to simply be x squared.
+Where x has to be a value between 0 and
+1 for it to make sense.
+In this case, we want to solve 0.5 equals
+F of x, which is equal to x squared.
+Resulting in the solution square root 0.5.
+This is 0.7.
+So what this means is that
+on about 50% of the days,
+70% of the phone calls,
+or fewer get answered.
+And on about 50% of the days, about 70%
+of the phone calls or more get answered.
+We work with quantiles a lot, especially
+quantiles from the normal distribution.
+We almost never go through this process
+of working directly with the densities to
+calculate quantiles, because the
+distributions we work with are common and
+this has already been done for us.
+In R, there's an easy tri-,
+trick.
+Basically, q in front
+of the function name,
+function density name,
+gives the quantiles.
+So in this case,
+we know that this is a beta density.
+Well, we don't know.
+I'm telling you that
+this is a beta density.
+And so
+qbeta gives us the relevant quantile.
+Here we plug in 0.5.
+And remember R takes the argument
+of the quantile as a proportion.
+So, if you plug in 0.5, it will work.
+If you plug 50 for 50%, it will not work.
+Okay, and the 2 and
+the 1 are the parameters that we
+haven't really fully described.
+But that you are going to have to
+just take my word for it that those
+are the parameters that yield the specific
+data density that we're looking at.
+And when we plug this in, we get 0.7,
+0.71, exactly like we got before.
+You might be wondering, at this point,
+I've heard of a median before,
+but it wasn't as complicated.
+I just ordered my observations from least
+to greatest and took the middle, or
+the average of the two middle observations
+if I had an even number of observations.
+There you had a sample quantity.
+It's an estimator.
+In this class, we're going to
+build up not just estimators but
+the targets of estimation or the estimand.
+So in this case, your sample median
+is estimating your population median.
+So for example,
+a sample median from our previous example
+is if we were to sample a couple of days,
+calculate the percentage of calls that
+got answered on that, of those days,.
+Line up those percentages, and take
+the middle one, that would be the median.
+We would think of that as a target as a,
+as an estimator of a population.
+Sort of a true median percentage
+of calls that get answered.
+And there's, of course, a lot of
+assumptions that we're going to need to
+make to connect that
+sample to the population.
+However we're going to be wide
+eyed about those assumptions and
+we're going to formally develop them.
+So at any rate, in this class, to every
+estimator there will be an estimand.
+The sample mean will estimate
+the population mean.
+The sample median will estimate
+the population median.
+The sample standard deviation will
+estimate the population
+standard deviation.
+And so on.
+This is the formal process
+of statistical inference,
+linking your sample to a population.
+

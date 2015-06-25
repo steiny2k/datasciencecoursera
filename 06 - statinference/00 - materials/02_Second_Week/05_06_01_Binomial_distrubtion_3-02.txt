@@ -1,0 +1,88 @@
+Hi, my name is Brian Caffo and
+welcome to the lecture on
+some common distributions in
+the Statistical Inference Coursera class,
+as part of our data
+science specialization.
+The specialization is co-taught with
+my co-instructors Jeff Leek and
+Roger Peng,
+we're all at Johns Hopkins University in
+the Department of Biostatistics in
+the Bloomberg School of Public Health.
+Let's start with perhaps the simplest
+distribution, the Bernoulli distribution.
+The Bernoulli distribution is named after
+Jacob Bernoulli, a famous mathematician,
+who actually comes from a family of famous
+mathematicians, and if you're interested,
+you can read up on the Bernoulli's, they
+have lots of Wikipedia pages, for example.
+So, the Bernoulli di, distribution arises
+out of a coin flip, say, with a zero for
+a tail and a one for a head, and
+you have a potentially biased coin with
+probabilities, p for a head and
+1 minus p for a tail We usually write
+the Bernoulli probability mass function as
+p to the x, 1 minus p, to the 1 minus x.
+The mean of a Bernoulli random variable is
+p, and the variance is p times 1 minus p,
+we've seen these facts before.
+And if we,
+let x be a Bernoulli random variable,
+we typically call x equal 1 as a success,
+eve, regardless of whether or not
+the outcome is successful in some sense of
+the word, and x equal to 0 as a failure.
+Now that we've discussed
+the Bernoulli distribution,
+let's talk about
+the binomial distribution.
+The bino, a binomial random variable
+is obtained as the sum of a bunch of
+iid Bernoulli random variables.
+So ostensibly, a binomial random variable,
+is the total number of heads,
+on the flips of a potentially biased coin.
+Mathematically, let's let x 1
+to x n be Bernoulli p, then x,
+the sum of them,
+is a binomial random variable.
+The binomial mass function looks a lot
+like the Bernoulli mass function,
+though with n choose x out front.
+.
+Recall that the notation n choose
+x stands for n factorial over x
+factorial n minus x factorial, and
+n choose 0 and n choose n are both 1.
+This solves a particular
+common notarial problem of
+counting the number of the ways
+of selecting x items out of n
+without replacement disregarding
+the ordering of the items.
+Let's go through a quick example
+of a binomial calculation.
+Suppose you have a friend who has eight
+children, seven of which are girls and
+none are twins.
+If each gender has an independent
+50% probability for each birth,
+what's the probability of getting seven or
+more girls out of eight births?
+Well let's plug right into
+the binomial formula.
+That's the probability of seven,
+which is 8 choose 7, .5 to the 7,
+1 minus .5 to the 1 plus 8 choose 8,
+.5 to the 8,
+1 minus .5 to the 0 which works
+out to be a val, a 4% chance.
+Here, I give you the r code for
+performing this calculation.
+Also, as with, most of the common
+distributions there's an r function and
+pbinom gives you these probabilities.
+

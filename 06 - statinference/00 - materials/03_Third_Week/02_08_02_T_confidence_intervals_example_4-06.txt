@@ -1,0 +1,96 @@
+In R typing data sleep brings up the sleep
+data that was originally analyzed in
+Gosset's Biometrika paper.
+This shows the increase in hours slept for
+patients onto sleep medications.
+R treats the data as two groups,
+rather than paired.
+But here we're going to treat
+the data is if they were paired.
+Here, data sleep will load the data.
+Head sleep will first, will print
+the first few rows of the data frame.
+Variable extra, is the extra hours slept.
+Group is a group ID,
+and ID is a subject ID.
+So, 1 through 10 will
+give you subjects ID,
+1 through 10 observation,
+11 is subject ID 1 again, and so on.
+[SOUND] Here I plot the data,
+and again the code for
+the plot can be found in
+the R mark down file.
+I've connected each subject with a line.
+I think it's pretty clear here,
+the benefit from
+acknowledging that these are repeat
+measurements on the same subjects.
+If you do not acknowledge that, then what
+you are comparing is this variation,
+group one variation, minus this variation,
+group two variation.
+If you do acknowledge that,
+then you are comparing
+these subject specific differences,
+when comparing across groups.
+But a variation in these differences is
+much lower because observations within
+a subject are quite correlated.
+Here I grab the first ten measurements,
+which are subjects 1 through 10.
+And here I grab the latter
+ten measurements,
+which is subjects 1 through
+10 on the second medication.
+The difference then is
+group 2 minus group 1.
+Here, the vector y subdra,
+subtraction making sense, because I
+grabbed them in the specific order.
+The mean of the difference is just mean,
+and the standard deviation
+of the difference can be
+obtained with the function sd,
+here I define n to be 10.
+My t confidence interval
+can be given like this.
+It is the mean plus or
+minus the relevant t quantile,
+evaluated at n minus 1 degrees of freedom
+times the standard error of the interval.
+Of course,
+we don't want to do this every time, so
+we can just do the function t
+test of difference, and t test
+where we pass it the two vectors, and
+give it the argument paired equals true.
+Or you can actually give it a form
+of model statement where you say,
+outcome extra is a function of
+the group where paired equals
+true the value weighted for
+the data frame sleep.
+[SOUND] I formatted these
+results a little bit,
+because it gives you much,
+much, more output than this.
+But I concatenated them into a matrix, and
+you can see that all those commands
+give you about the same result.
+The difference in the groups being
+somewhere between 0.7 and 2.46.
+So, because this is a confidence
+interval the interpretation is,
+that if we were to repeatedly perform
+this procedure on independent samples,
+about 95% of the intervals
+that we obtained.
+Would contain the true mean
+difference that we're estimating.
+This, of course, assumes that these
+subjects are relevant sample from
+a population of subdec,
+subjects that we're interested in.
+Suppose
+

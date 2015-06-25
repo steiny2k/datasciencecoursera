@@ -1,0 +1,198 @@
+Hi, and
+welcome to the class on Probability,
+as part of the Statistical Inference class
+in the Coursera Data Science series.
+My name is Brian Caffo, and
+this class is co-taught with my
+co-instructors, Jeff Leek and Roger Peng.
+We're all in the Department of
+Biostatistics at the Bloomberg School of
+Public Health.
+In this lecture, I'm going to cover
+probability at a very basic level,
+just enough for what we need in
+the data science specialization.
+I have a more in-depth treatment in
+my mathematical biostatistics boot
+camp series.
+You can watch them on a YouTube playlist
+anytime you'd like, and then the course is
+offered about every two months on
+Coursera, and I give the link here.
+In addition,
+the course notes are on GitHub.
+Let's talk about probability.
+So, given a random experiment,
+say for example, rolling a die,
+a probability measures the population
+quantity that summarizes the randomness.
+I want to emphasize this
+word population here.
+What this means in the die roll context,
+is that we think of it as
+an intrinsic property of the die,
+not of something that is a function of
+a simple set of fixed rolls of the die.
+So, when we talk about probability,
+we're not talking about something
+that is in the data that we have, but
+as a conceptual thing that exists in the
+population that we would like to estimate.
+So, let's be specific about the rules
+that probability has to follow,
+so-called probability calculus.
+First of all, probability operates on
+the potential outcomes from an experiment.
+For example, when you roll a die,
+you could get a 1, or
+you could say, the roll was in the set 1
+or 2, or the roll was an even number, 2,
+4, 6, or the roll was an odd number,
+1, 3, 5, and so on.
+So, the probability is a function
+that takes any of these sets of
+possible outcomes and
+assigns it a number between 0 and 1.
+You have to have the rule that
+the probability that something occurs,
+in other words, that you roll the die,
+and you get a number, must be one.
+And, then the probability of the union
+of any two sets of outcomes that
+have nothing in common must be the sum
+of their respective probabilities.
+So, for example, take for
+example, when I roll the die, one possible
+outcome is that I get a one or a two.
+Another possible outcome is
+that I get a three or a four.
+Those two sets, one and
+two, and the other set, three and
+four, are mutually exclusive.
+They can not both simultaneously occur.
+The probability of the union,
+that I get a 1, a 2, a 3, or a 4,
+is the sum of the two probabilities, the
+sum of the probability that I get a 1 or
+a 2, plus the sum of the probability
+that I get a 3 or a 4.
+It turns out that these simple rules are
+all that are necessary to generalize to
+all the rules that we think
+that probability should follow.
+And, this was discovered by
+the Russian mathematician Kolmogorov.
+Here are some of the rules
+that probability must follow.
+Some of them I stated already, and
+some of them are consequences
+of what I stated already.
+The first is the probability
+that nothing occurs as zero, so
+you have to roll the die.
+Something has to occur,
+you have to get a number.
+And, that's similarly related to
+the probability that something occurs,
+that you do get a number is a one.
+Something that we intuitively seem to th,
+to know,
+is the probability of something is 1 minus
+the probability that the opposite occurs.
+So, the probability of getting an even
+number when I roll the die is 1 minus
+the probability of getting an odd number.
+Because, the odd numbers are the opposite
+of getting an even number in
+the context of a die.
+The probability of at least one of two or
+more things that cannot simultaneously
+occur, we call sets of things that cannot
+simultaneously occur mutually exclusive,
+is the sum of their
+respective probabilities.
+This was part of the basic definition
+that we outlined in the previous slide.
+Another consequence of
+our probability calculus,
+if the event A implies
+the occurrence of the event B,
+then the probability of A occurring is
+less than the probability that B occurs.
+And, this is kind of
+a tongue twister to say, and
+it seems a little bit conceptually hard.
+However, if we draw a Venn diagram,
+it becomes very simple.
+The event A lives inside of the event B.
+So, when we talk about
+the probability of A,
+we talk about a number
+assigned to this circle A.
+When we talk about B,
+we talk about the probability assigned to
+this circle that includes the area of A,
+so
+it would make sense that the probability
+of B was larger than the probability of A.
+So, I think we intuit this very easily.
+For example, the probability
+that we get a 1, the set A,
+is less than the probability that
+we get a 1 or a 2, the set B.
+Then this final bullet
+point is very useful.
+For any two events, the probability
+that at least one occurs is the sum of
+their probabilities minus
+their intersection.
+Again, this becomes very easy to
+visualize with a Venn diagram.
+Here we have the set A,
+and we have the set B.
+If we add their two probabilities,
+you see that we've added
+the intersection in twice.
+Once when we added in A, and
+once when we added in B.
+Since we've added it in twice,
+if we want the probability of the union,
+we need to subtract it out once.
+The result of this rule is to say that
+you can't just add probabilities if
+they have a non trivial interact,
+in intersection.
+And, we'll give an example
+of that in a second.
+The National Sleep Foundation reports that
+around 3% of the American population has
+sleep afne, apnea.
+They also report around 10%
+of the North American and
+European population has
+restless leg syndrome.
+Let's assume, for
+the sake of argument, that these are
+probabilities from the same population.
+Can we just simply add these
+probabilities, and conclude that about 13%
+of people have at least one sleep problem
+of these sorts in this population?
+So, the answer is no,
+the events can simultaneously occur, and
+so are not mutually exclusive.
+We think that there is a non-trivial
+component of the population that
+has both sleep apnea and
+restless leg syndrome.
+So, to elaborate, let's let A be the event
+that a person drawn from this population
+has sleep apnea, and B be the event
+that they have restless leg syndrome.
+Here, we think this intersection is
+non-trivial, and so if we were to
+add the two probabilities, we would
+believe we will have added it in twice and
+it would need to get subtracted out
+to find the probability of the union.
+

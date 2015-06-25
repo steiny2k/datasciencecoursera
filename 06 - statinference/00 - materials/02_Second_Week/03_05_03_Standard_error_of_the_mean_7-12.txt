@@ -1,0 +1,213 @@
+So now we've talked a lot about variances,
+and
+even touched a little bit on
+the distribution of sample variances.
+Now let's talk again about
+the distribution of sample means.
+So remember that the average of numbers
+that are sampled from a population is
+itself a random variable.
+It has its own population mean and
+population variance.
+We know that that population mean is
+the same as the original population.
+We actually also have a result
+that relates its variance back to
+the variance of the original population.
+In fact, it's sigma squared
+the variance of the original,
+original population divided by n.
+So the variance of the sample
+mean decreases to zero as it
+accumulates more data.
+Which is exactly what we know,
+that the mean becomes more
+concentrated as we collect more data,
+more concentrated about the population
+mean that it's trying to estimate.
+This is very useful because we only get
+one sample mean in a given data set.
+We don't get lots of repeated versions to
+investigate its variability the way we
+do in these fabricated
+simulation experiments.
+So, we can estimate sigma squared, and we
+do know n, so we actually know quite a bit
+about the distribution of the sample
+mean from the data that we observe.
+So, the square root of the statistic
+is sigma over square root n is
+called the standard error of the mean and
+we use this notation, we call a standard
+deviation of the distribution of
+a statistic, we call it a standard error.
+So we talk about the standard
+error of a mean to imply a number
+that represents variability of means.
+And the standard error of
+a regression coefficient talks about
+the variability in
+regression coefficients.
+So let's summarize.
+So imagine a population that has mean
+mew and variance sigma squared, so
+measure of spread, sigma squared.
+If we were to draw a random
+sample from that population and
+take the variance,
+that is an estimate of sigma squared.
+If we were to take the mean
+that's an estimate of mu.
+However, s squared is itself a random
+variable and it has a distribution.
+We don't know much about that
+distribution, but we do know one thing,
+it's centered around sigma squared,
+and it gets more concentrated around
+sigma squared, the more observations that
+are going into that at squared value.
+We also, we know a little bit more
+about the distribution of sample means
+from that population.
+We know that they're centered at mu,
+and we also know it get's more
+concentrated around mu as
+more observations go into the means.
+However, we also know exactly what
+the variance of the distribution of
+sample means is.
+Namely, it's sigma squared over n.
+Now, in a given data set we don't have
+repeated sample means to estimate this.
+But what we do is we have repeated draws
+from the original population in order to
+estimate sigma squared.
+So the logical estimate of the sample
+variance of the mean is s squared over n.
+And thus the logical estimate of the
+standard error is s over square root n.
+This quantity right here, s over square
+root n is so important its given its
+own name the standard error of the mean,
+or the sample standard area of the mean.
+So s, the standard deviation,
+is really an estimate of how
+variable your population is.
+S over square root n, the standard error,
+is really talking about how variable
+averages of random samples of
+size n are from the population.
+Let's go through some simulation examples.
+Standard normals have a variance of one.
+Then that means they have
+a standard deviation also of one,
+because the square root of 1 is 1.
+So means of n standard normals,
+if our math is right,
+should have a standard deviation
+of one over square root n.
+So let's say my number of
+simulations is 1000, my n is ten,
+and here what I'm going to do,
+you can sift through this code a little,
+but let me tell you
+the gist of what I'm doing.
+When I simulate r-norm,
+number of simulations times n
+I'm simulating 1,000 times ten draws
+from a random normal distribution, and
+I'm arranging them in a matrix.
+And then with 1,000 rows and
+ten columns, then for
+each row, I'm calculating the mean.
+Thus each row is the mean of ten IID draws
+from the standard normal distribution.
+Okay?
+And I've done that lots of times so when
+I take the standard deviation of this,
+this should be a good approximation of
+the standard deviation of averages of
+ten draws from the standard
+normal distribution.
+And if you're un, if you don't think so,
+then maybe add a couple extra zeroes to
+the number of simulations but not too much
+because your computer will get stuck.
+So if you do that you get 0.31,
+or point, around 0.32.
+If you just take 1 over square root n,
+that's 0.31 or around 0.32.
+So they have to be the same.
+Let's try it again.
+Standard uniforms, remember that density
+that's a flat line between zero and one.
+That turns out that has
+a variance of 1/12.
+So let's take means of random
+samples of n uniforms.
+So what we're going to do is,
+we're going to simulate in
+this case ten uniforms.
+Take their average.
+And then do that over and over again.
+And then take the standard deviation of
+the collection of averages of
+ten uniforms, and that will
+tell us about the distribution of averages
+of ten uniforms from this population.
+Our math says that it should be
+1 over square root 12 times n.
+So if we do this, we get 0.09, and if we
+just take 1 over square root 12 times n,
+we get 0.09.
+Poisson's 4 have a variance of 4, so
+Poisson is a distribution that
+we'll cover later on the class.
+But for the time being,
+just think it's a random,
+discreet random variable that
+happens to have a variance of four.
+So means of random samples
+of n Poisson 4 then
+must have standard deviation 2 over
+square root n according to our rule.
+Okay?
+So here I do it, I get 0.62 when I
+empirically simulate lots of averages
+of size 10 of Poisson fours.
+I take the standard deviation
+of thousands of them.
+I get 0.62.
+If I do 2 over square root n, I get 0.63.
+So I may be off by a little bit, but maybe
+beef up the number of simulations and
+you'll get it much closer.
+So let's go through one more example.
+Remember that coin flips for bias point
+have a variance p times 1 minus p,
+when p is a half, that gives you a,
+0.25 is the variance.
+Means of random samples of n coin flips,
+according to our theory, should be 1
+over 2 square root n fair coin flips.
+So what I've done here is I've
+flipped a coin ten times and
+taken the average of the ten coin flips.
+And I do that thousands of times.
+And I'm going to look at
+the variability in that distribution.
+I'm going to look at
+the standard deviation because I
+like standard deviations
+better than variances.
+And so I get 0.16 when I do that.
+The theory tells me it has
+to be about 0.16 when I do
+1 over 2 times square-root n.
+I get about 0.16.
+So, again the only time you'll ever have
+to do these simulation experiments is in
+a class like this where you're learning
+about what the standard error of the mean
+is actually implying.
+

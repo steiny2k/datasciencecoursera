@@ -1,0 +1,383 @@
+Probabilities.
+Definitely, the most important
+distribution to know is
+the normal distribution.
+We'll see in the next lecture why it's so
+important, or
+one of the reasons why it's so important.
+But nonetheless, if all the distributions
+were to get together and
+elect a leader, it would for
+sure be the normal distribution.
+So anyway a random variable is
+set to follow a normal Gaut, or
+Gaussian distribution with mean mu and
+variance sigma squared.
+If its associated density is this
+function here with the bell curve,
+which we'll show in a minute.
+If X is a random variable
+with this density,
+then the expected value of X is mu,
+and its variance is sigma squared.
+And we simply write this in shorthand
+as X, with a little tilde here,
+normal mu sigma squared.
+When mu equals 0 and sigma equals 1,
+the resulting distribution is called
+the standard normal distribution.
+And standard normal random
+variables are often labeled z.
+Here I draw the standard
+normal density function,
+the famous bell curve that
+you've probably seen before.
+Remember, that for the standard normal
+distribution, its mean is 0 and
+its standard deviation and variance are 1.
+Here I've drawn 1 standard deviation above
+and below the mean, 2 standard deviations
+above and below the mean, and 3 standard
+deviations above and below the mean.
+The units of
+the standard normal can be thought
+of as just standard deviation units.
+For example if you go 1 in this direction
+you've gone 1 standard deviation unit.
+And I would note that for non-standard
+normals, it makes a lot of sense and
+I think statisticians just kind
+of get use to reverting back to
+the standard normal by virtue of talking
+about standard deviations from the mean.
+So if you want to know the probability
+that a non-standard normal,
+is between mu plus 1 sigma, where mu and
+sigma are from it's distribution and
+mu minus 1 sigma.
+So that would be the area between 1
+standard deviation [NOISE] from the mean
+for the non-standard normal.
+Well, that is exactly the same
+probability area for one, for
+the, between minus 1 and
+plus 1 on the standard normal.
+So basically,
+all normal distributions look identical.
+The only thing that changes
+is the units along the axis.
+And then if you revert, when you're
+talking about normal probabilities to
+talking about standard deviations from
+the mean, all the probabilities and
+everything revert back to
+the standard normal calculations.
+We'll go through some of the examples but
+that's the intuition.
+Let me go through some basic reference
+probabilities on the standard normal
+distribution and draw on their,
+maybe this will help us remember them.
+So if we talk about one standard
+deviation from the mean,
+in the standard normal distribution or
+any normal distribution.
+1 standard deviation from the, the mean,
+then about 34% should lie here, and
+34% of the mass should lie here.
+So that this total area within 1 standard
+deviation right here [NOISE] is 68%.
+Let's now look at two standard deviations.
+So this magenta area here.
+So if we go from minus two to plus two,
+and
+this is on any normal distribution,
+the probability of it being, a nor,
+a normal distribution being within
+two standard deviations of the mean.
+The probability mass
+associated with that is 95%.
+That leaves 2.5% in either tail.
+We'll use that frequently when we
+talk about confidence intervals.
+Now let's look at three standard
+deviations from the mean.
+That area is about 99% of the mass.
+Thought it's hard to read but
+it's about 99% of the mass.
+So these reference probabilities
+you should just commit to memory.
+Let's go over some simple rules for moving
+between standard and non-standard normals.
+So if X is normal with mean
+mu in varying sigma squared,
+then if we convert the units if of X
+to standard deviations from the mean.
+In other words,
+subtract off the mean mu and
+divide by the standard deviation sigma.
+The resulting random variable
+Z is a standard normal.
+Conversely, if we have
+a standard normal and
+we convert back to the units
+of the original data.
+In other words,
+we multiply times sigma and add the mean.
+The resulting random variable X is
+non standard normal with mean mu and
+variance sigma squared.
+We've already discussed this
+first bullet point here.
+That 68%, 95%, and 99% of the normal
+distribution lies within 1, 2, and
+3 standard deviations from the mean,
+respectively.
+Let's also talk about some standard normal
+quantiles that we should commit to memory.
+I'm drawing a normal
+distribution right here.
+And let me put the point, minus 1.28.
+The mean is of course 0, of course,
+the standard normal distribution.
+That point is such that 10% of the
+density, this is of course is not drawn to
+a very good scale, 10% of the den, density
+lies below it and then 90% lies above it.
+Now for a not necessarily stan,
+not standard normal,
+this point is not negative 1.28,
+it's mu minus 1.28 times sigma.
+And this point right here is mu.
+But then that would follow the same rule.
+10% of this potentially
+non-standard normal
+distribution lies below
+the point mu minus 1.28 sigma.
+By symmetry, this point right here,
+1.28 on the standard normal distribution,
+is the quantile,
+such that 10% lies above it.
+For potentially non-standard normal, this
+point would be mu plus 1.28 times sigma.
+So this point 1.28,
+on the standard normal and
+mu plus 1.28 times sigma on
+the potentially non-standard normal.
+Would be the point such that 10% lies
+above it, and 90% lies below it.
+Let's do one more.
+One of the more important quantiles
+that we have to remember is 1.96,
+or close enough to 2,
+we often round it up to 2.
+Negative 1.96 is the point
+that such that 2.5%
+of the mass of the normal
+distribution lies below it.
+And positive 1.96 is the point such
+that 2.5% of the mass lies above it.
+This would mean that 97.5% lie
+above this point right here, and
+97.5 lies below that point right there.
+So that 95% lies in between.
+If we're dealing with a potentially
+non-standard normal, notice then it's mu
+minus 1.96 times sigma and
+mu plus 1.96 times sigma.
+Or again the center there would be mew and
+for
+the standard normal,
+the center would be 0.
+Of course notice this calculation for
+the standard normal when you
+plug-in mu equal to 0 and
+sigma equal to 1, just of course gives you
+back the correct number, 1.96 by itself.
+Let's go through some quick
+calculations of increasing difficulty.
+So first what is the 95th percentile of
+a normal mu sigma squared distribution?
+So in other words we want
+the point X.95 from a normal
+distribution having mean mu in variant
+sigma squared so that 95% lies below it.
+You want that to be 95% and that to be 5%.
+So this is the value if we were to
+draw samples from this population.
+This would be the point such
+that 95% of the samples would be
+smaller than if we were to draw
+a sufficiently large sample.
+The easy answer is to use the q
+qualifier for the density in R.
+In this case qnorm and
+the quintile that we want .95.
+And make sure that we plug-in the mean,
+mu, and standard deviation that we wants.
+The square root of sigma squared.
+Make sure you plugin the standard
+deviation not the variants.
+But there's another way
+to do this that's easy.
+Because we have our standard
+normal quartiles memorized.
+So we know for the standard
+normal which is centered at 0 and
+the units along the axis are standard
+deviation units from the mean.
+That the point 1.645 standard
+deviations from the mean Is
+the point such that 95% lies below it.
+And 5% lies above it.
+So, we know that for a non-standard
+normal, the point that follows
+the same probability, the quantile that
+has the same 95% below it and 5% above it.
+Has to be exactly 1.645 standard
+deviations from the mean.
+So we can simply take mu
+plus sigma times 1.645 and
+that will have to give us our answer.
+Let me answer a highly generic
+question and as we go through it,
+I think it will inform some of our
+next couple of questions where we
+put some context around it.
+So what is the probability that a normal
+mu sigma squared is larger than x?
+So take our normal distribution that's
+non standard so it's centered at mu.
+And the width is governed by
+the variable sigma squared.
+And take a point X, we'd want to
+know what's this area right here.
+So in R, we could just do p norm,
+x mean equals
+mu, standard deviation equals sigma,
+of course remember that you
+plugin the sigma value,
+not sigma squared value.
+Otherwise you'll get it very wrong.
+And then we want lower.tail
+equals false to tell
+R that we want the upper tail
+rather than the lower tail.
+Or you could omit that,
+you could omit that and do 1 minus that.
+Okay that's the easy way.
+But a conceptually easy way to do it and
+in a way that we can kind of do these
+things in my head and get a sense of what
+the probabilities are like rather quickly.
+Is to convert X into how many standard
+deviations from the mean it is.
+To do that we simply take X,
+subtract off the mean mu and
+divide by the standard deviation sigma.
+This new number here is
+simply X expressed in
+how many standard deviations
+from the mean it is.
+So, for example, if this works out to
+be around two standard deviations from
+the mean, we know that,
+that should be about 2.5%.
+So let's put some context around this
+by considering a specific example.
+Assume the number of daily ad clicks for
+companies is approximately
+normally distributed with a mean
+of 1,020 clicks per day, and
+a standard deviation of 50 clicks per day.
+Well let's assume that, a get,
+days are sort of a random sample of days,
+in that if we're talking
+about a specific day,
+it's a draw from this
+general distribution.
+What's the probability of getting more
+than 1,060 clicks on a given day?
+Well, 1,160 clicks is 2.8 standard
+deviations from the mean.
+So we know this probability has to
+be pretty low because it's about 3,
+almost 3 standard
+deviations from the mean.
+We remember, we remember that 3 standard
+deviations is pretty far out into
+the tail of the normal.
+So we know that this probability's
+gotta be fairly small.
+But let's work through it.
+So it's not very likely.
+We can obtain that with pnorm,
+1,160, mean equals 1,020,
+standard deviation equals 50.
+And we put lower tail equals false
+because we want the probability being
+larger than it.
+And we get .003 about.
+Just to illustrate that if we do this
+calculation directly using the standard
+normal distribution, where we've
+expressed 1,160 as the number of
+standard deviations from mean that it is,
+then we get the same answer.
+I plug-in pnorm 2.8 and
+do lower.tail equals false and
+of course it gives us the same number.
+So we've done a probability calculation,
+let's do a quantile
+calculation that's similar.
+Assume that the number of daily ad clicks
+for this company is approximately normally
+distributed with a mean of 1020 and
+a standard deviation of 50.
+What number of daily ad clicks
+would represent the one
+where 75% have fewer clicks?
+And again we're going to assume
+the days are our random sample from
+a population of days.
+There are samples.
+So we're not going to be concerned
+about whether one day being
+close to another day.
+Is going to be more co-related or
+whether weekend days have more clicks or
+fewer clicks than weekday days.
+Or any of these intricacies that we'll
+learn later on in the class how to
+deal with better.
+Let's do some just scratch work before we
+go to R and actually do the calculation.
+Here's our normal distribution with 1,020.
+Because 1,020 is both the mean and
+the median,
+of this specific normal distribution.
+We know that, that point is the point
+where about 50% lie below it.
+So whatever number we get,
+it has to be above 1020.
+Also consider one standard deviation
+above the mean, [NOISE] 1070.
+That point, recall, between one standard
+deviation, recall that was 68%.
+Well that leaves out this
+little tail right here.
+Let's see if we can think about that.
+Well if there's 68% between these two
+numbers, that would put 32% outside
+of it and then 16% in either tail because
+the normal distribution is symmetric.
+So from 1070 below should be about 84%.
+So we know that whatever number we get
+has to be between 1,020 and 1,070.
+And here's the command right
+here where we do qnorm 0.75,
+mean equal to 1,020 and standard
+deviation equal to 50 and of course we
+get a number between the two numbers
+that we were talking about before, 1,054
+

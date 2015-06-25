@@ -1,0 +1,655 @@
+Hi, this is Brian and I would like to
+talk to you guys a little bit about
+the homework and
+maybe just work through it a little bit.
+So make sure first you
+tried the homework and
+then if you're having some trouble,
+then you tried looking at the hints and
+if you're still having some trouble,
+you tried looking at the answers.
+Or maybe you've done all of this.
+And then now, I'd like to explain how
+I would solve some of the problems.
+So this is the homework.
+It's an HTML file.
+You can look at it on the internet.
+It's hosted on GitHub.
+And we'll teach you in the data products
+class how to make things like this.
+Okay, and in fact, I give you a little
+bit of information about the slides.
+If you have a correction on the homework,
+which is always good for
+me because I make a lot of typos and
+things like that.
+Remember to submit them as
+GitHub pull requests and
+then I'll pull them in when I can.
+So consider influenza epidemics for
+two parent heterosexual families.
+Suppose that the probability is 15% that
+at least one of the parents has contracted
+the disease, 10% that the father has
+contracted the disease, while 9% for
+the mother.
+What's the probability that both
+have contracted the disease?
+Okay, well, let me, flip over to my notes
+and I already wrote some stuff down.
+So I'm going to let A be the event
+that the father contracts the disease,
+B be the event that the mother
+contracts the disease.
+And I've written out, well,
+that the probability of A,
+we were given was 10% or 0.10.
+The probability of B was the probably that
+the mother contracted the disease, and
+we were given that, that was 0.09.
+And probably A union B,
+the probability that at least one
+of the family members that have
+contracted the disease is 0.15.
+That's this probably right here.
+Now we need to get
+the probability of A intersect B.
+[SOUND] Okay.
+So we have a rule that
+relates these probabilities
+to the probability of A intersect B.
+Remember that the probability
+of A union B.
+Right?
+That's this, both these circles together,
+is equal to the probability of A.
+So we add that guy in once,
+plus the probability of B.
+So we add that circle in once and
+then, minus we've added
+this middle part in twice.
+So we have to subtract it out.
+Probability of A intersect B.
+Well now, we can plug in.
+So we have oh,
+that didn't help, there we go.
+[SOUND] We have 0.15 was the probability
+of A union B, 0.10 is the probability for
+the father, 0.09 was
+the probability of the mother, and
+probability of A intersect B
+was the thing that we want.
+The probability that both
+contract the disease.
+Well this was equal to 0.19,
+0.15 minus probability of A intersect B.
+And then,
+if I subtract my 0.19 from both sides,
+I get negative 0.04.
+And then if I get rid of
+my sign on both side,
+I get to the probability of
+A intersect B is 4%, all right?
+Let me go back and check.
+[SOUND] I'm going to click 4%, and
+then I'm going to click Submit.
+Yay.
+So let's move on to the next one.
+Okay.
+A random variable, X, is uniform,
+which is a uniform is a box
+from 0 to 1 of height 1.
+And it gives the function, but
+I don't need the function.
+It's a box.
+What's the median expressed
+to two decimal places?
+All right.
+[SOUND] So
+the density looks something like this.
+Here's 0, here's 1.
+There's the density, the height is 1.
+Now, let me just double check that
+this is an appropriate density.
+So the area of a box, the, the density,
+a density has to have area 1.
+So the area of a box is
+the length times the height.
+In this case, the length is 1,
+the height is 1.
+So the area is 1.
+So it's a nice density.
+Density.
+Now we need to find the median.
+Well, what is the median?
+The median is the point along the x-axis
+of the density such that 50%
+of the density lied below it.
+So, if, just draw a different den, looking
+density, something silly like that.
+The median would be the point,
+exactly the point X, so that,
+if we move this line a little bit to the
+right, we'd get more than 50% of the area.
+And if we move the [INAUDIBLE],
+the line a little bit to the left,
+we get less than 50% of the area.
+So the median, the population, so
+again, we're talking about density so
+this is the population median.
+So of course, you know what the sample
+median is, that's the middle of your data,
+that's the point such that 50%
+of your data lies below it and
+50% of your data lies above it.
+But, we're talking about inference, so we
+need to talk about population quantities,
+so this is a conceptually
+infinite population of data,
+and this is saying 50% of it lies
+below it, and 50% lies above it.
+It's pretty easy in this case.
+We don't have to really do any work,
+right?
+We know that the median in, of the box,
+the point that would put equal
+area into your side would have
+to be right here in the middle.
+That would be 0.5.
+So let's check on that.
+And I want to select, there's my answer.
+Now, there's some rigmarole about it being
+expressed to two decimal places, but
+that doesn't matter so
+much because it's multiple choice.
+So we hit Submit.
+And check, yay.
+Okay, and let me show it,
+just click on the show answer and
+it describes a little bit
+about the calculation.
+Okay, let's move on to the next one.
+Okay, moving on to the next one,
+you are playing a game with a friend where
+you flip a coin and if it comes up heads,
+you give her X dollars and if it comes
+up tails, she gives you Y dollars.
+When the coin isn't
+necessarily a fair coin,
+the odds that the coin is heads is d.
+So instead of giving the probability,
+I give you the odds here.
+And the question is,
+what is your expected earnings?
+Yowza.
+Okay, let's work through this.
+[SOUND] So
+I've written some stuff out here,
+d is the odds of a head from the coin.
+You get negative x if it comes up heads,
+[SOUND] and
+you get y if it comes up tails.
+So you lose X dollars if
+it comes up heads and
+you gain Y dollars if it comes up tails.
+So let's set w be your earnings.
+Okay, so w can take the pot, potential
+values, losing X dollars if it comes up
+heads, and it can take the potential value
+gaining Y dollars if it comes up tails.
+So the probability of w, the probability
+that takes these various values would be,
+let's just label it P for x.
+And the, 1 minus P for tails.
+So P is the probability of a head for
+the coin and
+1 minus P is the probability of tail.
+Now the expected value
+calculation is just the sum.
+So w is your earnings what we care about
+so your expected earnings is just the sum
+of your possible earnings times
+the probability that it takes it.
+So it would be negative x times
+P plus y times 1 minus P.
+Okay.
+And I think that's probably actually
+enough to solve the problem but
+we need, let's get all the way to the end.
+So, but unfortunately,
+the problem didn't give us P,
+the probability of a head it
+gave us the odds of a head.
+So remember that the odds O is related
+to the probability as by
+being P over 1 minus P.
+And then there's this one to one
+relationship between odds and probability.
+So we can back solve for
+probability from knowing the odds.
+So in that case P.
+Is, oh, and
+I should just write d for the odds.
+d is the odds.
+d equals p over 1 minus p.
+So if I back-solve for the probability,
+I get d over 1 plus d.
+And then if I just calculate
+what 1 minus p is,
+that's equal to 1 minus
+d over 1 plus d which is
+equal to 1 plus d over
+1 plus d minus d over
+1 plus d which is equal
+to 1 over 1 plus d.
+Okay, so let's plug this into there and
+this into there and
+I get minus x times d over 1 plus d and
+plus y times 1 over 1 plus d.
+Okay.
+Great.
+And this is kind of a famous problem
+because if you want the, if you,
+if you want the coin to be fair then,
+you know, if, if you were given x and y,
+if you wanted the coin to be fair and
+or if you want the game to be fair.
+If you wanted to have expected
+value zero you could solve that and
+figure out what value of d it has to take.
+Or on the other hand, if you know d and
+you want the game to be fair,
+you can figure out what relationship x and
+y have to have and
+that's related to one of the,
+the quiz questions.
+So it looks like this one is
+the one that I wrote down.
+Minus X times d over 1 plus d,
+plus y over 1, over 1 plus d.
+And let's submit.
+And that's correct.
+All right, moving onto the next one.
+A random variable takes the value
+minus 4 with probability point 2 and
+1 with probability point 8.
+What is the variance of
+this random variable?
+Ouch.
+Okay I'm kind of sadistic with
+these homework problems but let's,
+let's work on this one.
+So minus 4 with probability .2 and
+1 with a probability .8 so
+minus 4 with probability .2 and
+1 with a probability .8.
+So these are the possible
+values x can take and
+these are the probability x takes them.
+Well to calculate the variance
+what we should do is calculate
+the expected value of x squared and
+subtract off the expected value of x.
+Quantity squared.
+Okay, so x squared,.
+That's 16 and 1.
+Okay, so remember, expected value of
+a random variable, so expected value
+of x squared is the values it can take
+times the probability that it takes them.
+So 16 times 0.2 plus 1 times 0.8.
+Well, 16 point, times 0.2 is
+3.2 and plus 1, 1 times .8 is .8,
+so expect a value of x squared is 4 and
+then expect a value of x is equal to,
+the possible values x can take,
+times the probability that takes it.
+So, minus 4 times 0.2,
+plus 1 times 0.8.
+Well, that's equal to minus 0.8 plus 0.8.
+Oh good, it's 0.
+So, if I plug in to my formula up here,
+I get 4 for
+that minus 0 squared, which is 4.
+Okay, let's try it.
+4 submit.
+All right.
+Okay, let's do the next one.
+If x bar and y bar are sample means
+comprised of n iid random variables
+arising from distributions having
+means mu x and mu y respectively, and
+a common variance of sigma squared what's
+the variance of X bar minus Y bar?
+Okay.
+This seems like a very
+confusing problem but
+let's talk our way through it because
+this is quite, quite important problem.
+So let's orient ourselves because this
+is important for us to think about.
+If I have a density that has mean mu x and
+it has variance, the sort of spread
+of it is governed by sigma squared.
+That's a population distribution.
+That's assuming that if I draw data from
+this population that their probabilities,
+the probability they take various values
+to be governed by this general law, this,
+this general density distribution,
+that is sort of a conceptual
+component of a population.
+Maybe if we were to collect an infinite
+amount of data we would know this density
+exactly.
+If I were to draw n observations from
+this density and take their mean.
+I get another random variable, and
+that's a single draw from another density.
+One that's the density of the average of
+end draws from this existing density.
+And we know a lot of
+things about that density.
+For example, that it is centered at
+the same place, but it's shrunken in,
+it's compressed around mu x a little
+bit more, and that's just saying that.
+X bar is a good estimator of mu,
+it's a better
+estimator of mu than just a random
+observation from the original population.
+The average of n observations from the
+original population is a better estimator
+because the density governing
+the probabilities associated with x bar
+is more shrunken around the thing
+that you're trying to estimate.
+And in fact we know how to relate
+the variance of this dens, dis,
+density, the density of X bar to
+the variance of the population.
+The variance of the original
+population is sigma squared,
+then the variance of X bar is
+equal to sigma squared over n.
+So the result of collecting
+n observations and
+taking a mean is to get a new random
+variable, the sample mean, whose,
+whose variance is now
+shrunken by a factor of n.
+Which is a good thing, right?
+And it's also centered
+around what you want,
+the density is centered around
+what you'd like to estimate.
+And then similarly, the variance of
+Y bar is going to be sigma squared
+over n because we assumed that the, the
+population that the Y's were drawn from
+had the same variances as the population
+of the X's were drawing from.
+Okay, so now let's talk about
+the variance of, X bar minus Y bar.
+Well if, so we said that the, the,
+the data were independent that the x's
+were independent of the y's, which is good
+because that means that our variance adds
+and so we can write variance of X bar
+and then variance of Y bar and you,
+you be inclined to put a minus sign here.
+But that would not be right and
+it's a plus sign.
+And the reason is because this.
+Think about it this way.
+If I were to do variance of X
+bar plus negative Y bar and
+my X bar and Y bar are independent,
+then that would be the variance of X bar
+plus the variance of negative Y bar.
+And then if I were to pull out my
+negative 1, it gets squared, right?
+Remember that rule, if we pull something
+out of a variance, it gets squared,
+and then a square of
+a negative 1 will be positive.
+And, so anyway it's a long and
+short is if you subtract two
+things their variance still adds.
+Now if the two things are an independent,
+then we may have other stuff over
+here that we have to add in.
+Subtract off in fact in this case.
+But these things are independent so
+there is no co variance from our
+other thing we have to subtract off.
+Okay.
+So let's plug in,
+we have sigma squared over n for X bar,
+sigma squared over n for Y bar, for
+the variance of Y bar and they add,
+so, it's equal to 2 σ squared over n.
+And so, let's go back and
+try that as an answer, 2 σ squared over n.
+Submit answer.
+Alright.
+Okay, only a couple left.
+Let X bar, let X be a random variable
+having standard deviation σ.
+What can be said about X over σ?
+And so, we have some things to rule out.
+Well, nothing, it must have variance 1, it
+must have mean 0, it must have variance 0.
+Let's try some things.
+So, here we have, what,
+what we're given is that variance
+of X is equal to σ squared.
+So, that the deviation of
+a random variable X is σ.
+So, let's think about X over, X over σ.
+Its expected value, remember, we can
+factor things out of expected values,
+that's expected value X over σ.
+And we don't know anything about
+what expected value of X is.
+And we don't know anything about σ,
+other than it's strictly positive, so,
+we can't say anything about the mean of X.
+It could be anything.
+Okay, now,
+what about the variance of X over σ?
+Well, remember, when we pull a factor
+out of a variance, it gets squared, so,
+that's 1 over σ squared
+times the variance of X.
+Oh, but we wrote that down over there,
+that's σ squared.
+So, it's σ squared over σ squared,
+which is one.
+Well, that was one of the answers,
+that it has to have variance 1.
+So, let's try that.
+It must have variance 1, submit.
+There you go.
+All right, let's keep going on.
+Second to last, penultimate problem.
+If a continuous density that
+never touches the horizontal
+axis is symmetric about zero,
+can we say its associated median is zero?
+So, this is,
+this is a little bit of an unfair problem.
+And, if you didn't get this,
+certainly, don't feel badly about it.
+And, I'll tell you why.
+So, what it, so, here, we have a density.
+And here, I've said,
+it never touches zero.
+And it's symmetric about
+the vertical axis.
+So, what mean, what that means is that,
+if I draw it like that, then it has
+to look like that on the other side.
+If I were to draw it,
+if I were to draw something like this,
+let me see if now, I can, it's gotta
+look like that on the other side.
+And so, to me, it looks pretty clear that
+this density has to have median zero,
+because the amount of
+area that's on this side
+has to be the same as the amount of area
+on this side, because it's flipped over.
+It's, it's symmetric.
+Now, the reason about
+the sort of rigmarole, and
+the problem about never touching zero,
+and, and that's what makes it confusing.
+I think that's why there's
+a little bit of an unfair problem.
+I, I had it in the actual
+quizzes at one point.
+And, it caused a lot of problems, so,
+now I've put it in to homework, so,
+at least we can discuss it.
+And some of the students said, when I
+put it in to homework I had it without
+this caveat that the density
+had to be touching zero.
+And students came up with this example,
+which is really clever of course.
+Imagine that density it
+looks something like this.
+[SOUND] Okay.
+Now, here, it's, it's,
+it's strictly zero right here.
+Here's zero.
+Now, remember,
+what's the median of a density?
+The median is that point such that 50%
+lies below it, and 50% lies above it.
+Well, this, I didn't draw it perfectly,
+but I'm, I'm trying to suggest that this
+and this are mirror images of each other
+around this vertical axis,
+but it's zero between.
+So, any point along,
+between here any point between where
+the density start rising above zero again.
+Any point would be such that 50%,
+because right?
+50% lies there and 50% lies there, so,
+any point in here would be a median.
+And they all said, well,
+how do you define the median in that case?
+Is it necessarily zero?
+Is it the midpoint of all the potential
+medians in the, in there?
+Or, is it the left most median,
+or is it the right most median?
+And that was kind of confusing, but
+I also thought it was an incredibly clever
+point made by many of
+the students in the class.
+So, I thought I'd raise it up,
+and give it as one of the,
+give it as one of the homework questions,
+so, at least we could discuss it.
+So, I'm going to put yes here and
+submit, and then, I just want to show you
+the answer because I actually go through
+some of this discussion, I actually put in
+that this is a surprisingly hard problem.
+It seems, my intention was for
+it to be an easy problem.
+My original intention was, yes, if
+a density is symmetric about zero, then,
+its median is zero because 50% lies
+below zero and 50% lies above zero.
+But there's this caveat that
+if it's flat on the horizontal
+axis right around zero, then,
+well that causes, that causes problem.
+So, I describe this caveat a little bit
+in the homework in the homework problem.
+And if you miss this little
+kind of subtle point of nuance,
+I mean this is really not in a,
+in a, a major important point.
+What I'm hoping you'll
+know is what a median is.
+Basically, what is, what does it mean for
+a point to be the me, a population median?
+And it's just that point such that
+50% of the density lies below it and
+50% lies above it.
+All right, final problem, and
+thank goodness it involves some computing.
+So, I'm giving you a probability mass
+function but one that's just defined.
+X takes the values two through five and
+the probability that X takes
+these values is .1, .2, .3, .4, and
+then, it says what's the variance?
+So x, takes the values 2 : 5, [SOUND] and
+p the probability it takes them,
+[SOUND] is if I recall it was
+1 : 4 divided by 10 [SOUND].
+Let's double check.
+There's p point .1, .2, .3, .4.
+And, let's just double tech, oops,
+the possible values the probabilities
+have to sum up to one,
+so, there, and then, if I,
+[SOUND] there's x two, three, four,
+five and the probability that
+it takes it one .1, .2, .3, .4.
+Well, what's the variance?
+It's the expected value of x squared minus
+expected value of x quantity squared.
+So, expected value of X
+squared is sum x squared the,
+the x squared value times the probability
+that it takes them times p.
+Expected value of x is sum x
+times p the positive value
+is x takes time
+the probability it takes them
+raised to the second power because I want
+expected value of x quantity squared.
+That works out to be one.
+Okay, so hopefully,
+one is a potential answer.
+I see right here that one is a potential
+answer, so, I'm going to do it and submit.
+There we go.
+So, I just want to end with a couple
+of comments on the homework.
+You know, obviously,
+it looks like I'm going through it kind of
+fast if you, are struggling with it.
+And remember, I wrote the actual
+homework problems, so, of course,
+I can go through it fast.
+This is kind of complicated stuff,
+but it's also important stuff.
+And so keep plugging away.
+I think the, I made the homework
+a little bit harder than the quizzes.
+So, that you know,
+maybe it'll pump up your muscles for
+when you go take the quizzes,
+it'll be, it'll be easy.
+I remember when I used
+to do swim practice,
+we used to swim with all this
+stuff dragging on us, so,
+that when we tried to race it
+seemed like we were a lot lighter.
+It didn't work for me, but,
+nonetheless, maybe it'll work for you.
+All right, so, keep plugging away at
+that homework and I'll post a video
+about the second homework set,
+similarly working through the problems.
+

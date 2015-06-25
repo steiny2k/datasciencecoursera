@@ -1,0 +1,89 @@
+Let's cover briefly
+the subject of independence.
+We alluded to this earlier,
+in that we said that A is independent of B
+if the probability of A given B
+is equal to the probability A for
+an event B that has positive probability.
+Another definition of independence is
+that the prob, A and B are independent if
+the probability of A intersect B works out
+to be the product of their probabilities.
+This then begins a very important lesson.
+You can't just multiply
+probabilities willy-nilly.
+You have to multiply independent prob,
+probabilities associated with
+the independence events.
+Let's go thru a numerical example.
+What is the probability of
+getting two consecutive heads?
+Well, let's define A as the probability
+of getting a head on flip one and
+B as the probability of
+getting a head on flip two.
+Both probabilities are 0.5.
+In this case, we're assuming a fair coin.
+A intersect B is the event of
+getting heads on flips one and two.
+In this case, because the events
+are independent the probability of
+A intersect B is the product
+of the probabilities.
+And so we would say that it's 0.25.
+People do this calculation
+rather naturally.
+The problem is when people multiply
+probabilities when they shouldn't.
+A particularly stark instance
+of incorrectly multiplying
+probabilities occurred in volume 309
+of science, which was reporting on
+a physician who was on trial for giving
+expert testimony in a criminal trial.
+The criminal trial involved
+a mother who had two
+children die from sudden
+infant death syndrome.
+The expert testimony took the prevalence
+of seven, in sudden infant death syndrome
+as one out of 8,500, and then multiplied
+them together to find the probability
+of two children having sudden infant
+death syndrome with the same mother.
+Based on this evidence, and
+I presume other evidence, the mother
+on trial was convicted of murder.
+Relevant to this class,
+the principle mistake was to is,
+to multiply probabilities for events
+that were not necessarily independent.
+And it makes sense that in this case
+to assume that the events would be
+dependent because any biological
+process that has a genetic or
+familial environmental component is
+likely to be dependent within families.
+In this class, the main way we're going to
+use independence is that we're going to
+assume that a collection of random
+variables are independent and
+from the same distribution.
+Recall such random variables independent
+and identically distributed.
+So you might think of several coin flips
+as IID because they're independent.
+One coin flip is independent to,
+from the next one.
+And they all rise from the same
+distribution, 0.5 for heads and
+0.5 for tails.
+IID sampling is our default model for
+a random sample.
+So whether we have an actual random sample
+or not, we often use random sampling or
+I, the model of IID as a conceptual
+model to analyze our data.
+It'll be our principal mode
+of analysis for this class.
+

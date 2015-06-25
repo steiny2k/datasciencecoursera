@@ -1,0 +1,1041 @@
+Hi and welcome to Homework 4 for
+Statistical Inference.
+Let's get right into it.
+The dataset we're going to look at
+first is this mtcars dataset and
+we're going to be looking
+at miles per gallon.
+Now in this.
+Example we're want to test
+one sided hypothesis test.
+Mu equal to Mu-nought versus
+mu less than Mu-nought.
+And the question asks you,
+what is the smallest value of
+Mu-nought that you would reject for.
+I think what makes this question
+hard is kind of the conceptual part
+of the question.
+The actual implementation is sort of easy.
+So.
+Why don't we just go through
+the conceptual part and
+then I'll leave
+the implementation part to you.
+because the conceptual part
+is a little different.
+So let's just remember,
+we want to test H-nought,.
+Mu equal to Mu-nought, versus Ha,
+Mu less than Mu-nought.
+Okay?
+And we're going to reject if x bar minus
+mu-nought is less than s over
+square root n is less than or
+equal to Z sub alpha, where Z sub
+alpha is the alpha of quantile.
+Of the standard normal distribution, cause
+the problem told us we're doing a Z test.
+So we want 5% or below there.
+So, Z sub alpha works out, there,
+to be wo, -1.645 Remember, it's negative,
+because 0 here, and +1.645 is that point
+up there, so that 5% lies above it.
+Okay so
+if we want the boundary where we switch
+from being significant to non-significant.
+We're going to want to replace that
+inequality with an equality and solve.
+So we get x bar.
+Minus Mu-nought.
+And, let's just go one step further.
+We multiply through by
+S over square root n.
+Z sub alpha S over square root of n.
+And then, let's just solve that.
+And, we get Mu-nought.
+And then, is equal to.
+X bar minus Z sub alpha times
+S over square root n and
+I think here's the part that kind of
+has a tendency to trip people up.
+We're going to plug in -1.645 into here,
+but it's a negative of negative so
+we're going to get x bar plus
+1.645 S over square root n.
+Okay, and
+then let's go back to the problem, and
+I'm just going to show
+you the answer here.
+And the, basically what you need
+to do is plug-in the numbers.
+The mean, the standard deviation,
+1.645, you could just plug-in, or
+you can actually grab the.
+To the, the,
+a much larger decimal expansion of
+the quantile by using qnorm(0.05).
+But that's usually unnecessary.
+And you know, the only confusion here,
+I think, is, is messing up the signs.
+And it's very easy to,
+to lose track of your bookkeeping.
+So the next one's not so bad.
+It basically just asks us to take the same
+dataset and compare miles per gallon for
+4 and 6 cylinder cars using
+a t-test with unequal variances.
+Okay.
+So let me just boot up my computer.
+And all run R.
+And I already have the 4 and
+6 cylinder vectors to find.
+And you can just grab them
+directly from the data frame.
+Then we want to do t.test(m4, m6).
+And the default is unequal variances.
+So it gives us the p-value is very small.
+.0004 and that's all we need.
+I'm just going to copy this whole thing
+here [SOUND] to plug into my answer.
+And.
+What else?
+It's do we reject or not?
+Well, for a p-value this small,
+clearly, we're rejecting for
+any reasonable value of alpha.
+So let me put my p-value there, and
+then 1 for yes, and then Submit.
+And there we go.
+So this problem is basically
+a little bit of a trick.
+It says the sample of 100 men yielded
+an average PSA level of 3.0 with a sd
+of 1.1 What are the complete set of values
+that a 5% two sided Z test of H-nought,
+Mu equal to Mu-nought would fail to
+reject the null hypothesis for it.
+And all you need to know is there's this
+duality between the hypothesis test.
+And the confidence interval in
+that if we fail to reject for
+the hypothesis test for that value Mu,
+that value would also be included in the,
+the equivalent 95% confidence interval.
+So all we have to is create
+a confidence interval.
+So the average is 3.0 and the sd is 1.1.
+Okay so let me switch over to R.
+So let's see, so we want
+3.0 + c(-1, 1).
+Times the standard normal quanto,
+qnorm .975.
+Times the standard air of
+the mean which was 1.1.
+And remember that it was, the n was 100.
+Divided by the square root of 100.
+Okay so that's 2.78 to 3.22.
+Okay, 2.78, 78 to 3.22.
+And then we click Submit and there we go.
+In this problem it's asking
+us to calculate a p-value.
+Exactly, using the exact
+binomial calculations.
+So here we flipped a coin we got
+55 heads out of 100 trials, and
+we want to test whether or not the coin
+was fair or it's bias towards heads.
+So that means we want to test H-nought.
+H-nought p equal to point five versus Ha,
+p greater than .5.
+Okay, so
+that's the hypothesis we want to test.
+And so we just want to do pbinom.
+So we want the probability
+of getting as or
+more extreme data than
+was actually observed.
+So that would be 55 or higher.
+But then when we do lower.tail equals
+FALSE, it does strictly greater than,
+so we gotta tell it 54 so
+it starts counting at 55.
+Then we want size equal to 100 and
+prob equal to .5, and
+lower.tail equals FALSE.
+Okay, so we get .1 .18 and
+I'm just going to copy the whole thing.
+Because I don't want to worry about
+how many decimal places to input and
+I'm going to put in 0, and I'm not sure
+why it's marking that as wrong 'because
+clearly we would fail to reject for
+the 0, and if you look.
+It actually says the answer
+to 2 is 0 I think there,
+that there's just a JavaScript
+error in the grading there,
+especially because it says the correct
+answer is 0 there, so I'll corr, I'll
+correct that JavaScript e, error, but,
+if you happen to be getting it as well.
+Now.
+Let me just show, how you can do the same
+calculation or a similar calculation
+using a normal approximation right, so
+we know for the normal approximation,
+that the sample proportion p hat, is
+normally distributed with a mean of p, and
+a variance of p times 1 minus p over n.
+So here if I want to do this with a normal
+approximation instead of a binomial
+approximation, I would do pnorm.
+My sample proportion, .55,
+my mean is .5 under the null hypothesis.
+And my stand deviation is
+square root p which is .5 times
+one minus p which is also .5 divided by n,
+which is 100.
+Then I want lower.tail = FALSE.
+Okay, so the approximation's not bad.
+It's 0.16, approximating 0.18 so
+that's not terrible.
+But anyway, that's how you're
+getting the approximate calculation,
+the one on the top is the exact
+binomial calculation.
+Okay, so that problem's not so bad.
+I think we have a similar quiz problem
+where we're, we ask to do a binomial
+calculation but with a lot fewer,
+and n be, being much smaller, so
+that you would never even consider
+doing the normal approximation.
+Okay.
+The next one is quite similar.
+It's, we, it's testing.
+Basically an exact Poisson
+rather than an approximate
+rather than an exact binomial
+like in the previous problem.
+And so basically it says that last
+year we received 520 web hits per day.
+Important to remember that's per day.
+And the, and
+then in the first 30 days of next year,
+the website received 15,800 hits.
+Assume that the web hits are Poisson.
+And we're kind of conditioning on last
+year's web hits as, you know, 520 per day.
+And it wants the question is, are we up?
+Are we doing better?
+So we want to do a Poisson,
+a Poisson test.
+So let's just, so we want to test
+the null hypothesis that the rate
+is five 20 per day, ver,
+the lambda is five 20,
+versus the alternative hypothesis
+that lambda is greater than five 20.
+So all of our calculations
+are going to be doing,
+done assuming a rate of five 20 per day.
+So we want ppois for the,
+Poisson probabilities and
+then remember this, we have this
+lower.tail thing so we want 15800 -1.
+This -1 is going to make no
+difference whatsoever in the value.
+It, with the, with the exception that it,
+it'll might mess up the auto-grader
+because I asked for
+four significant dis, digits.
+So it's a, it's it's a very pedantic
+thing to put the -1 in there.
+We know that the Poisson probability,
+you know, when you're out that,
+into numerals that high, that whether or
+not you add or subtract one is irrelevant.
+But we're doing it anyway because we
+know the auto-grader will mess up if
+we don't get it exactly right.
+Okay.
+So 15800 and then our lambda,
+lambda is 520 but
+that's per day, and
+here we said we monitored it,
+monitored it for 30 days, okay.
+Oh, and I forgot my lower.tail.
+lower.tail = FALSE.
+Or I could just one
+minus that other number.
+Or actually that would have been
+wrong because of the -1 thing.
+So we get this number right here,
+.0, 0.055, okay.
+And then does it reject?
+So no, it technically doesn't
+reject because if we're
+using a 5% type one error rate, so
+I'm going to put a 0 there and submit.
+And it's again giving me
+the incorrect answer for the 0, but
+it's you know,
+of course that's the right answer.
+So again, it's that same JavaScript
+error as the previous time,
+so I'll double check on that and
+see what's going on.
+See, now it's, put in 0 and
+says it's correct.
+So not 100% sure what's going on there.
+I'll look into that.
+My coding skills for
+that sort of stuff aren't that great, but
+I'm confident I'll be able to
+figure it out at some level.
+Okay, so let's, let me just show you
+also how to do a normal approximation.
+So as you Poisson mean gets larger and
+larger,
+your Poisson is going to be better and
+better approximated by a normal.
+So remember, the mean of the Poisson
+distribution is lambda times t.
+And the variance of the Poisson
+distribution is lambda times t.
+So why don't we do pnorm,
+the probably of seeing and
+let's just forget about the -1 especially
+because it's a normal calculation.
+We're already doing approximation.
+So we want that number.
+And we wanted the mean of,
+of 520 times 30, right.
+And the variance is 520 times 30,
+which means the standard
+deviation is square root.
+520 times 30, and
+we want lower.tail = FALSE.
+Ok, and it gets pretty good actually.
+So that's, you know,
+up to three decimal places.
+0.055 for both the Poisson and
+normal approximation.
+Okay.
+So probably in most cases I think if
+anyone had counts as high as 15 ta, 16,000
+you wouldn't bother doing the Poisson,
+you wouldn't bother doing the Poisson on.
+You would just use
+the normal approximation.
+That would be the most common
+thing to do in that scenario.
+So the next problem
+talks about an AB test.
+So an AB test is just kind of
+another name for an, you know, for
+a lot of people in the data
+science communities,
+another name for what we in biostatistics
+would just call a randomized trial.
+In order words, they have treatment and
+control in,
+in the language that I like to use and
+in this case they have two advertising
+schemes and they randomize them.
+And the randomization is,
+it's a good thing.
+Randomization is one of the core
+principals of study design and
+the idea is that you're going to
+balance unobserved co-variants so
+that they're equally distributed
+between both groups.
+Hopefully that occurs.
+But you're making it highly likely
+to occur with the randomization.
+And then when you compare the two groups,
+they're hopefully comparable.
+If you didn't do that, if you didn't
+randomize you might wind up with the case
+that whatever is driving people
+to prefer one you know, ad
+campaign versus another or something like
+that, might be driving the differences.
+So, for example, for
+comparing two treatments in a,
+in a medical randomized trial certain,
+the sicker patients might want to choose
+one treatment over another treatment, so
+if we didn't randomized, all the sicker
+patients would have gone to one, and the,
+all the healthier patients
+would have gone to another.
+And so we wouldn't be able to
+differentiate whether a treatment effect
+we saw was due to the treatment or just
+due to the fact that the sicker patients
+tended to go, to gravitate towards
+one of the two treatments.
+So that's what randomization is for.
+It's a core principle of statistics.
+That's why it's, you know, used so widely.
+Anyway, in this case we saw one treatment,
+saw an average of 10 purchases per day.
+The other treatment saw a purchase
+10 purchases, 11 purchases per day.
+Both of them were monitored for
+a 100 days, and
+then it just says assume
+a common standard deviation of 4.
+And then it says do a Z
+test of equivalence.
+Okay.
+So we have, we're going to have to stretch
+our muscles a little bit on this one.
+So I'm kind of given a lot of
+information to help us kind of
+push this along the way, but
+this is a little bit non standard.
+It's asking us to kind of draw
+in different parts of the class.
+So what we want to do is just
+calculate a Z statistic.
+So what we need more, so the obvious
+statistic is just the difference
+in the rate of purchases
+between the two days.
+Well that's ten minus one or
+negative one or
+one depending on which
+order you're subtracting.
+Okay, so let's just do this, where we
+define m1 as 10, m2 as 11 and the,
+the difference, this is difference define,
+yeah, diff is already a define thing.
+How about dif with one f is 10- 11.
+Okay.
+Now we need a standard deviation,
+a pooled standard deviation.
+Let's call it sp.
+We're assuming a common standard
+deviation, so that's equal to 4.
+And so the standard error.
+Right, it, the,
+the standard error is going to be 4.
+Then if we borrow the way in which
+we develop the standard error for
+the two group t test
+with a common variance,
+then that would be square root
+1 over 100 for the first group.
+Plus 1 over 100 for
+the second group, okay?
+And then we want to test whether or
+not the mean difference is
+zero versus it's not zero.
+So that my test statistic, my z statistic,
+is going to be the difference
+divided by the standard error.
+We've subtracted off
+the hypothesized value.
+Not, not diff, D-I-F with one.
+We've subtracted off the hypothesized
+value which is 0 so you know, if I'm
+being, if I'm trying to explain things
+a little bit better here, the hypothesized
+value is 0 which of course doesn't do
+anything but that's the real value for z.
+Okay, so our z,
+how many standard deviation,
+how many standard errors away from
+0 was our observed difference?
+It's 1,
+negative 1.77 standard errors away from 0.
+We need to figure out how far that is,
+whether or
+not stati, statistically significant.
+So why don't we do pnorm of our z value,
+and that gives me 0.038.
+However, it doesn't say so
+we're going to have to assume that
+we need to do a two-sided test.
+So let's do 2 times that.
+There's our answer.
+Let's plug that in and
+then we do not reject.
+We do not so you know,
+if I don't tell you,
+let's just assume that
+the type 1 error rate is 0.05.
+So, we would not reject for that.
+And, we plug in 0 and submit.
+There we go.
+And, you know, again,
+it's the same problem that I'm having,
+for whatever the reason.
+With my my auto-grading function there,
+so I'll try and figure that out.
+But, hopefully that shouldn't be too bad.
+It's sort of an odd problem
+that the main trick
+in this problem is
+figuring out the variance.
+And it's just, if you go to the lecture
+videos, when we developed the two-group
+t test for the constant variance, you
+know, this is just using the same formula.
+So we're stretching a little bit
+here by applying it to rates, but
+hopefully you've gotten the idea that the
+way in which we executed the formula was
+it the, was it the estimate?
+The estimate for
+the difference in the two means that
+we wanted to test hypotheses about?
+So the estimate minus the hypothesized
+values, so we're assuming they're the same
+under the hypothesis, the null hypothesis,
+then divided by the standard error,
+we did the standard error calculation
+assuming the two variances were equal for
+this particular problem,
+because it told us to do that.
+And, in fact,
+it even gave us the standard deviation.
+Okay.
+So this next one is not bad at all.
+It's just basic, basically asking us,
+what's the association between
+a confidence interval and a hypothesis
+test, a two-sided hypothesis test?
+And it basically boils down to, for
+example, if I do a 95% confidence interval
+that is equivalent to the,
+the set of values, null values for
+each I will fail to reject at
+an alpha level equal to 5%, okay?
+So 1 minus the confidence level is
+exactly equal to the type 1 error rate.
+Where you know here or 100 minus
+the competence level if you're expe,
+expressing it by, as a percentage
+rather than a proportion, okay?
+So that's just the first
+answer right here.
+And then let me click that and
+just show you.
+Then Submit, and
+the only confusion I'm, I'm trying to
+take care of here is the 2 alpha,
+when we do our hypothesis test and
+we grab the alpha over of 2,
+1 minus alpha over 2 quantile.
+That doesn't mean that our
+type one error rate is, say,
+2.5% if we plug an alpha equal to 5% and
+we get the 2.5th percentile.
+Our type one error rate is 5%.
+We've allocated 2.5% for
+the upper tail and 2.5% to the lower tail.
+So when we construct
+a confidence interval and
+we grab the quantile that has 1 minus
+alpha over 2 in it, our confidence
+interval is not a 97.5% confidence
+interval, it is a 95% confidence interval.
+So that's kind just the small
+bit of confusion that I'm trying
+to address here to make sure
+every one realizes that.
+The big thing being that, that when
+you do a two sided hypothesis test or
+if you calculate a confidence interval,
+you've gotta grab that upper element
+where the alpha is divided by two.
+But that the actual confidence level and
+the type one error rate
+is the one that you want.
+Okay?
+And that's all
+that this question was
+trying to illustrate.
+It was trying to get you
+to think about that.
+Okay.
+So, this next problem talks about power.
+And I'm going to just going to
+kind of type my way through it.
+You can read the problem.
+So, it basically says,
+you have H naught mu
+equal to 10 versus Ha mu greater than 10.
+Okay, that's our hypothesis
+that we're working with.
+And, in this case, n is 100 and
+the standard deviation is 0.4,
+is 4, I'm sorry.
+Okay, so, we have all that information.
+And we want to talk about, what's the
+power if the true mean is really 11 for
+a 5% type one error rate z test?
+Okay, let's just talk about,
+first of all, when we reject, and
+let's kind of make this easy.
+So, let's let m be our mean.
+Okay, under the null hypothesis, m is
+normally distributed, and its mean is 10.
+And its standard deviation is
+4 divided by square root 100.
+But 4 divided by square root 100 is 0.4.
+So under the null hypothesis,
+m is normal with a mean of 10 and
+a standard deviation of 0.4.
+So we're going to reject if that lies out
+in the upper 5% tail of that distribution.
+Well, what's the upper 5% tail?
+So we're going to reject if m is greater
+than 10 plus the 95th percentile
+of the normal distribution, which is
+1.645 times the standard error, 0.4.
+So we're going to reject
+if m is larger than that.
+Under the alternative hypothesis, and I'm
+just going to hit, that, that's going to
+give an error, but just so I don't erase
+it, so we can just keep looking at it.
+Now, under the alternative,
+m is normally distributed,
+not with a mean of 10, but with, a mean
+of 11, and a standard deviation of 0.4.
+So the question is,
+what's the probability that this happens
+where we're calculating that
+probability under the alternative?
+Well, let's do that.
+So that would be pnorm, right, and, and
+then let's just figure out first what
+this number is, just so we don't have to.
+because I'm going to run out
+of screen real estate here.
+Okay, so it's 10.658.
+So we want p norm, 10.658.
+Right?
+Where mean,
+the mean really, the mean is 11.
+because we're calculating
+under the alternative.
+And the standard deviation is 0.4.
+And then I want lower.tail equals
+FALSE because we're doing an upper,
+upper, we're testing greater than, okay?
+False.
+[LAUGH] And lower.tail equals FAIL, no.
+Equal to false.
+Okay.
+So it works out to be 0.804,
+let's plug that in.
+0.804.
+Submit, there we go,
+okay, so, again this is a calculation
+very similar to one in the notes.
+And in the lecture video.
+So watch those if you're a little bit
+having a little trouble with this.
+Power's a very important concept.
+And probably the most frequent use of
+power is in designing studies like this.
+Trying to get.
+A large enough sample size that so
+that you have a good chance of
+actually rejecting if, in fact,
+the alternative is true.
+Okay, so
+the next question is a sample size
+question rather than a power question.
+So the same sort of calculation, but
+now we want to know the sample size and
+not power.
+And we're still doing a z test,
+still doing 5% error rate, and so on.
+In this case we're testing h not
+mu equal zero versus h a, mu,
+[SOUND] mu, mu greater than zero.
+I'm typing on a tiny little keyboard here.
+And, the standard deviation is given to
+be 0.04, and
+the power that we want is 80%,
+so the power is 80%.
+And the oh,
+the value of mu under the alternative so
+let's call it mu a is 0.01.
+Okay so that's the information given,
+I'm going to, going to hit return,
+it's going to give me an error of course.
+So let's talk about,
+when we would reject in this problem.
+So under the null hypothesis,
+my mean volume
+loss is normally distributed
+because we're doing a z test.
+So our mean is going to be normally
+distributed with a mean of,
+with a mean of, [SOUND] normally
+distributed with a mean of zero.
+And a standard deviation of 0.04
+divided by square root n, okay?
+Again, that, that's valid r code but
+not terribly useful r code for us.
+And so, when are we going to reject?
+We're going to reject if n is out in
+the tail of that distribution and
+we'll reject if it's out in the 5% tail.
+So we're going to interject if m is, is,
+is great than zero plus q norm.
+Well lets just do it the 95th
+percentile which is 1.645 times [SOUND]
+0.04 divided by square root
+n times the standard error.
+Okay, so we're going to reject if that's,
+if that's the case again, you know,
+I, I don't have valid r code here
+because I haven't defined anything.
+But I'm just using this to describe
+the problem before I actually
+start typing out the real code.
+Okay, so we're going to reject
+if m is larger than that.
+And now we just need to do is calculate
+this probability under the alternative
+rather than under the null, okay?
+So let me just, so let me just say
+right here what this number is.
+[SOUND] 1.645 times 0.04,
+so it's point 0.0658, okay?
+And so let's just assume for
+example n is ten because now n is ten and
+I want to do p norm.
+Okay?
+The probability that we reject, right?
+Which in this case we said we're
+going to reject if we're larger
+than 0.0658 divided by square root n.
+And our mean under
+the alternative is 0.01, okay?
+And our standard deviation is equal to,
+0.04 divided by square root n and
+remember we're doing it upper,
+the greater than test.
+So we want to do lower dot
+tail equals false, okay?
+So that would be 19% if n was ten,
+what if it was let's say a thousand, okay?
+[SOUND] Okay, then,
+the power would be one.
+Okay, so, we know that we need
+a n somewhere between 20 or
+between ten and a thousand.
+Let's, let's, So,
+we know let's just, you know?
+Let's just, you know, almost half it,
+[SOUND] and do n is 500, okay?
+And it's still at 99% so we know that now
+it has to be between 500 and ten, okay?
+So, let's try 250, okay, and
+let's get our power, okay and
+that's still pretty close to one.
+So we still know it's now we know
+it's between 250 and ten, okay?
+So let's look at 125, [SOUND] okay.
+And that's not bad, that's pretty close,
+so let's not half it again.
+Let's drop it down to a hundred.
+[SOUND] Okay, and whoa,
+that's pretty close to 80%,
+the 80% power that we're,
+we're shooting for.
+Okay, now let's try at, let's try at 99.
+[SOUND] Oh that's,
+that's really close, so let's try 98.
+[SOUND] Okay, oh that's below.
+Okay, so we know that when n
+goes from 98 to 99 we jump,
+our power jumps from, to ju, to over 80%.
+Okay?
+So we always round up for
+power and so we want 99.
+So, if I click 99 it will
+submit this is not the way
+in the solution to the problem
+I show you how to do this.
+The solution in the problem goes
+through a lot of normal manipulations.
+But I wanted to show you
+how to do this here.
+Just so you could you know, you could see
+that you could logic your way through
+this without even writing a for loop.
+You could of course just written a for
+loop and drawn a graph or something and
+seen where it, where it, where it goes.
+But just to show you that you know,
+the int,
+intuition behind what you're doing in,
+in the solution on the lecture notes.
+I show you know, exactly how you can
+solve for n with an equation, okay?
+But here this is the more of
+the intuition about what's going on.
+So in a court of law, if you require
+less evidence to convict people,
+then what's going to happen?
+Well you're, you're going to
+convict more guilty people, right?
+Because in the extreme case that you
+require no evidence to convict people and
+you convict everyone.
+Then everyone convicted,
+every guilty person who goes
+to trial will be convicted.
+On the other hand, if you require
+no evidence to convict people,
+then every innocent person who goes to
+trial is also going to be convicted.
+So what happens is you decrease
+the evidence required, then yes,
+you're going to convict
+more guilty people but
+you're also going to convict
+more innocent people.
+And that's one of the answers,
+convict more innocent people.
+And more guilty people is not an answer.
+And so there you go.
+That's all that question was asking but
+you know,
+let's talk about what this question
+is really trying to get at.
+Basically that you have type one and
+type two errors, and
+as you change one it changes the other,
+not in a good way.
+Right?
+[LAUGH] So if you lower your type one
+error, you're going to increase
+your type two error rate.
+If you lower your type two error rate,
+say by changing the standard of evidence,
+then your type one error
+rate is going to increase.
+The only way to try and combat this
+is to put your type one error rate at
+what you want, which we, is what we do.
+Say, 5% or something like that.
+And then your type to error rate is at
+the mercy of randomness so what we try and
+do is get a sample size that's
+large enough to ensure that our
+type to error rate is low or
+in other words that our power is high.
+So that's all this question is going at.
+So the final question asked is to take
+a look at the empty cars data set and
+basically do a T test and
+a Z test assuming,.
+An equal variance.
+And it wants us to give us a P value,
+for comparing miles per gallon for
+six-cylinders to eight-cylinders cars.
+So I've already defined m6.
+So I've already defined m6,
+my six-cylinder miles per gallon.
+My miles per gallon for
+six-cylinder cars that I've sampled.
+And m8 for my miles per gallon for
+eight-cylinder cars which I've sampled.
+Now I want to do t.test m6 and m8 and
+I want to put var.equal is TRUE.
+There you go.
+Oop, t.tests.
+Make sure you type in the right word.
+Okay so t statistic is 4.419 so
+our difference in means is 4.419
+standard errors away from 0.
+The p value's effectively 0 at least
+it's 0 to three decimal places,
+what we need for the question.
+And then notice that the only
+difference between the t statistic and
+the z statistic is whether we compare
+our statistic to the t distribution or
+the z distribution.
+So if I wanted my t test,
+my z test rather than my t test,
+I could just take the same statistic value
+4.419, so two star pnorm, and then I don't
+want to type lower.tail equals false so
+why don't I put negative 4.419, okay?
+And that gives me my normal probability.
+Let's go through calculating this
+test statistic manually, just so
+we understand what's going on.
+So let me define mean 6 as the mean for
+the six-cylinder cars,
+mean 8 as the mean for
+the eight-cylinder cars.
+S6 as the standard deviation for
+the 6 cylinder cars,
+and s8 as the standard deviation for
+the eight-cylinder cars.
+N6 as the number of observations for
+the six-cylinder cars,
+and n8 as the number of observations for
+the eight-cylinder cars, okay?
+First, we need the pooled
+variance estimate.
+So we want s sub pool.
+And that's going to be the square root,
+let's get a square root in there,
+and I need a second parenthesis,
+and then a third parenthesis, so
+then I want n6 minus 1 times
+s6 squared plus n8 minus 1,
+star s eight squared, and
+let's double check my parentheses.
+So that's the numerator and
+then I want that
+divided by n6 plus n8 minus my,
+minus 2, okay?
+And there's.
+Oh, I have an unexpected parenthesis.
+Let's double-check.
+Okay, let's see.
+2.27, okay.
+So my t-test is going to be my,
+my mean for 6, mean for 6 minus
+my mean for 8 divided by s sub p.
+Well let me just put it in parentheses,
+s sub p times square root
+1 over n1 plus 1 over n2.
+Okay.
+Aah!
+Not n1 and n2.
+I'm sorry.
+N6 and n8.
+Okay, 4.42, just like we had before.
+Let's scroll up and er,
+let me just scroll back to my t test.
+There we go, and there it is 4.419.
+So that also gives me my pooled
+variance estimate, 2.26.
+So let's see,
+I can fill in some of my answers here.
+So the first P value is zero
+to three decimal places.
+The second P value is zero
+to three decimal places.
+The common standard
+deviation was 2.269676,
+I'm going to enter them all in,
+just so I make sure I don't
+mess up the significant digits
+that it's requiring for.
+And would it reject?
+Well, the p value's really, really small,
+and so it's clearly less than
+any normal standard, and I, I even give
+5% there, I, I mentioned that, so, okay.
+One free s. Okay. And if we hit
+submit oh it doesn't like my zeroes.
+It doesn't like my zeroes.
+Wonder if I give it three decimal places,
+if that's the problem.
+No.
+So again for whatever the reason,
+the JavaScript is
+not liking when you input exactly
+zero however it's testing it.
+I'm sure I probably, what I need to
+do is have some machine tolerance for
+the answer there.
+But I'll fix that.
+And so the key thing for this problem for
+you to understand is just to make
+sure you can do these manipulations.
+These are, you know, you, you,
+you know, I, I, in general,
+you probably won't need to
+manually create the t statistic.
+But you should go through it once or
+twice, and more than anything,
+just to understand what
+the t statistic is.
+On to the last problem.
+And it just is a very simple
+multiple comparisons questions.
+And it just says the Bonferroni condre,
+correction controls the false discovery
+rate, the family wise error rate,
+the rate of true rejections and
+the number of true rejections.
+And it is the family wise error rate.
+That's just a definition if
+you look back at the lecture.
+That is what the Bonferroni
+correction is trying to go for.
+The prob, trying to control
+the probability that we make at least
+one error, so it's a very strict criteria.
+In many cases, you may not want to control
+the error rate at such a strict criteria,
+and that's why people have developed
+other things like false discovery rates.
+But this is just the definition
+of the Bonferroni correction.
+Okay, so that's the end of the homework.
+This is a marathon homework.
+Again, sorry about the grading errors,
+but I'm,
+I'm hoping when you look through the
+answers, that you got the problem correct.
+These problems are very similar to
+a lot of the quiz questions, so
+I'm hoping they'll help you
+attack the quiz questions.
+And again, remember, you know, I wrote the
+problems, so it's a little bit easier for
+me to go through them than, than it should
+be for you going through this the first
+time if you haven't seen these
+kinds of problems before.
+I also admit that the wording
+is a little tricky sometimes.
+But that's intentional.
+The idea is if we tell you
+that the mean is this and
+the variance is this and
+just execute a t statistic,
+then that's not really kind of stretching
+your, your statistics muscles for
+sort of diving into a problem,
+pulling out the relevant information.
+And I'm hoping that these kinds of
+exercises will sort of train you so
+that when you're in sort of a real life
+scenario, you'll, you, you know, you'll,
+your, your, your, sort of mental
+statistic muscles will be very strong for
+sort of extracting the relevant
+information from the problem as it's
+being sort of dynamically discussed.
+And getting at the right, or
+at least a, a, a good solution.
+Okay, so that's the me going
+through all four homeworks now.
+I'm sorry the video
+quality wasn't the best.
+But but
+I think, I'm hoping that me talking
+through these things was useful for you.
+

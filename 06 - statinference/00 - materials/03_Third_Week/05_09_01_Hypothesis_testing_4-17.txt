@@ -1,0 +1,125 @@
+Hi, and welcome to the lecture
+on hypothesis testing
+as part of
+the Statistical Inference Coursera class.
+My name is Brian Caffo and
+this class is co-taught by my
+co-instructors Jeff Leek and Roger Peng.
+We're all in the department
+of Biostatistics at
+the Johns Hopkins Bloomberg School
+of Public Health.
+Given our existing work
+on confidence intervals,
+hypothesis testing will be
+relatively easy to develop.
+Hypothesis testing is concerned
+with making decisions using data.
+Typically, hypothesis testing starts with
+a null hypothesis which is specified,
+that represents the status quo.
+It's usually labeled H0,
+pronounced H naught.
+The null hypothesis, H naught,
+is assumed to be true, and
+statistical evidence is required to
+reject it in favor of an alternative or
+so-called research hypothesis.
+Let's motivate hypothesis testing
+with a straightforward example.
+A respiratory disturbance index,
+RDI, of more than 30 events per
+hour is considered evidence of
+severe sleep disordered breathing.
+Suppose that in a sample of 100 overweight
+subjects with other risk factors for sleep
+disordered breathing in a sleep clinic,
+the mean RDI was 32 events per hour.
+So the sample mean RDI
+was 32 events per hour,
+with a standard deviation
+of 10 events per hour.
+We'd like to test whether or not
+the population mean for this population
+that we're drawing the sample from
+is equal to 30, our benchmark for
+severe sleep disordered breathing, or
+whether or not it's larger than 30.
+So we specify that as H0,
+mu equal to 30, and
+the alternative hypothesis,
+Ha as mu greater than 30.
+In our example, we specified Ha
+that mu was greater than 30.
+However it could've been less than, or
+not equal to, depending on the research
+hypothesis that we were interested in.
+In that application,
+we're specifically interested in whether
+the respiratory disturbance index for
+this population was larger than 30.
+Notice that the truth is either
+that H0 is true or Ha is true.
+We could either decide Ho or decide Ha.
+Therefore there's only four possibilities.
+If the truth is Ho,
+and we decide H0, we have simply
+correctly accepted the null hypothesis.
+If the truth is H0, and we decide Ha, we
+have made what is called a Type I error.
+In the version of hypothesis
+testing that we're going present,
+we're going to control the probability
+of a Type I error to be small.
+If the truth is Ha and we conclude Ha,
+we reject the null hypothesis,
+then we've correctly rejected the null.
+And if the truth is Ha, and we decide H0,
+we've made what is called a Type II error.
+The Type I error rate and
+the Type II error rate are related
+in the sense that as the Type I
+error rate increases,
+the Type II error rate decreases,
+and vice versa.
+We can illustrate this pretty easily
+by considering a court of law.
+In most courts,
+the null hypothesis is that the defendant
+is innocent until proven guilty.
+Here, rejecting the null hypothesis
+is to convict the defendant.
+We're going to require evidence and
+a standard on that evidence to
+reject the null hypothesis.
+If we set a very low standard, i.e.,
+we don't require much in evidence to
+convict people, then we're going to
+increase the percentage of innocent people
+convicted, Type I errors in this case.
+However, we would also increase
+the percentage of guilty people convicted,
+which would be correctly
+rejecting the null hypothesis.
+If we set a very high standard, basically
+a person has to have a smoking gun in
+their hand, to convict them,
+then we would increase the percentage of
+innocent people let free, a good thing,
+correctly accepting the null.
+But we would also increase the percentage
+of guilty people let free, or so called,
+Type II errors.
+And this illustrates how the two,
+the Type I error rate and
+the Type II error rate, are related.
+Of course ideally, what you would
+like is to get better evidence for
+a given standard.
+And that's the idea of doing things
+like increasing the sample size.
+But before we discuss
+those sorts of issues,
+let's talk about how we
+conduct hypothesis tests.
+

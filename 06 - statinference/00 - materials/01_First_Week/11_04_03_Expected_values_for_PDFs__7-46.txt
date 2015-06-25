@@ -1,0 +1,232 @@
+For a continuous random variable,
+you want to think about perhaps cutting
+the density out in, say, a piece of wood,
+and then trying to figure out where you
+would balance out that piece of wood,
+if you were to have to put
+your finger on the bottom.
+This is exactly the continue,
+the center of mass of a continuous body.
+You might think about it in our
+probability mass function as the bars get
+extra and smaller, smaller and smaller.
+We'll go over an example next.
+So consider a density that's
+one between zero and one.
+And I have this question here.
+Is it a valid density?
+The answer is yes.
+This is a well-known density
+called the Uniform density.
+And then what is its expected value?
+Well, its expected value is going to be.
+If I were to say,
+cut this density out of a piece of wood,
+where would I put my
+finger to balance it out?
+And of course that an,
+the answer would be 0.5 right here.
+Which is of course exactly the expected
+value of the uniform density.
+I'd like to head more towards
+the real topics of inference.
+So let's cover some facts
+about expected values.
+So, first recall that expected values
+are properties of the distribution.
+They're the center of
+mass of a distribution.
+And also notice that the average of random
+variables it, is itself a random variable.
+If I roll six dice and take their average,
+that is itself a random variable.
+I could repeatedly sample from it by
+repeatedly rolling the six dice and
+repeatedly taking the average.
+Because it's a random variable,
+it also has a distribution and
+that distribution has an expected value.
+The center of this distribution,
+the center of mass of
+this distribution is the same as
+that of the original distribution.
+And I'm going to go through
+some simulation examples,
+because this is a very important
+topic to the subject of inference.
+But the conclusion of this is
+that the expected value of
+the sample mean is exactly the population
+mean that it's trying to estimate.
+So in other words,
+the distribution of the sample mean,
+the population distribution of
+the sample mean is centered in
+the same place as the original
+population that the data is drawn from.
+When this happens an estimate,
+when an estimator has this property we
+say that the estimator is unbiased.
+But, let's try some simulation examples
+to see if we can get a handle on this.
+So let's consider an example.
+The blue density I have here
+is the result of thousands of
+simulations from a standard normal.
+Because there's so many simulations, this
+is a very good approximation to the truth,
+and what this is simply telling me is
+that if I collect lots and lots and
+lots of data from a population, in this
+case the standard normal distribution.
+If I collect lots of data from it,
+I can well approximate
+the distribution that it comes from.
+Now, and of course,
+the center of mass of this distribution,
+the place that would balance it out,
+is zero.
+And that's exactly what it
+kind of looks like, and
+if I were to simulate infinitely
+many data, it would be exactly zero.
+Now, let's imagine that, instead of
+taking a bunch of single normals,.
+I were to simulate ten standard normals,
+take their average, and
+to repeat that process over and
+over again.
+And I were to plot the histogram or
+the density estimate for that set of
+simulations of averages of ten normals.
+Now that would be a very different dist.
+That would be a different distribution,
+because it's no longer
+the distribution of standard normals.
+It's the distribution of
+averages of ten standard normals.
+And that's the salmon
+colored distribution.
+We see it has some interesting properties.
+One is that it's become much
+more concentrated about zero,
+we'll talk about that later.
+Right now, all we want to say is that it
+happens to be exactly centered at the .0.
+And this is all the point from
+the previous slide was trying to make.
+That the distribution of averages
+from a population will be centered at
+the same place as the distribution
+from the original population itself.
+So the distribution of averages of ten
+standard normals will be centered at zero.
+We don't have to do any calculations or
+simulations, though they're useful for
+understanding conceptually.
+Let's go through some more examples.
+Imagine if I were to roll
+a die several thousand times,
+in fact in r that's what I did right here,
+in the first panel.
+If I were to plot
+a histogram of the results,
+about one sixth of the rolls would occur
+for each of the numbers one through six,
+and if I were to roll it more and more and
+more, these bars would balance out.
+This center of mass for
+this distribution, well it's 3.5.
+Well, not exactly, because I haven't
+simulated infinitely many die rolls,
+but if I did, it would balance out at 3.5.
+Now imagine if I were to take the die,
+roll it twice,
+take the average of the numbers, and
+then do that over and over again.
+Then I wouldn't have
+a distribution of die rolls,
+I would have a distribution
+of averages of two die rolls.
+And that's what we see
+here in the second panel.
+Notice it looks more Gaussian,
+more on that later.
+Notice that it's more concentrated.
+More on that later.
+But also notice most importantly,
+it's centered at the same location.
+The population mean of averages of
+two die rolls is exactly the same as
+the population mean of die rolls.
+Now I go on to do three and then four.
+One more example.
+If I were to flip a coin a lot of times,
+I would get zero about 50% of the time,
+tails about 50% of the time, and
+heads about 50% of the time or
+one, and we know that these bars would
+bounce at about .5.s/b o .5 now if I
+only flip it a couple of times, my sample
+proportion may be kind of far from .5.
+But if I flip it enough,
+I know that the simulation
+variability will be meaningless.
+And that'll give nearly exactly .5.
+Now what if instead I were
+to flip the coin ten times,
+take the average, and then repeat
+that process over and over again.
+Then what my simulation would give me,
+is an idea about the distribution
+of averages of ten coin flips.
+And here I do that for the distribution
+of averages of ten coin flips,
+averages of 20 coin flips and
+averages of 30 coin flips.
+And what we'll see in each case
+is as the average is comprised
+of more coin flips, it's distribution
+gets more concentrated about the mean.
+However, it's distribution is always
+centered at the same place, 0.5.
+Let's go over what we know so
+far from this class.
+Expected values are properties
+of distributions.
+The population mean is the center
+of mass of that population, and
+as it moves around,
+the distribution would move around.
+The sample mean is the center
+of mass of the observed data.
+The sample mean is an estimate
+of the population mean.
+And the sample mean is unbiased.
+And what this means is the popular made,
+the population mean of the distribution of
+sample means is exactly the population
+mean that it's trying to estimate.
+And it's good that we know this,
+because we can actually estimate
+the population distribution quite
+well if we collect a lot of data.
+But we only get one sample mean.
+So we, we don't get information
+about distributions of
+sample means from the data itself.
+We only get one sample mean.
+So the fact that we know these properties
+about sample means is quite useful.
+And then the final bullet point is
+that the more data that
+goes into the sample mean,
+the more concentrated its density mass
+function is around the population mean.
+And we also saw that the more
+Gaussian-ish it was, it was looking.
+Even in these odd cases like
+flipping a coin and rolling a die.
+And so we'll talk more about
+those in the subsequent lectures.
+

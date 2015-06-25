@@ -1,0 +1,93 @@
+Hi everyone.
+This is a 2 minute tutorial on using
+Knitr.
+You need a little bit of Knitr to create
+your art
+project that you will hand in as part of
+the assignments.
+So let's, I've got RStudio open here,
+hopefully
+you can see it and, I want to go File,
+so Alt-F and New File, and then as
+you look, there's all these different
+options here, probably.
+I'm in RStudio, by the way.
+And there's all these different options
+here.
+You want to go down to R Markdown.
+There we go.
+And it actually populates a simple Knitr
+document.
+So I'm going to edit the title.
+I just want to say, this is a, is a test
+Knitr document.
+Okay, and there's a bunch of text there.
+And it shows you the R command R commands
+here.
+So what you need is you need three little
+forward, well I, I don't
+know if there are right tick marks here or
+right quotation marks.
+You know one's slanted from the upper left
+to the lower right,
+so the key at least on my keyboard that's
+right below escape.
+And then you need a, if you put an r here
+in this little area, it will
+it will execute R code, and the comma
+after
+the R will open up a bunch of options.
+So there's a ton of Knitr options, but
+cache tells R whether or not to keep it.
+Probably the most useful ones for me, eval
+tells whether or not is should evaluate
+the code.
+Sometimes you might just want to show code
+in your document.
+These are all figure things.
+[BLANK_AUDIO]
+Results equals, so the, so you can have
+results
+as marked up, which show syntax
+highlighting as is.
+Hide will hide the results and I find that
+most, most useful.
+Probably the other one that's most useful
+for me is echo.
+So you have echo as true or false.
+It, echo, true shows the code, and then
+also shows the results of the code.
+Echo false does not show the code.
+[SOUND] Okay.
+So any rate, so here's our, here's our
+examples.
+Here, here's a, gives an example of a plot
+too, so plot cars, okay?
+So let's save this.
+Oop.
+And this is I need to save it as
+something.
+So let's put test.Rmd, okay?
+And then I go control, well, so I need to
+make sure that, that Knitr is,
+is loaded, but actually there's a little
+button right here that you can just do.
+I on this tiny computer so it's hard to
+see,
+but you can just actually click Knit HTML
+right there.
+And there it will knit it.
+And there you can see how it, kind of what
+it looks like.
+And it, and it creates an HTML document.
+So if I were for example to do dir in
+R, you can see that it's created this
+test.html document.
+That, that's a, that's just a standard
+HTML document.
+You could do browse.url, browseURL,
+browseURL test.html, and
+it'll bring up, it'll bring up a browser
+window with it in, within it.
+Okay, so that's Knitr in a nutshell.
+

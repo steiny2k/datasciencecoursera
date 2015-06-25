@@ -1,0 +1,380 @@
+Suppose that we want to compare
+the mean blood pressure between two
+groups in a randomized trial,
+those who received the treatment and
+those who received a placebo.
+Here this is not unlike
+so-called A B testing,
+which is probably the language is
+used most often in data science.
+Here whether in A B testing or
+in randomized trial,
+you are performing the randomization
+in order to balance unobserved
+co-variats that may
+contaminate your results.
+Because you've performed
+this randomization,
+it's reasonable to just compare the two
+groups with a t confidence interval or
+a t test, which we'll cover later on.
+But we can't use a paired t test,
+because there is no matching of
+the subjects between the two groups.
+So we now present methods from com,
+comparing across independent groups.
+The standard confidence interval
+in this case is Y bar minus X bar,
+the average in one group minus
+the average in another group,
+times the relevant t quantile.
+Where here the degrees of
+freedom are a little bit hard.
+The degrees of freedom
+are nx plus ny minus 2,
+where nx is the number of
+observations going into the X group,
+and y is the number of observations
+going into the Y group.
+Here this is the standard
+error of the difference.
+This S sub p right here I'll
+talk about in a minute.
+But it is multiplied
+times this factor here,
+1 over nx plus 1 over ny,
+raised to the one-half power.
+You'll notice that as we
+collect more data, 1 over nx,
+gets very small and
+1 over ny gets very small.
+The S sub p squared is the so-called
+pooled standard deviation.
+Or, I'm sorry, S sub p squared is
+the so-called pooled variance.
+Its square root is the pooled
+standard deviation.
+If we're willing to assume that the
+variance is the same in the two groups,
+which would be reasonable if we
+had performed randomization,
+then our estimate of the variance
+should at some level be an average of
+the variance estimate from group one and
+the variance estimate from group two.
+However, if we have
+different sample sizes,
+we'd like to weight the variance estimate
+from group one more than we weight
+the variance estimate from group two.
+And that is exactly what
+the pooled variance estimate does.
+If in fact you have equal numbers
+of observations in both groups,
+nx is equal to ny, then the pooled
+variance is the simple average
+of the variance from the X group and
+the variance from the Y group.
+But remember, this interval assumes
+a constant variance across the two groups.
+If that assumption is violated,
+then this interval won't give
+you the proper coverage.
+If there's some doubt, simply assume
+a different variance per group,
+which we'll cover later on in the lecture
+with a slightly different interval.
+Here I go through an example from Rosner's
+Fundamentals of Biostatistics book.
+This is a very good reference book.
+I quite like it.
+However, you don't want to put it in your
+backpack, because it's pretty heavy.
+It's a very thorough book
+about couple hundred pages,
+and weighing over five pounds is my guess.
+In one of the examples from this book,
+they're comparing 8
+oral contraceptive users to 21 controls
+with respect to blood pressure.
+For the oral contraceptive users,
+they got a average systolic blood pressure
+of 133 milligrams of mercury,
+with a standard deviation of 15,
+a control blood pressure of 127
+with a standard deviation of 18.
+Let's go ahead and manually construct
+the independent group interval once,
+just to churn through the calculation.
+When you tend to do this on your
+own you tend to use t.test or
+something like that because
+you have the raw data.
+So the pooled standard deviation
+estimate is going to be
+the square root of the pooled
+variance estimate.
+There we need to take 15.34,
+the standard deviation from the oral
+contraceptive users, square it, 18.23.
+The standard deviation from
+the controls and square it.
+And take their weighted average,
+weighted by their sample sizes.
+So 7, which is 8 minus 1,
+and 20, which is 21 minus 1,
+from the two sample sizes minus 1.
+Then divided by the sum of
+the sample sizes minus 2.
+That gives us a weighted
+average of the variances,
+where the group,
+the control group with 21,
+gets more impact than the oral
+contraceptive users with 8.
+Then I square root the whole things,
+because I want the standard deviation.
+Then my interval is
+the difference in the means.
+And then you always, whenever you're
+doing an independent group interval,
+you always want to kind of mentally think,
+which one of my su,
+which one is the first part of the sub,
+subtraction.
+In this case my oral contraceptive
+users are the first part,
+so I want to just remember that.
+Because you don't want to look silly and
+suggest the controls have
+a higher blood pressure than oral
+contraceptive users when the empirical
+averages are exactly the reverse,
+just because you reverse the order in
+which you were subtracting things.
+Then I want to add and
+subtract the relevant t quantile,
+27 degrees of freedom,
+which is 8 plus 21 minus 2.
+The pooled standard deviation estimate
+times 1 over n1 plus 1 over n2,
+raised to the one-half power.
+I get about negative 10 to 20.
+In this case my interval contains 0, so
+I cannot rule out 0 as the possibility for
+the population difference
+between the two groups.
+Let's move on to another example.
+Let's revisit the example where we
+were looking at the sleep patients
+on the two drugs, but let's tr,
+pretend that the subjects weren't matched.
+Okay, so I have n1 is from group 1,
+n2 is from group 2.
+Remember in this case both
+of those would be 10.
+I go through the construction of
+the pooled standard deviation estimate.
+I get the mean difference.
+And I get the standard error of the mean
+difference, which is the pooled standard
+deviation est, estimate times square
+root 1 over n1 plus 1 over n2.
+Then I collect together my manual
+construction of the confidence interval,
+which takes the mean difference and
+subtracts the t quantile times
+the standard error of the mean.
+And then I do t.test.
+And I give it the first vector and
+the second vector.
+I tell it paired equals FALSE.
+And then because I want the interval,
+where I'm treating
+the variance in the two groups as equal,
+I do var equal, equals TRUE.
+And then I grab
+the confidence interval part.
+And then I want to compare it, where
+the instance where paired equals TRUE,
+just to remind us that ignoring pairing
+can, can really mess things up.
+And I want to grab
+the confidence interval.
+So here we get the interval.
+And my manual calculation of course
+exactly agrees with the standard t
+calculation.
+And you see that you get a very different
+interval than when you do the paired.
+If you take into account of the pairing,
+actually the interval is entirely above 0,
+where if you disregard the pairing,
+the interval actually contains 0.
+And I think when you actually look at
+the plot it seems quite clear to me why
+that's the case.
+If you're comparing this
+variation to that variation,
+that's a lot variability
+in the two groups.
+However, when you're
+matching up the subjects and
+looking at the variability
+in the difference,
+there's a lot of that variability is
+explained by inter-subject variability.
+Let's go through another example.
+The ChickWeight data in R contains
+weights of chicks from birth
+to a couple of weeks later.
+So to get it you can do,
+library datasets, data ChickWeight.
+And then I need to work with the data and
+I highly recommend the package reshape2.
+And I'll go through a little bit about
+some of the reshape commands and
+what they're doing.
+So, the ChickWeight data
+comes in a formate,
+format that is a long format.
+So, it's the chicks lined
+up in a long vector.
+So, if you want to take that long
+vector and make it a wide vector, so
+that there's one column saved for each
+time point that we measure the chick, then
+you want to do something like dcast, which
+is a function in the reshape package.
+So we want to dcast this
+ChickWeight data frame.
+And the variables Diet and Chick
+are the things that are staying the same,
+and the Time variable is the one
+that's going to get sort of
+converted from a long format
+to a short ver, format.
+So, and then I don't, I didn't like
+the names that it was giving it, so
+I renamed the latter couple of columns.
+Then I wanted to create
+a specific variable that
+is simply total weight
+gain from time zero.
+So I use the package dplyr.
+Which then I take my data frame and
+I do the command mutate.
+And I want to give it my data frame again.
+And I want to create a new
+variable which is just the final
+time point minus the baseline time point,
+so the change in weight.
+And the change in weight is what I'm
+going to analyze from here on out.
+But let's actually look at the data
+first before we run our test.
+Here's the data for each of the four diets
+plotted as a so-called spaghetti plot.
+And again the command for
+this plot, I used g g plot two.
+I've been trying throughout the lectures
+to convert all the graphics
+to g g plot two, since we teach g g
+plot earlier on in the specialization.
+Here, we show each of the diets
+from baseline here to the final
+time point here for each case.
+So you'll notice there are some things
+that are potentially suspect, though
+they're a little bit hard to ascertain
+because of the varying sample sizes.
+For example,
+there appears to be a lot more end
+variation in the first diet
+than in the fourth diet.
+Though again,
+there's a greater number of chicks in
+the first diet than in the fourth diet, so
+it's maybe actually a little bit hard
+to actually compare the variability.
+I put a reference line here that is
+the mean for each of the groups.
+And I think, at least without
+any formal statistical test,
+it does appear that the average
+weight gain for the first diet does
+appear to be a little bit slower than the
+average weight gain for the fourth diet.
+Well let's actually look at it,
+using a formal confidence interval.
+Here I just show, rather than
+plotting the individual measurements,
+I show the en, end weight minus
+the baseline weight by each of the diets,
+using a so-called violin plot.
+We're going to look at diets one and
+four, and so
+we're going to be
+comparing this violin plot,
+basically verses that violin plot.
+So our assumption of equal
+variances appears suspect here.
+In order to do the t test notation, where
+you take an outcome variable like gain,
+weight gain, and use tilde times
+the explanatory variable of interest,
+for the t test function, for that to work,
+it needs to only have two levels for
+the explanatory variable.
+So that's what this subset command does,
+is that I merely take those records for
+which diet is in the variables one or
+four.
+So omitting diets two and three.
+And again,
+when you repeat this analysis on your own,
+you might want to compare one to two,
+one to three, one to four,
+two to three, two to four, and three to
+four, and do all possible comparisons.
+If you were to do that, I might add,
+you would also want to account for
+multiplicity,
+which later on in the inference class
+we're going to discuss how to do.
+Here, I show the interval.
+Again I'm collecting the results
+with an rbind statement.
+Here I show the interval.
+I want paired equals FALSE.
+Which in this case paired equal TRUE isn't
+even an option because the variables
+are of different, the vectors of,
+are of different length.
+But what I do compare here is
+assumption that the variances are equal
+versus the assumptions that
+the variances are unequal.
+And you do get difference,
+different intervals.
+Both cases I'm grabbing
+the confidence interval.
+In the first one I get
+negative 108 to negative 14.
+In the second I get
+negative 104 to negative18.
+Both cases the intervals
+are entirely below zero,
+suggesting less weight gain on
+diet one than on diet four.
+However, the specific interval does
+change depending on whether or
+not you have the variances are equal and
+the variances are false.
+Now I don't know enough about the specific
+dataset to ascertain whether that's
+a substantive change or not.
+But because it might be important,
+let's also cover the t interval where you
+assume that the variances are unequal.
+

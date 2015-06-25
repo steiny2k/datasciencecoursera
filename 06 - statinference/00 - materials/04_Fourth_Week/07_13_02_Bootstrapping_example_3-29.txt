@@ -1,0 +1,90 @@
+So, let's consider the data, the library
+using r, and then the father.son data.
+And I'm, just to make my life a little
+bit easier, I'm going to define x here,
+as the son's heights, just so I don't
+have to keep referring to the data frame.
+Let's let n be the number of observations.
+And then I'm going to do
+10,000 boot strap resamples.
+So what I'm going to do now,
+is the sample command.
+So when I say sample x,
+that means draw from x,
+n times b numbers of resamples.
+Where in every case when I,
+because I put replace equals true,
+every time I take an observation,
+I take a son's height out of the bag.
+I put it back in okay.
+So what is this?
+This is simulating from an empirical
+distribution defined by our data
+that puts probability 1 over n
+on each observed data point.
+This is called the empirical.
+Distribution.
+And then I'm going to arrange these in
+a matrix with number of bootstrap rows and
+number of sample sizes columns.
+And so what that means is, every row of
+this matrix that I'm calling resamples
+is now a completely resampled data
+set where I took my original data.
+And I drew a sample of size n with
+replacement from that dataset.
+And that's exactly equivalent to
+regenerating a sample of size n from
+a distribution that places probability
+of 1 over n on each observed data point.
+And then let's suppose the statistic
+I'm interested in is the median.
+And so I'm going to take for
+each of these data sets,
+each of these resampled data sets,
+and I'm going to apply the median, and
+that's what this final
+apply statement does.
+So here's a density estimate
+from the resample of medians.
+I've drawn a vertical line for
+our observed median.
+So what we've done in this case
+is we've taken our vector of sun's
+heights and we've repeatedly drawn
+from those collection of sun's heights
+a new data set of the same length.
+Where we drew with replacement with equal
+probability on every observed data point.
+Then for each one of these new data
+sets we calculated the median,
+we did that 10,000 times, and
+we got a collection of medians.
+What this density estimate is,
+is an estimate
+of the distribution of
+medians where we don't
+know the actual population distribution
+we're estimating from our observed.
+Data.
+This is the central quantity
+used in bootstrapping.
+For example, in the case, we're
+bootstrapping the median, and we might
+want to do something like take the
+standard deviation of this distribution,
+and that is going to be an estimate of
+the standard error of the median, right?
+The standard deviation of the sampling
+distribution of the median.
+We could do for example, quantiles to
+get confidence interval estimates, and
+these are the sorts of things that you do
+with your bootstrap resample distribution.
+So let's go through a couple
+of the principles and
+just rediscuss broot,
+bootstrapping generally, and
+then we'll work through this
+example a little bit more.
+

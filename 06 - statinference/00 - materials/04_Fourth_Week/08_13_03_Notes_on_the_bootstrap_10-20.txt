@@ -1,0 +1,259 @@
+So the bootstrap principle, is if you
+have a statistic that estimates some
+population parameter that
+you're interested in, but
+you don't know that statistic's
+sampling distribution.
+Then the bootstrap principle,
+is simply to use the distribution
+defined by the observed data,
+to investigate that sampling is for me to
+estimate of that sampling distribution.
+The bootstrap principle actually
+doesn't require simulation,
+in the same way that if we want to know
+what is the distribution of the average
+of 50 die rolls.
+Well, we could maybe
+mathematically figure that out.
+Good luck.
+But it's easier to do
+that with simulation.
+So we never kind of figure out
+what's the limit of what you get
+when you roll the die infinitely
+many times, because, you know,
+we can, we can approximate that so
+well with Monte Carlo.
+We're also only going to
+cover a couple of aspects of
+what you can do with your
+bootstrapper samples.
+It's a rich subject, and we're mostly
+going to cover creating a confidence
+interval and estimating standard errors.
+So we'll go over those two things.
+But let's go over
+the general procedure again.
+What you do is you take your,
+your observe data.
+And you simulate complete data sets by
+drawing from the observed
+data with replacement.
+And this is approximately drawing,
+in in, for
+each of the simulated data sets you
+calculate the statistic of interest, and
+this is approximately drawing from the
+sampling distribution of that statistic.
+At least as far as the data approximates
+the real population distribution.
+So just as a reminder,
+we're going to calculate the statistic for
+each simulated data set, and then we're
+going to use these simulated statistics to
+either define a confidence interval or
+to take the standard deviation of this
+distribution in order to
+calculate a standard error.
+So, let's go through the bootstrap
+algorithm in a little bit of detail, for
+calculating a confidence interval or
+bootstrap standard air for
+the median from a set of N observations.
+So, the data that we have
+is a vector of length N.
+Then, what we're going to do is re-sample
+N observations with replacement
+from the observed data to basically
+get a re-sampled complete data set.
+Remember, when you sample
+from the observed data,
+you're going to sample with replacement.
+If you didn't do it with replacement,
+then you would basically after
+having simulated sampled N of them,
+you would just have a copy of the data
+set again just with the order permuted.
+Instead it's important to sample with
+replacement, which means that you likely
+get some observations repeated on
+multiple times, which is fine.
+This is part of bootstrap resampling,
+when you get a resampled data set,
+in our example, we're going to take
+the median, or if you're using a different
+statistic, you'll simply take that
+statistic, of the simulated data set.
+Then you're going to repeat this step,
+over and over.
+I say B times.
+Here me, where B is the number
+of bootstrap re-samples.
+You want B to be large, so
+that your Monte Carlo error is small.
+And what I mean by that is remember,
+if we could, we would just figure out
+the exact bootstrap distribution
+without involving any resampling.
+We would just know exactly what
+the distribution of the median is from
+a distribution that places probability
+1 over N on each observed data point.
+Instead we're going to do it via Monte
+Carlo this process of re-sampling, so
+you don't want the Monte Carlo error or
+basically how long you've run your
+computer, to be driving your results.
+The easiest way to fix this is to
+simply make B be fairly large,
+10,000 or more simulations.
+The medians that you get from this
+process are approximately drawn
+from the sampling distribution
+of the median of N observations.
+We're really sort of approximating the
+population distribution, but that's okay.
+There's a lot of theory that shows
+that the bootstrap actually works.
+When we do this, what we can do
+with our bootstrap resamples
+is the first thing you always want to draw
+a density estimate or a histogram of them.
+But you also could calculate their
+standard deviation which will give you
+a standard error of the median
+an estimated standard error of the median.
+You could take quantiles of your
+bootstrap re-sampled medians and, say,
+for example, the 2.5th and
+97.5th quantile, and
+those form are so-called bootstrap
+confidence interval for the median.
+So notice what we've done in this process
+is we've figured out a very easy way
+to develop a confidence interval for
+the median,
+without having to do anything
+like fancy anstotics.
+Let's go through some quick example code.
+Remember the father son data.
+Where our x, is our sons' heights.
+We might, remember we assigned this
+vector X to be the sons' heights.
+I'm going to define B to be 10,000,
+that's going to be my number
+of bootstrap resamples.
+And I've already previously
+defined N as the length of X,
+the number of observations that I have.
+So, if I want to draw N complete
+data sets with replacement,
+a B complete data sets with replacement
+from X, then I need N times B draws.
+The R command sample
+does this where it's X
+as the vector that I'm sampling from,
+N times B.
+The number of times that I want to
+draw from it and replace equals true.
+In this case if I didn't
+have replace equals true,
+it would give me an error
+because you can't draw N times B
+elements from X which only has
+N elements without replacement.
+This now gives me a vector
+of N times B samples from X.
+And now I'm going to simply arrange them
+into a matrix, with B rows and N columns.
+So every row now, is a bootstrap resample.
+And it has N observations.
+So, I'm going to go along
+the rows in the next line and
+take the median for each row.
+When I take my standard deviation
+of my medians, I get 0.08473.
+This is an estimated standard
+error of the median.
+If we want a confidence interval for
+the median.
+I'm going to take my vector
+of re-sampled medians.
+And I am going to simply
+take the quantiles.
+And I want a 95% intervals, so
+I am going to take the 2.5 and
+the 97.5 quantiles.
+It gives a fairly tight confidence
+interval in this case because
+there's lots and lots of observed data.
+Here's my histogram of
+bootstrap resamples, and
+this is just always a good thing to do.
+I did it with ggplot, and so
+here you see me assigning g
+the output of the ggplot function.
+Gggplot works on data frames, so I define
+a data frame as my collection of medians.
+And then my aesthetic my X
+variable is the medians,
+then I'm going to add to my plot I'm
+going to add a layer that is a histogram,
+the black means the bars,
+the outside of the bars are black.
+Fill being light blue means the inside of
+the bars I wanted to be light blue, and
+binwidth talks about the width of
+the bins to create my his, histogram.
+Then I type G to actually show the plot.
+So this plot is an estimate, of
+the sampling distribution of the median.
+If we had the true
+population distribution, and
+we were to sample over and over again.
+This would be a very good
+estimate up to Monte Carlo error
+of the sampling
+distribution of the median.
+Instead, we don't have the exact
+population distribution we've replaced it
+with the bootstrap principle of
+resampling from the observed data.
+And now instead we just get
+this approximate, distribution
+of this, this approximate sample
+distribution of the median.
+So a couple of final
+notes on the bootstrap.
+The way in which we presented
+the bootstrap here is the so
+called non-parametric bootstrap.
+The confidence interval that I
+showed you just taking the 2.5th and
+97.5th percentiles is actually a somewhat
+poorly performing confidence interval,
+and you can improve on it very easily.
+The one I would recommend, is called the
+bias-corrected and accelerated interval,
+BCa interval, and it's very easy to
+implement in the bootstrap package in R.
+You simply take your
+bootstrap resamples and
+pass it through this function, and
+it just gives you the BCa interval.
+It's basically a quick, little fix of what
+quantiles you take to correct for a bias.
+What I've done here,
+is I've just given you a very basic
+introduction to the bootstrap.
+It is a,
+an incredibly useful procedure and
+it has lots of variations and
+extremely wide applicability and a lot
+of intricacies when you try to apply it in
+settings like when you have time series.
+Or when your have a regression model or
+when you have longitudinal or
+multi level data.
+

@@ -1,0 +1,163 @@
+Hi.
+My name is Brian Caffo, and
+this is the Expected Values lecture
+as part of the Statistical inference
+course on Coursera, which is part
+of our data science specialization.
+This class is co-taught with my
+co-instructors, Jeff Leek and
+Roger Peng, relative to Johns Hopkins
+Bloomberg School of Public Health.
+This class is about statistical inference.
+The process of making conclusions about
+populations based on noisy data that we're
+going to assume was drawn from it.
+The way we're going to do this, is we're
+going to assume that populations and
+the randomness govern, governing our
+sample is given by densities and
+mass functions.
+So we don't have to talk
+about the whole function.
+We're going to talk about characteristics
+of these densities and mass functions,
+that are characteristics then of the
+random variables that are drawn from them.
+The most useful such
+characterization are so
+called expected values, though we've also
+covered some other characterizations.
+For example, sample quantiles.
+Expected values, is the mean is
+the most useful expected value.
+It's the center of a distribution.
+So you might think of as the mean changes,
+the distribution just moves to the left or
+the right as the mean of the distribution
+moves to the left or the right.
+The variance is another
+characteristic of a distribution, and
+it talks about how spread out it is.
+And just like before in the way
+that the sample quintiles estimated
+the population quantiles.
+The sample expected values are going to
+estimate the population expected values.
+So the sample mean will be
+an estimate of our population mean.
+And our sample variance will be an
+estimation of our population variance, and
+our sample standard deviation
+will be an estimate of
+our population standard deviation.
+The expected value,
+or mean of a random variable,
+is the center of its distribution.
+For a discrete random variable x with
+a probability mass function p of x,
+it's simply the summation of
+the possible values that x can take,
+times the probability that it takes them.
+The expected value takes its idea from
+the idea of the physical center of mass,
+if the probabilities were weights,
+were bars where their
+weights were governed by the prob,
+the value of the probability, and
+the x was the location along
+an axis that they were at-
+The expected value would
+simply be the center of mass.
+We'll go through some
+examples of that in a second.
+This idea of center of mass is actually
+useful in defining the sample mean.
+Remember, we're talking about in
+this lecture, the population mean,
+which is estimated by the sample mean.
+But it's interesting to note that
+the sample mean is the center of mass.
+If we treat each data
+point as equally likely.
+So, in other words,
+where the probability is one over N,
+and each data point xi
+has that probability.
+If we were to try, then find the center of
+mass for the data that is exactly X bar.
+So we intuitively use this idea of center
+of mass even when we use a sample mean.
+So, I have some code here to show an
+example of taking the sample mean of data,
+and how it represents the center of
+mass just by drawing a histogram.
+So here I have this data Galton.
+And again the code can be find in the mark
+down file associated with the slides that
+you can get from GitHub.
+So here in this case,
+we have parent's heights and
+children's heights in a paired data set.
+And here, I have a histogram for
+the child's height and
+here I have the histogram for
+the parent's height.
+And I've overlayed
+a continuous density estimate.
+So I'd like to go through an example
+where we actually show how moving
+our finger around, will balance out that
+histogram and, fortunately, in our studio,
+there's a, a neat little function called
+"manipulate" that will help us do this.
+So, I'm going to load up "manipulate," and
+then,
+the code I'm going to show you in here.
+But I think if you go on to
+take the data products class,
+which is part of the specialization here,
+we'll actually go through the specifics
+of how you use the manipulate function.
+But here I'm just going to do it,
+to show you it running.
+And then we're going to look at the plot.
+Okay, so here is the,
+the plot of the child's heights.
+It's the histogram, and I've overlaid
+a continuous histogram on top of it.
+And here, let's say this vertical black
+line is our current estimate of the mean.
+So here, it's saying that the mean is 62,
+and it gives us the mean squared error.
+That's sort of a measure of imbalance, how
+teetering or tottering this histogram is.
+Now notice as I move the mean around,
+which I can do now with manipulate,
+let's move it more towards
+the center of the distribution.
+Notice the mean has gone up.
+Let's move it right here.
+Notice the mean went up to 67.5, but the
+means squared error dropped quite a bit.
+It balances, it,
+it helped balance out the histogram.
+That was, almost the point where it would,
+would balance it out perfectly.
+And you can see as I get here,
+it goes down a little bit more.
+But then at some point,
+it starts going back up again.
+So if I move it all the way over here.
+Right.
+This mean squared error,
+this measure of imbalance,
+gets quite large.
+So again, this is just illustrating the
+point that the empirical mean is going to
+be the point that balances out.
+The empirical distribution and
+we're going to use this to talk
+about the population mean,
+which is going to be the, the point that
+balances out the population distribution.
+

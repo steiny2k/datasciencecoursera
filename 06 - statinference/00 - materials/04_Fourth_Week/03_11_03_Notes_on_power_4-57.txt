@@ -1,0 +1,126 @@
+So let's just reiterate when
+we're testing our alternative
+being that mu is greater than mu0.
+And then I'm going to specify
+power in terms of 1 minus beta,
+where beta is the type two error rate.
+Then we get this equation.
+Our power is equal to
+the probability that x
+bar is larger than mu0 plus the standard
+normal quintile times the standard error.
+Where this probability's calculated under
+the hypothesis that mu equals mu a.
+And then I simply reiterate that
+point here on the next line,
+where I'm explicitly stating
+that x bar is normal,
+with mean mu a and
+variance sigma squared over n.
+So the point I'd like to make, is that
+the unknowns in this equation are mu a,
+sigma, n, and beta, or
+equivalently to beta the power you want.
+The knowns are mu0 and
+usually you know alpha,
+you know exactly which type one
+error way that you would like.
+So, given these four unknowns and our
+two knowns, this is simply an equation.
+If you specify any three,
+you can solve for the fourth.
+So if you know the alternative
+mean that you'd like to detect.
+This a sigma that you're willing to
+assume, the n that you want then you can
+solve for power like we've done
+previously, otherwise what you could do,
+is you could say here's power that I want,
+here's a m, mean that I'd like to detect.
+And here's a sigma that I can tolerate,
+and then I'd like to solve for the n
+that would allow me to have that power,
+maybe at the process of planning a trial.
+And this is how power
+calculations usually work.
+You are particularly concerned most
+of the time with either n or beta.
+You usually either want to figure out for
+a particular power that I want, what n
+would I like to have, or should I have?
+Or, I can only conduct
+a study of this size,
+of size n, what is my power for
+doing that?
+Should I even waste my time?
+So, those are the two most common ways,
+but of course,
+you could also solve for mu a, or sigma.
+So I'm hoping at this point in the class,
+that you'll be able to take the work
+we've done for the greater than test,
+and do it for the less than test.
+H0, mu, less than mu0,
+just by extending the arguments
+from the previous set of slides.
+When you're testing not equal to just make
+sure you use the z1 minus alpha over 2,
+instead of, z1 minus alpha,
+that critical value.
+So for example, for
+alpha equal to 0.05, you want to make
+sure you use 1.96 and not 1.645.
+And then just do the one sided power for
+whatever direction mu a is,
+whether it's mu a greater than mu0,
+or Mu a less than Mu0.
+And this isn't,
+this is only approximately right,
+it omits a small component of power,
+but that, that
+component of power is only meaningful,
+if Mu a and Mu0 are close together.
+So let's go through some
+basic rules about power.
+As Alpha gets larger,
+our power gets larger.
+So the power of a 1 sided test is greater
+than the power of the associated 2
+sided test, and we can see that by virtue
+of just dividing alpha by 2 in this,
+in this, bullet point above.
+The further mu a gets, gets from mu0,
+the higher the power is.
+As n goes up the sample mean has less
+variability, and so, we have higher power.
+As sigma goes down our sample
+mean has less variability, and so
+we're going to have higher power.
+Now here's an interesting fact,
+power usually doesn't depend
+on all of these separate parameters, but
+on some function of those parameters.
+And in this particular case,
+that function is one dimensional.
+So you really only need to know one number
+to, to know to, to calculate power, and
+it's basically the difference
+between the null and
+alternative means divided
+by the standard error.
+And power only depends on those things,
+or if you have power and
+this number then you can calculate,
+then you can calculate n.
+So this quantity the difference and
+the means divided by sigma,
+is called the effect size.
+And, what's nice about the effect size is
+that it's unit free, so when you subtract
+mu0 and minus mu a, mu, and divide it
+by sigma, you get a unit free quantity.
+And that's why the effect size
+is very useful because it,
+you know, being unit free it has some hope
+of being interpretable cross problems.
+

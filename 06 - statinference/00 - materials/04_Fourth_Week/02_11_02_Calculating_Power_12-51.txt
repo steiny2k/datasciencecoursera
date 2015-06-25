@@ -1,0 +1,318 @@
+Let's assume that our sample is
+exactly normally distributed.
+Whether this is because we're willing to
+stomach that assumption because we have
+a large sample size and we're
+applying the central limit theorem or
+if we're willing to just assume that
+the underline population is exactly
+normally distributed.
+Either way, for the sake of argument let's
+assume that X bar is normally distributed,
+and that sigma, the standard
+deviation of the population is known.
+Then we would reject if our z statistic,
+x bar minus 30 over it's standard
+error is bigger than z1 minus alpha.
+This is the same as just saying we're
+going to reject if x bar is bigger than 30
+plus this z quantile times
+the standard err of the mean.
+Now notice under the null hypothesis
+X bar follows this distribution.
+Normal with a mean equal to mu naught.
+In this case 30.
+And the variance equal
+to sigma squared over N.
+Under the alternative it
+follows the same distribution.
+The only difference is instead
+of mu naught we have mu a.
+Where mu a is the value
+under the alternative.
+So it's very easy to write out in r,
+what our power would be.
+We want to take pnorm of
+the probab in other words,
+the normal probability of
+getting a sample mean.
+Mu naught plus z times
+sigma over square root n or
+larger, where this probability simply
+calculated with mu equal to mu a.
+So here we have mean mu, mean equal
+to mu a, our standard deviation is
+the standard error of the mean, and
+I've put lower.tail equals false.
+So that I get the upper probability.
+Now notice if I were to plug in mu equal
+to mu naught then I should get alpha, and
+now as I plug as mu
+a moves away from alpha
+the power should get larger and larger.
+So let's try it.
+Suppose someone were to give me this
+information that they wanted to conduct
+this study, they wanted to test whether or
+not mu was 30 for
+this population or it was larger than 30.
+So mu naught equals 30.
+They were interested
+a difference as large as 32,
+their end was 16,
+that they were hoping to get, and
+they knew that sigma was around 4.
+Okay?
+So here I've plugged in the values
+mu naught equal 30, mu a equals 32,
+sigma equals 4, n equals 16, here's my
+z is my normal quintile, and then first
+I want to show you if I plug in mu equal
+to mu naught that it should give me 5%.
+So here I plug in mu equal
+to mu naught and I get 5%.
+Now I'm plugging in mu equal to mu a 32,
+and you see that this jumps up to 64%.
+So, there's a 64% probability of
+detecting a mean as large as 32 or
+larger if we conduct this experiment.
+So here I'm plotting the power curves,
+which is the power as a function of Mu a,
+as n varies by color here, and.
+As we head to the right on this plot,
+so as we head along this axis,
+that's mua getting bigger,
+and this axis is power.
+Okay?
+So let's take a specific one
+of these lines and look at it.
+So this line, right here,
+is the power when n equals a.
+And what you can see is all of the lines,
+is including the one that we're discussing
+right now,
+converge at 0.05 as mu approaches 30.
+And then what you can see is that
+power increases as mu a gets larger.
+Okay?
+And basically that means we're more likely
+to detect a difference if the difference
+we want to detect is very big.
+And that makes a lot of sense.
+If something's a huge effect,
+we should be very probably,
+it should be very probably to detect it.
+And then the other thing I would
+note is that as we head up here,
+we're seeing sample sizes doubled with
+each line, I start out with N equal to 8,
+then I move to N equal to 16 right there
+and then 32 and then 64 and then 128.
+And what you can see is the curves
+all getting shoved up to higher and
+higher power earlier and earlier.
+And this makes a lot of sense as well.
+In other words, as we collect a lot
+more data, we should be more likely
+to detect a power of a var, of a specific,
+for a specific value of mu a.
+And so that's why, the mu n equal
+to 128 curve is uniformly above.
+The N equal to 64 curve, and so on.
+Let's use our studio's manipulate function
+to evaluate power as it relates
+to the two normal densities.
+So here I'm going to
+do library manipulate,
+then I'm going to define mu0 to be 30.
+Then I'm going to define a plotting
+function that depends on the population,
+standard deviation, the mean under
+the alternative, the sample size,
+and the type-1 error rate.
+Then it does ggplot.
+So, I'm,
+then it's going to execute that plot.
+But it's going to give me a slider so
+that I can vary all of these parameters.
+Let me first describe these two plots
+before we start using manipulate function.
+Currently the parameters are set at
+the values we've used in the previous
+calculations.
+Sigma was 4.
+Mu a was 32, n was 16 and alpha was 5%.
+So what this plot is saying is
+under the null hypothesis here's
+the distribution of our sample mean.
+It's centered at 30 and
+it has a variance of sigma squared over n.
+Under the alternative.
+It's centered at 32 and
+it has a variance of sigma squared over n.
+We've set a critical value, so
+that if we get a sample mean that's
+larger than a specific threshold
+we reject the null hypothesis.
+That's this line.
+We set this line such that the
+probability, if the red density is true,
+the null hypothesis is true this area,
+the probability of getting
+statistics larger than it is 5%.
+Now power is
+nothing other than the probability
+of getting larger than this
+line which is calibrated to have
+this area under the red curve is 5%.
+The probability that we reject if
+in fact the blue curve is true.
+That's the power.
+Here's 1 minus the power or
+the type two error rate.
+Okay.
+Now let's start varianting and,
+and see what happens.
+So if we move it so that its all the way
+down at 1% that's just saying that this
+area right here under the red curve
+needs to be 1, calibrated to be 1%.
+At, as we move it down.
+Let me just reiterate this point.
+As we move it down its going to
+move to the right like that.
+But what's going to happen to power?
+Power is going to go down.
+Right?
+This area is going down
+as that thing moves.
+And what's this,
+what is this thing saying?
+By moving alpha down we're making it
+harder to reject a null hypothesis.
+We're making the requirement
+of having a lot more evidence.
+Before we conclude
+the alternative is true.
+That simply re, results in less power.
+Now it's also it's got a lower
+type I error rate, but
+a larger type II error rate,
+and a lower power.
+Okay, conversely.
+If we increase alpha to
+the highest level I set here,
+now we have a 10% type one error rate but
+we have much better power.
+In other words, if we are willing to
+be a little bit looser in how much,
+when we reject, if we, you know, get
+smaller means and we're still rejecting.
+Then we'll get better power.
+Of course we do have
+a larger type I error rate.
+10%, in this case, instead of 5%.
+So let's set it back to 5%.
+Let's see what happens
+as we decrease sigma.
+Sigma goes all the way down to 1.
+Okay.
+Now our black line moves.
+Right.
+Because I've, I've,
+these are not standard normal curves.
+These are, so our rejection region isn't
+always so many standard errors from the,
+from the mean in that,
+instead we've decided to plot this on the,
+on the scale of the problem.
+So this black line then depends on sigma.
+So as we move it, as we move sigma,
+the black line moves with it.
+Okay so let's move sigma down
+to the lowest low, level I'm a,
+allowing which is sigma
+equal to 1 in this case.
+Okay so our black line has moved down and
+it's still calibrated so
+that this area is 5%.
+But what we've seen is we have so
+little variability in the sample mean
+that the probability of rejecting,
+the probability of getting larger than
+the black line, if the blue distribution,
+alternative distribution,
+is true, is almost 100%.
+Okay, what happens if we move in the
+opposite direction, we make SIGMA larger?
+Well, here sigma very large.
+Again we're still calibrated, so that this
+area is 5%, but now power is much lower.
+All this is saying, is that,
+if we have a lot more
+noise in our measurements,
+then we're going to have lower power.
+Let's try some more.
+Let's set this back to what it was at for
+the problem 4.
+How about the mean under the alternative.
+Let's make it bigger.
+What happens?
+Well, it just moves along.
+Right?
+It just moves along to the right and
+now we get a lot more power.
+And the black line doesn't depend on
+the mean under the alternative, so
+it doesn't move, and then as it moves
+towards 30, you can see the power's
+getting lower, and the lowest the power
+can be is if it's, lies right on top of
+the null distribution and then this,
+the power'll be exactly point zero five.
+Then it'll get a little bit bigger as it
+moves further away and further away and
+further away, until if we're at
+35 we have almost 100% power.
+Okay, let's set this back to 32, the value
+that we're using for the problem.
+How about n?
+So, remember what happens as n increases.
+Our sample mean gets less variable,
+more observations go into our
+sample mean it gets less variable.
+So lets see what happens.
+Okay?
+Less variance, in our sample mean.
+So these densities are getting tighter and
+tighter.
+Okay?
+But the black line moves,
+because remember,
+we it's always gotta be calibrated.
+It's always gotta be calibrated so
+that this area is 5%.
+But you can see now, we have a much better
+power when we have a sample size of 50.
+If we move it down to a sample size.
+Very low and a four,
+again the black is moved,
+because it,
+it has to force this area to be 5% and
+now our power is quite low.
+So I would highly recommend that you
+go through the code for this manipulate
+experiment to understand how power works
+in this particular setting, it's, it's,
+it's quite easy, but, basically, what you
+can see is power has a bunch of knobs.
+Oops.
+And as you turn them,
+the power changes in different ways,
+and in the next slide, we'll summarize
+the various aspects of power.
+But using the manipulate
+function like this,
+you can actually experiment
+with it your self.
+

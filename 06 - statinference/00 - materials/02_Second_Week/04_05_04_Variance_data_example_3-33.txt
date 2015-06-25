@@ -1,0 +1,107 @@
+And so
+let's actually go through a data example.
+Here I'm going to use the father son
+data from the using our data set, and
+I'm going to grab the,
+the son's height, and
+n is going to be the number
+of observations like always.
+If I were to plot a histogram of the son's
+height, I get this distribution right
+here and I overlayed the histogram
+with a continuous density estimate.
+It's quite Gaussian looking.
+Now this density estimate is
+an estimate of the population density.
+We don't have the population
+density because we
+didn't collect an infinite amount of data.
+Variability of this histogram, which is
+what the sample variance is calculating.
+It's estimating the variability
+of son's height
+from whatever population
+this was drawn from.
+Let's assume that it was a random sample.
+Let's just go through a couple of
+numbers we can calculate here.
+So here I took variance of x,
+variance of x divided by n,
+standard deviation of x, standard
+deviation of x divided by square root n.
+I rounded all the numbers
+to two decimal places.
+So 7.92 and 2.81, the variance of x and
+the standard deviation of x,
+are simply talking about the variability
+in son's heights from this data set,
+which are estimates of the variability.
+The population variability of
+sons heights if you're willing to
+assume that these sons are a random
+sample from some meaningful population.
+I like 2.81 in this case over 7.92 because
+7.92 is expressed in inches squared and
+2.81 is expressed in inches, so
+I like to work in the units
+rather than the units squared.
+0.01 and 0.09 are no longer talking about
+the variability in the children's heights.
+It's talking about the variability in
+averages of ten children's heights.
+So 0.09 is probably the most meaningful
+one, and it's the standard error.
+Or in other words,
+the standard deviation in the distribution
+of averages of n children's heights.
+And a, again,
+in this case it's an estimate of that, but
+it's the best estimate we have
+from the data that we have.
+So let's summarize what we know
+because we covered a lot of
+somewhat complicated
+topics in this lecture.
+And I would say, fundamentally,
+what differentiates understanding
+statistics from not understanding
+statistics is understanding variability.
+So if I were to say, what's the most
+important lecture, it might be this one.
+So let's summarize what we know.
+The sample variance is an estimate
+of the population variance.
+The distribution of the sample variance
+is centered at what it's estimating.
+This is a good thing.
+This means that it's unbiased.
+And it gets more concentrated about what
+it's estimating as you collect more data.
+Again, this is a good thing.
+This means if we go to the trouble
+of collecting more data,
+we get a better estimate, that
+the distribution of the sample variance is
+more concentrated about
+what it's estimating.
+We also know a lot about
+the distribution of sample means.
+We know where it was centered
+at from the last lecture, but
+we also know in this lecture
+that the variance of
+the sample mean is the population variance
+divided by n and the square root of it,
+sigma divided by square root n,
+is the so called standard error.
+These quantities represent how variable
+averages are drawn from this population.
+And it turns out that we can say a lot
+of about the distribution of averages
+from random samples even though we only
+get to look at one on a given data set.
+And this gives a lot of work,
+a lot to work with and
+it forms a lot of the foundation
+of ways in which we can perform
+

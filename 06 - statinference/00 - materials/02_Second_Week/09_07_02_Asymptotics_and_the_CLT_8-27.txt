@@ -1,0 +1,240 @@
+Perhaps the most important
+theorem in all of statistics is
+the so-called Central Limit Theorem.
+For our purposes,
+the Central Limit Theorem states that
+the distribution of averages of iid random
+variables becomes that of a standard
+normal as the sample size increases.
+Because it has fairly loose requirements
+on the collection of populations that it
+applies to, the Central Limit Theorem
+applies in a nearly endless variety of
+settings, and we'll go through several.
+The basic result is that, if we take
+an estimate like the sample average,
+x bar, Subtract off its population mean,
+mu, and divide by its standard error,
+sigma over square root n.
+That random variable limits
+to that of a standard normal.
+I would also add that replacing
+the population standard deviation,
+which is unknown by the sample
+standard deviation,
+which is known does not change
+the Central Limit Theorem.
+The most useful way we think about
+the Central Limit Theorem is to say that
+the sample average is approximately
+normally distributed with a mean given by
+the population mean and a variance given
+by the standard error of the mean.
+So let's go through several examples
+to illustrate the Central Limit Theorem
+using simulation.
+First, lets start with a standard die.
+What's interesting about this
+conceptual experiment and
+the simulation that we're going to
+conduct is that imagine if you had to
+simulate random normals prior
+to the advent of computers.
+For example, if you were a statistician
+working at that time, and
+you wanted to evaluate the behavior of
+something like the ki squared statistic,
+which is a function of
+normal random variables.
+So let's let out,
+Xi be the outcome for die i.
+And remember that the mean of
+the distribution of die rolls is 3.5 and
+that its variance is 2.92, so
+the standard error of the mean
+is square root 2.92 over n.
+Lets roll n dice, take their mean,
+subtract off 3.5, and
+divide by 1.71 over square root n.
+And repeat this over and over again.
+If the Central Limit Theorem is right,
+this should look exactly
+like a standard bell curve.
+So just to remind
+ourselves what's happening?
+We roll the dice 10 times
+in this first panel.
+We subtracted off 3.5 and we divided
+by 1.71 divided by square root n.
+Repeated that process over,
+and over, and over again.
+And the histogram displays
+the distribution of the different
+normalized averages that we got.
+We know already that this
+distribution has to be
+centered around zero because we've
+subtracted off the mean 3.5.
+So it has to be centered around zero.
+And we know exactly, what the variance
+of this distribution has to
+be were we to repeat this
+process infinitely many times.
+However, what the Central Limit Theorem
+is telling us, is also the shape.
+And the shape has to be
+like that of a bell curve.
+And because we normalized the data, it has
+to be exactly that of a standard normal.
+And we see that the approximation
+is actually very good, even for
+just ten die rolls.
+For 20, it gets even better,
+and for 30, it's better still.
+Flipping a coin is an interesting case,
+because it goes back to the original
+development of the Central Limit Theorem,
+as an approximation for
+the distribution of sample proportions.
+So let's let Xi be the 0 or 1 result of
+the ith flip of a possibly unfair coin.
+Then recall we usually give the notation
+p-hat, as the sample proportion.
+Which is simply the mean or the average,
+the empirical average of the coin flip's
+coding 0 as a tail and 1 is a head.
+Recall that the expected
+value of Xi is p and
+that the variance of Xi
+is p times 1 minus p.
+Then the standard error of the mean, or
+the standard error of the proportion
+of heads p-hat is square root
+p times 1 minus p over n.
+So if we take the statistic p-hat,
+subtract off its population mean, and
+divide by its standard error,
+square root p times 1 minus p over n
+that should be approximately normally
+distributed if n is large enough.
+Now, notice, if the coin is fair,
+then p is one-half.
+And p times 1 minus p is a quarter,
+which as a square root is one-half.
+So the standard error for a fair
+coin flip is 1 over 2 square root n.
+So let's flip the coin n times,
+take the sample proportion of heads,
+subtract off 0.5 and
+multiply the result by 2 square root n.
+Here's the result of our simulations.
+Consider the panel with ten
+coin flips here on the left.
+This is the result of flipping
+the coin ten times, subtracting off
+the population mean 0.5, and dividing
+by the standard error of the mean.
+Square root p times 1 minus p over n.
+Doing this over, and over, and over again.
+We get a good sense for
+what the distribution of normalized
+proportions of ten coin flips looks like.
+It's centered at zero because
+we subtracted off the mean and
+its variance is governed by
+the p times 1 minus p over n.
+What this lecture is telling us is
+that the distribution should be
+approximately that of a standard normal.
+And for reference, I drew the density
+of the standard normal here.
+You can see some of the discreteness,
+there's only two levels for
+a coin, so the ten, the average of
+ten coin flips could only take so
+many different combinations, and so some
+of the discreteness is showing through.
+But when we get to 20 or
+30 coin flips, we could see that
+it actually looks quite Gaussian.
+I would like to emphasize that
+the speed at which the normalized coin
+flips converges to normality is
+governed by how biased the coin is.
+For example here,
+I show what the simulations look like for
+a probability of head 0.9.
+You can see for ten, that distribution
+does not look very bell shaped.
+By 30, it's getting there but still
+the probability's when approximated by
+the normal distribution
+would not be perfect.
+So just keep this in mind that the central
+limit theorem doesn't guarantee that
+the normal distribution will
+be a good approximation.
+Simply that as the number of coin
+flips limits to infinity eventually,
+it will be a good approximation.
+As a fun aside,
+I wanted to talk about Galton's quincunx.
+A machine that you might have seen
+if you visited a science museum.
+Basically, the cunx of this machine is
+illustrating the Central Limit Theorem
+with a game that looks
+a little like Pachinko.
+So here is an exampled.
+What, what would happen is
+a ball would come down here and
+it would fall down here,
+and it would hit this peg.
+And then it would fully go left or
+right with equal probability.
+And then it would go down.
+Let's say it, it went in this
+direction and then it went down there.
+And then it would fall left or
+right with equal probability.
+And eventually, the ball would
+work its way down to a bin, and
+it would get collected down here.
+You can think of each time the ball
+hits a peg and has to choose left or
+right, as a binomial experiment,
+a coin flip.
+If it were to get all successes,
+let's say,
+it would head all the way
+over in this direction and
+if it were to get all failures, it would
+head all the way over in that direction.
+It would be like flipping a coin.
+So each row is like another coin flip.
+By virtue of the Central Limit Theorem,
+we know that the proportion of heads from
+a bunch of a coin flips is
+approximately normally distributed.
+So, we could multiply that by n and
+then also conclude that the sum,
+the total number of heads will also be
+approximately normally distributed.
+And so what you'll see at the science
+museum is that the balls will collect down
+here, and they'll actually draw the
+relevant normal distribution, right there.
+And then you'll see, as the balls collect,
+they'll collect up into this in exactly,
+overlay this superimposed
+normal distribution.
+And then when it fills up to that point
+there's usually a little thing that,
+that drops all the balls down and
+it starts over again.
+So, at any rate it's a, it's a fun idea,
+Y\you can Google online and
+see some examples of Galton's quincunx.
+The fun application of
+the Central Limit Theorem.
+

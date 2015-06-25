@@ -1,0 +1,174 @@
+If there were a competition for
+the most useful distribution, that's over.
+The normal distribution
+won it in a landslide.
+However, we could have a pretty
+active discussion about what
+deserves second place.
+The Poisson distribution would
+certainly be in the running.
+At any rate, the Poisson distribution
+is used to model counts.
+The Poisson mask function is lambda
+to the x, e to the negative lambda,
+all over x factorial where x is
+defined on the non-negative integers.
+Zero, one, two and so on.
+The mean of a Poisson random variable
+is lambda, this parameter here.
+And the variance of this
+distribution is also lambda.
+So that's an interesting thing to take
+into account when you model things is if
+they're a poisson.
+The mean and
+the variance have to be equal.
+Which of you have repeated poisson data,
+this is a checkable assumption.
+I'd like to get some instances where
+we use the poisson distribution.
+Any time you want to model count data,
+the Poisson distribution is a candidate.
+Especially if those counts are unbounded.
+There's also another set of
+data that's very common in
+the field of bio-statistics.
+So called event time or survival data.
+So for example, in cancer trials,
+you might be trying out a new therapy.
+You would model the time until people
+have a recurrence of some symptoms.
+Some people may not ever
+have that recurrence.
+And some people may,
+in the time of the study.
+You need special statistical
+techniques to deal with that so,
+that so,
+that problem of so-called censoring.
+And those techniques have a deep
+connection with the Poisson distribution.
+Whenever you take a sample of people and
+you classify them according
+to some characteristics, and
+just look at the counts of
+the people of various hair colors.
+That's called a contingency table.
+You can create plot,
+cross classified contingency table for
+example you were to count
+hair color by race, and
+each cell would be the specific
+race hair color combination.
+The count of the people in the sample
+that had that specific combination.
+The Poisson distribution is the devault,
+default distribution for
+modeling contingency table data.
+And it turns out that it has again
+a deep connection with some of
+the other models you might think to use
+such as multi nomials, binomials, and
+A final instance where the poisson
+is used, and this is done so
+commonly it's not even really stated
+as people, people are doing it.
+Is in instances where you have a binomial,
+but n is very large and p is very small.
+This, for example, happens very
+commonly in the field of epidemiology.
+My friend Roger studies air pollution.
+And he looks at,
+as air pollution rates rise and
+fall, the number of new cases of say,
+respiratory diseases.
+In large areas, like cities for example.
+Well the n is very large,
+the population of the city,
+but the number of events that he's
+looking at are often quite small.
+And so
+he models those as if they were poisson.
+And this is done so commonly in the field
+of epidemiology that people don't even
+really say when they're doing it.
+They just do it, and
+everyone knows what they're talking.
+The Poisson distribution is
+often used to model rates.
+So for example,
+let's let x be Poisson lambda t.
+It's important to note that
+lambda here has units.
+It's the average number
+of events per unit time,
+where t is expressed in that,
+that particular time unit.
+So lambda is the expected count per unit
+time, and t is the total monitoring time.
+So this is a very common use of the
+Poisson distribution for modeling rates.
+So, imagine if the number of people that
+show up to a bus stop is Poisson with
+a mean of 2.5 people per hour.
+We watch the bus stop for four hours.
+What's the probability that three or
+four, three or
+fewer people show up the whole time?
+So that's just the Poi,
+Poisson probability of three, three, two,
+one, and zero.
+And the rate we want at
+this point is not 2.5.
+Cause it's 2.5 events prior.
+But we watched it for four hours.
+So we want to put in
+a rate of 2.5 times four.
+And here we get
+the probability here of 1%.
+Let's talk about the Poisson
+approximation to the binomial.
+Particularly when n is large and
+p is small.
+The Poisson can be a quite accurate
+approximation of the binomial.
+To tie down notation,
+let's let x be binomial n, p.
+And define lambda as n times p.
+But here we're considering circumstances
+where n is very large, and
+p is very small.
+Then the proposal is that the probability
+distribution governing acts which is
+binomial can be well approximated by
+Poisson probabilities with this
+specific notation lambda as n times p.
+As our final example to this,
+to discussing the Poisson distribution.
+Let's go through a Poisson
+approximation of the binomial.
+So imagine if we were to flip a coin
+with success probability 0.01 500 times.
+What's the probability of two or
+fewer successes?
+This is simply to illustrate that I have
+a setting that's a binomial probability
+with a large n, 500, and a small p, 0.01.
+And now I want, but
+it's, it's still in the realm where
+the binomial calculations are possible.
+So here when I do pbinom, for two,
+because the question asked for two or
+fewer successes, size equals 500,
+500 coin flips, probability equals .01,
+suggesting that the true success
+probability of the problem.
+Of the coin is .01.
+I get around 12%.
+When I do the same calculation with
+Poisson, two and then now instead of
+inputting the size and the probability, I
+put in lambda as n times p 500 times .01.
+I get 12, 12.5%.
+So, fairly close.
+

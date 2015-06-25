@@ -1,0 +1,612 @@
+Hi, this is Brian and
+welcome to Homework 2 for Stat Inference.
+I'm going to work through the problems
+here and you, make sure you tried them
+first and looked at the hints and looked
+at the answers and then watch this video.
+The, and again, I'm going to teach you
+how to create this kinds of slides in
+the data products class if
+you're doing the specialization.
+So the first problem is one of these
+basic conditional probability problems.
+It's sort of like a little bit of,
+probability calisthenics
+just to warm us up.
+So what it asks, and this probably
+is better in homework 1 but, I,
+I think it kind of crept into
+homework 2 as a legacy issue.
+So the probability that a manuscript
+gets accepted to a journal is 12%.
+However, given that
+a revision is asked for,
+the probability that it
+gets accepted is 90%.
+Is it possible that the probability that
+a manuscript has a revision asked for
+is 20%?
+Okay, let me switch over to my handwritten
+notes and then we'll try and answer this.
+Let's let A be, A be the event
+that the article is accepted and
+B be the event that
+a revision is asked for.
+And if I go back to my numbers,
+they gave me probability of A is 12%.
+And they gave me
+the probability of A given B,
+the probability of accepted given
+a revision is asked for, is 90%.
+And the question is asking,
+could it be that probability B is 20%?
+Well, the probability of
+A intersect B is equal
+to the probability of A given B times
+the probability of B, which is 0.90.
+And, we're hypothesizing that probability
+of B could be 0.20 which is 0.18.
+So can it be the case that A intersect B,
+this area is 0.18 when we know
+that the probability of A,
+[SOUND] this whole area right here
+including the red area, is 0.12.
+Well that's not possible because the red
+areas can contained inside the green area.
+So it has to be smaller than 0.12.
+So this isn't possible.
+So let's try that out as an,
+as an answer and see how it goes.
+No, it's not possible,
+and submit, and okay.
+And, then, if I click Show Answer,
+it'll actually just go through the a,
+the work there.
+And then, by the way, you can always click
+on Show Hint and it gives you some basic,
+you know, basic starting point for
+the problem.
+Now the next problem is kind of important
+because it's getting us up to the point
+where we can work with
+standard normal calculations.
+And non-standard normal
+calculations which is
+sort of an important part
+of being a data scientist.
+The, these should be fairly natural
+things to work with for people.
+So it says suppose the number
+of web hits to a particular site
+are approximately normally distributed
+with a mean of 100 hits per day and
+a standard deviation of 10 hits per day.
+What's the probability that a given
+day has a fewer than 93 hits per
+day expressed as a percentage
+to the nearest percentage point?
+So let me switch over to my notes,
+and I'm going to draw,
+[SOUND] I'm going to draw
+the relevant normal distribution.
+So here it is, it's 100 is the mean, and
+it wants to know what's the probability
+of 93 or fewer hits per day.
+So, it wants that area.
+We need to figure out how many standard
+deviations below the mean, 93 is.
+So we do that by taking
+93 subtracting 100 and
+dividing by the standard deviation,
+which is 10.
+Which we get negative 0.7.
+So let's, you know, so
+we don't know that standard normal
+quantile off the top of our head.
+So, why don't we go to our studio and
+type in pnorm negative 0.7.
+So, if I type in pnorm negative 0.7,
+then I get 24%.
+I would also add that, [SOUND] or
+I can just do this calculation for you.
+You don't actually have to
+convert it to standard devia,
+to standard normal quantiles.
+So as an example, if I were to just type
+in pnorm 93, where the mean is 100 and
+the standard deviation is 10, it's
+going to give me the exact same answer.
+The, probably the most common mistake you
+would make on this one is to accidentally
+do pnorm 0.7 by itself,
+which is 0.7 standard deviations
+above the mean and lower.
+So that would be this probability [SOUND]
+right there which so 107 and lower.
+Okay?
+So that's an important,
+that's an important distinction.
+24%, submit, and there we go.
+So this homework problem
+is a base problem and
+it corresponds pretty closely
+to an example quiz question.
+Now I've kind of made, marked some of the
+correspondence between the quiz questions
+and the homework problems and the quizzes.
+So look for that.
+And it says, suppose 5% of housing
+projects have issues with asbestos.
+The sensitivity of a test for asbestos
+is 93% and the specificity is 88%.
+What's the probability that
+a housing project has no asbestos
+given a negative test expressed as
+a percentage of blah, yadda, yadda, yadda.
+So I've gone ahead and
+written out the information here.
+A is the event that the,
+house has asbestos.
+D plus is the positive test.
+D minus is the negative test.
+And what I've been given is this
+marginal probability of a house
+having asbestos is 5%.
+The sensitivity of the test, which is
+the probability of a positive test,
+given that the house has asbestos is 93%.
+The negative the specificity, is
+the probability that the test is negative,
+given that the house does not
+have asbestos, and that's 88%.
+And we want the probability that
+our house does not have asbestos
+given that we had a negative test.
+That's what we'll be interested in.
+Okay, so this is equal to the probability
+of A complement intersect D minus times,
+or
+divided by the probability of D minus,
+which is equal to the probability
+of D minus given A complement times
+the probability of A complement.
+And probability of D minus is equal
+to the probability D minus intersect
+A complement, plus the probability
+of D minus intersect A.
+And now we can write,
+let me start over on this line.
+Let me rewrite the numerator.
+That's the probability of D minus,
+given A complement
+which is the specificity times
+the probability of A complement.
+Divided by the probability of
+D minus given A complement,
+which is the specificity again times
+the probability of A complement plus.
+Now let me work with that guy.
+That's going to be the probability of D
+minus given A times the probability of A.
+So let's start plugging in our numbers.
+The specificity is 0.88.
+The, probability of A is 0.05 so
+1 minus that would give
+us the probability of A complement so
+that's 0.95.
+Okay, and then this is just
+the numerator repeated again so
+that 0.88 times 0.95 plus.
+So this is the probability of D.
+Of a negative test given
+that the house has asbestos.
+And that's 1 minus the sensitivity.
+So remember,
+let me just point this little fact out.
+Let me use different letters too,
+just so we don't get confused.
+So let me say B given C.
+I want the probability of B given C,
+plus the probability of B complement
+given C is equal to 1.
+And the way to think about
+this is when I condition on
+something like given C, then
+the probability just works like a normal
+probability as long as I have
+everything con, just conditioned on C.
+So probability of B plus probability
+of B complicant, compliment equals 1.
+Just because if, if I didn't
+condition on C that would be true and
+if I condition on C and keep C conditioned
+on it every probability, then the,
+all the same rules of probability apply.
+And that's an easy trick that
+you can use to calculate,
+calculate conditional probabilities so
+you don't get tripped up.
+Okay, so, the, in other words, what we,
+we want probability D minus given A, but
+we have the comp,
+the complement probability D plus given A.
+But the condition on A is the same so
+we can just wine it, 1 minus it so
+that's 1 minus 0.93.
+So that's 0.07 times
+the probability of A which is 0.05.
+And this works out to be about 100%.
+So I'm going to click on 100%,
+and click Submit.
+And then let me show you the answer
+where I actually plug it into R.
+So suppose that the number of
+web hits to a particular site
+are approximately normally distributed
+with a mean of 100 hits per day and
+a standard deviation of 10 hits per day.
+So the same numbers as earlier.
+And what number of web hits
+represents the number of days so
+that only 5% of the days
+have more web hits?
+I'm, here's our normal distribution, 100.
+We want the point such that,
+the area above it is 5%.
+Now we could revert everything back
+to the standard normal, but again,
+we can just use R for these questions.
+So we want to do qnorm 0.95,
+and that's a subtle point.
+Remember, qnorm is always
+specified in terms,
+in terms of the probability
+of the quantile and below.
+So just to remind ourselves,
+here we wanted the point here, so
+that 5% lied above.
+But that would mean 95% lied below.
+Okay?
+So just remember that when
+you're dealing with qnorm.
+So we want qnorm 0.95.
+And if we hit Return,
+it's going to give us the standard
+normal quantile that we remember, 1.64.
+So we want, so we know that,
+that quantile is 1.64 standard
+deviations away from the mean.
+So we could, you know, we could
+pretty easily just do that, right?
+100 plus 1.644845,
+let's just give it the whole thing,
+times 10.
+So that's 116.44.
+That's the answer, but
+let's actually just do it how we would do
+it [SOUND] without doing that calculation.
+So we, we want qnorm 0.95.
+And then we'd want to just tell
+it that the mean is 100 and
+the standard deviation is 10.
+And then you can see it
+gives the same number.
+Okay, so 116.4485, and
+it says give it to 3 decimal places.
+So that'll be 116.449.
+116.449, and I'm going to click Submit.
+And there you go.
+I think the tolerance is actually
+a little bit more forgiving than
+what I specify in the question.
+Now, here's another take
+on the same problem.
+So it says, suppose that the number
+of web hits to a site is
+approximately normally distributed.
+Mean of 100, standard deviation of 10.
+And it says,
+imagine taking a random sample of 50 days,
+what's the number of web hits
+that would be the point so
+that only 5% of averages of 50
+days of web traffic has more hits?
+So it's kind of like the same problem,
+only it's not talking about
+a random draw for this population,
+it's talking about a random average
+of 50 points from this population.
+So, so, remember our original
+population looks like this.
+It has a mean of 100, and Its width is
+governed by the standard deviation of 10.
+But if we were to take
+samples of 50 over and
+over again from this distribution,
+and take averages,
+they would themselves have a distribution
+that would also be normally distributed.
+And it would be centered
+at the same place, 100.
+But its standard deviation instead of
+being 10, would be 10 over square root 50.
+So it's the same exact problem
+only now instead of being, having
+a standard deviation 10, it's having
+standard deviation 10 over square root 50.
+Let's try it.
+So now we want to do qnorm 0.95
+with a mean equal to 100 and
+a standard deviation equal to
+10 divided by square root 50.
+And that gives me 102.33.
+And so, let me, I'll copy that number.
+Notice it's much closer to 100 than 116,
+right?
+And that's because that normal
+distribution is much more
+concentrated about 100.
+There I'm going to plug it in and
+that's to plenty of decimal places so
+it should work.
+And there we go.
+And then you can see the same,
+you can see the same exact code.
+So this is a p value question,
+a binomial p value question.
+So your friend claims that they can
+distinguish between cheap and good wines
+and so
+you randomized a bunch of varieties.
+So, you got a cheap Merlot and
+an expensive Merlot and
+you gave them to your
+friend in random order.
+And then you got a cheap Chianti and
+expensive Chianti and you gave them in
+random order, and she got five right
+out of six varieties that you tried.
+And the question is, what's the chance if
+she was just flipping a coin each time,
+what was the chance of getting five or
+more right?
+So five or six?
+That would be the p value.
+That would be the probability
+of getting as or
+more extreme evidence in
+favor of the alternative,
+assuming with the probability calculation
+is done, assuming that the null is true.
+All right so let's just do that.
+So it's, we want the binomial
+probability of five or six, okay,
+if the coin were fair, out of six trials.
+Okay so we want pbinom,
+we want five or six, so
+I'm going to put four here and
+I'll explain why in a second, I want size,
+the number of coin flips equal
+to six the prob is equal to 0.5,
+0.5 and lower.tail equals false.
+Sorry, working on a small keyboard here.
+There we go.
+So it's 11% if I round to
+the nearest integer percentage.
+The reason I do four is because by
+default, pbinom will do four and lower.
+But then when I put
+lower.tail equals false,
+it's going to do strictly
+greater than four.
+So five or six.
+Okay, so as an example,
+if I were to do 1 minus pbinom,
+where I omitted the lower.tail, it's
+going to give me the same number, 11%.
+Okay?
+So, if I do pbinom four,
+it's going to give me four or fewer, and
+if I do pbinom four with lower.tail false,
+it's going to give me strictly larger
+than four, which is five and six.
+So, the two, pbinom four without
+the lower-tail, and pbi,
+binom four plus the lower-tail
+have to add up to one.
+So, I'm going to go here,
+and plug in 11%, and
+then I'm going to click Show Answer,
+and it's going to show it,
+I rounded it to, I guess an extra
+decimal place there, so you get 10.9.
+Okay, now, let's do this question,
+which is a central theorem question.
+Consider a uniform distribution, if we
+were to take 100 draws, from a uniform
+distribution, which has mean 0.5, and
+variance 112, so I give you that.
+And I take their mean, X bar.
+What's the probability of getting
+an X bar as large as .51 or
+larger, expressed to three decimal places.
+So, we don't know much about the means
+of uniform distributions, exactly.
+But, we do know that they should be
+approximately normally distributed.
+So, let me switch over to R,
+and we'll just try, and do it.
+So, recall that my mean was equal to 0.5,
+and my st, and my s, my standard devia, or
+my sigma let's say,
+was equal to sqrt 1 divided by 12.
+And then, divided by square root of 100,
+which is 10.
+Okay?
+So, sigma is zero, is about .03.
+So, we want, that's the distribution of
+the sample average of a hundred uniforms.
+It has the same mean,
+as the original uniform distribution, but
+it's variance is squashed down, a lot by
+a factor of, er, it, by a, a factor of
+a hundred, and its standard deviation is,
+is shrunken by a factor of 10.
+Okay, so, I want pnorm.
+I want, 0.51, with a mean of, of,
+of, of equal to this mean that set,
+and my standard deviation equal
+to the sigma that I just set.
+And I want lower.tail equal to FALSE.
+And that gives me about 36%.
+And, I'm just going to copy the whole
+number, so I get all the decimal places.
+And, I submit, and
+let me show the answer, just to,
+just to make sure, we agree,
+and it's the same calculation.
+I, I would, I would note, there was
+a little bit of poor programming,
+I showed in there.
+I over wrote the default R function mean,
+with a variable called mean, and
+that's a bad programming practice.
+So, you know, I'm,
+I'm actually a little glad I did that, so
+I could point this out.
+If you need to check whether
+R has a function predefined.
+So, let me, rem,
+let me remove my mean variable.
+Now, if I type in mean, you can see
+that it's already defined as a variable.
+So don't overwrite basic R functions.
+That'll mess up your program,
+pretty easily.
+Okay good.
+One that I can just do, if you,
+if you roll a standard die, and
+if you roll ten standard dice, and
+take their average, and
+repeat this over and over again, and
+construct the histogram,
+what would it be centered at?
+So, what would this,
+the average of ten dice be centered at?
+Well, the average of single die rolls,
+is, if I were to roll a die over,
+and over again, and just get the sort of
+uniform distribution that it looks like,
+on the numbers one to six,
+that history would be centered at 3.5.
+But I know the average of ten dice
+has to be centered at the same thing,
+because the distribution of averages is
+centered at the same place as the original
+population, and so,
+it also has to be centered at 3.5.
+Great.
+Now, it wouldn't be the same distribution,
+right?
+But be, because its averages of ten
+dice not a histogram of die rolls.
+It would be more peaked at around 3.5.
+Which is ba, basically, illustrating,
+that taking average is a good thing,
+it reduces variation in the distribution.
+Again, here's another similar problem.
+If I roll ten standard dice, and I take
+their average, and repeat this over and
+over again, and construct the histogram.
+What would the, sort of variance of
+those distribution of ten dices.
+10 dice look like.
+Well, again this is just asking what
+is the variance of the distribution
+of average of 10 die rolls.
+And, we know,
+that it gets divided by ten, rIght?
+The variance scales by N, the standard
+deviation scales down by square root N.
+Okay, and, we also did a homework problem,
+where we calculated what the variance of
+die rolls was, and it was about 2.92.
+And, if you just go back in the notes,
+you'll see that we did that.
+So, I know that if the variance
+of the distribution of die rolls,
+the uniform distribution of
+the numbers one to six is 2.92,
+then the variance of the distribution
+of averages of 10 die rolls,
+would have to be 2.92 divided by 10,
+so that's .292.
+I'm just going to go ahead, and put that
+in without doing any R, or anything,
+and I'm going to submit it,
+and you can see the answer.
+Here, when I show the actual calculation,
+you can see that I calculate
+the the variance of a die roll.
+And, that's just reiterating
+the calculation done in class.
+But the important thing here,
+is to remember that we're
+dividing this variance by 10.
+So, the number of web hits to a webs, to
+a site is Poisson with mean 16.5 per day.
+What's the probability of getting 20 or
+fewer in two days,
+expressed as a percentage
+to one decimal place?
+So, we want 20, or
+fewer hits, where we know,
+that the rate of hits is 16.5 per day.
+Okay.
+So, the Poisson probability
+function is ppois.
+There you go, and we want 20, and
+the lambda is 60, is 33, 16.5 times 2.
+So, wha, what I mean by that is,
+we don't want the number,
+we want 20 hits in two days,
+we want the probability
+of getting 20 hits, or
+fewer in two days, not for one day.
+And, so, if the rate is 16.5 per day,
+then the rate is 33 per two days, okay?
+And, so, when you do that,
+you get about 1%.
+So I want to go here,
+plug in 1%, oop,
+I don't include the percent sign, and
+submit, and then, let me just show
+the answer, there you go, right there.
+I, I actually do the rounding
+in the R command there, so you,
+you can see that it's multiplying it times
+100 and rounding it to one decimal place.
+But, that's all that question
+was asking you to do.
+But, let me just comment really quickly.
+Remember the Poisson distribution
+is the distribution on counts, and
+it depends on this rate parameter lambda,
+that has time units, or
+units of whatever is being measured.
+So, in this case if we say something
+is Poisson with rate 16.5 per day,
+and we want to talk about Poisson
+probabilities of 10 days or 100 days or
+whatever, we need to multiply that lambda
+by the number of days we're considering.
+So, that's the only little bit of
+treachery in this problem, and
+you just have to keep track of that.
+So, that's the end of this homework.
+You've earned yourself a treat.
+I'll post another video,
+for homework three,
+and homework four in
+a couple days after that.
+

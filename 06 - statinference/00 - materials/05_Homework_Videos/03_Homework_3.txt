@@ -1,0 +1,494 @@
+Hi, and welcome to a discussion for
+Homework 3 for Statistical Inference.
+So, the first question asks to load the
+data set mtcars in the datasets package,
+and calculate a 95% interval for
+the miles per gallon to the, for
+the variable miles per gallon.
+So, you know, calculate an interval
+to the nearest mile per gallon.
+So, we want to make sure that
+we do library data sets and
+then we do data empty cars and
+then we can do head empty cars just
+to see the top of the data set.
+Miles per gallon is the first variable.
+I'm going to attach the empty
+car's data set just so
+that I don't have to type the dollar sign.
+So, for example, if I wanted mean MPG now,
+I would just type mean so
+the average across all the car
+types was 20.1 miles per gallon.
+And the standard deviation
+of MPG was 6 miles per hour.
+So if I were to do t.test of mpg,
+that would give me my t interval.
+If I just want to grab the conf.int
+part of it then it'll just give me the,
+my conference interval.
+And then if I want to
+round that to the nearest.
+Decimal place or
+round it to the nearest mile per gallon.
+There it is, 18 to 22.
+So I'm going to try 18 there and
+I'm going to try 22 there.
+And I am going to click submit,
+and they're both correct.
+Suppose that the standard deviation
+of nine paired differences is one.
+What would the average
+difference have to be so
+that the lower endpoint of a 95% student's
+t confidence interval touches zero?
+So, in this case I just
+wrote out n is nine,
+standard deviation is one,
+and their paired differences.
+So what that means is we
+add pairs of measurements.
+Like, let's say a baseline and a followup
+measurement, and we subtracted them.
+That's what we do when we
+have paired differences.
+And so the idea of the paired
+difference interval would be,
+it'd be the average difference plus or
+minus the appropriate t quantile.
+Right, the 0.975th t quantile times the
+standard deviation which is 1 divided by
+square root n which is
+square root 9 which is 3.
+Okay.
+So,
+just remind ourselves the appropriate
+t quantile is the one so
+that 2.5% lies above it and
+2.5% would lie below the negative of it.
+So this would be t.975.
+And then the degrees of freedom are the n
+minus 1, so the degrees of freedom are 8.
+So, I could just write t.975, 8.
+Okay, and so
+we're interested in the lower endpoint.
+So let's just forget about that plus,
+because that'll give
+us the upper endpoint.
+So that's the lower endpoint, and
+we want to know when that touches zero.
+Okay, so
+the average would have to y bar has to be
+equal to t times 0.9 to
+the 0.975th quantile divided by 3.
+So, we just have to find out
+what the 0.975th quantile is and
+divide it by 3, so
+let's go ahead and do that.
+I have R Studio open.
+So, I want, qt 0.975 but
+remember the T distribution also
+has its degrees of freedom.
+Its degrees of freedom is eight.
+And we do want to divide that by three.
+So, it says it should around 0.77.
+Okay, so let's go back to our webpage and
+type in 0.77 and submit.
+And there's the check mark.
+I think we can just talk our
+way through this next one.
+Basically the question asks if you
+understand the difference between
+paired and unpaired data analysis.
+We covered this very much so
+in the lecture.
+If our observations are paired,
+then we're going to do a paired t-test.
+And if our observations come from
+groups that are naturally assumed to be
+independent, then it's going to be
+in that independent group t-test.
+And I just want to comment that
+if your data are paired and
+you treat them as if they are independent,
+then you're going to potentially
+get very incorrect conclusions.
+Very incor, a very incorrect interval.
+On the other hand, if you do a paired
+interval when your, in fact,
+your groups are independent,
+then that's just unreasonably incorrect.
+That's so incorrect there's no,
+you know you can't even,
+you can't even plead
+ignorance in that setting.
+Okay?
+So the,
+probably the most common mistake is to
+treat pair data as if it's independent.
+And the most common consequence of
+doing that, it depends a little bit on
+the circumstance, but the most common
+consequence of that is that variability
+that's explained by the pairing has been
+left in the interval, and you're getting
+an interval that tends to be wider than
+what you would expect to get otherwise.
+So that's the consequence of that.
+You're, you're, you're pretending like
+you have uncertainty that you don't have,
+which is unfortunate, because you
+get a wider, less precise interval.
+Okay.
+So, let's do that, and
+then we get our check mark.
+So the next question is just asking us,
+can we do a t-test comparing
+two groups using R?
+And it asks us to take the mtcars
+data set and compare four and
+six cylinder cars using a constan,
+a t-test with of constant variance.
+So, let's let's do head
+mtcars just to show us what it looks like.
+So I want let's say my four cylinderl is,
+is mtcars.
+Miles per gallon which is
+what the R outcome is.
+In the case for mtcars star dollar
+sign cylinder equals four and
+it probably,
+probably if you're doing this now,
+you probably want do,
+use dplyr which is the,
+which is better for
+working with data frames like this.
+But, you know,
+those of us that have been using R for
+a long time have kind of gotten used to
+doing things this old, old school way.
+But probably, you want to use dplyr.
+Probably it would make this like,
+one command instead of two.
+Okay, now we want t.test c4,
+c6, and I want var.equal as true,
+because I,
+the problem specified
+an equal variance test.
+And there you see it's 3.15 to 10.69,
+okay?
+So, let's put it in.
+We want 3.15
+to 10.69.
+Submit, there we go, okay?
+So, if someone put a gun to your head and
+said,
+your confidence interval must
+contain what it's estimating or
+I'll pull the trigger,
+what would be the smart thing to do?
+Well, among other things you might
+say you know, why do you care so much
+about confidence intervals, but let's just
+go with the question for a little bit.
+The idea behind this is of course you
+don't want the person pulling the trigger,
+so you're going to make the confidence
+intervals wide as possible, right?
+You've, you've, you've beat this person
+at their own, at their game, right?
+Make the interval wide as possible, and
+if you're really clever you'll say
+minus infinity to plus infinity.
+And that, and that's basically saying
+if you want to be more sure that your
+confidence interval covers what it's
+estimating, then you make it wider.
+So a 99% interval's going to be wider
+than a 95% interval which is going to
+be wider than a 90% interval.
+The more confident you want to be that
+your interval contains the true value,
+then you make the interval wider.
+Okay, and that's all, that's all that it,
+that it should, and that it says.
+So you want to make it as wide as
+possible and submit, though I think
+call the authorities is a fairly
+reasonable answer in this case as well.
+This question has three points,
+even though it's only asked you
+to answer one of the three.
+Basically it says you, your interval for
+comparing four versus six, what do
+you conclude, going back two slides.
+Well, the first point
+you have to remember,
+which order did you subtract things in?
+In this case I subtracted mean for
+four minus mean for
+six and it was entirely above zero.
+Okay?
+Second thing, you want to check whether
+your confidence interval is entirely above
+zero, entirely below zero or
+contains zero.
+If it contains zero then, zero is
+a plausible value for the mean difference.
+So, it's suggesting possibly,
+that there's no difference between
+the two groups you're comparing, okay?
+In this case, it's entirely above zero.
+And remember,
+we subtracted 4 minus 6, okay?
+So, that's suggesting four
+cylinder cars have an higher
+mean miles per gallon
+than six cylinder cars.
+So, that's the second point.
+The third point is that in order
+to make this conclusion the,
+to, to make the conclusion
+something like the data supports
+with 95% confidence that the mean for
+four cylinder cars is higher.
+Mean miles per gallon for
+four cylinder cars is higher than the mean
+miles per gallon for six cylinder cars.
+To have that conclusion,
+we need to work under the assumption
+that the set of cars we're looking at is
+a reasonable IID sample from a population
+of cars that we are interested in.
+Okay?
+So
+you have those three things to
+remember with, with this problem, and
+then this is just summarized, and
+the answer is in, the in, interval
+is above zero, suggesting four is better
+than six in terms of miles per gallon.
+This is also not a terribly,
+there's our, there's our check.
+This is also not a terribly
+stunning conclusion.
+Everyone knows that if
+you have fewer cylinders,
+the cars tend to get a slightly better gas
+mileage, though maybe, aren't as zoomy.
+So, this question is a wall of text.
+And, so, if you read through it,
+it's just, basically,
+giving you a lot of setting.
+There's a diet study where you have
+18 subjects, nine given a treatment,
+nine given a placebo and
+it gives you all sorts of details.
+The question is pretty simple though,
+it just says what's
+the pooled variance estimate?
+We have two groups we are given a variance
+or a standard deviation for each group.
+And it says, what's the pooled variance?
+This problem is made very easy
+by the fact that there's equal
+numbers of subjects in either group.
+So in that case,
+the pooled variance is just the average
+of the variances in the two groups.
+But remember,
+it's the average of the variances,
+not the average of
+the standard deviations.
+So, it's 1.5 squared plus 1.8 squared.
+Divided by 2.
+That's the variance.
+And then if we were to square root this.
+That would be the standard deviation.
+So 2.745 is the variance.
+So it asks specifically for the variance,
+not the standard deviation, so 2.745.
+And if I click submit,
+there's my check mark.
+I want to also highlight it, here in
+the answer I actually give the formula.
+The general formula, where you plug in N
+one and N two, and that's what would be
+needed if you had different numbers
+of subjects in either group.
+You would need the weighted estimate.
+But there's only one trick in this
+problem, and the trick is that you
+average, or you pool the variances,
+not the standard deviations.
+So the next questions unfortunately is
+a little bit of a hold out from a previous
+version of the class.
+At one point I decided to hack and
+slash a lot of content from the class and
+un, and unfortunately the homework was
+one of the last things to get changed and
+then people started linking to things and
+so
+I felt obligated to keep
+the homework organized as it was.
+So the,
+at any rate don't feel badly if this
+question feels like it
+came out of left field.
+I removed the videos where this came from.
+So at this point if you'd like to
+learn about likelihood which is
+to me I think is a tremendously
+important topic.
+I have lectures, I have both the old
+lectures that I took out on YouTube but
+now I have, but I,
+I think even a better treatment is from my
+Bootcamp class which is also on YouTube
+and the Lecture 6 one is likelihood and
+I cover maximum likelihood estimation.
+So if you want kind of a a rigorous
+treatment, it's kind of at the level that
+I would give a Master's student, an
+interim Master's student here at Hopkins.
+I would, I would look at that.
+But otherwise I wouldn't worry
+about this question too much, and
+I'm sorry it crept in there.
+And so any rate,
+the maximum likelihood estimate for
+a binomial problem is just
+the proportion of successes.
+So the final question,
+unfortunately it's also another hold out
+from the previous version of the class,
+the, but, but it basically asked
+something about Bayesian inference.
+But I'm actually a little bit
+glad that it's still in here,
+because I think it's good for
+at least you, for
+at least you'd have heard a little
+about Bayesian inference.
+So, there's lots of different
+styles of inference, and,
+two major camps are sort of, ordinary
+frequentist inference, that's what we
+cover in this class, and that's the most
+common form of inference, I would say.
+And then Bayesian inference, which is
+a very different style of inference.
+But there's many, many shades of gray in
+between these two, and there's lots of so
+called Bayesians that look
+just like frequentists and
+lots of frequentists who kind
+of behave really like Bayesians.
+And then I would say there's different
+styles of frequentist analysis that are so
+different, they're more different from
+one another than a frequentist of
+one type is from a Bayesian
+of another type.
+So it's a very misleading concepts
+to say that there's you know,
+two major camps in statistics.
+Nonetheless what Bayesian statistics is,
+which is broadly defined a,
+a major collection of styles of inference.
+The one hallmark that all Bayesian
+inference has is that you take this
+construct that we just talked about, the
+likelihood, which is the evidentiary part.
+It's the data part of, of the it's, it's
+the information about your parameters,
+like your mean or your binomial proportion
+or whatever that's contained in your data.
+And then you multiply it times
+a prior which is a set of beliefs.
+It's, it's, it's encoded by a density
+function but it's a set of beliefs and
+that prior is not informed by the data.
+It, it, and, in the old-school
+version of Bayesianism, it's com,
+a completely subjective thing,
+something you just set.
+And so, the prior,
+this belief part of the bray,
+Bayesian system is both the best and
+the worst part of Bayesian analysis.
+It's the best because you can,
+you can really have your analysis force
+things away from ludicrous conclusions and
+use prior information that you may
+have and, and those sorts of things.
+But on the other hand,
+the idea of subjective information and
+informing your analysis
+with ultimately you know,
+information that wasn't contained in
+your data seems kind of problematic.
+So, but I would say this is
+a sort of ludicrous simplification
+of Bayesian analysis.
+So at the bare minimum,
+what I'd like you all to understand,
+and this is why I'm glad this homework
+problem is in here even though we didn't
+cover the content,
+is that you at least know that for
+Bayesian inference,
+you have to assign a prior distribution.
+And, and then that after, once you have
+that you multiply it times the likelihood,
+and you get a set of
+posterior beliefs that in,
+incorporate the evidence in your data and
+your prior knowledge.
+If you want to learn more about this,
+I have some YouTube videos on,
+from boot camp one that,
+that go through some Bayesian analysis and
+setting of binomial,
+in the binomial setting.
+And then, also,
+in the prior version of this class,
+we're going to keep all
+the videos on YouTube.
+You can go to the one where I cover
+Bayesian analysis in specific.
+And, I think,
+if you're going to be a data scientist,
+you probably need to
+know some Bayesian stuff.
+And, and, part of the reason is because
+this, the simplified version of
+Bayesianism has been dramatically expanded
+on in the computer science literature,
+towards some really elaborate
+machine learning algorithms.
+And, it's very popular.
+So, if you go to companies like,
+like Google and Amazon and, and, and,
+the, the tech companies that would really
+be a, you know, interesting places for
+a data scientist to go, they're all doing
+a lot Bayesian analysis behind the scenes.
+And so, it's a good thing to know.
+We can't cover it in this class
+because our data scientist, you know,
+kind of mini Master's Degree that
+we're trying to create here, we,
+we want to keep it
+constrained to nine months.
+But I really think it's a good thing for
+you to read up more on your own just to
+have kind of a complete body of
+knowledge to, to be a data scientist.
+But you're all Corsarians,
+you're all dedicated self learners.
+So I'm confident that everyone can get the
+little bit that they need to know to move
+forward outside of the class.
+

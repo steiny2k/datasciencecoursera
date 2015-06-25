@@ -1,0 +1,202 @@
+Hi, my name is Brian Caffo, and this is
+the lecture on p-values in the statistical
+inference Coursera class as part of
+our data science specialization.
+This class is co-taught with my
+c-instructors, Jeff Leek and
+Roger Peng, we're all in
+the department of Bio statistics
+at the Johns Hopkins Bloomberg School
+of Public Health.
+P-values are the most common measure
+of statistical significance.
+Basically, every statistical software
+that performs a hypothesis test
+outputs a p-value for you.
+And, because they're so popular, and
+because often they get misinterpreted,
+they are quite controversial
+among statisticians.
+And, so what I give here
+are some comments both in favor,
+of and some papers and
+commentaries against P-value.
+In this class, we're not going to focus
+too much on these controversies, but
+instead are just going to focus on
+how do you generate a P-value and
+how do you correctly interpret it?
+The basic idea of a P-value is to start
+under the null hypothesis assume that
+nothing is going on, and then calculate
+the probability of obtaining evidence as
+or more extreme than we actually obtained
+under this null hypothesis basically,
+how unusual is the result we got
+if the null hypothesis is true.
+So let's go through the approach
+through maybe three simple steps, and
+then we'll go through basic
+calculations in the next set of slides.
+So first of all you get the hypothetical
+distribution of a data summary,
+which we'll just call a statistic like
+our test statistic from the T lecture and
+figure out its distribution
+when nothing is going on,
+the so-called null distribution
+option of the statistic.
+Then we calculate the statistic with
+the data that we actually have so, for
+example we calculate our T statistic
+we actually plug in the empirical mean,
+subtract off the hypothesized mean and
+divide by the standard error.
+Then we calculate the probability
+of obtaining a statistic as or
+more extreme in other words, we compare
+what we calculated to our hypothetical
+distribution, and we see how extreme
+it is, in toward the alternative.
+So, if the P-value is small, what you're
+saying is the probability of observing
+a test statistic as extreme as we saw,
+is low if the null hypothesis were true.
+Okay, let's go over P-values with
+a little bit more formality.
+So, the P-value is the probability
+under the null hypothesis of
+obtaining evidence as or
+more extreme than was actually obtained.
+So, and, and, we're, usually we're talking
+about evidence here in terms of the test
+statistic, so it's the probability
+of obtaining a test statistic as or
+more extreme in favor of the alternative
+than was actually obtained.
+So, if your P-value is small,
+then either the null hypothesis is true,
+and you've observed something that is
+highly supportive of the alternative
+that was quite unlikely, or
+the null hypothesis is false.
+So let's go through an exam- a quick,
+just numerical example.
+So, we've covered the T statistic,
+and simple T test so
+imagine if you wanted to test mu equal to
+mu knot versus mu greater than mu not, and
+our T statistic work got to be
+2.5 on 15 degrees of freedom.
+What is the probability
+of getting a T statistic
+as large as 2.5 under this,
+in this scenario?
+Well, here we can calculate
+it it's just pt, 2.5 in 15,
+15 for the degrees of freedom,
+we want lower.tail = false because we
+want the probability of being larger
+than 2.5, right, as or more extreme
+in the direction of the alternative and
+that works out to be about 1%.
+So therefore, the probability of
+seeing evidence as or more extreme.
+Then actually obtained under
+the null hypothesis is one 1%, so
+either the null hypothesis is true,
+and we've seen an exceptionally
+large T statistic, or
+the null hypothesis is false.
+So, there's another way to think about
+the P-value as the so-called attained
+significance level, and
+let's go through that really quickly.
+So we're calling through way an example
+where our test statistic was two, for
+H not mu equal to 30
+versus mu greater than 30.
+So test statistics larger
+than two are,I,m sorry test
+statistics that are larger
+are going to be more supportive
+of the alternative where two
+here is two standard, or
+that our test statistic is two standard
+errors above the hypothesized mean of 30.
+Let's assume that our test statistic
+is standard normal, distributed
+rather than T distributed just to make
+our discussion a little bit easier.
+Now if we were to set alpha equal to .05.
+We know that we would reject
+because we know the point,
+the rejection region, and the quantile
+that we would reject for at .05.
+So that, that area was 0.05 would be, the
+quantile would be 1.645 since we know 2,
+Since we know 2 lies above 1.645 we would,
+we would reject.
+Now imagine if instead of 0.05,
+imagine if we did 0.04 then
+we would have another line that was
+a little bit closer than 1.645.
+So what if we were to find the exact error
+rate where the line fell exactly on 2?
+Well that would simply be
+calculating this probability
+right here of 2 or larger, and that's
+nothing other than the P-value we just did
+that calculation that's the probability
+of getting a test statistic as large or
+larger than 2 under the null hypothesis.
+So at any rate another way to think about
+the P-value, is its the smallest value for
+alpha for which you would still
+reject the null hypothesis.
+And so because of that they call it
+the attained significance level.
+And what this means is that
+the P-value is an extremely convenient
+test statistic to communicate to people,
+because when you give it to them,
+they can test it versus whatever
+alpha level they would like.
+Let's reiterate some of the points
+we made on the previous slide.
+So by reporting a P-value your reader,
+or whoever you're giving the P-value to,
+to interpret it,
+can perform the hypothesis test at
+whatever alpha level he or she chooses to.
+The simple rule is, if the P-value
+is less than the alpha level,
+then you reject a null hypothesis.
+If the P-value is greater than it,
+then you fail to reject.
+Now, we calculated our P-values for
+one sided hypothesis test, T and Z test.
+In order to get the two sided hypothesis
+test, you have to account for
+the evidence as or
+more extreme too large or as or
+more extreme to small negative so
+because the equal
+probability in either tail you'll
+wind up doubling the P-value.
+I would give a cautionary note that
+the software automatically interprets for
+most tests, automatically interprets the
+two-sided test most of the time they'll
+denote this as P-value for
+a two-sided test.
+But if they don't,
+they're always calculating the P-value for
+the two-sided test.
+The other thing I would know is that if
+you happen to take some more advanced
+classes in statistics that cover things
+like Chi-squared test, those P-values
+are automatically, in a sense, two-sided
+you would not have to double them.
+

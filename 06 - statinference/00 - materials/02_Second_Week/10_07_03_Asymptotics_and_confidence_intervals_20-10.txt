@@ -1,0 +1,550 @@
+So let's develop a more practical
+use of the central limit theorem.
+Recall that the sample meet is
+approximately normal distributed with
+population mean equal to mu and standard
+deviation equal to the standard error of
+the means sigma over square root 10.
+In this distribution, mu plus 2 standard
+errors is pretty far out in the tail.
+With only a 2.5% chance of a normal being
+larger than two standard deviations in
+the, the tail.
+Similarly, mu minus 2 standard error
+is pretty far in the left tail,
+with only a 2.5% chance of a normal being
+smaller than two standard deviations in
+the left tail.
+So the probability that x bar is bigger
+than mu plus 2 standard errors or
+smaller than mu minus 2
+standard errors is 5%.
+Where equivalently, the probability
+that mu is between these limits is 95%.
+We can reverse the role of
+x bar mu without changing
+the probability inequalities and get the,
+get that the quantity x bar plus or
+minus 2 standard errors contains
+mu with probability 95%.
+Remember here, that we're treating
+the interval as random x bar plus or
+minus 2 standard errors,
+while mu is fixed.
+So we talked about the probability
+that the interval contains mu.
+The actual interpretation of this is that
+if we were to repeatedly get samples of
+size n from this population.
+Construct a confidence
+interval in each case.
+About 95% of the intervals we
+obtained would contain mu,
+the parameter that we're
+trying to estimate.
+I would note that I get the 2 by
+rounding up the 97.5th quantile,
+which is closer to 1.96.
+If you wanted a 90% interval,
+what you need is 5% in either tail.
+So you would replace the 2 with 1.645.
+Let's go through a simple example.
+Consider the father.son data
+from the using r package.
+To find x to be the son's height,
+I'm simply going to take mean of x plus or
+minus the 0.975th normal quantile
+times the standard error of the mean.
+Standard deviation of x divided
+by the square root of n,
+which is the length of the vector x.
+I divided by 12 so
+that my confidence interval will
+be in feet rather than inches.
+And I get the confidence
+interval 5.710 to 5.738.
+So if we were willing to assume that
+the sons from this data were and
+ideal draw from a population of interest.
+Then the confidence interval for
+the average height to the sons
+would be 5.71 to 5.74.
+Let's consider coin flips in
+developing confidence interval for
+the success probability of the coin.
+So, in this case, each observation xi, is
+a 0 or 1 with a common success probably p.
+And remember the variance of coin flip
+was p times 1 minus p, where again,
+p is the true success
+probability of the coin.
+Remember, then, the standard error of the
+mean is square p times 1 minus p over n.
+So the interval takes of the form,
+p hat plus or
+minus the normal quantile times
+square root p times 1 minus p over n.
+We don't know p,
+it's what we want to estimate.
+And so we don't have the standard error,
+but we would replace it by p hat.
+And this is a confidence interval that
+is called the Wald confidence intervals,
+named after the great statistician Wald.
+It turns out p times 1 minus p is as
+large as it can be when p equals a half,
+so that square root p times
+1 minus p is one-half.
+And when we multiply it times the 2 in
+the 95% interval, those cancel out and
+we get that for
+95% intervals, p hat plus or
+minus 1 over square root n is a very
+quick confidence interval estimate for p.
+Imagine you were running for political
+office and your campaign advisor told you
+that in a random sample of 100 likely
+voters, 56 intended to vote for you.
+Can you relax?
+Do you have this race in the bag?
+Is 0.56 out of 100 sampled
+enough evidence to
+conclude that you'll likely
+get more than 50% of the vote?
+But you don't have access to a computer or
+calculator.
+So what you do is you do 1 over
+square root 100, which yields 0.1.
+So the back-of-the-envelope
+calculation gives
+an approximate 95%
+interval of 0.46 to 0.66.
+The confidence interval says that we can't
+rule out possibilities below 0.5 with
+95% confidence.
+So, not enough for you to relax, and
+you'd better go do more campaigning.
+So, some general rough guidelines is that
+you need 100 for one decimal place in
+a binomial experiment, 10,000 for
+two, and a million for three.
+Here I just give 1 over
+the square root of a bunch of
+powers of 10 just to illustrate that.
+Here I just go through
+the calculation where I
+plug 0.56 directly into
+the standard area formula.
+So we have 0.56 plus or minus the relevant
+standard normal quantile times
+square root 0.56 times 0.44 over 100.
+This yields the interval 0.46
+to 0.66 just like before.
+Also the function binom.test with 56
+successes out of 100 trials in grabbing
+the confidence interval component yields
+a very similar interval, 0.46 to 0.66.
+The binom.test function is exactly
+the sense that it yields 95% coverage or
+higher, regardless of the size N.
+These so called exact procedures
+are a nice compliment to
+large sample procedures.
+They tend to involve computations
+that cannot be done by hand and
+can be conservative.
+I have wider intervals, but
+nonetheless they do not rely
+on the Central Limit Theorem.
+Let's consider a simulation.
+Here I'm going to do a simulation
+where I flip a coin with a given
+success probability over and
+over and over again.
+And calculate the percentage
+of times my walled interval
+covers the true coin probability
+that we used to generate the data.
+So I'm going to say, in each one of my
+simulations I'm going to do 20 coin flips.
+The true values of the success probability
+of the coin that I'd like to look at,
+vary between 0.1 and 0.9 where I
+step through them by value 0.05.
+I'm going to do 1,000 simulations.
+And then I'm going to loop over the,
+these true success probabilities.
+And for each true success probability
+I'm going to generate 1,000 sets
+of 10 coin flips where I take
+the sample proportion in each case.
+Then I'm going to calculate the lower
+limit of the confidence interval in
+each of those cases.
+And the upper limit of the confidence
+interval in each of those cases.
+And I'm going to calculate
+the proportion of times that they can
+cover that true value of p that
+I used to simulate the data.
+This will all be in this variable
+that I'm calling coverage.
+Now what I'd like to do is plot
+coverage as the function of
+the true success probability
+I used to simulate the data.
+Here I show the plot of the coverage by
+the true values of p used for simulation.
+So, for example,
+at the value 0.5 I flipped
+the coin ten times, took the sample
+proportion, found the confidence interval,
+and then gave it a one if it
+covered the value 0.5 or not.
+I did that 1,000 times and
+in this case over 95% of the time it
+did in fact cover that probability.
+So it's basically saying if
+the true value of p was 0.5 and
+I do a confidence interval the coverage
+is actually better than 95% a little bit.
+There is some Monte Carlo error, right?
+In that I didn't do an infinite
+number of simulations.
+I only did 1,000, but
+1,000 is pretty good, right?
+As we saw in a couple slide ago it's
+giving us a little bit better than one
+decimal place accuracy.
+Now, here, it's pretty clear that
+I'm getting nowhere near 95%
+confidence level for the case where
+the p is around here around 12% or so.
+Now why is this the case?
+Why is it that a 95% confidence
+interval procedure is
+clearly giving us coverage less than 95%?
+And it's simply because the central
+limit theorem isn't as accurate,
+isn't as accurate as we need it to be for
+this specific value of N for
+coins with this specific true probability.
+So, I'll give you a quick fix to address
+this problem for smaller values of n.
+The quick fix, is to simply take your
+number of successes x and add 2, and
+your number of failures and also add 2.
+So that your p hat is now
+x plus 2 over n plus 4.
+So adding two successes and failures.
+Then you just churn through the confidence
+interval procedure as normal.
+But with this new sample proportion that's
+been shrunk towards 0.5 a little bit.
+This is called the Agresti/Coull interval.
+And in a minute we'll show you how
+it performs a little bit better.
+Before I show the results for adding
+two successes and adding two failures,
+I want to simply show that the performance
+is the better when n is larger.
+Here, I've done exactly the same
+simulation that turned n
+into 100 rather than 20.
+And here you see the coverage probability
+as a function of the different values of
+p, only now the only difference is that
+within each conference interval that I
+simulated, I use a greater
+number of coin flips.
+So in each case, take for
+example this point right here.
+For that specific true value of p,
+I simulated 100 coin flips.
+Took the sample proportion,
+created the confidence interval and
+saw if it contained this true value of p.
+In over 95% of the instances
+that was the case.
+You see here's the 95% line right here and
+you see that the, the coverage probability
+is fairly close to it throughout, it never
+dips below 90 like it did in the 20 case.
+Now, let's look back at the 20 case again.
+So I'm setting n equal to 20.
+Okay?
+But now, when I calculate my
+confidence interval here,
+notice that I am adding two successes and
+two failures.
+So lets see the performance of that.
+And you can see that the add two successes
+and add two failures interval, tends to
+cover the true success probability with
+a higher percentage of time than 95%.
+This is a little bit better than
+the extremely poor coverage of
+the Wald interval for
+certain values of the true probability.
+However, being too conservative,
+in other words,
+having too high of a coverage rate is
+also not necessarily a good thing,
+as it implies that the interval's
+probably too wide.
+Nonetheless I have done some thinking
+about this specific problem and I could
+give a very categorical recommendation
+that the add 2 successes and
+2 failures interval should generally
+be used instead of the Wald interval.
+Lets create a poisson interval
+using the estimate plus or
+minus normal quantile standard
+error of an estimate formula.
+This is based on the central limit theorem
+though it's maybe a little less clear how
+the central limit theorem
+is applying in this case.
+I'll talk about that
+a little bit in a minute.
+So let's talk about a nuclear pump
+that failed 5 times out of 94.32 days,
+given 95% confidence interval for
+the failure rate per day.
+So I'm going to assume that my
+number of failures is Poisson
+with failure rate lambda and
+t being the number of days.
+So my estimate of the failure rate is
+the number of failures divided
+by the total monitoring time.
+The variance of this estimate
+turns out to be lambda over t.
+So that lambda hat over t is our
+empirical variance estimate.
+Here I just go through
+the calculations in r.
+I define my number of events here as x
+being 5, the monitoring time is 94.32.
+My estimate of the rate as x over t, and
+my confidence interval estimate
+as the rate estimate plus or
+minus the relevant standard normal
+quantile times the standard error, and
+then I round it so that I only
+get three decimal place accuracy.
+So here is my estimate for the rate,
+my 95% confidence interval estimate for
+the rate.
+In addition to doing
+a large sample interval,
+we can do an exact Poisson interval,
+and R has a function for doing it.
+It's poisson.test.
+We give it the number of events.
+And the monitoring time, and then you can
+just grab conference interval compart,
+part of it, and
+there it gives the exact Poisson interval.
+What I mean by exact here,
+again, is that it guarantees the coverage,
+but that might be conservative.
+It might give you a wider
+interval than necessary, but
+it will guarantee 95% coverage.
+Just because we're very interested in
+seeing how confidence intervals perform on
+repeated samplings since that defines our
+idea of what a confidence interval is.
+Let's repeat the process that we did for
+the coin, for the Poisson coverage rate.
+So let's pick a set of lambda values,
+kind of near the ones from our example.
+Let's do 1,000 simulations.
+Let's set our monitoring time as 100
+instead of 94 just to make it simple.
+And then, I'm going to define
+coverage in the same way.
+I'm going to simulate a bunch of
+Poissons with this particular rate, and
+then I'm going to divide it
+by the monitoring time to get
+a vector of lambda hats
+over 1,000 simulations.
+I'm then going to create my
+95% confidence interval by
+constructing the lower
+limit where I subtract off
+the standard normal quantile times
+the standard error, and then a bunch of
+upper limits where I add the standard
+normal quantile times the standard error.
+And then I'm going to take
+the percentage of times that my
+interval contains the true lambda used for
+simulation.
+And I'm going to do that over
+a series of lambda values and
+then in the next slide,
+I'm going to show you the plot of
+the lambda values by the monte
+carlo estimated coverage.
+So here's the plot of our
+lambda values by the coverage.
+So every point in this plot is
+an instance where we simulated and
+repeatedly generated Poisson confidence
+intervals and took the percentage of
+time that those intervals contained the
+true lambda value used for the simulation.
+We can see as the lambda values get
+larger, the coverage gets closer to 95%.
+There is of course some monte carlo air
+because we didn't do an infinite number of
+simulations, only 1,000.
+We also see that as lambda as the true
+value of lambda gets smaller,
+the coverage gets very poor and I don't.
+You probably can't see this
+number terribly well here.
+So, I'll zoom in.
+That coverage is 50% right there.
+So your purported 95% interval is
+only giving you 50% actual coverage.
+So our brief simulation here is
+suggesting that for very small values of
+lambda which we have a good sense of if
+we could have relatively few events for
+a large amount of monitoring time.
+For relatively small values
+of lambda we shouldn't be
+using this asymptotic interval.
+Since it's not immediately clear how
+the central limit theorem works in
+the Poisson case I just wanted to
+put up one simulation to show that
+what's going to infinity to
+make the Poisson case have very
+good approximations using
+the central limit theorem.
+And basically as the monitoring
+time goes to infinity,
+the coverage will converge to 95%.
+So in this simulation, I changed t from
+100 to 1,000 so that we're monitoring
+not for a total of 94.32 days, but
+a total monitoring time of the 1,000 days.
+And here we see that the coverage, if we
+look at the reference line here at 95%,
+the coverage is much, much,
+much better for most values of lambda.
+There is some poor coverage down here
+near, near the smaller values of lambda,
+but we know that this interval has
+problems with small values of lambda.
+But remember in this case, we do have
+the exact Poisson interval as an option.
+So congratulations on making it
+through this marathon lecture.
+Because there was so much content,
+I'd like to summarize very briefly.
+First of all we cover
+the law of large numbers.
+And that simply states that averages
+of IID random variables converges to
+the things that they're estimating.
+I would also add that it also shows
+that Poisson rates converge to the rates
+that they're estimating, though it's maybe
+a little less clear how that works, but
+as the monitoring time goes to infinity,
+for example.
+The central limit theorem is also
+a theorem involving averages and
+it states that averages
+are approximately normal.
+With distributions centered at the
+population mean, which we knew regardless
+of the central limit theorem, and with
+standard deviations equal to the standard
+error of the mean, which we already
+knew without the central limit theorem.
+However the central limit
+theorem also tells us
+that they're approximately normal.
+However, the central limit theorem doesn't
+give any guarantee that n is large enough
+for this approximation to be accurate and
+we've seen some instances with confidence
+intervals where it's very accurate and
+instances where it's less accurate.
+Speaking of confidence intervals
+taking the mean and adding and
+subtracting the relevant normal
+quantile times the standard error
+yields a confidence interval for the mean.
+And this process of estimate plus or
+minus some sort of quantile times
+the standard error is our default way for
+creating confidence intervals.
+Whether it's in this context or
+in our regression class.
+Or even when we're talking about
+general isolinear models and
+more complex subjects.
+We tend to use these so
+called walled intervals.
+The specific case where we want
+a 95% confidence interval, you can
+take 2 as the quantile or if you want to
+be a little bit more accurate, use 1.96.
+Now confidence intervals get wider
+as the coverage increases if
+you're staying within a single technique.
+Now why would this be the case?
+So imagine if someone were to
+put a gun to your head, and say,
+unless this conference interval contains
+the true parameters it's estimating I'm
+going to pull the trigger, which is
+a ridiculous circumstance, but humor me.
+What would you do?
+Well, you certainly don't want them to,
+to pull the trigger.
+Right?
+So you, what you would do
+is you'd make the conference intervals
+as wide as you possibly could.
+Because you want to be very sure that
+the interval contains the parameter.
+So that's the same thing
+that the mathematics does.
+The more sure you want the, the more sure
+that you want to be that the interval will
+contain the parameter, the wider
+the procedure makes the interval.
+If you don't care at all, if you want
+a 2% confidence interval and only,
+then you're going to have an interval
+that's very close to the mean itself.
+Now the Poisson and binomial cases
+are discreet cases, and we saw that
+the central limit theorem can sometimes
+not approximate their distributions well.
+And in those cases there
+are exact procedures.
+But we also saw a simple fix for
+the binomial case if you're
+creating confidence intervals.
+Where if you add two successes and
+you add two failures,
+you get a much better confidence
+interval with out much extra thinking or
+having to resort to something
+that requires a computer.
+So you can still do that calculation
+by hand if you happen to be or, or
+in your head if you,
+if you happen to be not around a computer.
+

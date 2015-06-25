@@ -1,0 +1,193 @@
+So we never actually calculate
+power in the way that I've
+described in the previous slides.
+That's for understanding the concepts,
+and we assumed we knew sigma and
+the data for either Gaussian or
+that, that sample mean
+could be believed to be Gaussian
+because of the central limit theorem.
+I, I think for me personally
+the most common function I use for
+calculating power is this
+function power.t.test in r.
+So let's just talk a little
+bit about t test power
+before we talk about how
+you use power.t.test.
+The argument is very similar to what
+we did in our normal distribution case.
+We're going to reject if our
+test statistic, in this case
+x bar minus mu0 over the estimated
+standard error is now bigger than a t
+quantile rather than a z quantile,
+because we're talking about a t test.
+Only because we're talking about power,
+this is going to be calculated not under
+the hypothesis that mu equal to mu0, but
+under the hypothesis that mu equal to
+mu a, the value under the alternative.
+It turns out that this statistic, x bar
+minus mu nought, over the standard error,
+does not follow a t distribution,
+if the true mean is not mu0.
+If it's mu a, and mu a is different from
+mu0, it doesn't follow a t distribution,
+it follows something called
+the non-central t distribution,
+which we're not going to cover.
+So, calculating this power,
+calculating power requires the ability to
+evaluate the non-central t distribution,
+and that's what power.t.test does for
+you on your behalf.
+What's nice about power.t.test is just
+like before, we have some parameter
+that we know, mu naught and alpha, and
+some parameters that we don't know, mu a,
+sigma and n, for example.
+And if you omit o, omit one of them but
+specify the remainder power.t.test will
+solve for the one that you've omitted.
+So lets go through some examples of using
+power.t.test to either calculate power,
+or calculate sample size, or calculate
+the minimum detectable difference.
+Okay, lets go to a couple examples and
+I'm going to point to this
+middle one here first I'm doing
+power.t.test so
+its calculating t test power,
+we're testing H0 mu
+equals to mu0 verses Ha.
+And then the question is whether it's
+doing a one sided or two sided test.
+Well in this case,
+you can see here I have always specified
+alternate equals one sided, so that's mu,
+greater than mu0 is what it's testing,
+or equivalently, mu less than
+mu naught if you appropriately specify
+the difference in the means is negative.
+So delta here, this parameter,
+is the difference in the, the means.
+So if I specify n,
+I specify how different mu a is from mu0
+and I give it a standard deviation of 4.
+I'm telling it its a one sample t test.
+And I want one side of power and
+then I'm grabbing the power part of it.
+Then it gives me back my power, 60%.
+What I show here, you notice in all
+the other examples I've given here,
+it also gives 60% as the number.
+And what I'm showing is
+that the power.t.test,
+just like the normal power, only defen,
+depends on the effect size.
+How different mu0 and
+Mu a are divided by the standard devi,
+this standard deviation.
+So here, I specify my delta as 0.5,
+and give it
+a standard deviation of 1, and notice, so
+if I'm defining this numerator as,
+as delta, notice this is the same
+effect size as in this case right here,
+okay?
+And since everything's getting a little
+clouded let me re-grab my marker.
+So, delta divided by sd is
+equivalent between that power.ttest,
+p, power.t.test call and
+this power.t.test call,
+and that's why they give the same number.
+The same thing is true here, okay?
+Where it's 100 and 200, and
+if you divide the two you get 0.5.
+So it's also true there.
+Let's go through a couple more
+examples of using power.t.test.
+Now, in these, all of these cases,
+I calculated power
+while inputting n delta and
+the standard deviation.
+Now, let's try to
+calculate sample size where
+I give power.t.test
+the power that I would like.
+Okay.
+So, now here, I'm going to,
+again, show you in all three cases that it
+only defen, depends on the effect size.
+So here, I'm specifying delta 0.5 and
+my standard deviation of 1.
+So an effect size of 0.5 divided by 1 or
+0.5, and
+I'm telling power.t.test, I'd like to
+know what is the relevant sample size,
+if I wanted a power of 80%,
+then over here, you know,
+again I'm doing one-sample and
+one-sided, and grabbing n, okay?
+And it gives me a sample size of 26, and
+then in these kinds of calculations,
+you always want to err on
+the side of conservatism.
+So you bump it up to 27 whenever you
+get a fractional value, you always get
+a fractional value, you always want
+to bump it up to the nearest integer.
+So you need a sample of size 27,
+to have a power of 80% to defe,
+detect an effect size as large as 0.5.
+And what I'm showing here, is that
+the calculation is the same when I,
+as I specify an equivalent effect
+size of 0.5, whether its delta
+of two over four or delta 100 over 200
+its always giving me the same number.
+Now what I'll leave is an exercise for
+you guys, is to for
+example omit delta and put in an n and
+have power.t.test show you what's
+the minimum detectable delta,
+in order to detect, in order to have
+80% power for a specific sample size.
+And I think given the code that I've given
+you here this shouldn't be too hard of a,
+hard of a extension.
+I would say that I, I almost always use
+power.t.test as my first
+attack on a power calculation.
+One of the main reasons behind
+this is that, power has a lot,
+as I think I've maybe explained
+throughout the lecture,
+power has kind of a lot of knobs and
+dials that you can turn.
+And it's very easy to get tripped up on
+thinking that you have better power than
+you have or thinking that you
+need a smaller sample size.
+And so, when in doubt, try to make your
+power calculations as simple as possible.
+So try to revert the question that
+you're asking down to a t test or
+a binomial test, or something like
+that in order to calculate power,
+in order to calculate power
+as simply as possible.
+And that will give you maybe a slightly
+conservative, either power or sample size
+estimate, but on the other hand you'll
+be able to understand it quite well.
+From then you might want to move on to mo,
+much more complex power calculations, but
+as a first pass you always
+want to do the t test power or
+the normal calculation power or the basic
+power calculation in a binomial problem,
+as, as the very first thing that you do.
+

@@ -1,0 +1,126 @@
+Hi, my name is Brian Caffo.
+And this is the lecture on Power.
+Power is the probability of
+rejecting the null hypothesis,
+when in fact the null hypothesis is false.
+So, like its name would suggest,
+power is a good thing you want more power.
+And interestingly,
+power comes more into play, when you
+fail to reject an hypothesis than when
+you reject, and let me try to explain.
+So, imagine if you were to conduct
+a study, that has low power.
+For example, you want to compare
+treatment A versus treatment B.
+And you've only randomized three
+people who received Treatment A, and
+only three people who
+received Treatment B.
+Then when you make the comparison to see
+if Treatment A results in a better outcome
+than Treatment B, you would not be
+surprised to get a null result,
+because there were only
+three people in each group.
+You had very little power, to detect a
+meaningful difference between the groups.
+So, your null result was kind of expected.
+Or kind of what you would think might
+happen just due to chance alone.
+On the other hand,
+if you had 300 people in treatment A and
+300 people in treatment A.
+And you failed to reject, then that would
+be meaningful, because you would expect to
+see a difference,
+since you collected so much data.
+And that' s why, power actually tends
+to come more into play for null results,
+than it does for non null results.
+And the way the power
+gets used most often,
+as at the time of designing the study.
+You want to design the study, so that you
+have a reasonable chance of detecting
+the alternative hypothesis,
+if the alternative hypothesis is true.
+So, let's also cover
+a couple more details.
+So a type II error is a bad, a bad thing,
+as its name will suggest, an error.
+Is failing to reject a null hypothesis,
+when in fact a null hypothesis is false.
+So, the probability of a type II
+error is usually called beta, and
+Power is just 1 minus beta.
+So, the two most meaningful quantities for
+hypothesis testing,
+in terms of the two error rates for
+hypothesis testing are alpha,
+the type I error rate, and
+beta the type II error rate.
+But, we tend not to talk so
+much beta instead,
+we tend to talk about 1 minus beta,
+this concept of power.
+So let's go through
+a conceptual example, and then we'll go
+through some specific numerical examples.
+So, remember we were interested in talking
+about the hypothesis test for the mean
+respiratory disturbance index, RDI, in
+a particular population of obese subjects.
+So, we wanted to test whether mu was 30,
+versus the alternative that
+mu was greater than 30.
+We did a t statistic, which is,
+in this case, our sample mean.
+Minus the hypothesised value 30 divided
+by the standard error of the mean.
+That statistic, we're assuming, follows a
+t distribution under the null hypothesis.
+So, if we calculate the probability that,
+that statistic
+is bigger than the upper one minus
+alpha quantile of the t distribution.
+That probability will be alpha,
+if we calculate under the null
+hypothesis when mu is 30.
+So in this case then under, I would
+write that mu a in this case equals 30.
+Now power,
+is simply the same calculation, but
+instead of plugging in mu a equal to 30.
+For the probability that we're
+calculating, we plug in mu a for
+some value greater than 30.
+That winds up being our power.
+Now imagine if I were to plug in a mu a of
+say 60, then this would be a large number.
+And that makes sense, right,
+because if we want to detect whether or
+not the mean for this population is 30 or
+not, and it's really 60.
+Then we should have a lot of power to
+detect that, because when we collect
+our data there'll be values around 60
+instead of values around 30, okay?
+Now, imagine instead if our true
+alternative mean was 30.00001.
+Then we wouldn't have a lot
+of power to detect that,
+because it's quite close
+to the null value.
+We're going to have lower power.
+So, power, this power,
+is a function that depends on
+the mean under the null hypothesis.
+If we plug in values close to 30,
+it's going to look a lot
+like our type I error rate.
+And if we plug in values way away from 30,
+it should get bigger and
+bigger, to the point where it's nearly
+100% if it's far enough away from 30.
+
